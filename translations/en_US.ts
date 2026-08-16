@@ -516,7 +516,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hide Qv2ray</source>
+        <source>Hide Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -779,7 +779,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <source>Qv2ray</source>
+        <source>Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -965,7 +965,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Switch to Qv2ray log</source>
+        <source>Switch to Plumbum log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -985,11 +985,11 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quit Qv2ray</source>
+        <source>Quit Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure to exit Qv2ray?</source>
+        <source>Are you sure to exit Plumbum?</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
@@ -1346,7 +1346,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>These settings are used by Qv2ray itself.
+        <source>These settings are used by Plumbum itself.
 For example, for updating subscriptions.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1367,7 +1367,7 @@ For example, for updating subscriptions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray Proxy</source>
+        <source>Plumbum Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1440,7 +1440,7 @@ Custom DNS Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</source>
+        <source>Plumbum will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1600,7 +1600,7 @@ Custom DNS Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray</source>
+        <source>Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1741,9 +1741,9 @@ But could damage your server if improperly used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You may be about to set V2Ray core incorrectly to Qv2ray itself, which is absolutely not correct.<byte value="xd"/>
-This won&apos;t trigger a fork bomb, however, since Qv2ray works in singleton mode.<byte value="xd"/>
-If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are totally free to ignore this warning.</source>
+        <source>You may be about to set V2Ray core incorrectly to Plumbum itself, which is absolutely not correct.<byte value="xd"/>
+This won&apos;t trigger a fork bomb, however, since Plumbum works in singleton mode.<byte value="xd"/>
+If your V2Ray core filename happened to be &apos;plumbum&apos;-something, you are totally free to ignore this warning.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1940,7 +1940,7 @@ If you insist to proceed, we&apos;re not providing with any support.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray was not built with NTP support.</source>
+        <source>Plumbum was not built with NTP support.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1979,7 +1979,7 @@ If you insist to proceed, we&apos;re not providing with any support.</source>
     </message>
     <message>
         <source>Run TCPing or ICMPing periodically after connecting to a server.
-Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
+Plumbum will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2039,11 +2039,11 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Exit Qv2ray</source>
+        <source>Exit Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray - A cross-platform Qt frontend for V2Ray.</source>
+        <source>Plumbum - A cross-platform Qt frontend for V2Ray.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2267,7 +2267,7 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cannot Start Qv2ray</source>
+        <source>Cannot Start Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2275,7 +2275,7 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray has searched these paths below:</source>
+        <source>Plumbum has searched these paths below:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2283,11 +2283,11 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray will now exit.</source>
+        <source>Plumbum will now exit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to initialise Qv2ray</source>
+        <source>Failed to initialise Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2295,11 +2295,11 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray has found a config file, but it failed to be loaded due to some errors.</source>
+        <source>Plumbum has found a config file, but it failed to be loaded due to some errors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A workaround is to remove the this file and restart Qv2ray:</source>
+        <source>A workaround is to remove the this file and restart Plumbum:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2307,11 +2307,11 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray Cannot Continue</source>
+        <source>Plumbum Cannot Continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are running a lower version of Qv2ray compared to the current config file.</source>
+        <source>You are running a lower version of Plumbum compared to the current config file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2351,11 +2351,11 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again.</source>
+        <source>Please upgrade firstly up to Plumbum v2.0/v2.1 and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray has encountered an uncaught exception: </source>
+        <source>Plumbum has encountered an uncaught exception: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2384,9 +2384,9 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
 </context>
 <context>
-    <name>Qv2ray::Qv2rayWidgetApplication</name>
+    <name>Plumbum::PlumbumWidgetApplication</name>
     <message>
-        <source>A new version of Qv2ray is starting:</source>
+        <source>A new version of Plumbum is starting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2411,14 +2411,14 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
 </context>
 <context>
-    <name>Qv2ray::components::QvUpdateChecker</name>
+    <name>Plumbum::components::QvUpdateChecker</name>
     <message>
-        <source>Qv2ray Update</source>
+        <source>Plumbum Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Qv2ray::components::plugins::QvPluginHost</name>
+    <name>Plumbum::components::plugins::QvPluginHost</name>
     <message>
         <source>Failed to load plugin</source>
         <translation type="unfinished"></translation>
@@ -2436,7 +2436,7 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please contact the plugin provider or report the issue to Qv2ray Workgroup.</source>
+        <source>Please contact the plugin provider or report the issue to Plumbum Workgroup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2444,12 +2444,12 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The plugin will become fully functional after restarting Qv2ray.</source>
+        <source>The plugin will become fully functional after restarting Plumbum.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Qv2ray::core::handler::KernelInstanceHandler</name>
+    <name>Plumbum::core::handler::KernelInstanceHandler</name>
     <message>
         <source>There are other processes occupying the ports necessary to start the connection:</source>
         <translation type="unfinished"></translation>
@@ -2468,7 +2468,7 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
 </context>
 <context>
-    <name>Qv2ray::core::handler::QvConfigHandler</name>
+    <name>Plumbum::core::handler::QvConfigHandler</name>
     <message>
         <source>Group: %1</source>
         <translation type="unfinished"></translation>
@@ -2528,20 +2528,20 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
 </context>
 <context>
-    <name>Qv2ray::core::kernel::APIWorker</name>
+    <name>Plumbum::core::kernel::APIWorker</name>
     <message>
         <source>Failed to get statistics data, please check if V2Ray is running properly</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Qv2ray::core::kernel::V2RayKernelInstance</name>
+    <name>Plumbum::core::kernel::V2RayKernelInstance</name>
     <message>
         <source>Core file is lacking executable permission for the current user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qv2ray tried to set, but failed because permission denied.</source>
+        <source>Plumbum tried to set, but failed because permission denied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2600,7 +2600,7 @@ Maybe you have downloaded the wrong core?</source>
     </message>
 </context>
 <context>
-    <name>Qv2ray::ui::widgets::AutoCompleteTextEdit</name>
+    <name>Plumbum::ui::widgets::AutoCompleteTextEdit</name>
     <message>
         <source>You can not input space characters here.</source>
         <translation type="unfinished"></translation>
@@ -3759,7 +3759,7 @@ Maybe you have downloaded the wrong core?</source>
 <context>
     <name>MainWindowForm.ui</name>
     <message>
-        <source>Qv2ray</source>
+        <source>Plumbum</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3826,7 +3826,7 @@ Maybe you have downloaded the wrong core?</source>
 <context>
     <name>MainWindowWidget</name>
     <message>
-        <source>Qv2ray Utilities</source>
+        <source>Plumbum Utilities</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

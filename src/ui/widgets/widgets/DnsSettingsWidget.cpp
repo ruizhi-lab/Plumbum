@@ -5,10 +5,10 @@
 #include "ui/widgets/widgets/QvAutoCompleteTextEdit.hpp"
 #include "utils/QvHelpers.hpp"
 
-using Qv2ray::common::validation::IsIPv4Address;
-using Qv2ray::common::validation::IsIPv6Address;
-using Qv2ray::common::validation::IsValidDNSServer;
-using Qv2ray::common::validation::IsValidIPAddress;
+using Plumbum::common::validation::IsIPv4Address;
+using Plumbum::common::validation::IsIPv6Address;
+using Plumbum::common::validation::IsValidDNSServer;
+using Plumbum::common::validation::IsValidIPAddress;
 
 #define CHECK_DISABLE_MOVE_BTN                                                                                                                       \
     if (serversListbox->count() <= 1)                                                                                                                \
@@ -28,12 +28,12 @@ using Qv2ray::common::validation::IsValidIPAddress;
 
 void DnsSettingsWidget::updateColorScheme()
 {
-    addServerBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
-    removeServerBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("minus")));
-    moveServerUpBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("arrow-up")));
-    moveServerDownBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("arrow-down")));
-    addStaticHostBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
-    removeStaticHostBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("minus")));
+    addServerBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
+    removeServerBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("minus")));
+    moveServerUpBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("arrow-up")));
+    moveServerDownBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("arrow-down")));
+    addStaticHostBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
+    removeStaticHostBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("minus")));
 }
 
 DnsSettingsWidget::DnsSettingsWidget(QWidget *parent) : QWidget(parent)
@@ -139,7 +139,7 @@ void DnsSettingsWidget::ShowCurrentDnsServerDetails()
     ipListTxt->setPlainText(dns.servers[currentServerIndex].expectIPs.join(NEWLINE));
     //
     serverPortSB->setValue(dns.servers[currentServerIndex].port);
-    detailsSettingsGB->setChecked(dns.servers[currentServerIndex].QV2RAY_DNS_IS_COMPLEX_DNS);
+    detailsSettingsGB->setChecked(dns.servers[currentServerIndex].PLUMBUM_DNS_IS_COMPLEX_DNS);
     //
     if (serverAddressTxt->text().isEmpty() || IsValidDNSServer(serverAddressTxt->text()))
     {
@@ -288,8 +288,8 @@ void DnsSettingsWidget::on_staticResolvedDomainsTable_cellChanged(int, int)
 void DnsSettingsWidget::on_detailsSettingsGB_toggled(bool arg1)
 {
     if (currentServerIndex >= 0)
-        dns.servers[currentServerIndex].QV2RAY_DNS_IS_COMPLEX_DNS = arg1;
-    // detailsSettingsGB->setChecked(dns.servers[currentServerIndex].QV2RAY_DNS_IS_COMPLEX_DNS);
+        dns.servers[currentServerIndex].PLUMBUM_DNS_IS_COMPLEX_DNS = arg1;
+    // detailsSettingsGB->setChecked(dns.servers[currentServerIndex].PLUMBUM_DNS_IS_COMPLEX_DNS);
 }
 
 void DnsSettingsWidget::on_fakeDNSIPPool_currentTextChanged(const QString &arg1)

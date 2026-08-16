@@ -1,5 +1,5 @@
 #include "core/connection/Generation.hpp"
-namespace Qv2ray::core::connection::generation::outbounds
+namespace Plumbum::core::connection::generation::outbounds
 {
 
     OUTBOUNDSETTING GenerateFreedomOUT(const QString &domainStrategy, const QString &redirect)
@@ -58,4 +58,4 @@ namespace Qv2ray::core::connection::generation::outbounds
         JADD(sendThrough, protocol, settings, tag, streamSettings, mux)
         return root;
     }
-} // namespace Qv2ray::core::connection::generation::outbounds
+} // namespace Plumbum::core::connection::generation::outbounds

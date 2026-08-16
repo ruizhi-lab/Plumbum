@@ -8,11 +8,11 @@
 
 #define QV_MODULE_NAME "RouteHandler"
 
-namespace Qv2ray::core::handler
+namespace Plumbum::core::handler
 {
     RouteHandler::RouteHandler(QObject *parent) : QObject(parent)
     {
-        const auto routesJson = JsonFromString(StringFromFile(QV2RAY_CONFIG_DIR + "routes.json"));
+        const auto routesJson = JsonFromString(StringFromFile(PLUMBUM_CONFIG_DIR + "routes.json"));
         for (const auto &routeId : routesJson.keys())
         {
             configs.insert(GroupRoutingId{ routeId }, GroupRoutingConfig::fromJson(routesJson.value(routeId).toObject()));
@@ -31,7 +31,7 @@ namespace Qv2ray::core::handler
         {
             routingObject[key.toString()] = configs[key].toJson();
         }
-        StringToFile(JsonToString(routingObject), QV2RAY_CONFIG_DIR + "routes.json");
+        StringToFile(JsonToString(routingObject), PLUMBUM_CONFIG_DIR + "routes.json");
     }
 
     bool RouteHandler::SetDNSSettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_DNS &dns, const QvConfig_FakeDNS &fakeDNS)
@@ -228,7 +228,7 @@ namespace Qv2ray::core::handler
             // For some config files that has routing entries already.
             // We DO NOT add extra routings.
             //
-            // HOWEVER, we need to verify the QV2RAY_RULE_ENABLED entry.
+            // HOWEVER, we need to verify the PLUMBUM_RULE_ENABLED entry.
             // And what's more, process (by removing unused items) from a
             // rule object.
             ROUTING routing(root["routing"].toObject());
@@ -240,18 +240,18 @@ namespace Qv2ray::core::handler
                 auto rule = _rule.toObject();
 
                 // For backward compatibility
-                if (rule.contains("QV2RAY_RULE_USE_BALANCER"))
+                if (rule.contains("PLUMBUM_RULE_USE_BALANCER"))
                 {
                     // We use balancer, or the normal outbound
-                    rule.remove(rule["QV2RAY_RULE_USE_BALANCER"].toBool(false) ? "outboundTag" : "balancerTag");
+                    rule.remove(rule["PLUMBUM_RULE_USE_BALANCER"].toBool(false) ? "outboundTag" : "balancerTag");
                 }
                 else
                 {
-                    LOG("We found a rule without QV2RAY_RULE_USE_BALANCER, so didn't process it.");
+                    LOG("We found a rule without PLUMBUM_RULE_USE_BALANCER, so didn't process it.");
                 }
 
                 // If this entry has been disabled.
-                if (rule.contains("QV2RAY_RULE_ENABLED") && rule["QV2RAY_RULE_ENABLED"].toBool() == false)
+                if (rule.contains("PLUMBUM_RULE_ENABLED") && rule["PLUMBUM_RULE_ENABLED"].toBool() == false)
                 {
                     LOG("Discarded a rule as it's been set DISABLED");
                 }
@@ -299,7 +299,7 @@ namespace Qv2ray::core::handler
             // Forward proxy
             if (fpConf.enableForwardProxy)
             {
-                if (QJsonIO::GetValue(root, "outbounds", 0, QV2RAY_USE_FPROXY_KEY).toBool(false))
+                if (QJsonIO::GetValue(root, "outbounds", 0, PLUMBUM_USE_FPROXY_KEY).toBool(false))
                 {
                     if (fpConf.type.isEmpty())
                     {
@@ -442,4 +442,4 @@ namespace Qv2ray::core::handler
 
         return root;
     }
-} // namespace Qv2ray::core::handler
+} // namespace Plumbum::core::handler

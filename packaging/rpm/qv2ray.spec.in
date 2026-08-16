@@ -1,17 +1,17 @@
 %bcond_without  check
 %bcond_without  use_system_libuv
 
-Name:           qv2ray
+Name:           plumbum
 Version:        @VERSION@
 Release:        @RELEASE@
 Summary:        A cross-platform V2Ray graphical front-end
 License:        GPLv3
-URL:            https://qv2ray.net/
+URL:            https://plumbum.net/
 
 # Source0 is created by:
 # pip install git-archive-all
-# git clone https://github.com/Qv2ray/Qv2ray.git
-# cd Qv2ray
+# git clone https://github.com/Plumbum/Plumbum.git
+# cd Plumbum
 # git archive-all --force-submodules ../@SOURCE0@
 Source0:        @SOURCE0@
 
@@ -40,15 +40,15 @@ Recommends:     %{name}-plugin-builtin-protocol-support%{?_isa} = %{version}-%{r
 Recommends:     %{name}-plugin-builtin-subscription-support%{?_isa} = %{version}-%{release}
 
 %package plugin-builtin-protocol-support
-Summary:        Qv2ray Builtin Protocol Support
+Summary:        Plumbum Builtin Protocol Support
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %package plugin-builtin-subscription-support
-Summary:        Qv2ray Builtin Subscription Support
+Summary:        Plumbum Builtin Subscription Support
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description
-Qv2ray is a cross-platform v2ray graphical front-end written in Qt.
+Plumbum is a cross-platform v2ray graphical front-end written in Qt.
 Features:
     * Cross-platform, multi-distribution support
     * Versatile Host Importing
@@ -63,7 +63,7 @@ For more details please see %{url}
 VMess, VLESS, SOCKS, HTTP, Shadowsocks, DNS, Dokodemo-door editor support.
 
 %description plugin-builtin-subscription-support
-Basic subscription support for Qv2ray.
+Basic subscription support for Plumbum.
 
 
 %prep
@@ -71,13 +71,13 @@ Basic subscription support for Qv2ray.
 
 
 %build
-%cmake                    -DQV2RAY_DISABLE_AUTO_UPDATE=ON \
+%cmake                    -DPLUMBUM_DISABLE_AUTO_UPDATE=ON \
 %{?with_check:            -DBUILD_TESTING=ON} \
 %{?with_use_system_libuv: -DUSE_SYSTEM_LIBUV=ON} \
-                          -DQV2RAY_BUILD_INFO="Qv2ray built from rpmbuild" \
-                          -DQV2RAY_BUILD_EXTRA_INFO="$(rpmbuild --version), kernel-$(uname -r), qt-$(pkg-config --modversion Qt5Core)" \
-                          -DQV2RAY_DEFAULT_VCORE_PATH="%{_bindir}/v2ray" \
-                          -DQV2RAY_DEFAULT_VASSETS_PATH="%{_datadir}/v2ray" \
+                          -DPLUMBUM_BUILD_INFO="Plumbum built from rpmbuild" \
+                          -DPLUMBUM_BUILD_EXTRA_INFO="$(rpmbuild --version), kernel-$(uname -r), qt-$(pkg-config --modversion Qt5Core)" \
+                          -DPLUMBUM_DEFAULT_VCORE_PATH="%{_bindir}/v2ray" \
+                          -DPLUMBUM_DEFAULT_VASSETS_PATH="%{_datadir}/v2ray" \
                           -DCMAKE_BUILD_TYPE="Release"
 %cmake_build
 
@@ -88,7 +88,7 @@ Basic subscription support for Qv2ray.
 # Find lang files
 %find_lang %{name} --with-qt --all-name
 # https://bugzilla.redhat.com/show_bug.cgi?id=1894854
-echo "%%lang(yue_HK) %{_datadir}/qv2ray/lang/yue.qm" >> %{name}.lang
+echo "%%lang(yue_HK) %{_datadir}/plumbum/lang/yue.qm" >> %{name}.lang
 
 # Find icon files
 grep "%{_datadir}/icons/hicolor/.*" %{__cmake_builddir}/install_manifest.txt >> %{name}.icons
@@ -96,8 +96,8 @@ grep "%{_datadir}/icons/hicolor/.*" %{__cmake_builddir}/install_manifest.txt >> 
 
 %if %{with check}
 %check
-desktop-file-validate                 %{buildroot}%{_datadir}/applications/qv2ray.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/qv2ray.metainfo.xml
+desktop-file-validate                 %{buildroot}%{_datadir}/applications/plumbum.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/plumbum.metainfo.xml
 %ctest
 %endif
 
@@ -105,18 +105,18 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/qv2ray.metainf
 %files -f %{name}.lang -f %{name}.icons
 %license LICENSE
 %doc README.md
-%{_bindir}/qv2ray
-%{_metainfodir}/qv2ray.metainfo.xml
-%{_datadir}/applications/qv2ray.desktop
-%dir %{_datadir}/qv2ray/
-%dir %{_datadir}/qv2ray/lang/
-%dir %{_datadir}/qv2ray/plugins/
+%{_bindir}/plumbum
+%{_metainfodir}/plumbum.metainfo.xml
+%{_datadir}/applications/plumbum.desktop
+%dir %{_datadir}/plumbum/
+%dir %{_datadir}/plumbum/lang/
+%dir %{_datadir}/plumbum/plugins/
 
 %files plugin-builtin-protocol-support
-%{_datadir}/qv2ray/plugins/libQvPlugin-BuiltinProtocolSupport.so
+%{_datadir}/plumbum/plugins/libQvPlugin-BuiltinProtocolSupport.so
 
 %files plugin-builtin-subscription-support
-%{_datadir}/qv2ray/plugins/libQvPlugin-BuiltinSubscriptionSupport.so
+%{_datadir}/plumbum/plugins/libQvPlugin-BuiltinSubscriptionSupport.so
 
 
 %changelog

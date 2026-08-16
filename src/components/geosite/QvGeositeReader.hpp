@@ -1,10 +1,10 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
-namespace Qv2ray::components::geosite
+namespace Plumbum::components::geosite
 {
     QStringList ReadGeoSiteFromFile(const QString &filepath);
-} // namespace Qv2ray::components::geosite
+} // namespace Plumbum::components::geosite
 
-using namespace Qv2ray::components;
-using namespace Qv2ray::components::geosite;
+using namespace Plumbum::components;
+using namespace Plumbum::components::geosite;

@@ -1,4 +1,4 @@
-#include "Qv2rayQMLApplication.hpp"
+#include "PlumbumQMLApplication.hpp"
 
 #include "components/translations/QvTranslator.hpp"
 #include "core/settings/SettingsBackend.hpp"
@@ -9,26 +9,26 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 
-#ifdef QV2RAY_QMLLIVE_DEBUG
+#ifdef PLUMBUM_QMLLIVE_DEBUG
 #include <qmllive/livenodeengine.h>
 #include <qmllive/qmllive.h>
 #include <qmllive/remotereceiver.h>
 #endif
 
-Qv2rayQMLApplication::Qv2rayQMLApplication(int &argc, char *argv[]) : Qv2rayPlatformApplication(argc, argv)
+PlumbumQMLApplication::PlumbumQMLApplication(int &argc, char *argv[]) : PlumbumPlatformApplication(argc, argv)
 {
 }
 
-void Qv2rayQMLApplication::MessageBoxWarn(QWidget *parent, const QString &title, const QString &text)
+void PlumbumQMLApplication::MessageBoxWarn(QWidget *parent, const QString &title, const QString &text)
 {
     QMessageBox::warning(parent, title, text);
 }
-void Qv2rayQMLApplication::MessageBoxInfo(QWidget *parent, const QString &title, const QString &text)
+void PlumbumQMLApplication::MessageBoxInfo(QWidget *parent, const QString &title, const QString &text)
 {
     QMessageBox::information(parent, title, text);
 }
 
-MessageOpt Qv2rayQMLApplication::MessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &list)
+MessageOpt PlumbumQMLApplication::MessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &list)
 {
     QFlags<QMessageBox::StandardButton> btns;
     for (const auto &b : list)
@@ -38,13 +38,14 @@ MessageOpt Qv2rayQMLApplication::MessageBoxAsk(QWidget *parent, const QString &t
     return MessageBoxButtonMap.key(QMessageBox::question(parent, title, text, btns));
 }
 
-QStringList Qv2rayQMLApplication::checkPrerequisitesInternal()
+QStringList PlumbumQMLApplication::checkPrerequisitesInternal()
 {
     return {};
 }
 
-Qv2rayExitReason Qv2rayQMLApplication::runQv2rayInternal()
+PlumbumExitReason PlumbumQMLApplication::runPlumbumInternal()
 {
+    uiProperty.initialize();
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine;
     const QUrl url("qrc:/forms/MainWindow.qml");
@@ -53,11 +54,11 @@ Qv2rayExitReason Qv2rayQMLApplication::runQv2rayInternal()
             QCoreApplication::exit(-1);
     };
     connect(&engine, &QQmlApplicationEngine::objectCreated, this, connectLambda, Qt::QueuedConnection);
-    engine.rootContext()->setContextProperty("qv2ray", &uiProperty);
+    engine.rootContext()->setContextProperty("plumbum", &uiProperty);
     engine.addImportPath(QStringLiteral("qrc:/forms/"));
     engine.load(url);
 
-#ifdef QV2RAY_QMLLIVE_DEBUG
+#ifdef PLUMBUM_QMLLIVE_DEBUG
     LiveNodeEngine node;
 
     // Let QmlLive know your runtime
@@ -82,20 +83,20 @@ Qv2rayExitReason Qv2rayQMLApplication::runQv2rayInternal()
     QList<QQmlError> warnings;
     node.usePreloadedDocument(applicationDirPath() + "/forms/MainWindow.qml", window, warnings);
 #endif
-    return (Qv2rayExitReason) exec();
+    return (PlumbumExitReason) exec();
 }
 
-void Qv2rayQMLApplication::terminateUIInternal()
+void PlumbumQMLApplication::terminateUIInternal()
 {
 }
 
-void Qv2rayQMLApplication::OpenURL(const QString &url)
+void PlumbumQMLApplication::OpenURL(const QString &url)
 {
     QDesktopServices::openUrl(url);
 }
 
-#ifndef QV2RAY_NO_SINGLEAPPLICATON
-void Qv2rayQMLApplication::onMessageReceived(quint32, QByteArray)
+#ifndef PLUMBUM_NO_SINGLEAPPLICATON
+void PlumbumQMLApplication::onMessageReceived(quint32, QByteArray)
 {
 }
 #endif

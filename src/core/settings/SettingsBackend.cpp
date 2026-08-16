@@ -1,17 +1,17 @@
 #include "SettingsBackend.hpp"
 
-#include "base/Qv2rayLog.hpp"
+#include "base/PlumbumLog.hpp"
 #include "utils/QvHelpers.hpp"
 
 #define QV_MODULE_NAME "SettingsBackend"
-constexpr auto QV2RAY_CONFIG_PATH_ENV_NAME = "QV2RAY_CONFIG_PATH";
+constexpr auto PLUMBUM_CONFIG_PATH_ENV_NAME = "PLUMBUM_CONFIG_PATH";
 
-namespace Qv2ray::core::config
+namespace Plumbum::core::config
 {
     void SaveGlobalSettings()
     {
         const auto str = JsonToString(GlobalConfig.toJson());
-        StringToFile(str, QV2RAY_CONFIG_FILE);
+        StringToFile(str, PLUMBUM_CONFIG_FILE);
     }
 
     void SetConfigDirPath(const QString &path)
@@ -37,7 +37,7 @@ namespace Qv2ray::core::config
 
         {
             // A temp file used to test file permissions in that folder.
-            QFile testFile(path + ".qv2ray_test_file" + QSTRN(QTime::currentTime().msecsSinceStartOfDay()));
+            QFile testFile(path + ".plumbum_test_file" + QSTRN(QTime::currentTime().msecsSinceStartOfDay()));
 
             if (!testFile.open(QFile::OpenModeFlag::ReadWrite))
             {
@@ -46,7 +46,7 @@ namespace Qv2ray::core::config
                 return false;
             }
 
-            testFile.write("Qv2ray test file, feel free to remove.");
+            testFile.write("Plumbum test file, feel free to remove.");
             testFile.flush();
             testFile.close();
 
@@ -66,7 +66,7 @@ namespace Qv2ray::core::config
         }
 
         // Check if an existing config is found.
-        QFile configFile(path + "Qv2ray.conf");
+        QFile configFile(path + "Plumbum.conf");
 
         // No such config file.
         if (!configFile.exists())
@@ -96,16 +96,16 @@ namespace Qv2ray::core::config
     {
         LOG("Application exec path: " + qApp->applicationDirPath());
         // Non-standard paths needs special handing for "_debug"
-        const auto currentPathConfig = qApp->applicationDirPath() + "/config" QV2RAY_CONFIG_DIR_SUFFIX;
-        const auto homeQv2ray = QDir::homePath() + "/.qv2ray" QV2RAY_CONFIG_DIR_SUFFIX;
+        const auto currentPathConfig = qApp->applicationDirPath() + "/config" PLUMBUM_CONFIG_DIR_SUFFIX;
+        const auto homePlumbum = QDir::homePath() + "/.plumbum" PLUMBUM_CONFIG_DIR_SUFFIX;
         //
         // Standard paths already handles the "_debug" suffix for us.
-        const auto configQv2ray = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+        const auto configPlumbum = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
         //
         //
-        // Some built-in search paths for Qv2ray to find configs. (load the first one if possible).
-        const auto useManualConfigPath = qEnvironmentVariableIsSet(QV2RAY_CONFIG_PATH_ENV_NAME);
-        const auto manualConfigPath = qEnvironmentVariable(QV2RAY_CONFIG_PATH_ENV_NAME);
+        // Some built-in search paths for Plumbum to find configs. (load the first one if possible).
+        const auto useManualConfigPath = qEnvironmentVariableIsSet(PLUMBUM_CONFIG_PATH_ENV_NAME);
+        const auto manualConfigPath = qEnvironmentVariable(PLUMBUM_CONFIG_PATH_ENV_NAME);
         //
         QStringList configFilePaths;
         if (useManualConfigPath)
@@ -116,8 +116,8 @@ namespace Qv2ray::core::config
         else
         {
             configFilePaths << currentPathConfig;
-            configFilePaths << configQv2ray;
-            configFilePaths << homeQv2ray;
+            configFilePaths << configPlumbum;
+            configFilePaths << homePlumbum;
         }
 
         QString configPath = "";
@@ -149,7 +149,7 @@ namespace Qv2ray::core::config
         {
             // Use the config path found by the checks above
             SetConfigDirPath(configPath);
-            LOG("Using ", QV2RAY_CONFIG_DIR, " as the config path.");
+            LOG("Using ", PLUMBUM_CONFIG_DIR, " as the config path.");
         }
         else
         {
@@ -162,10 +162,10 @@ namespace Qv2ray::core::config
             }
             else
             {
-#if defined(Q_OS_WIN) && !defined(QV2RAY_NO_ASIDECONFIG)
+#if defined(Q_OS_WIN) && !defined(PLUMBUM_NO_ASIDECONFIG)
                 configPath = currentPathConfig;
 #else
-                configPath = configQv2ray;
+                configPath = configPlumbum;
 #endif
             }
 
@@ -176,13 +176,13 @@ namespace Qv2ray::core::config
                 // None of the path above can be used as a dir for storing config.
                 // Even the last folder failed to pass the check.
                 LOG("FATAL");
-                LOG(" ---> CANNOT find a proper place to store Qv2ray config files.");
-                QvMessageBoxWarn(nullptr, QObject::tr("Cannot Start Qv2ray"),
+                LOG(" ---> CANNOT find a proper place to store Plumbum config files.");
+                QvMessageBoxWarn(nullptr, QObject::tr("Cannot Start Plumbum"),
                                  QObject::tr("Cannot find a place to store config files.") + NEWLINE +                                          //
-                                     QObject::tr("Qv2ray has searched these paths below:") + NEWLINE + NEWLINE +                                //
+                                     QObject::tr("Plumbum has searched these paths below:") + NEWLINE + NEWLINE +                                //
                                      configFilePaths.join(NEWLINE) + NEWLINE +                                                                  //
                                      QObject::tr("It usually means you don't have the write permission to all of those locations.") + NEWLINE + //
-                                     QObject::tr("Qv2ray will now exit."));                                                                     //
+                                     QObject::tr("Plumbum will now exit."));                                                                     //
                 return false;
             }
 
@@ -190,30 +190,30 @@ namespace Qv2ray::core::config
             LOG("Set " + configPath + " as the config path.");
             SetConfigDirPath(configPath);
 
-            if (QFile::exists(QV2RAY_CONFIG_FILE))
+            if (QFile::exists(PLUMBUM_CONFIG_FILE))
             {
                 // As we already tried to load config from every possible dir.
                 //
                 // This condition branch (!hasExistingConfig check) holds the fact that current config dir,
                 // should NOT contain any valid file (at least in the same name)
                 //
-                // It usually means that QV2RAY_CONFIG_FILE here has a corrupted JSON format.
+                // It usually means that PLUMBUM_CONFIG_FILE here has a corrupted JSON format.
                 //
-                // Otherwise Qv2ray would have loaded this config already instead of notifying to create a new config in this folder.
+                // Otherwise Plumbum would have loaded this config already instead of notifying to create a new config in this folder.
                 //
-                LOG("This should not occur: Qv2ray config exists but failed to load.");
-                QvMessageBoxWarn(nullptr, QObject::tr("Failed to initialise Qv2ray"),
+                LOG("This should not occur: Plumbum config exists but failed to load.");
+                QvMessageBoxWarn(nullptr, QObject::tr("Failed to initialise Plumbum"),
                                  QObject::tr("Failed to determine the location of config file:") + NEWLINE +                                   //
-                                     QObject::tr("Qv2ray has found a config file, but it failed to be loaded due to some errors.") + NEWLINE + //
-                                     QObject::tr("A workaround is to remove the this file and restart Qv2ray:") + NEWLINE +                    //
-                                     QV2RAY_CONFIG_FILE + NEWLINE +                                                                            //
-                                     QObject::tr("Qv2ray will now exit.") + NEWLINE +                                                          //
+                                     QObject::tr("Plumbum has found a config file, but it failed to be loaded due to some errors.") + NEWLINE + //
+                                     QObject::tr("A workaround is to remove the this file and restart Plumbum:") + NEWLINE +                    //
+                                     PLUMBUM_CONFIG_FILE + NEWLINE +                                                                            //
+                                     QObject::tr("Plumbum will now exit.") + NEWLINE +                                                          //
                                      QObject::tr("Please report if you think it's a bug."));                                                   //
                 return false;
             }
 
-            GlobalConfig.kernelConfig.KernelPath(QV2RAY_DEFAULT_VCORE_PATH);
-            GlobalConfig.kernelConfig.AssetsPath(QV2RAY_DEFAULT_VASSETS_PATH);
+            GlobalConfig.kernelConfig.KernelPath(PLUMBUM_DEFAULT_VCORE_PATH);
+            GlobalConfig.kernelConfig.AssetsPath(PLUMBUM_DEFAULT_VASSETS_PATH);
             GlobalConfig.logLevel = 3;
             GlobalConfig.uiConfig.language = QLocale::system().name();
             GlobalConfig.defaultRouteConfig.dnsConfig.servers.append({ "1.1.1.1" });
@@ -225,35 +225,35 @@ namespace Qv2ray::core::config
             LOG("Created initial config file.");
         }
 
-        if (!QDir(QV2RAY_GENERATED_DIR).exists())
+        if (!QDir(PLUMBUM_GENERATED_DIR).exists())
         {
             // The dir used to generate final config file, for V2Ray interaction.
-            QDir().mkdir(QV2RAY_GENERATED_DIR);
-            LOG("Created config generation dir at: " + QV2RAY_GENERATED_DIR);
+            QDir().mkdir(PLUMBUM_GENERATED_DIR);
+            LOG("Created config generation dir at: " + PLUMBUM_GENERATED_DIR);
         }
         //
         // BEGIN LOAD CONFIGURATIONS
         //
         {
             // Load the config for upgrade, but do not parse it to the struct.
-            auto conf = JsonFromString(StringFromFile(QV2RAY_CONFIG_FILE));
+            auto conf = JsonFromString(StringFromFile(PLUMBUM_CONFIG_FILE));
             const auto configVersion = conf["config_version"].toInt();
 
-            if (configVersion > QV2RAY_CONFIG_VERSION)
+            if (configVersion > PLUMBUM_CONFIG_VERSION)
             {
                 // Config version is larger than the current version...
                 // This is rare but it may happen....
-                QvMessageBoxWarn(nullptr, QObject::tr("Qv2ray Cannot Continue"),                                                           //
-                                 QObject::tr("You are running a lower version of Qv2ray compared to the current config file.") + NEWLINE + //
+                QvMessageBoxWarn(nullptr, QObject::tr("Plumbum Cannot Continue"),                                                           //
+                                 QObject::tr("You are running a lower version of Plumbum compared to the current config file.") + NEWLINE + //
                                      QObject::tr("Please check if there's an issue explaining about it.") + NEWLINE +                      //
                                      QObject::tr("Or submit a new issue if you think this is an error.") + NEWLINE + NEWLINE +             //
-                                     QObject::tr("Qv2ray will now exit."));
+                                     QObject::tr("Plumbum will now exit."));
                 return false;
             }
-            else if (configVersion < QV2RAY_CONFIG_VERSION)
+            else if (configVersion < PLUMBUM_CONFIG_VERSION)
             {
                 // That is the config file needs to be upgraded.
-                conf = Qv2ray::UpgradeSettingsVersion(configVersion, QV2RAY_CONFIG_VERSION, conf);
+                conf = Plumbum::UpgradeSettingsVersion(configVersion, PLUMBUM_CONFIG_VERSION, conf);
             }
 
             // Let's save the config.
@@ -263,6 +263,6 @@ namespace Qv2ray::core::config
         }
     }
 
-} // namespace Qv2ray::core::config
+} // namespace Plumbum::core::config
 
-using namespace Qv2ray::core::config;
+using namespace Plumbum::core::config;

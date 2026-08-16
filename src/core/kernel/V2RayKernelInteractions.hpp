@@ -1,10 +1,10 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "core/kernel/QvKernelABIChecker.hpp"
 
 class QProcess;
 
-namespace Qv2ray::core::kernel
+namespace Plumbum::core::kernel
 {
     class APIWorker;
     class V2RayKernelInstance : public QObject
@@ -23,7 +23,7 @@ namespace Qv2ray::core::kernel
         //
         static std::optional<QString> ValidateConfig(const QString &path);
         static std::pair<bool, std::optional<QString>> ValidateKernel(const QString &vCorePath, const QString &vAssetsPath);
-#if QV2RAY_FEATURE(kernel_check_permission)
+#if PLUMBUM_FEATURE(kernel_check_permission)
         static std::pair<bool, std::optional<QString>> CheckAndSetCoreExecutableState(const QString &vCorePath);
 #endif
 
@@ -38,6 +38,6 @@ namespace Qv2ray::core::kernel
         bool apiEnabled;
         bool kernelStarted = false;
     };
-} // namespace Qv2ray::core::kernel
+} // namespace Plumbum::core::kernel
 
-using namespace Qv2ray::core::kernel;
+using namespace Plumbum::core::kernel;

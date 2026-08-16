@@ -3,8 +3,8 @@
 DnsOutboundEditor::DnsOutboundEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
-    setProperty("QV2RAY_INTERNAL_HAS_STREAMSETTINGS", false);
-    setProperty("QV2RAY_INTERNAL_HAS_FORWARD_PROXY", false);
+    setProperty("PLUMBUM_INTERNAL_HAS_STREAMSETTINGS", false);
+    setProperty("PLUMBUM_INTERNAL_HAS_FORWARD_PROXY", false);
 }
 
 void DnsOutboundEditor::changeEvent(QEvent *e)

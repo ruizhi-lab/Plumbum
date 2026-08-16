@@ -6,7 +6,7 @@
 
 #define QV_MODULE_NAME "KernelHandler"
 
-namespace Qv2ray::core::handler
+namespace Plumbum::core::handler
 {
 #define isConnected (vCoreInstance->IsKernelRunning() || !activeKernels.empty())
     KernelInstanceHandler::KernelInstanceHandler(QObject *parent) : QObject(parent)
@@ -326,4 +326,4 @@ namespace Qv2ray::core::handler
     {
         OnV2RayStatsDataRcvd_p({ { API_OUTBOUND_PROXY, { uploadSpeed, downloadSpeed } } });
     }
-} // namespace Qv2ray::core::handler
+} // namespace Plumbum::core::handler

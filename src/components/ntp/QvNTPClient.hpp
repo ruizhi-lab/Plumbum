@@ -16,9 +16,9 @@
  * License along with QNtp. If not, see <http://www.gnu.org/licenses/>. */
 
 #pragma once
-#include "base/Qv2rayFeatures.hpp"
+#include "base/PlumbumFeatures.hpp"
 
-#if QV2RAY_FEATURE(util_has_ntp)
+#if PLUMBUM_FEATURE(util_has_ntp)
 #include <QDateTime>
 #include <QHostAddress>
 #include <QObject>
@@ -26,7 +26,7 @@
 #include <QtEndian>
 #include <QtGlobal>
 
-namespace Qv2ray::components::ntp
+namespace Plumbum::components::ntp
 {
     const qint64 january_1_1900 = -2208988800000ll;
 
@@ -164,5 +164,5 @@ namespace Qv2ray::components::ntp
 
         QUdpSocket *mSocket;
     };
-} // namespace Qv2ray::components::ntp
+} // namespace Plumbum::components::ntp
 #endif

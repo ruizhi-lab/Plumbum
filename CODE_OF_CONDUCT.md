@@ -1,11 +1,11 @@
 # Contributor Covenant Code of Conduct
 
-Qv2ray can ONLY be used for learning related technologies such as
+Plumbum can ONLY be used for learning related technologies such as
 Qt/C++/Linux/CI/automation and use within the scope permitted by law.
-Any individual or group MAY NOT use Qv2ray for any violation of relevant laws
+Any individual or group MAY NOT use Plumbum for any violation of relevant laws
 and regulations.
 
-By contributing to Qv2ray, include but not limit to code, any assets, documentations, 
+By contributing to Plumbum, include but not limit to code, any assets, documentations, 
 translations, plugins, you are sure your content is NOT made for a specific use.
 
 ## Our Pledge
@@ -63,7 +63,7 @@ further defined and clarified by project maintainers.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at qv2ray@protonmaill.com. All
+reported by contacting the project team at plumbum@protonmaill.com. All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.

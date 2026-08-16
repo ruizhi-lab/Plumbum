@@ -1,8 +1,8 @@
 #pragma once
 
-#include "base/Qv2rayFeatures.hpp"
+#include "base/PlumbumFeatures.hpp"
 
-#if QV2RAY_FEATURE(kernel_check_abi)
+#if PLUMBUM_FEATURE(kernel_check_abi)
 
 #include <QDataStream>
 #include <QFile>
@@ -10,7 +10,7 @@
 #include <QtGlobal>
 #include <optional>
 
-namespace Qv2ray::core::kernel
+namespace Plumbum::core::kernel
 {
     namespace abi
     {
@@ -48,13 +48,13 @@ namespace Qv2ray::core::kernel
             QvKernelABIType::ABI_ELF_ARM;
 #else
             QvKernelABIType::ABI_TRUSTED;
-#define QV2RAY_TRUSTED_ABI
+#define PLUMBUM_TRUSTED_ABI
 #endif
 
         std::pair<std::optional<QvKernelABIType>, std::optional<QString>> deduceKernelABI(const QString &pathCoreExecutable);
         QvKernelABICompatibility checkCompatibility(QvKernelABIType hostType, QvKernelABIType targetType);
         QString abiToString(QvKernelABIType abi);
     } // namespace abi
-} // namespace Qv2ray::core::kernel
+} // namespace Plumbum::core::kernel
 
 #endif

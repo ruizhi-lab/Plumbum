@@ -54,7 +54,7 @@
 #include <QTextCharFormat>
 #include <QTextDocument>
 
-namespace Qv2ray::ui
+namespace Plumbum::ui
 {
     class SyntaxHighlighter : public QSyntaxHighlighter
     {
@@ -89,6 +89,6 @@ namespace Qv2ray::ui
         QTextCharFormat qvAppLogFormat;
         QTextCharFormat qvAppDebugLogFormat;
     };
-} // namespace Qv2ray::ui
+} // namespace Plumbum::ui
 
-using namespace Qv2ray::ui;
+using namespace Plumbum::ui;

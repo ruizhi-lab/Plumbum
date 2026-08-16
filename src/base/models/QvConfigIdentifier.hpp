@@ -7,7 +7,7 @@
 #include <QString>
 #include <QtCore>
 
-namespace Qv2ray::base
+namespace Plumbum::base
 {
     template<typename T>
     class IDType
@@ -91,15 +91,15 @@ namespace Qv2ray::base
     constexpr unsigned int LATENCY_TEST_VALUE_NODATA = LATENCY_TEST_VALUE_ERROR - 1;
     using namespace std::chrono;
 
-    struct __Qv2rayConfigObjectBase
+    struct __PlumbumConfigObjectBase
     {
         QString displayName;
         qint64 creationDate = system_clock::to_time_t(system_clock::now());
         qint64 lastUpdatedDate = system_clock::to_time_t(system_clock::now());
-        JSONSTRUCT_REGISTER(__Qv2rayConfigObjectBase, F(displayName, creationDate, lastUpdatedDate))
+        JSONSTRUCT_REGISTER(__PlumbumConfigObjectBase, F(displayName, creationDate, lastUpdatedDate))
     };
 
-    struct GroupRoutingConfig : __Qv2rayConfigObjectBase
+    struct GroupRoutingConfig : __PlumbumConfigObjectBase
     {
         bool overrideDNS = false;
         config::QvConfig_DNS dnsConfig;
@@ -147,15 +147,15 @@ namespace Qv2ray::base
                             F(IncludeRelation, ExcludeRelation, IncludeKeywords, ExcludeKeywords))
     };
 
-    struct GroupObject : __Qv2rayConfigObjectBase
+    struct GroupObject : __PlumbumConfigObjectBase
     {
         bool isSubscription = false;
         QList<ConnectionId> connections;
         GroupRoutingId routeConfigId;
         SubscriptionConfigObject subscriptionOption;
-        GroupObject() : __Qv2rayConfigObjectBase(){};
+        GroupObject() : __PlumbumConfigObjectBase(){};
         JSONSTRUCT_COMPARE(GroupObject, isSubscription, connections, routeConfigId, subscriptionOption)
-        JSONSTRUCT_REGISTER(GroupObject, F(connections, isSubscription, routeConfigId, subscriptionOption), B(__Qv2rayConfigObjectBase))
+        JSONSTRUCT_REGISTER(GroupObject, F(connections, isSubscription, routeConfigId, subscriptionOption), B(__PlumbumConfigObjectBase))
     };
 
     enum StatisticsType
@@ -223,7 +223,7 @@ namespace Qv2ray::base
         QList<ConnectionStatsEntryObject> entries;
     };
 
-    struct ConnectionObject : __Qv2rayConfigObjectBase
+    struct ConnectionObject : __PlumbumConfigObjectBase
     {
         qint64 lastConnected;
         qint64 latency = LATENCY_TEST_VALUE_NODATA;
@@ -232,7 +232,7 @@ namespace Qv2ray::base
         //
         int __qvConnectionRefCount = 0;
         JSONSTRUCT_COMPARE(ConnectionObject, lastConnected, latency, importSource, stats, displayName, creationDate, lastUpdatedDate)
-        JSONSTRUCT_REGISTER(ConnectionObject, F(lastConnected, latency, importSource, stats), B(__Qv2rayConfigObjectBase))
+        JSONSTRUCT_REGISTER(ConnectionObject, F(lastConnected, latency, importSource, stats), B(__PlumbumConfigObjectBase))
     };
 
     struct ProtocolSettingsInfoObject
@@ -254,13 +254,13 @@ namespace Qv2ray::base
     {
         return ::qHash(key.toString());
     }
-    inline size_t qHash(const Qv2ray::base::ConnectionGroupPair &pair)
+    inline size_t qHash(const Plumbum::base::ConnectionGroupPair &pair)
     {
         return ::qHash(pair.connectionId.toString() + pair.groupId.toString());
     }
-} // namespace Qv2ray::base
+} // namespace Plumbum::base
 
-using namespace Qv2ray::base;
+using namespace Plumbum::base;
 Q_DECLARE_METATYPE(ConnectionGroupPair)
 Q_DECLARE_METATYPE(ConnectionId)
 Q_DECLARE_METATYPE(GroupId)

@@ -1,6 +1,6 @@
 #include "core/connection/Generation.hpp"
 
-namespace Qv2ray::core::connection::generation::misc
+namespace Plumbum::core::connection::generation::misc
 {
     QJsonObject GenerateAPIEntry(const QString &tag, bool withHandler, bool withLogger, bool withStats)
     {
@@ -21,4 +21,4 @@ namespace Qv2ray::core::connection::generation::misc
         JADD(services, tag)
         return root;
     }
-} // namespace Qv2ray::core::connection::generation::misc
+} // namespace Plumbum::core::connection::generation::misc

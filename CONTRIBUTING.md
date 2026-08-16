@@ -1,6 +1,6 @@
-# Contributing Qv2ray
+# Contributing Plumbum
 
-Let's make Qv2ray great
+Let's make Plumbum great
 
 ## Branches
 
@@ -17,7 +17,7 @@ Let's make Qv2ray great
 - A `.clang-format` spec file has been placed at the root directory of the project.
 - There's no strict limit of the naming style, but typically:
   - All function names, class names are in UpperCamelCase
-  - All namespaces should be lowercase except `::Qv2ray`, where the corresponding file location should be the same as your namespace
+  - All namespaces should be lowercase except `::Plumbum`, where the corresponding file location should be the same as your namespace
   - All local variables, member variables should be in normal CamelCase
   - Unused variables should be wrapped with `Q_UNUSED`
   - Try to use forward declaration instead of including headers in another head file, except UI file.
@@ -27,7 +27,7 @@ Let's make Qv2ray great
 E.g.: A file named UpperCamelCase.cpp/hpp should be located at `./src/components/featuretype/featuresubtype/`
 
 ```c++
-namespace Qv2ray::components::featuretype::featuresubtype {
+namespace Plumbum::components::featuretype::featuresubtype {
   class UpperCamelCase : QObject {
       Q_OBJECT
     signals:

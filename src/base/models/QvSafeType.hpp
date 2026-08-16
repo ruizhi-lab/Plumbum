@@ -23,7 +23,7 @@ class SAFETYPE_IMPL : public BASETYPE_T
     typedef SAFETYPE_IMPL<__##CLASS##__, BASE> CLASS;
 
 #define nothing
-namespace Qv2ray::base::safetype
+namespace Plumbum::base::safetype
 {
     // To prevent anonying QJsonObject misuse
     SAFE_TYPEDEF(QJsonObject, INBOUNDSETTING);
@@ -85,6 +85,6 @@ namespace Qv2ray::base::safetype
         }
     };
 
-} // namespace Qv2ray::base::safetype
+} // namespace Plumbum::base::safetype
 
-using namespace Qv2ray::base::safetype;
+using namespace Plumbum::base::safetype;

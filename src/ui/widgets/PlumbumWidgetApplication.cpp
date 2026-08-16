@@ -1,6 +1,6 @@
-#include "Qv2rayWidgetApplication.hpp"
+#include "PlumbumWidgetApplication.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "components/translations/QvTranslator.hpp"
 #include "core/settings/SettingsBackend.hpp"
 #include "ui/widgets/styles/StyleManager.hpp"
@@ -19,27 +19,27 @@
 
 #define QV_MODULE_NAME "WidgetApplication"
 
-constexpr auto QV2RAY_WIDGETUI_STATE_FILENAME = "UIState.json";
+constexpr auto PLUMBUM_WIDGETUI_STATE_FILENAME = "UIState.json";
 
-Qv2rayWidgetApplication::Qv2rayWidgetApplication(int &argc, char *argv[]) : Qv2rayPlatformApplication(argc, argv)
+PlumbumWidgetApplication::PlumbumWidgetApplication(int &argc, char *argv[]) : PlumbumPlatformApplication(argc, argv)
 {
 }
 
-QStringList Qv2rayWidgetApplication::checkPrerequisitesInternal()
+QStringList PlumbumWidgetApplication::checkPrerequisitesInternal()
 {
     return {};
 }
 
-void Qv2rayWidgetApplication::terminateUIInternal()
+void PlumbumWidgetApplication::terminateUIInternal()
 {
     delete mainWindow;
     delete hTray;
     delete StyleManager;
-    StringToFile(JsonToString(UIStates), QV2RAY_CONFIG_DIR + QV2RAY_WIDGETUI_STATE_FILENAME);
+    StringToFile(JsonToString(UIStates), PLUMBUM_CONFIG_DIR + PLUMBUM_WIDGETUI_STATE_FILENAME);
 }
 
-#ifndef QV2RAY_NO_SINGLEAPPLICATON
-void Qv2rayWidgetApplication::onMessageReceived(quint32 clientId, QByteArray _msg)
+#ifndef PLUMBUM_NO_SINGLEAPPLICATON
+void PlumbumWidgetApplication::onMessageReceived(quint32 clientId, QByteArray _msg)
 {
     // Sometimes SingleApplication will send message with clientId == 0, ignore them.
     if (clientId == instanceId())
@@ -48,15 +48,15 @@ void Qv2rayWidgetApplication::onMessageReceived(quint32 clientId, QByteArray _ms
     if (!isInitialized)
         return;
 
-    const auto msg = Qv2rayStartupArguments::fromJson(JsonFromString(_msg));
+    const auto msg = PlumbumStartupArguments::fromJson(JsonFromString(_msg));
     LOG("Client ID:", clientId, ", message received, version:", msg.buildVersion);
     DEBUG(_msg);
     //
-    if (msg.buildVersion > QV2RAY_VERSION_BUILD)
+    if (msg.buildVersion > PLUMBUM_VERSION_BUILD)
     {
         const auto newPath = msg.fullArgs.first();
         QString message;
-        message += tr("A new version of Qv2ray is starting:") + NEWLINE;
+        message += tr("A new version of Plumbum is starting:") + NEWLINE;
         message += NEWLINE;
         message += tr("New version information: ") + NEWLINE;
         message += tr("Version: %1:%2").arg(msg.version).arg(msg.buildVersion) + NEWLINE;
@@ -77,30 +77,30 @@ void Qv2rayWidgetApplication::onMessageReceived(quint32 clientId, QByteArray _ms
     {
         switch (argument)
         {
-            case Qv2rayStartupArguments::EXIT:
+            case PlumbumStartupArguments::EXIT:
             {
                 SetExitReason(EXIT_NORMAL);
                 quit();
                 break;
             }
-            case Qv2rayStartupArguments::NORMAL:
+            case PlumbumStartupArguments::NORMAL:
             {
                 mainWindow->show();
                 mainWindow->raise();
                 mainWindow->activateWindow();
                 break;
             }
-            case Qv2rayStartupArguments::RECONNECT:
+            case PlumbumStartupArguments::RECONNECT:
             {
                 ConnectionManager->RestartConnection();
                 break;
             }
-            case Qv2rayStartupArguments::DISCONNECT:
+            case PlumbumStartupArguments::DISCONNECT:
             {
                 ConnectionManager->StopConnection();
                 break;
             }
-            case Qv2rayStartupArguments::QV2RAY_LINK:
+            case PlumbumStartupArguments::PLUMBUM_LINK:
             {
                 for (const auto &link : msg.links)
                 {
@@ -125,16 +125,16 @@ void Qv2rayWidgetApplication::onMessageReceived(quint32 clientId, QByteArray _ms
 }
 #endif
 
-Qv2rayExitReason Qv2rayWidgetApplication::runQv2rayInternal()
+PlumbumExitReason PlumbumWidgetApplication::runPlumbumInternal()
 {
     setQuitOnLastWindowClosed(false);
     hTray = new QSystemTrayIcon();
     StyleManager = new QvStyleManager();
     StyleManager->ApplyStyle(GlobalConfig.uiConfig.theme);
     // Show MainWindow
-    UIStates = JsonFromString(StringFromFile(QV2RAY_CONFIG_DIR + QV2RAY_WIDGETUI_STATE_FILENAME));
+    UIStates = JsonFromString(StringFromFile(PLUMBUM_CONFIG_DIR + PLUMBUM_WIDGETUI_STATE_FILENAME));
     mainWindow = new MainWindow();
-    if (StartupArguments.arguments.contains(Qv2rayStartupArguments::QV2RAY_LINK))
+    if (StartupArguments.arguments.contains(PlumbumStartupArguments::PLUMBUM_LINK))
     {
         for (const auto &link : StartupArguments.links)
         {
@@ -171,25 +171,25 @@ Qv2rayExitReason Qv2rayWidgetApplication::runQv2rayInternal()
     });
 #endif
     isInitialized = true;
-    return (Qv2rayExitReason) exec();
+    return (PlumbumExitReason) exec();
 }
 
-void Qv2rayWidgetApplication::OpenURL(const QString &url)
+void PlumbumWidgetApplication::OpenURL(const QString &url)
 {
     QDesktopServices::openUrl(url);
 }
 
-void Qv2rayWidgetApplication::MessageBoxWarn(QWidget *parent, const QString &title, const QString &text)
+void PlumbumWidgetApplication::MessageBoxWarn(QWidget *parent, const QString &title, const QString &text)
 {
     QMessageBox::warning(parent, title, text, QMessageBox::Ok);
 }
 
-void Qv2rayWidgetApplication::MessageBoxInfo(QWidget *parent, const QString &title, const QString &text)
+void PlumbumWidgetApplication::MessageBoxInfo(QWidget *parent, const QString &title, const QString &text)
 {
     QMessageBox::information(parent, title, text, QMessageBox::Ok);
 }
 
-MessageOpt Qv2rayWidgetApplication::MessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &buttons)
+MessageOpt PlumbumWidgetApplication::MessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &buttons)
 {
     QFlags<QMessageBox::StandardButton> btns;
     for (const auto &b : buttons)
@@ -199,7 +199,7 @@ MessageOpt Qv2rayWidgetApplication::MessageBoxAsk(QWidget *parent, const QString
     return MessageBoxButtonMap.key(QMessageBox::question(parent, title, text, btns));
 }
 
-void Qv2rayWidgetApplication::ShowTrayMessage(const QString &m, int msecs)
+void PlumbumWidgetApplication::ShowTrayMessage(const QString &m, int msecs)
 {
-    hTray->showMessage("Qv2ray", m, QIcon(":/assets/icons/qv2ray.png"), msecs);
+    hTray->showMessage("Plumbum", m, QIcon(":/assets/icons/plumbum.png"), msecs);
 }

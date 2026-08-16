@@ -55,7 +55,7 @@ QT_BEGIN_NAMESPACE
 class QCompleter;
 QT_END_NAMESPACE
 
-namespace Qv2ray::ui::widgets
+namespace Plumbum::ui::widgets
 {
     class AutoCompleteTextEdit : public QPlainTextEdit
     {
@@ -79,5 +79,5 @@ namespace Qv2ray::ui::widgets
         QString prefix;
         QCompleter *c = nullptr;
     };
-} // namespace Qv2ray::ui::widgets
-using namespace Qv2ray::ui::widgets;
+} // namespace Plumbum::ui::widgets
+using namespace Plumbum::ui::widgets;

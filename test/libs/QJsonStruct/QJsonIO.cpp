@@ -102,10 +102,10 @@ TEST_CASE("QJsonIO Set Simple Value")
 
     SECTION("Set Object String")
     {
-        QJsonIO::SetValue(obj, "qv2ray_test", "string");
+        QJsonIO::SetValue(obj, "plumbum_test", "string");
         const auto val = QJsonIO::GetValue(obj, "string");
         REQUIRE(val.isString());
-        REQUIRE(val.toString().toStdString() == "qv2ray_test");
+        REQUIRE(val.toString().toStdString() == "plumbum_test");
     }
 
     SECTION("Set Object Decimal")
@@ -158,8 +158,8 @@ TEST_CASE("QJsonIO Set Path")
 
     SECTION("Path remove test")
     {
-        auto obj = QJsonObject{ { "qv2ray", "shit" } };
-        QJsonIO::SetValue(obj, QJsonValue(QJsonValue::Undefined), "qv2ray");
+        auto obj = QJsonObject{ { "plumbum", "shit" } };
+        QJsonIO::SetValue(obj, QJsonValue(QJsonValue::Undefined), "plumbum");
 
         REQUIRE(obj == QJsonObject{});
     }

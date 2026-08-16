@@ -1,6 +1,6 @@
 #include "InboundOutboundWidget.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "core/CoreUtils.hpp"
 #include "core/handler/ConfigHandler.hpp"
 #include "ui/widgets/editors/w_InboundEditor.hpp"
@@ -11,8 +11,8 @@ InboundOutboundWidget::InboundOutboundWidget(ComplexTagNodeMode mode, std::share
 {
     workingMode = mode;
     setupUi(this);
-    editBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("edit")));
-    editJsonBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("code")));
+    editBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("edit")));
+    editJsonBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("code")));
 }
 
 void InboundOutboundWidget::setValue(std::shared_ptr<INBOUND> data)

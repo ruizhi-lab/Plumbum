@@ -6,18 +6,18 @@
 #include <QMap>
 #include <QString>
 
-namespace Qv2ray::base::objects
+namespace Plumbum::base::objects
 {
     struct DNSObject
     {
         struct DNSServerObject
         {
-            bool QV2RAY_DNS_IS_COMPLEX_DNS;
+            bool PLUMBUM_DNS_IS_COMPLEX_DNS;
             QString address;
             int port;
             QList<QString> domains;
             QList<QString> expectIPs;
-            DNSServerObject() : QV2RAY_DNS_IS_COMPLEX_DNS(false), port(53){};
+            DNSServerObject() : PLUMBUM_DNS_IS_COMPLEX_DNS(false), port(53){};
             DNSServerObject(const QString &_address) : DNSServerObject()
             {
                 address = _address;
@@ -25,7 +25,7 @@ namespace Qv2ray::base::objects
 
             friend bool operator==(const DNSServerObject &left, const DNSServerObject &right)
             {
-                return left.QV2RAY_DNS_IS_COMPLEX_DNS == right.QV2RAY_DNS_IS_COMPLEX_DNS && //
+                return left.PLUMBUM_DNS_IS_COMPLEX_DNS == right.PLUMBUM_DNS_IS_COMPLEX_DNS && //
                        left.address == right.address &&                                     //
                        left.port == right.port &&                                           //
                        left.domains == right.domains &&                                     //
@@ -42,10 +42,10 @@ namespace Qv2ray::base::objects
                 if (___json_object_.isString())
                 {
                     address = ___json_object_.toString();
-                    QV2RAY_DNS_IS_COMPLEX_DNS = false;
+                    PLUMBUM_DNS_IS_COMPLEX_DNS = false;
                     return;
                 }
-                FOREACH_CALL_FUNC(___DESERIALIZE_FROM_JSON_EXTRACT_B_F, F(QV2RAY_DNS_IS_COMPLEX_DNS, address, port, domains, expectIPs));
+                FOREACH_CALL_FUNC(___DESERIALIZE_FROM_JSON_EXTRACT_B_F, F(PLUMBUM_DNS_IS_COMPLEX_DNS, address, port, domains, expectIPs));
             }
             [[nodiscard]] static auto fromJson(const QJsonValue &___json_object_)
             {
@@ -57,7 +57,7 @@ namespace Qv2ray::base::objects
             {
                 QJsonObject ___json_object_;
                 DNSServerObject ___qjsonstruct_default_check;
-                FOREACH_CALL_FUNC(___SERIALIZE_TO_JSON_EXTRACT_B_F, F(QV2RAY_DNS_IS_COMPLEX_DNS, address, port, domains, expectIPs));
+                FOREACH_CALL_FUNC(___SERIALIZE_TO_JSON_EXTRACT_B_F, F(PLUMBUM_DNS_IS_COMPLEX_DNS, address, port, domains, expectIPs));
                 return ___json_object_;
             }
         };
@@ -98,8 +98,8 @@ namespace Qv2ray::base::objects
     //
     struct RuleObject
     {
-        bool QV2RAY_RULE_ENABLED = true;
-        QString QV2RAY_RULE_TAG = "New Rule";
+        bool PLUMBUM_RULE_ENABLED = true;
+        QString PLUMBUM_RULE_TAG = "New Rule";
         //
         QString type = "field";
         QList<QString> inboundTag;
@@ -117,11 +117,11 @@ namespace Qv2ray::base::objects
         QList<QString> protocol;
         QString attrs;
         JSONSTRUCT_COMPARE(RuleObject, type, outboundTag, balancerTag, //
-                           QV2RAY_RULE_ENABLED, QV2RAY_RULE_TAG,       //
+                           PLUMBUM_RULE_ENABLED, PLUMBUM_RULE_TAG,       //
                            domain, ip, port, sourcePort, network, source, inboundTag, protocol, attrs)
         JSONSTRUCT_REGISTER(RuleObject,                              //
                             A(type, outboundTag, balancerTag),       //
-                            A(QV2RAY_RULE_ENABLED, QV2RAY_RULE_TAG), //
+                            A(PLUMBUM_RULE_ENABLED, PLUMBUM_RULE_TAG), //
                             F(domain, ip, port, sourcePort, network, source, inboundTag, protocol, attrs))
     };
     //
@@ -399,4 +399,4 @@ namespace Qv2ray::base::objects
             JSONSTRUCT_REGISTER(ShadowSocksServerObject, F(address, port, method, password))
         };
     } // namespace protocol
-} // namespace Qv2ray::base::objects
+} // namespace Plumbum::base::objects

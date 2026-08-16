@@ -1,20 +1,20 @@
-qv2ray://open/preference/general
-qv2ray://open/preference/kernel
-qv2ray://open/preference/inbound
-qv2ray://open/preference/connection
-qv2ray://open/preference/route
-qv2ray://open/preference/about
+plumbum://open/preference/general
+plumbum://open/preference/kernel
+plumbum://open/preference/inbound
+plumbum://open/preference/connection
+plumbum://open/preference/route
+plumbum://open/preference/about
 
-qv2ray://open/group/connection
-qv2ray://open/group/subscription
-qv2ray://open/group/dns
-qv2ray://open/group/route
+plumbum://open/group/connection
+plumbum://open/group/subscription
+plumbum://open/group/dns
+plumbum://open/group/route
 
-qv2ray://open/import/link?name=
-qv2ray://open/import/qr?name=
-qv2ray://open/import/manual?name=
-qv2ray://open/import/advanced?name=
+plumbum://open/import/link?name=
+plumbum://open/import/qr?name=
+plumbum://open/import/manual?name=
+plumbum://open/import/advanced?name=
 
-qv2ray://open/plugin/plugindir
-qv2ray://open/plugin/metadata
-qv2ray://open/plugin/settings
+plumbum://open/plugin/plugindir
+plumbum://open/plugin/metadata
+plumbum://open/plugin/settings

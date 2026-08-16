@@ -1,13 +1,13 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "v2ray_api.grpc.pb.h"
 
 #include <grpc++/grpc++.h>
 
 // Check 10 times before telling user that API has failed.
-constexpr auto QV2RAY_API_CALL_FAILEDCHECK_THRESHOLD = 30;
+constexpr auto PLUMBUM_API_CALL_FAILEDCHECK_THRESHOLD = 30;
 
-namespace Qv2ray::core::kernel
+namespace Plumbum::core::kernel
 {
     struct APIConfigObject
     {
@@ -45,6 +45,6 @@ namespace Qv2ray::core::kernel
         std::shared_ptr<::grpc::Channel> grpc_channel;
         std::unique_ptr<::v2ray::core::app::stats::command::StatsService::Stub> stats_service_stub;
     };
-} // namespace Qv2ray::core::kernel
+} // namespace Plumbum::core::kernel
 
-using namespace Qv2ray::core::kernel;
+using namespace Plumbum::core::kernel;

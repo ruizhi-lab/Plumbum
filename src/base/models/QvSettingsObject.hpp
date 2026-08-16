@@ -5,9 +5,9 @@
 
 #include <chrono>
 
-constexpr int QV2RAY_CONFIG_VERSION = 14;
+constexpr int PLUMBUM_CONFIG_VERSION = 14;
 
-namespace Qv2ray::base::config
+namespace Plumbum::base::config
 {
     struct QvGraphPenConfig
     {
@@ -30,18 +30,18 @@ namespace Qv2ray::base::config
         JSONSTRUCT_REGISTER(QvGraphPenConfig, F(R, G, B, width, style))
     };
 
-    struct Qv2rayConfig_Graph
+    struct PlumbumConfig_Graph
     {
         bool useOutboundStats = true;
         bool hasDirectStats = true;
         safetype::QvEnumMap<StatisticsType, safetype::QvPair<QvGraphPenConfig>> colorConfig;
-        JSONSTRUCT_COMPARE(Qv2rayConfig_Graph, useOutboundStats, hasDirectStats, colorConfig)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_Graph, F(useOutboundStats, hasDirectStats, colorConfig))
+        JSONSTRUCT_COMPARE(PlumbumConfig_Graph, useOutboundStats, hasDirectStats, colorConfig)
+        JSONSTRUCT_REGISTER(PlumbumConfig_Graph, F(useOutboundStats, hasDirectStats, colorConfig))
         const static inline QvPair<QvGraphPenConfig> DefaultPen{ { 134, 196, 63, 1.5f, Qt::SolidLine }, { 50, 153, 255, 1.5f, Qt::SolidLine } };
         const static inline QvPair<QvGraphPenConfig> DirectPen{ { 0, 210, 240, 1.5f, Qt::DotLine }, { 235, 220, 42, 1.5f, Qt::DotLine } };
     };
 
-    struct Qv2rayConfig_UI
+    struct PlumbumConfig_UI
     {
 #ifdef Q_OS_WIN
         QString theme = "windowsvista";
@@ -52,7 +52,7 @@ namespace Qv2ray::base::config
 #endif
         QString language = "en_US";
         QList<ConnectionGroupPair> recentConnections;
-        Qv2rayConfig_Graph graphConfig;
+        PlumbumConfig_Graph graphConfig;
         bool quietMode = false;
         bool useDarkTheme = false;
         bool useGlyphTrayIcon = true;
@@ -62,22 +62,22 @@ namespace Qv2ray::base::config
         bool useOldShareLinkFormat = false;
         bool startMinimized = true;
         bool exitByCloseEvent = false;
-        JSONSTRUCT_COMPARE(Qv2rayConfig_UI, theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon, maximumLogLines,
+        JSONSTRUCT_COMPARE(PlumbumConfig_UI, theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon, maximumLogLines,
                            maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_UI, F(theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon,
+        JSONSTRUCT_REGISTER(PlumbumConfig_UI, F(theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon,
                                                maximumLogLines, maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent))
     };
 
-    struct Qv2rayConfig_Plugin
+    struct PlumbumConfig_Plugin
     {
         QMap<QString, bool> pluginStates;
         bool v2rayIntegration = true;
         int portAllocationStart = 15000;
-        JSONSTRUCT_COMPARE(Qv2rayConfig_Plugin, pluginStates, v2rayIntegration, portAllocationStart)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_Plugin, F(pluginStates, v2rayIntegration, portAllocationStart))
+        JSONSTRUCT_COMPARE(PlumbumConfig_Plugin, pluginStates, v2rayIntegration, portAllocationStart)
+        JSONSTRUCT_REGISTER(PlumbumConfig_Plugin, F(pluginStates, v2rayIntegration, portAllocationStart))
     };
 
-    struct Qv2rayConfig_Kernel
+    struct PlumbumConfig_Kernel
     {
         bool enableAPI = true;
         int statsPort = 15490;
@@ -112,18 +112,18 @@ namespace Qv2ray::base::config
 #undef _VARNAME_VCOREPATH_
 #undef _VARNAME_VASSETSPATH_
 
-        JSONSTRUCT_COMPARE(Qv2rayConfig_Kernel, enableAPI, statsPort, //
+        JSONSTRUCT_COMPARE(PlumbumConfig_Kernel, enableAPI, statsPort, //
                            v2CorePath_linux, v2AssetsPath_linux,      //
                            v2CorePath_macx, v2AssetsPath_macx,        //
                            v2CorePath_win, v2AssetsPath_win)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_Kernel,                     //
+        JSONSTRUCT_REGISTER(PlumbumConfig_Kernel,                     //
                             F(enableAPI, statsPort),                 //
                             F(v2CorePath_linux, v2AssetsPath_linux), //
                             F(v2CorePath_macx, v2AssetsPath_macx),   //
                             F(v2CorePath_win, v2AssetsPath_win))
     };
 
-    struct Qv2rayConfig_Update
+    struct PlumbumConfig_Update
     {
         enum UpdateChannel
         {
@@ -132,86 +132,86 @@ namespace Qv2ray::base::config
         };
         UpdateChannel updateChannel = CHANNEL_STABLE;
         QString ignoredVersion;
-        JSONSTRUCT_COMPARE(Qv2rayConfig_Update, updateChannel, ignoredVersion)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_Update, F(ignoredVersion, updateChannel))
+        JSONSTRUCT_COMPARE(PlumbumConfig_Update, updateChannel, ignoredVersion)
+        JSONSTRUCT_REGISTER(PlumbumConfig_Update, F(ignoredVersion, updateChannel))
     };
 
-    struct Qv2rayConfig_Advanced
+    struct PlumbumConfig_Advanced
     {
         bool testLatencyPeriodically = false;
         bool disableSystemRoot = false;
         bool testLatencyOnConnected = false;
-        JSONSTRUCT_COMPARE(Qv2rayConfig_Advanced, testLatencyPeriodically, disableSystemRoot, testLatencyOnConnected)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_Advanced, F(testLatencyPeriodically, disableSystemRoot, testLatencyOnConnected))
+        JSONSTRUCT_COMPARE(PlumbumConfig_Advanced, testLatencyPeriodically, disableSystemRoot, testLatencyOnConnected)
+        JSONSTRUCT_REGISTER(PlumbumConfig_Advanced, F(testLatencyPeriodically, disableSystemRoot, testLatencyOnConnected))
     };
 
-    enum Qv2rayLatencyTestingMethod
+    enum PlumbumLatencyTestingMethod
     {
         TCPING = 0,
         ICMPING = 1,
         REALPING = 2
     };
 
-    struct Qv2rayConfig_Network
+    struct PlumbumConfig_Network
     {
-        enum Qv2rayProxyType
+        enum PlumbumProxyType
         {
             QVPROXY_NONE = 0,
             QVPROXY_SYSTEM = 1,
             QVPROXY_CUSTOM = 2
         };
 
-        Qv2rayLatencyTestingMethod latencyTestingMethod = TCPING;
+        PlumbumLatencyTestingMethod latencyTestingMethod = TCPING;
         QString latencyRealPingTestURL = "https://www.google.com";
-        Qv2rayProxyType proxyType = QVPROXY_NONE;
+        PlumbumProxyType proxyType = QVPROXY_NONE;
         QString address = "127.0.0.1";
         QString type = "http";
         int port = 8000;
-        QString userAgent = "Qv2ray/$VERSION WebRequestHelper";
-        JSONSTRUCT_COMPARE(Qv2rayConfig_Network, latencyTestingMethod, latencyRealPingTestURL, proxyType, type, address, port, userAgent)
-        JSONSTRUCT_REGISTER(Qv2rayConfig_Network, F(latencyTestingMethod, latencyRealPingTestURL, proxyType, type, address, port, userAgent))
+        QString userAgent = "Plumbum/$VERSION WebRequestHelper";
+        JSONSTRUCT_COMPARE(PlumbumConfig_Network, latencyTestingMethod, latencyRealPingTestURL, proxyType, type, address, port, userAgent)
+        JSONSTRUCT_REGISTER(PlumbumConfig_Network, F(latencyTestingMethod, latencyRealPingTestURL, proxyType, type, address, port, userAgent))
     };
 
-    enum Qv2rayAutoConnectionBehavior
+    enum PlumbumAutoConnectionBehavior
     {
         AUTO_CONNECTION_NONE = 0,
         AUTO_CONNECTION_FIXED = 1,
         AUTO_CONNECTION_LAST_CONNECTED = 2
     };
 
-    struct Qv2rayConfigObject
+    struct PlumbumConfigObject
     {
         int config_version;
         int logLevel = 0;
         //
         ConnectionGroupPair autoStartId;
         ConnectionGroupPair lastConnectedId;
-        Qv2rayAutoConnectionBehavior autoStartBehavior = AUTO_CONNECTION_NONE;
+        PlumbumAutoConnectionBehavior autoStartBehavior = AUTO_CONNECTION_NONE;
         //
-        Qv2rayConfig_UI uiConfig;
-        Qv2rayConfig_Plugin pluginConfig;
-        Qv2rayConfig_Kernel kernelConfig;
-        Qv2rayConfig_Update updateConfig;
-        Qv2rayConfig_Network networkConfig;
+        PlumbumConfig_UI uiConfig;
+        PlumbumConfig_Plugin pluginConfig;
+        PlumbumConfig_Kernel kernelConfig;
+        PlumbumConfig_Update updateConfig;
+        PlumbumConfig_Network networkConfig;
         QvConfig_Inbounds inboundConfig;
         QvConfig_Outbounds outboundConfig;
-        Qv2rayConfig_Advanced advancedConfig;
+        PlumbumConfig_Advanced advancedConfig;
         GroupRoutingConfig defaultRouteConfig;
 
-        explicit Qv2rayConfigObject()
+        explicit PlumbumConfigObject()
         {
-            config_version = QV2RAY_CONFIG_VERSION;
+            config_version = PLUMBUM_CONFIG_VERSION;
         }
 #if QT_VERSION < QT_VERSION_CHECK(5, 13, 0)
-        Q_DISABLE_COPY(Qv2rayConfigObject);
+        Q_DISABLE_COPY(PlumbumConfigObject);
 #else
-        Q_DISABLE_COPY_MOVE(Qv2rayConfigObject);
+        Q_DISABLE_COPY_MOVE(PlumbumConfigObject);
 #endif
-        JSONSTRUCT_COMPARE(Qv2rayConfigObject, config_version, logLevel, autoStartId, lastConnectedId, autoStartBehavior, uiConfig, pluginConfig,
+        JSONSTRUCT_COMPARE(PlumbumConfigObject, config_version, logLevel, autoStartId, lastConnectedId, autoStartBehavior, uiConfig, pluginConfig,
                            kernelConfig, updateConfig, networkConfig, inboundConfig, outboundConfig, advancedConfig, defaultRouteConfig)
-        JSONSTRUCT_REGISTER_NOCOPYMOVE(Qv2rayConfigObject,                                                                   //
+        JSONSTRUCT_REGISTER_NOCOPYMOVE(PlumbumConfigObject,                                                                   //
                                        A(config_version, autoStartId, lastConnectedId, autoStartBehavior, logLevel),         //
                                        A(uiConfig, advancedConfig, pluginConfig, updateConfig, kernelConfig, networkConfig), //
                                        A(inboundConfig, outboundConfig, defaultRouteConfig))
     };
-} // namespace Qv2ray::base::config
+} // namespace Plumbum::base::config

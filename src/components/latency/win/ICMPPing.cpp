@@ -22,7 +22,7 @@ typedef VOID(NTAPI *PIO_APC_ROUTINE)(IN PVOID ApcContext, IN PIO_STATUS_BLOCK Io
 //
 #include <QString>
 
-namespace Qv2ray::components::latency::icmping
+namespace Plumbum::components::latency::icmping
 {
     ICMPPing ::~ICMPPing()
     {
@@ -117,7 +117,7 @@ namespace Qv2ray::components::latency::icmping
             icmpReply->reply_buf, reply_buf_size, 10000);
     }
 
-    bool ICMPPing::notifyTestHost(LatencyTestHost *testHost, const ::Qv2ray::base::ConnectionId &id)
+    bool ICMPPing::notifyTestHost(LatencyTestHost *testHost, const ::Plumbum::base::ConnectionId &id)
     {
         if (data.failedCount + successCount == data.totalCount)
         {
@@ -144,5 +144,5 @@ namespace Qv2ray::components::latency::icmping
         }
         async_DNS_lookup(0, 0);
     }
-} // namespace Qv2ray::components::latency::icmping
+} // namespace Plumbum::components::latency::icmping
 #endif

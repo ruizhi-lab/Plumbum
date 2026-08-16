@@ -1,14 +1,14 @@
-name: qv2ray
+name: plumbum
 base: core22
-adopt-info: qv2ray
-icon: assets/icons/qv2ray.png
+adopt-info: plumbum
+icon: assets/icons/plumbum.png
 
 grade: stable
 confinement: strict
 
 apps:
-  qv2ray:
-    command: usr/bin/qv2ray
+  plumbum:
+    command: usr/bin/plumbum
     extensions:
       - kde-neon
     plugs:
@@ -20,15 +20,15 @@ apps:
       - gsettings
       - network-control
       - network-manager
-    common-id: com.github.Qv2ray
-    desktop: "usr/share/applications/qv2ray.desktop"
+    common-id: com.github.Plumbum
+    desktop: "usr/share/applications/plumbum.desktop"
 
 parts:
-  qv2ray:
+  plumbum:
     plugin: cmake
     source-type: git
     source: .
-    parse-info: [usr/share/metainfo/qv2ray.metainfo.xml]
+    parse-info: [usr/share/metainfo/plumbum.metainfo.xml]
     build-packages:
       - build-essential
       - libgrpc++-dev
@@ -47,7 +47,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
-      - -DQV2RAY_EMBED_TRANSLATIONS=ON
+      - -DPLUMBUM_EMBED_TRANSLATIONS=ON
       - -DFALL_BACK_TO_XDG_OPEN=ON
     cmake-generator: Ninja
     override-pull: |
@@ -56,4 +56,4 @@ parts:
       tag=$(cat makespec/VERSION)
       version=$tag.$build_number
       snapcraftctl set-version "$version"
-      sed -i 's|^Icon=.*|Icon=/usr/share/icons/hicolor/1024x1024/apps/qv2ray.png|g' assets/qv2ray.desktop
+      sed -i 's|^Icon=.*|Icon=/usr/share/icons/hicolor/1024x1024/apps/plumbum.png|g' assets/plumbum.desktop

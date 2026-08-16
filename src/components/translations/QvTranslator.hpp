@@ -4,7 +4,7 @@
 #include <memory>
 #include <optional>
 
-namespace Qv2ray::common
+namespace Plumbum::common
 {
     class QvTranslator
     {
@@ -32,7 +32,7 @@ namespace Qv2ray::common
         QStringList searchPaths;
         std::unique_ptr<QTranslator> pTranslator;
     };
-    inline std::unique_ptr<common::QvTranslator> Qv2rayTranslator;
-} // namespace Qv2ray::common
+    inline std::unique_ptr<common::QvTranslator> PlumbumTranslator;
+} // namespace Plumbum::common
 
-using namespace Qv2ray::common;
+using namespace Plumbum::common;

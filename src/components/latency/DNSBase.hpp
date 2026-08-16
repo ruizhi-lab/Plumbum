@@ -3,7 +3,7 @@
 #include "coroutine.hpp"
 #include "uvw.hpp"
 
-namespace Qv2ray::components::latency
+namespace Plumbum::components::latency
 {
     template<typename T>
     class DNSBase
@@ -127,4 +127,4 @@ namespace Qv2ray::components::latency
     DNSBase<T>::~DNSBase()
     {
     }
-} // namespace Qv2ray::components::latency
+} // namespace Plumbum::components::latency

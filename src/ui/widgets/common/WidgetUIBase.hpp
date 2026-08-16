@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ui/common/QvMessageBus.hpp"
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
+#include "ui/widgets/PlumbumWidgetApplication.hpp"
 
 #include <QDialog>
 #include <QGraphicsEffect>
@@ -26,14 +26,14 @@ inline void BLACK(QWidget *obj)
     obj->setPalette(qApp->palette());
 }
 
-#define QV2RAY_COLORSCHEME_ROOT_X(isDark) (QString(":/assets/icons/") + ((isDark) ? "ui_dark/" : "ui_light/"))
-#define QV2RAY_TRASY_ICON_STYLE_X(isGlyph) (QString("") + ((isGlyph) ? "glyph-" : ""))
+#define PLUMBUM_COLORSCHEME_ROOT_X(isDark) (QString(":/assets/icons/") + ((isDark) ? "ui_dark/" : "ui_light/"))
+#define PLUMBUM_TRASY_ICON_STYLE_X(isGlyph) (QString("") + ((isGlyph) ? "glyph-" : ""))
 
-#define QV2RAY_COLORSCHEME_FILE(file) (QV2RAY_COLORSCHEME_ROOT_X(GlobalConfig.uiConfig.useDarkTheme) + file + ".svg")
+#define PLUMBUM_COLORSCHEME_FILE(file) (PLUMBUM_COLORSCHEME_ROOT_X(GlobalConfig.uiConfig.useDarkTheme) + file + ".svg")
 
 #define Q_TRAYICON(name)                                                                                                                             \
-    (QPixmap(QV2RAY_COLORSCHEME_ROOT_X(GlobalConfig.uiConfig.useDarkTrayIcon) +                                                                      \
-             (QV2RAY_TRASY_ICON_STYLE_X(GlobalConfig.uiConfig.useGlyphTrayIcon)) + name + ".png"))
+    (QPixmap(PLUMBUM_COLORSCHEME_ROOT_X(GlobalConfig.uiConfig.useDarkTrayIcon) +                                                                      \
+             (PLUMBUM_TRASY_ICON_STYLE_X(GlobalConfig.uiConfig.useGlyphTrayIcon)) + name + ".png"))
 
 class QvStateObject
 {
@@ -54,7 +54,7 @@ class QvStateObject
     const QString windowName;
     options_storage_type state_options_list;
 
-#if QV2RAY_FEATURE(ui_has_store_state)
+#if PLUMBUM_FEATURE(ui_has_store_state)
   public:
     void SaveState()
     {
@@ -90,7 +90,7 @@ class QvDialog
   public:
     explicit QvDialog(const QString &name, QWidget *parent) : QDialog(parent), QvStateObject(name)
     {
-#if QV2RAY_FEATURE(ui_has_store_state)
+#if PLUMBUM_FEATURE(ui_has_store_state)
         connect(this, &QvDialog::finished, [this] { SaveState(); });
 #endif
     }
@@ -103,13 +103,13 @@ class QvDialog
     void showEvent(QShowEvent *event) override
     {
         QWidget::showEvent(event);
-#if QV2RAY_FEATURE(ui_has_store_state)
+#if PLUMBUM_FEATURE(ui_has_store_state)
         RestoreState();
 #endif
     }
 };
 
-namespace Qv2ray::ui
+namespace Plumbum::ui
 {
     inline QPixmap ApplyEffectToImage(QPixmap src, QGraphicsEffect *effect, int extent = 0)
     {
@@ -153,6 +153,6 @@ namespace Qv2ray::ui
         cursor.insertText(message);
         cursor.endEditBlock();
     }
-} // namespace Qv2ray::ui
+} // namespace Plumbum::ui
 
-using namespace Qv2ray::ui;
+using namespace Plumbum::ui;

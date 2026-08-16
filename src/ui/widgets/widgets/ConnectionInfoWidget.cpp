@@ -22,10 +22,10 @@ QvMessageBusSlotImpl(ConnectionInfoWidget)
 
 void ConnectionInfoWidget::updateColorScheme()
 {
-    latencyBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ping_gauge")));
-    deleteBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
-    editBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("edit")));
-    editJsonBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("code")));
+    latencyBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ping_gauge")));
+    deleteBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
+    editBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("edit")));
+    editJsonBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("code")));
     shareLinkTxt->setStyleSheet("border-bottom: 1px solid gray; border-radius: 0px; padding: 2px; background-color: " +
                                 this->palette().color(this->backgroundRole()).name(QColor::HexRgb));
     groupSubsLinkTxt->setStyleSheet("border-bottom: 1px solid gray; border-radius: 0px; padding: 2px; background-color: " +
@@ -33,9 +33,9 @@ void ConnectionInfoWidget::updateColorScheme()
     //
     auto isDarkTheme = GlobalConfig.uiConfig.useDarkTheme;
     qrPixmapBlured = BlurImage(ColorizeImage(qrPixmap, isDarkTheme ? QColor(Qt::black) : QColor(Qt::white), 0.7), 35);
-    qrLabel->setPixmap(IsComplexConfig(connectionId) ? QPixmap(":/assets/icons/qv2ray.png") : (isRealPixmapShown ? qrPixmap : qrPixmapBlured));
+    qrLabel->setPixmap(IsComplexConfig(connectionId) ? QPixmap(":/assets/icons/plumbum.png") : (isRealPixmapShown ? qrPixmap : qrPixmapBlured));
     const auto isCurrentItem = KernelInstance->CurrentConnection().connectionId == connectionId;
-    connectBtn->setIcon(QIcon(isCurrentItem ? QV2RAY_COLORSCHEME_FILE("stop") : QV2RAY_COLORSCHEME_FILE("start")));
+    connectBtn->setIcon(QIcon(isCurrentItem ? PLUMBUM_COLORSCHEME_FILE("stop") : PLUMBUM_COLORSCHEME_FILE("start")));
 }
 
 ConnectionInfoWidget::ConnectionInfoWidget(QWidget *parent) : QWidget(parent)
@@ -89,14 +89,14 @@ void ConnectionInfoWidget::ShowDetails(const ConnectionGroupPair &_identifier)
         qrPixmapBlured = BlurImage(ColorizeImage(qrPixmap, isDarkTheme ? QColor(Qt::black) : QColor(Qt::white), 0.7), 35);
         //
         isRealPixmapShown = false;
-        qrLabel->setPixmap(IsComplexConfig(connectionId) ? QPixmap(":/assets/icons/qv2ray.png") : qrPixmapBlured);
+        qrLabel->setPixmap(IsComplexConfig(connectionId) ? QPixmap(":/assets/icons/plumbum.png") : qrPixmapBlured);
         qrLabel->setScaledContents(true);
         const auto isCurrentItem = KernelInstance->CurrentConnection().connectionId == connectionId;
-        connectBtn->setIcon(QIcon(isCurrentItem ? QV2RAY_COLORSCHEME_FILE("stop") : QV2RAY_COLORSCHEME_FILE("start")));
+        connectBtn->setIcon(QIcon(isCurrentItem ? PLUMBUM_COLORSCHEME_FILE("stop") : PLUMBUM_COLORSCHEME_FILE("start")));
     }
     else
     {
-        connectBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("start")));
+        connectBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("start")));
         groupNameLabel->setText(GetDisplayName(groupId));
         QStringList shareLinks;
         for (const auto &connection : ConnectionManager->GetConnections(groupId))
@@ -104,7 +104,7 @@ void ConnectionInfoWidget::ShowDetails(const ConnectionGroupPair &_identifier)
             shareLinks << ConvertConfigToString({ connection, groupId }, !GlobalConfig.uiConfig.useOldShareLinkFormat);
         }
         //
-        auto complexCount = shareLinks.removeAll(QV2RAY_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER);
+        auto complexCount = shareLinks.removeAll(PLUMBUM_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER);
         complexCount += shareLinks.removeAll("");
         if (complexCount > 0)
         {
@@ -193,7 +193,7 @@ bool ConnectionInfoWidget::eventFilter(QObject *object, QEvent *event)
     }
     else if (qrLabel->underMouse() && event->type() == QEvent::MouseButtonRelease)
     {
-        qrLabel->setPixmap(IsComplexConfig(connectionId) ? QPixmap(":/assets/icons/qv2ray.png") : (isRealPixmapShown ? qrPixmapBlured : qrPixmap));
+        qrLabel->setPixmap(IsComplexConfig(connectionId) ? QPixmap(":/assets/icons/plumbum.png") : (isRealPixmapShown ? qrPixmapBlured : qrPixmap));
         isRealPixmapShown = !isRealPixmapShown;
     }
 
@@ -204,7 +204,7 @@ void ConnectionInfoWidget::OnConnected(const ConnectionGroupPair &id)
 {
     if (id == ConnectionGroupPair{ connectionId, groupId })
     {
-        connectBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("stop")));
+        connectBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("stop")));
     }
 }
 
@@ -212,7 +212,7 @@ void ConnectionInfoWidget::OnDisConnected(const ConnectionGroupPair &id)
 {
     if (id == ConnectionGroupPair{ connectionId, groupId })
     {
-        connectBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("start")));
+        connectBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("start")));
     }
 }
 

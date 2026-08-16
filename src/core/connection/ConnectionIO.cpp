@@ -3,7 +3,7 @@
 #include "Serialization.hpp"
 #include "utils/QvHelpers.hpp"
 
-namespace Qv2ray::core::connection::connectionIO
+namespace Plumbum::core::connection::connectionIO
 {
     CONFIGROOT ConvertConfigFromFile(const QString &sourceFilePath, bool importComplex)
     {
@@ -21,4 +21,4 @@ namespace Qv2ray::core::connection::connectionIO
         root.remove("stats");
         return root;
     }
-} // namespace Qv2ray::core::connection::connectionIO
+} // namespace Plumbum::core::connection::connectionIO

@@ -1,4 +1,4 @@
-function(ADD_QV2RAY_TEST TEST_NAME TEST_SOURCE)
+function(ADD_PLUMBUM_TEST TEST_NAME TEST_SOURCE)
     add_executable(${TEST_NAME} ${TEST_SOURCE} catch.hpp)
     target_include_directories(${TEST_NAME}
         PRIVATE
@@ -7,15 +7,15 @@ function(ADD_QV2RAY_TEST TEST_NAME TEST_SOURCE)
     target_link_libraries(
         ${TEST_NAME}
         PRIVATE
-        $<$<TARGET_EXISTS:qv2ray_baselib>:qv2ray_baselib>
+        $<$<TARGET_EXISTS:plumbum_baselib>:plumbum_baselib>
         )
 
-    add_test(NAME QV2RAY_TEST_${TEST_NAME} COMMAND $<TARGET_FILE:${TEST_NAME}>)
+    add_test(NAME PLUMBUM_TEST_${TEST_NAME} COMMAND $<TARGET_FILE:${TEST_NAME}>)
 endfunction()
 
-ADD_QV2RAY_TEST(parse_ss_url src/core/connection/TestParseSS.cpp)
-ADD_QV2RAY_TEST(parse_vmess_url src/core/connection/TestParseVmess.cpp)
-ADD_QV2RAY_TEST(parse_vless_url src/core/connection/TestParseVLESS.cpp)
-ADD_QV2RAY_TEST(generation src/core/connection/TestGeneration.cpp)
-ADD_QV2RAY_TEST(qjsonio libs/QJsonStruct/QJsonIO.cpp)
-ADD_QV2RAY_TEST(realping src/components/latency/TestRealPing.cpp)
+ADD_PLUMBUM_TEST(parse_ss_url src/core/connection/TestParseSS.cpp)
+ADD_PLUMBUM_TEST(parse_vmess_url src/core/connection/TestParseVmess.cpp)
+ADD_PLUMBUM_TEST(parse_vless_url src/core/connection/TestParseVLESS.cpp)
+ADD_PLUMBUM_TEST(generation src/core/connection/TestGeneration.cpp)
+ADD_PLUMBUM_TEST(qjsonio libs/QJsonStruct/QJsonIO.cpp)
+ADD_PLUMBUM_TEST(realping src/components/latency/TestRealPing.cpp)

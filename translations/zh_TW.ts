@@ -523,8 +523,8 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
       <translation>二維碼截屏</translation>
     </message>
     <message>
-      <source>Hide Qv2ray</source>
-      <translation>隱藏 Qv2ray</translation>
+      <source>Hide Plumbum</source>
+      <translation>隱藏 Plumbum</translation>
     </message>
     <message>
       <source> secs</source>
@@ -786,8 +786,8 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
   <context>
     <name>MainWindow</name>
     <message>
-      <source>Qv2ray</source>
-      <translation>Qv2ray</translation>
+      <source>Plumbum</source>
+      <translation>Plumbum</translation>
     </message>
     <message>
       <source>Preferences</source>
@@ -974,8 +974,8 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
       <translation>高資料使用量優先</translation>
     </message>
     <message>
-      <source>Switch to Qv2ray log</source>
-      <translation>切換到 Qv2ray 紀錄</translation>
+      <source>Switch to Plumbum log</source>
+      <translation>切換到 Plumbum 紀錄</translation>
     </message>
     <message>
       <source>Kernel terminated.</source>
@@ -994,12 +994,12 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
       <translation>顯示</translation>
     </message>
     <message>
-      <source>Quit Qv2ray</source>
-      <translation>退出 Qv2ray</translation>
+      <source>Quit Plumbum</source>
+      <translation>退出 Plumbum</translation>
     </message>
     <message>
-      <source>Are you sure to exit Qv2ray?</source>
-      <translation>確信要退出 Qv2ray 嗎？</translation>
+      <source>Are you sure to exit Plumbum?</source>
+      <translation>確信要退出 Plumbum 嗎？</translation>
     </message>
     <message numerus="yes">
       <source>Removing Connection(s)</source>
@@ -1351,9 +1351,9 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
       <translation>網路設定</translation>
     </message>
     <message>
-      <source>These settings are used by Qv2ray itself.
+      <source>These settings are used by Plumbum itself.
 For example, for updating subscriptions.</source>
-      <translation>這些設定是針對 Qv2ray 本身的。
+      <translation>這些設定是針對 Plumbum 本身的。
 例如，用在更新訂閱時。</translation>
     </message>
     <message>
@@ -1373,8 +1373,8 @@ For example, for updating subscriptions.</source>
       <translation>ICMPing</translation>
     </message>
     <message>
-      <source>Qv2ray Proxy</source>
-      <translation>Qv2ray 代理</translation>
+      <source>Plumbum Proxy</source>
+      <translation>Plumbum 代理</translation>
     </message>
     <message>
       <source>System Proxy</source>
@@ -1451,8 +1451,8 @@ Custom DNS Settings</source>
 自訂 DNS 設置</translation>
     </message>
     <message>
-      <source>Qv2ray will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</source>
-      <translation>如果啟用，Qv2ray 將為每個內核外掛程式分配通訊埠，分別用於 HTTP 和 SOCKS。</translation>
+      <source>Plumbum will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</source>
+      <translation>如果啟用，Plumbum 將為每個內核外掛程式分配通訊埠，分別用於 HTTP 和 SOCKS。</translation>
     </message>
     <message>
       <source>Port Allocation Start</source>
@@ -1611,8 +1611,8 @@ Custom DNS Settings</source>
       <translation>測試通道</translation>
     </message>
     <message>
-      <source>Qv2ray</source>
-      <translation>Qv2ray</translation>
+      <source>Plumbum</source>
+      <translation>Plumbum</translation>
     </message>
     <message>
       <source>Version:</source>
@@ -1753,12 +1753,12 @@ But could damage your server if improperly used.</source>
       <translation>小心！</translation>
     </message>
     <message>
-      <source>You may be about to set V2Ray core incorrectly to Qv2ray itself, which is absolutely not correct.<byte value="xd"/>
-This won&apos;t trigger a fork bomb, however, since Qv2ray works in singleton mode.<byte value="xd"/>
-If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are totally free to ignore this warning.</source>
-      <translation>您或許要將 V2Ray 的可執行檔錯誤地設置成 Qv2ray 本身了，這是非常不對的。
-然而，這樣做並不會觸發 Fork 炸彈，因為 Qv2ray 以單例模式工作。
-若你的 V2Ray 核心檔案名恰好是 &apos;qv2ray&apos; 什麼的，你完全可以忽略這個警告。</translation>
+      <source>You may be about to set V2Ray core incorrectly to Plumbum itself, which is absolutely not correct.<byte value="xd"/>
+This won&apos;t trigger a fork bomb, however, since Plumbum works in singleton mode.<byte value="xd"/>
+If your V2Ray core filename happened to be &apos;plumbum&apos;-something, you are totally free to ignore this warning.</source>
+      <translation>您或許要將 V2Ray 的可執行檔錯誤地設置成 Plumbum 本身了，這是非常不對的。
+然而，這樣做並不會觸發 Fork 炸彈，因為 Plumbum 以單例模式工作。
+若你的 V2Ray 核心檔案名恰好是 &apos;plumbum&apos; 什麼的，你完全可以忽略這個警告。</translation>
     </message>
     <message>
       <source>Check System Date and Time from the Internet</source>
@@ -1959,8 +1959,8 @@ V2Ray 核心可執行檔的檔案名通常是 &apos;v2ray&apos; 或者 &apos;v2r
       <translation>無 NTP 後端</translation>
     </message>
     <message>
-      <source>Qv2ray was not built with NTP support.</source>
-      <translation>Qv2ray 構建時未開啟 NTP 支援選項。</translation>
+      <source>Plumbum was not built with NTP support.</source>
+      <translation>Plumbum 構建時未開啟 NTP 支援選項。</translation>
     </message>
     <message>
       <source>Metadata Only</source>
@@ -1998,9 +1998,9 @@ V2Ray 核心可執行檔的檔案名通常是 &apos;v2ray&apos; 或者 &apos;v2r
     </message>
     <message>
       <source>Run TCPing or ICMPing periodically after connecting to a server.
-Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
+Plumbum will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
       <translation>連接到節點之後，對節點進行週期性的延遲監測。
-若啟用，Qv2ray 對節點的延遲監測將會更加準確，但這也許會提升您伺服器被暴露的風險。</translation>
+若啟用，Plumbum 對節點的延遲監測將會更加準確，但這也許會提升您伺服器被暴露的風險。</translation>
     </message>
     <message>
       <source>FakeDNS+Others</source>
@@ -2060,12 +2060,12 @@ This option may be useful for some desktop environments without tray support.</s
       <translation>重新連接上次連接</translation>
     </message>
     <message>
-      <source>Exit Qv2ray</source>
-      <translation>退出 Qv2ray</translation>
+      <source>Exit Plumbum</source>
+      <translation>退出 Plumbum</translation>
     </message>
     <message>
-      <source>Qv2ray - A cross-platform Qt frontend for V2Ray.</source>
-      <translation>Qv2ray - 跨平台的 V2Ray Qt 前端。</translation>
+      <source>Plumbum - A cross-platform Qt frontend for V2Ray.</source>
+      <translation>Plumbum - 跨平台的 V2Ray Qt 前端。</translation>
     </message>
     <message>
       <source>DNS not resolved</source>
@@ -2288,52 +2288,52 @@ This option may be useful for some desktop environments without tray support.</s
       <translation>未知的 abi</translation>
     </message>
     <message>
-      <source>Cannot Start Qv2ray</source>
-      <translation>無法啟動 Qv2ray</translation>
+      <source>Cannot Start Plumbum</source>
+      <translation>無法啟動 Plumbum</translation>
     </message>
     <message>
       <source>Cannot find a place to store config files.</source>
       <translation>找不到保存配置文件的地方。</translation>
     </message>
     <message>
-      <source>Qv2ray has searched these paths below:</source>
-      <translation>Qv2ray 搜索了以下路徑：</translation>
+      <source>Plumbum has searched these paths below:</source>
+      <translation>Plumbum 搜索了以下路徑：</translation>
     </message>
     <message>
       <source>It usually means you don&apos;t have the write permission to all of those locations.</source>
       <translation>這通常意味著你對所有這些地方都沒有寫入權限。</translation>
     </message>
     <message>
-      <source>Qv2ray will now exit.</source>
-      <translation>Qv2ray將會退出</translation>
+      <source>Plumbum will now exit.</source>
+      <translation>Plumbum將會退出</translation>
     </message>
     <message>
-      <source>Failed to initialise Qv2ray</source>
-      <translation>Qv2ray 初始化失敗</translation>
+      <source>Failed to initialise Plumbum</source>
+      <translation>Plumbum 初始化失敗</translation>
     </message>
     <message>
       <source>Failed to determine the location of config file:</source>
       <translation>無法確定配置文件的位置：</translation>
     </message>
     <message>
-      <source>Qv2ray has found a config file, but it failed to be loaded due to some errors.</source>
-      <translation>Qv2ray 找到了一個配置文件，但由於一些錯誤未能加載。</translation>
+      <source>Plumbum has found a config file, but it failed to be loaded due to some errors.</source>
+      <translation>Plumbum 找到了一個配置文件，但由於一些錯誤未能加載。</translation>
     </message>
     <message>
-      <source>A workaround is to remove the this file and restart Qv2ray:</source>
-      <translation>解決方案是移除此文件並重新啟動 Qv2ray：</translation>
+      <source>A workaround is to remove the this file and restart Plumbum:</source>
+      <translation>解決方案是移除此文件並重新啟動 Plumbum：</translation>
     </message>
     <message>
       <source>Please report if you think it&apos;s a bug.</source>
       <translation>如果您認為它是一個bug，請回報。</translation>
     </message>
     <message>
-      <source>Qv2ray Cannot Continue</source>
-      <translation>Qv2ray 無法繼續</translation>
+      <source>Plumbum Cannot Continue</source>
+      <translation>Plumbum 無法繼續</translation>
     </message>
     <message>
-      <source>You are running a lower version of Qv2ray compared to the current config file.</source>
-      <translation>與當前配置文件相比，您正在運行一個較低版本的 Qv2ray。</translation>
+      <source>You are running a lower version of Plumbum compared to the current config file.</source>
+      <translation>與當前配置文件相比，您正在運行一個較低版本的 Plumbum。</translation>
     </message>
     <message>
       <source>Please check if there&apos;s an issue explaining about it.</source>
@@ -2372,12 +2372,12 @@ This option may be useful for some desktop environments without tray support.</s
       <translation>不支援的配置版本號：</translation>
     </message>
     <message>
-      <source>Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again.</source>
-      <translation>請先升級到 Qv2ray v2.0/v2.1 然後重試。</translation>
+      <source>Please upgrade firstly up to Plumbum v2.0/v2.1 and try again.</source>
+      <translation>請先升級到 Plumbum v2.0/v2.1 然後重試。</translation>
     </message>
     <message>
-      <source>Qv2ray has encountered an uncaught exception: </source>
-      <translation>Qv2ray 遇到未知異常：</translation>
+      <source>Plumbum has encountered an uncaught exception: </source>
+      <translation>Plumbum 遇到未知異常：</translation>
     </message>
     <message>
       <source>Please report a bug via Github with the file located here: </source>
@@ -2405,10 +2405,10 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
   </context>
   <context>
-    <name>Qv2ray::Qv2rayWidgetApplication</name>
+    <name>Plumbum::PlumbumWidgetApplication</name>
     <message>
-      <source>A new version of Qv2ray is starting:</source>
-      <translation>新版本 Qv2ray 正在啓動：</translation>
+      <source>A new version of Plumbum is starting:</source>
+      <translation>新版本 Plumbum 正在啓動：</translation>
     </message>
     <message>
       <source>New version information: </source>
@@ -2432,14 +2432,14 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
   </context>
   <context>
-    <name>Qv2ray::components::QvUpdateChecker</name>
+    <name>Plumbum::components::QvUpdateChecker</name>
     <message>
-      <source>Qv2ray Update</source>
-      <translation>Qv2ray 更新</translation>
+      <source>Plumbum Update</source>
+      <translation>Plumbum 更新</translation>
     </message>
   </context>
   <context>
-    <name>Qv2ray::components::plugins::QvPluginHost</name>
+    <name>Plumbum::components::plugins::QvPluginHost</name>
     <message>
       <source>Failed to load plugin</source>
       <translation>加載插件失敗</translation>
@@ -2457,20 +2457,20 @@ This option may be useful for some desktop environments without tray support.</s
       <translation>此插件是在不同版本的插件接口上構建的。</translation>
     </message>
     <message>
-      <source>Please contact the plugin provider or report the issue to Qv2ray Workgroup.</source>
-      <translation>請聯繫插件提供者或將問題報告到 Qv2ray 工作組。</translation>
+      <source>Please contact the plugin provider or report the issue to Plumbum Workgroup.</source>
+      <translation>請聯繫插件提供者或將問題報告到 Plumbum 工作組。</translation>
     </message>
     <message>
       <source>Enabling a plugin</source>
       <translation>啟用外掛程式</translation>
     </message>
     <message>
-      <source>The plugin will become fully functional after restarting Qv2ray.</source>
-      <translation>重新啟動 Qv2ray 後插件將完全啟用。</translation>
+      <source>The plugin will become fully functional after restarting Plumbum.</source>
+      <translation>重新啟動 Plumbum 後插件將完全啟用。</translation>
     </message>
   </context>
   <context>
-    <name>Qv2ray::core::handler::KernelInstanceHandler</name>
+    <name>Plumbum::core::handler::KernelInstanceHandler</name>
     <message>
       <source>There are other processes occupying the ports necessary to start the connection:</source>
       <translation>其他進程佔用了啟動連接所需的端口：</translation>
@@ -2489,7 +2489,7 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
   </context>
   <context>
-    <name>Qv2ray::core::handler::QvConfigHandler</name>
+    <name>Plumbum::core::handler::QvConfigHandler</name>
     <message>
       <source>Group: %1</source>
       <translation>分组: %1</translation>
@@ -2546,21 +2546,21 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
   </context>
   <context>
-    <name>Qv2ray::core::kernel::APIWorker</name>
+    <name>Plumbum::core::kernel::APIWorker</name>
     <message>
       <source>Failed to get statistics data, please check if V2Ray is running properly</source>
       <translation>無法獲取統計數據，請檢查 V2Ray 是否正常運行</translation>
     </message>
   </context>
   <context>
-    <name>Qv2ray::core::kernel::V2RayKernelInstance</name>
+    <name>Plumbum::core::kernel::V2RayKernelInstance</name>
     <message>
       <source>Core file is lacking executable permission for the current user.</source>
       <translation>核心文件缺少當前用戶的執行權限。</translation>
     </message>
     <message>
-      <source>Qv2ray tried to set, but failed because permission denied.</source>
-      <translation>Qv2ray 嘗試設置，但由於權限不足而失敗。</translation>
+      <source>Plumbum tried to set, but failed because permission denied.</source>
+      <translation>Plumbum 嘗試設置，但由於權限不足而失敗。</translation>
     </message>
     <message>
       <source>Check is skipped</source>
@@ -2620,7 +2620,7 @@ Maybe you have downloaded the wrong core?</source>
     </message>
   </context>
   <context>
-    <name>Qv2ray::ui::widgets::AutoCompleteTextEdit</name>
+    <name>Plumbum::ui::widgets::AutoCompleteTextEdit</name>
     <message>
       <source>You can not input space characters here.</source>
       <translation>此處不能輸入空格。</translation>
@@ -3784,8 +3784,8 @@ Maybe you have downloaded the wrong core?</source>
   <context>
     <name>MainWindowForm.ui</name>
     <message>
-      <source>Qv2ray</source>
-      <translation>Qv2ray</translation>
+      <source>Plumbum</source>
+      <translation>Plumbum</translation>
     </message>
   </context>
   <context>
@@ -3851,8 +3851,8 @@ Maybe you have downloaded the wrong core?</source>
   <context>
     <name>MainWindowWidget</name>
     <message>
-      <source>Qv2ray Utilities</source>
-      <translation>Qv2ray 工具</translation>
+      <source>Plumbum Utilities</source>
+      <translation>Plumbum 工具</translation>
     </message>
   </context>
   <context>

@@ -1,6 +1,6 @@
 #include "QvAutoLaunch.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -12,7 +12,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreServices/CoreServices.h>
 #endif
-namespace Qv2ray::components::autolaunch
+namespace Plumbum::components::autolaunch
 {
     //
     //  launchatlogin.cpp
@@ -195,7 +195,7 @@ namespace Qv2ray::components::autolaunch
                << QLatin1String("GenericName=") << QLatin1String("V2Ray Frontend") << NEWLINE //
                << QLatin1String("Exec=") << appCmdList.join(" ") << NEWLINE                   //
                << QLatin1String("Terminal=") << "false" << NEWLINE                            //
-               << QLatin1String("Icon=") << "qv2ray" << NEWLINE                               //
+               << QLatin1String("Icon=") << "plumbum" << NEWLINE                               //
                << QLatin1String("Categories=") << "Network" << NEWLINE                        //
                << QLatin1String("Type=") << "Application" << NEWLINE                          //
                << QLatin1String("StartupNotify=") << "false" << NEWLINE                       //
@@ -206,8 +206,8 @@ namespace Qv2ray::components::autolaunch
         else
         {
             QFile::remove(desktopFileLocation);
-            QFile::remove(desktopFileLocation.replace("qv2ray", "Qv2ray"));
+            QFile::remove(desktopFileLocation.replace("plumbum", "Plumbum"));
         }
     }
 #endif
-} // namespace Qv2ray::components::autolaunch
+} // namespace Plumbum::components::autolaunch

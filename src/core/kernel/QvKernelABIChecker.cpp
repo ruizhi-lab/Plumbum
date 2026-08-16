@@ -2,13 +2,13 @@
 
 #include <iostream>
 
-#if QV2RAY_FEATURE(kernel_check_abi)
+#if PLUMBUM_FEATURE(kernel_check_abi)
 
-namespace Qv2ray::core::kernel::abi
+namespace Plumbum::core::kernel::abi
 {
     QvKernelABICompatibility checkCompatibility(QvKernelABIType hostType, QvKernelABIType targetType)
     {
-#ifndef QV2RAY_TRUSTED_ABI
+#ifndef PLUMBUM_TRUSTED_ABI
         switch (hostType)
         {
             case ABI_WIN32:
@@ -28,7 +28,7 @@ namespace Qv2ray::core::kernel::abi
 
     std::pair<std::optional<QvKernelABIType>, std::optional<QString>> deduceKernelABI(const QString &pathCoreExecutable)
     {
-#ifdef QV2RAY_TRUSTED_ABI
+#ifdef PLUMBUM_TRUSTED_ABI
         return { QvKernelABIType::ABI_TRUSTED, std::nullopt };
 #else
         QFile file(pathCoreExecutable);
@@ -83,6 +83,6 @@ namespace Qv2ray::core::kernel::abi
             default: return QObject::tr("unknown abi");
         }
     }
-} // namespace Qv2ray::core::kernel::abi
+} // namespace Plumbum::core::kernel::abi
 
 #endif

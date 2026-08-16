@@ -111,9 +111,9 @@
        <item row="0" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
-          <widget class="QCheckBox" name="hideQv2rayCB">
+          <widget class="QCheckBox" name="hidePlumbumCB">
            <property name="text">
-            <string>Hide Qv2ray</string>
+            <string>Hide Plumbum</string>
            </property>
           </widget>
          </item>

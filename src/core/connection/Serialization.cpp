@@ -3,7 +3,7 @@
 #include "Generation.hpp"
 #include "core/handler/ConfigHandler.hpp"
 
-namespace Qv2ray::core::connection
+namespace Plumbum::core::connection
 {
     namespace serialization
     {
@@ -75,7 +75,7 @@ namespace Qv2ray::core::connection
             auto alias = GetDisplayName(identifier.connectionId);
             if (IsComplexConfig(identifier.connectionId))
             {
-                return QV2RAY_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER;
+                return PLUMBUM_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER;
             }
             auto server = ConnectionManager->GetConnectionRoot(identifier.connectionId);
             return ConvertConfigToString(alias, GetDisplayName(identifier.groupId), server, isSip002);
@@ -120,4 +120,4 @@ namespace Qv2ray::core::connection
         }
 
     } // namespace serialization
-} // namespace Qv2ray::core::connection
+} // namespace Plumbum::core::connection

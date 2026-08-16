@@ -61,7 +61,7 @@
 #include <QToolTip>
 #include <QtDebug>
 
-namespace Qv2ray::ui::widgets
+namespace Plumbum::ui::widgets
 {
     AutoCompleteTextEdit::AutoCompleteTextEdit(const QString &prefix, const QStringList &sourceStrings, QWidget *parent) : QPlainTextEdit(parent)
     {
@@ -164,4 +164,4 @@ namespace Qv2ray::ui::widgets
         cr.setWidth(c->popup()->sizeHintForColumn(0) + c->popup()->verticalScrollBar()->sizeHint().width());
         c->complete(cr); // popup it up!
     }
-} // namespace Qv2ray::ui::widgets
+} // namespace Plumbum::ui::widgets

@@ -92,7 +92,7 @@ OUTBOUND OutboundEditor::generateConnectionJson()
             widget->SetHostAddress(serverAddress, serverPort);
             settings = OUTBOUNDSETTING(widget->GetContent());
             const auto prop = widget->property("");
-            const auto hasStreamSettings = GetProperty(widget, "QV2RAY_INTERNAL_HAS_STREAMSETTINGS");
+            const auto hasStreamSettings = GetProperty(widget, "PLUMBUM_INTERNAL_HAS_STREAMSETTINGS");
             if (!hasStreamSettings)
                 streaming = {};
             processed = true;
@@ -105,7 +105,7 @@ OUTBOUND OutboundEditor::generateConnectionJson()
                          tr("The specified outbound type is not supported, this may happen due to a plugin failure."));
     }
     auto root = GenerateOutboundEntry(tag, outboundType, settings, streaming, muxConfig);
-    root[QV2RAY_USE_FPROXY_KEY] = useForwardProxy;
+    root[PLUMBUM_USE_FPROXY_KEY] = useForwardProxy;
     return root;
 }
 
@@ -115,7 +115,7 @@ void OutboundEditor::reloadGUI()
     tagTxt->setText(tag);
     outboundType = originalConfig["protocol"].toString("vmess");
     muxConfig = originalConfig.contains("mux") ? originalConfig["mux"].toObject() : QJsonObject{};
-    useForwardProxy = originalConfig[QV2RAY_USE_FPROXY_KEY].toBool(false);
+    useForwardProxy = originalConfig[PLUMBUM_USE_FPROXY_KEY].toBool(false);
     streamSettingsWidget->SetStreamObject(StreamSettingsObject::fromJson(originalConfig["streamSettings"].toObject()));
     //
     useFPCB->setChecked(useForwardProxy);
@@ -193,8 +193,8 @@ void OutboundEditor::on_outBoundTypeCombo_currentIndexChanged(int)
     if (!newWidget)
         return;
     outboundTypeStackView->setCurrentWidget(newWidget);
-    const auto hasStreamSettings = GetProperty(newWidget, "QV2RAY_INTERNAL_HAS_STREAMSETTINGS");
-    const auto hasForwardProxy = GetProperty(newWidget, "QV2RAY_INTERNAL_HAS_FORWARD_PROXY");
+    const auto hasStreamSettings = GetProperty(newWidget, "PLUMBUM_INTERNAL_HAS_STREAMSETTINGS");
+    const auto hasForwardProxy = GetProperty(newWidget, "PLUMBUM_INTERNAL_HAS_FORWARD_PROXY");
     streamSettingsWidget->setEnabled(hasStreamSettings);
     useFPCB->setEnabled(hasForwardProxy);
     if (!hasForwardProxy)

@@ -7,8 +7,8 @@
 VlessOutboundEditor::VlessOutboundEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
-    setProperty("QV2RAY_INTERNAL_HAS_STREAMSETTINGS", true);
-    setProperty("QV2RAY_INTERNAL_HAS_FORWARD_PROXY", true);
+    setProperty("PLUMBUM_INTERNAL_HAS_STREAMSETTINGS", true);
+    setProperty("PLUMBUM_INTERNAL_HAS_FORWARD_PROXY", true);
 }
 
 void VlessOutboundEditor::changeEvent(QEvent *e)

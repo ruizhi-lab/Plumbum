@@ -12,7 +12,7 @@
          <uid>{6035e8ea-cf65-4a95-b11b-59d640802d5e}</uid>
         </MElement>
        </base-MElement>
-       <name>Qv2ray-config-models</name>
+       <name>Plumbum-config-models</name>
        <children>
         <handles>
          <handles>
@@ -32,7 +32,7 @@
                       <uid>{0a303cb9-6681-4f79-9779-e61a34ac44ea}</uid>
                      </MElement>
                     </base-MElement>
-                    <name>Qv2ray-config-models</name>
+                    <name>Plumbum-config-models</name>
                    </MObject>
                   </base-MObject>
                   <elements>

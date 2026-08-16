@@ -1,10 +1,10 @@
-qv2ray (2.7.0~pre1-1) unstable; urgency=medium
+plumbum (2.7.0~pre1-1) unstable; urgency=medium
 
   * New upstream release 2.7.0-pre1
 
  -- Guobang Bi <ymshenyu@gmail.com>  Thu, 05 Nov 2020 10:15:00 +0800
 
-qv2ray (2.7.0~alpha3-1) unstable; urgency=medium
+plumbum (2.7.0~alpha3-1) unstable; urgency=medium
 
   * New upstream release 2.7.0-alpha3
     * add: added connection template settings entry
@@ -12,13 +12,13 @@ qv2ray (2.7.0~alpha3-1) unstable; urgency=medium
     * update backend.cmake
     * 😢
     * fallback to pkgconfig if gRPC doesn't build by cmake
-    * update build-qv2ray-cmake.yml
+    * update build-plumbum-cmake.yml
     * use find_package method to find gRPC for macOS
     * fix: remove h2 in ALPN
     * fix: fixed build
     * add: added importing all connections, closes #1003
     * fix: fixed build and cleanup
-    * update: update Qv2rayApplicationInterface interface
+    * update: update PlumbumApplicationInterface interface
     * fix: use TextChanged instead of IndexChanged
     * rebuild: trigger rebuild
     * version: bumped version suffix
@@ -28,20 +28,20 @@ qv2ray (2.7.0~alpha3-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Mon, 19 Oct 2020 10:08:20 +0800
 
-qv2ray (2.7.0~alpha2-1) unstable; urgency=medium
+plumbum (2.7.0~alpha2-1) unstable; urgency=medium
 
   * New upstream release 2.7.0-alpha2
 
  -- Guobang Bi <ymshenyu@gmail.com>  Fri, 09 Oct 2020 10:56:01 +0800
 
-qv2ray (2.7.0~alpha1-1) unstable; urgency=medium
+plumbum (2.7.0~alpha1-1) unstable; urgency=medium
 
   * New upstream release 2.7.0-alpha1
-  	* see details on https://www.github.com/Qv2ray/Qv2ray
+  	* see details on https://www.github.com/Plumbum/Plumbum
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sat, 19 Sep 2020 21:58:53 +0800
 
-qv2ray (2.6.3-1) unstable; urgency=medium
+plumbum (2.6.3-1) unstable; urgency=medium
 
   * add: added support for VLESS
   * add: support collapse all groups in one click
@@ -50,7 +50,7 @@ qv2ray (2.6.3-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Tue, 04 Aug 2020 20:37:13 +0800
 
-qv2ray (2.6.2-1) unstable; urgency=medium
+plumbum (2.6.2-1) unstable; urgency=medium
 
   * fix: changed VMess default user alterId to 32
   * add: enhanced StackTrace helper to collect more relavent data
@@ -59,7 +59,7 @@ qv2ray (2.6.2-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Mon, 20 Jul 2020 10:38:16 +0800
 
-qv2ray (2.6.1-1) unstable; urgency=medium
+plumbum (2.6.1-1) unstable; urgency=medium
 
   * fix: should not edit GroupManager tablewidget
   * fix: fixed connection import/export with unwanted content (Closes #771)
@@ -68,35 +68,35 @@ qv2ray (2.6.1-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Mon, 13 Jul 2020 09:37:27 +0800
 
-qv2ray (2.6.0-1) unstable; urgency=medium
+plumbum (2.6.0-1) unstable; urgency=medium
 
   * New Release 2.6.0
 
  -- Guobang Bi <ymshenyu@gmail.com>  Thu, 09 Jul 2020 22:04:57 +0800
 
-qv2ray (2.6.0~rc6-1) unstable; urgency=medium
+plumbum (2.6.0~rc6-1) unstable; urgency=medium
 
   * New Release 2.6.0-rc6
 
  -- Guobang Bi <ymshenyu@gmail.com>  Wed, 08 Jul 2020 21:43:01 +0800
 
-qv2ray (2.6.0~rc5-1) unstable; urgency=medium
+plumbum (2.6.0~rc5-1) unstable; urgency=medium
 
   * New Release 2.6.0-rc5
 
  -- Guobang Bi <ymshenyu@gmail.com>  Mon, 06 Jul 2020 17:37:41 +0800
 
-qv2ray (2.6.0~rc4-1) unstable; urgency=medium
+plumbum (2.6.0~rc4-1) unstable; urgency=medium
 
   * fix: fixed ssd:// order issue, fixed #635
   * add: remove connections via delete key
-  * add: added qv2ray://
-  * add: use env QV2RAY_CONFIG_PATH to specify config path, make darkmode theme cross-platform, refactor
-  * add: introducing Qv2rayApplication
+  * add: added plumbum://
+  * add: use env PLUMBUM_CONFIG_PATH to specify config path, make darkmode theme cross-platform, refactor
+  * add: introducing PlumbumApplication
 
  -- Guobang Bi <ymshenyu@gmail.com>  Thu, 18 Jun 2020 16:10:05 +0800
 
-qv2ray (2.6.0~rc3-1) unstable; urgency=medium
+plumbum (2.6.0~rc3-1) unstable; urgency=medium
 
   * add: added DNS Settings and GroupRouteManager
   * fix: bgcolor can't switch to default when swiching to flatwhite/psblack and then back to breeze or other
@@ -110,7 +110,7 @@ qv2ray (2.6.0~rc3-1) unstable; urgency=medium
   
  -- Guobang Bi <ymshenyu@gmail.com>  Wed, 27 May 2020 18:17:03 +0800
 
-qv2ray (2.6.0~rc2-1) unstable; urgency=medium
+plumbum (2.6.0~rc2-1) unstable; urgency=medium
 
   * fix: fixed tcping message
   * refactor: refactored auto update algorithm
@@ -119,7 +119,7 @@ qv2ray (2.6.0~rc2-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Mon, 18 May 2020 12:01:50 +0800
 
-qv2ray (2.6.0~rc1-1) unstable; urgency=medium
+plumbum (2.6.0~rc1-1) unstable; urgency=medium
 
   * NTP Check
   * Port Detection
@@ -130,7 +130,7 @@ qv2ray (2.6.0~rc1-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sun, 17 May 2020 20:23:35 +0800
 
-qv2ray (2.5.0-1) unstable; urgency=medium
+plumbum (2.5.0-1) unstable; urgency=medium
 
   * updating translations
   * add: added Latency Test on the connection list RCM, fixed #539
@@ -141,16 +141,16 @@ qv2ray (2.5.0-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sun, 26 Apr 2020 19:03:35 +0800
 
-qv2ray (2.5.0~rc1-1) unstable; urgency=medium
+plumbum (2.5.0~rc1-1) unstable; urgency=medium
 
   * add dns intercept and route for tproxy
   * prevent loopback
   * fix: allow dns outbound have mark too
-  * fix: refactored Qv2ray Proxy settings
+  * fix: refactored Plumbum Proxy settings
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sat, 25 Apr 2020 10:29:07 +0800
 
-qv2ray (2.5.0~pre2-1) unstable; urgency=medium
+plumbum (2.5.0~pre2-1) unstable; urgency=medium
 
   * fix: skip saving config when importing multiple connection configs
   * add: ignore updating subscription by setting interval to 0
@@ -160,7 +160,7 @@ qv2ray (2.5.0~pre2-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sat, 11 Apr 2020 23:12:20 +0800
 
-qv2ray (2.4.1-1) unstable; urgency=medium
+plumbum (2.4.1-1) unstable; urgency=medium
 
   * add: add new semver checker
   * add: added support of ssd:// fixed #372
@@ -170,7 +170,7 @@ qv2ray (2.4.1-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Wed, 01 Apr 2020 14:51:15 +0800
 
-qv2ray (2.4.0~pre1-1) unstable; urgency=medium
+plumbum (2.4.0~pre1-1) unstable; urgency=medium
 
   * change: ported to zxing-cpp
   * fixed: fixed #else condition in DISABLE_AUTO_UPDATE
@@ -178,19 +178,19 @@ qv2ray (2.4.0~pre1-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Fri, 27 Mar 2020 23:15:16 +0800
 
-qv2ray (2.3.2-1) unstable; urgency=medium
+plumbum (2.3.2-1) unstable; urgency=medium
 
   * Fix Strange Button Length
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sun, 22 Mar 2020 20:33:31 +0800
 
-qv2ray (2.3.1-1) unstable; urgency=medium
+plumbum (2.3.1-1) unstable; urgency=medium
 
   * fixed file loading if a source file was not in UTF-8
 
  -- Guobang Bi <ymshenyu@gmail.com>  Sat, 21 Mar 2020 08:50:17 +0800
 
-qv2ray (2.3.0-1) unstable; urgency=medium
+plumbum (2.3.0-1) unstable; urgency=medium
 
   * misc ui tweaks
   * fully support setting the block,proxy,direct geosite/plain domains
@@ -198,7 +198,7 @@ qv2ray (2.3.0-1) unstable; urgency=medium
 
  -- Guobang Bi <ymshenyu@gmail.com>  Fri, 20 Mar 2020 22:26:20 +0800
 
-qv2ray (2.2.3-1) unstable; urgency=medium
+plumbum (2.2.3-1) unstable; urgency=medium
 
   * Initial release
 

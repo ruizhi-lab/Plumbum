@@ -1,14 +1,14 @@
-#include "base/Qv2rayBaseApplication.hpp"
-using namespace Qv2ray;
+#include "base/PlumbumBaseApplication.hpp"
+using namespace Plumbum;
 int fakeArgc = 0;
 char *fakeArgv[]{};
 
 class QvTestApplication
     : public QCoreApplication
-    , public Qv2rayApplicationInterface
+    , public PlumbumApplicationInterface
 {
   public:
-    explicit QvTestApplication() : QCoreApplication(fakeArgc, fakeArgv), Qv2rayApplicationInterface(){};
+    explicit QvTestApplication() : QCoreApplication(fakeArgc, fakeArgv), PlumbumApplicationInterface(){};
     virtual void MessageBoxWarn(QWidget *, const QString &, const QString &) override{};
     virtual void MessageBoxInfo(QWidget *, const QString &, const QString &) override{};
     virtual MessageOpt MessageBoxAsk(QWidget *, const QString &, const QString &, const QList<MessageOpt> &) override

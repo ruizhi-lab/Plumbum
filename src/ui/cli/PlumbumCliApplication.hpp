@@ -1,15 +1,15 @@
-#include "base/Qv2rayBaseApplication.hpp"
-#include "src/ui/Qv2rayPlatformApplication.hpp"
+#include "base/PlumbumBaseApplication.hpp"
+#include "src/ui/PlumbumPlatformApplication.hpp"
 
-namespace Qv2ray
+namespace Plumbum
 {
-    class Qv2rayCliApplication : public Qv2rayPlatformApplication
+    class PlumbumCliApplication : public PlumbumPlatformApplication
     {
         Q_OBJECT
       public:
-        explicit Qv2rayCliApplication(int &argc, char *argv[]);
+        explicit PlumbumCliApplication(int &argc, char *argv[]);
         QStringList checkPrerequisitesInternal() override;
-        Qv2rayExitReason runQv2rayInternal() override;
+        PlumbumExitReason runPlumbumInternal() override;
 
       public:
         void MessageBoxWarn(QWidget *, const QString &, const QString &) override
@@ -28,16 +28,16 @@ namespace Qv2ray
 
       private:
         void terminateUIInternal() override;
-#ifndef QV2RAY_NO_SINGLEAPPLICATON
+#ifndef PLUMBUM_NO_SINGLEAPPLICATON
         void onMessageReceived(quint32 clientID, QByteArray msg) override;
 #endif
     };
 
-#ifdef Qv2rayApplication
-#undef Qv2rayApplication
+#ifdef PlumbumApplication
+#undef PlumbumApplication
 #endif
 
-#define Qv2rayApplication Qv2rayCliApplication
-#define QvCliApplication static_cast<Qv2rayCliApplication *>(qApp)
+#define PlumbumApplication PlumbumCliApplication
+#define QvCliApplication static_cast<PlumbumCliApplication *>(qApp)
 
-} // namespace Qv2ray
+} // namespace Plumbum

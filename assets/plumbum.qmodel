@@ -12,7 +12,7 @@
          <uid>{1fbb5f76-94d9-4a40-9ebe-a30cbbf63220}</uid>
         </MElement>
        </base-MElement>
-       <name>Qv2ray</name>
+       <name>Plumbum</name>
        <children>
         <handles>
          <handles>
@@ -32,7 +32,7 @@
                       <uid>{5d758152-dfff-4d98-b146-4b6e36bdabce}</uid>
                      </MElement>
                     </base-MElement>
-                    <name>Qv2ray Project</name>
+                    <name>Plumbum Project</name>
                    </MObject>
                   </base-MObject>
                   <elements>
@@ -45,7 +45,7 @@
                          <uid>{f6ee22ba-16b8-4eda-a555-6f07146a95bd}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>Qv2ray Main Application</text>
+                       <text>Plumbum Main Application</text>
                        <pos>x:325;y:300</pos>
                        <rect>x:-265;y:-250;w:530;h:500</rect>
                       </DBoundary>
@@ -81,7 +81,7 @@
                          <uid>{7c54c0a5-fe32-4d79-a5a3-34271c3e546e}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>Qv2ray Main Application</text>
+                       <text>Plumbum Main Application</text>
                        <pos>x:325;y:300</pos>
                        <rect>x:-265;y:-250;w:530;h:500</rect>
                       </DBoundary>

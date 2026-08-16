@@ -1,19 +1,19 @@
 #include "UpdateChecker.hpp"
 
 #include "3rdparty/libsemver/version.hpp"
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "core/settings/SettingsBackend.hpp"
 #include "utils/HTTPRequestHelper.hpp"
 #include "utils/QvHelpers.hpp"
 
 const inline QMap<int, QString> UpdateChannelLink //
     {
-        { 0, "https://api.github.com/repos/Qv2ray/Qv2ray/releases/latest" },    //
-        { 1, "https://api.github.com/repos/Qv2ray/Qv2ray/releases?per_page=1" } //
+        { 0, "https://api.github.com/repos/Plumbum/Plumbum/releases/latest" },    //
+        { 1, "https://api.github.com/repos/Plumbum/Plumbum/releases?per_page=1" } //
     };
 #define QV_MODULE_NAME "Update"
 
-namespace Qv2ray::components
+namespace Plumbum::components
 {
     QvUpdateChecker::QvUpdateChecker(QObject *parent) : QObject(parent)
     {
@@ -26,7 +26,7 @@ namespace Qv2ray::components
     void QvUpdateChecker::CheckUpdate()
     {
 #ifndef DISABLE_AUTO_UPDATE
-        if (QFile(QV2RAY_CONFIG_DIR + "QV2RAY_FEATURE_DISABLE_AUTO_UPDATE").exists())
+        if (QFile(PLUMBUM_CONFIG_DIR + "PLUMBUM_FEATURE_DISABLE_AUTO_UPDATE").exists())
             return;
         const auto &updateChannel = GlobalConfig.updateConfig.updateChannel;
         LOG("Start checking update for channel ID: " + QSTRN(updateChannel));
@@ -43,7 +43,7 @@ namespace Qv2ray::components
             return;
 
         const auto newVersionStr = root["tag_name"].toString("v").mid(1);
-        const auto currentVersionStr = QString(QV2RAY_VERSION_STRING);
+        const auto currentVersionStr = QString(PLUMBUM_VERSION_STRING);
         const auto ignoredVersionStr = GlobalConfig.updateConfig.ignoredVersion.isEmpty() ? "0.0.0" : GlobalConfig.updateConfig.ignoredVersion;
         //
         bool hasUpdate = false;
@@ -75,12 +75,12 @@ namespace Qv2ray::components
             }
             const auto link = root["html_url"].toString("");
             const auto versionMessage =
-                QString("A new version of Qv2ray has been found:" NEWLINE "v%1" NEWLINE NEWLINE "%2" NEWLINE "------------" NEWLINE "%3")
+                QString("A new version of Plumbum has been found:" NEWLINE "v%1" NEWLINE NEWLINE "%2" NEWLINE "------------" NEWLINE "%3")
                     .arg(newVersionStr)
                     .arg(name)
                     .arg(root["body"].toString());
 
-            const auto result = QvMessageBoxAsk(nullptr, tr("Qv2ray Update"), versionMessage, { Yes, No, Ignore });
+            const auto result = QvMessageBoxAsk(nullptr, tr("Plumbum Update"), versionMessage, { Yes, No, Ignore });
             if (result == Yes)
             {
                 QvCoreApplication->OpenURL(link);
@@ -97,4 +97,4 @@ namespace Qv2ray::components
             LOG("No suitable updates found on channel " + QSTRN(GlobalConfig.updateConfig.updateChannel));
         }
     }
-} // namespace Qv2ray::components
+} // namespace Plumbum::components

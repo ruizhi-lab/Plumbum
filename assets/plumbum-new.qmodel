@@ -12,7 +12,7 @@
          <uid>{fffb726b-5aa7-48bd-943f-58d956367038}</uid>
         </MElement>
        </base-MElement>
-       <name>Qv2ray-new</name>
+       <name>Plumbum-new</name>
        <children>
         <handles>
          <handles>
@@ -32,7 +32,7 @@
                       <uid>{370e74be-62e3-4d96-a911-122a41cca49f}</uid>
                      </MElement>
                     </base-MElement>
-                    <name>Qv2ray-new</name>
+                    <name>Plumbum-new</name>
                    </MObject>
                   </base-MObject>
                   <elements>
@@ -45,7 +45,7 @@
                          <uid>{5d6a4dd6-8e17-4482-833c-9ce7c42972ba}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>Qv2ray Main Application</text>
+                       <text>Plumbum Main Application</text>
                        <pos>x:460;y:460</pos>
                        <rect>x:-355;y:-345;w:710;h:690</rect>
                       </DBoundary>
@@ -1069,7 +1069,7 @@ emit Reload Signal</text>
                          <uid>{e08bfec6-8ca5-45e9-8909-524ea035f730}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>libqv2ray (just an abstraction, not to split)</text>
+                       <text>libplumbum (just an abstraction, not to split)</text>
                        <pos>x:600;y:355</pos>
                        <rect>x:-205;y:-210;w:410;h:420</rect>
                       </DBoundary>

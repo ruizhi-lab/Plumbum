@@ -11,14 +11,14 @@
 #endif
 #include "uvw.hpp"
 
-namespace Qv2ray::components::latency
+namespace Plumbum::components::latency
 {
 
     LatencyTestThread::LatencyTestThread(QObject *parent) : QThread(parent)
     {
     }
 
-    void LatencyTestThread::pushRequest(const ConnectionId &id, int totalTestCount, Qv2rayLatencyTestingMethod method)
+    void LatencyTestThread::pushRequest(const ConnectionId &id, int totalTestCount, PlumbumLatencyTestingMethod method)
     {
         if (isStop)
             return;
@@ -91,7 +91,7 @@ namespace Qv2ray::components::latency
         stopTimer->start(uvw::TimerHandle::Time{ 500 }, uvw::TimerHandle::Time{ 500 });
         loop->run();
     }
-    void LatencyTestThread::pushRequest(const QList<ConnectionId> &ids, int totalTestCount, Qv2rayLatencyTestingMethod method)
+    void LatencyTestThread::pushRequest(const QList<ConnectionId> &ids, int totalTestCount, PlumbumLatencyTestingMethod method)
     {
         if (isStop)
             return;
@@ -102,4 +102,4 @@ namespace Qv2ray::components::latency
             requests.emplace_back(LatencyTestRequest{ id, host, port, totalTestCount, method });
         }
     }
-} // namespace Qv2ray::components::latency
+} // namespace Plumbum::components::latency

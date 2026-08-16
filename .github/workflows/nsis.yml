@@ -1,4 +1,4 @@
-name: Qv2ray Windows Installer
+name: Plumbum Windows Installer
 
 on:
   push:
@@ -37,8 +37,8 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     env:
-      _QV2RAY_BUILD_INFO_: "Qv2ray built from Github Action"
-      _QV2RAY_BUILD_EXTRA_INFO_: "qt${{ matrix.qt_version }}-${{ github.sha }}-ci.${{ matrix.platform }}"
+      _PLUMBUM_BUILD_INFO_: "Plumbum built from Github Action"
+      _PLUMBUM_BUILD_EXTRA_INFO_: "qt${{ matrix.qt_version }}-${{ github.sha }}-ci.${{ matrix.platform }}"
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
@@ -59,7 +59,7 @@ jobs:
       - name: Install MSVC compiler
         uses: ilammy/msvc-dev-cmd@v1
         with:
-          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Qv2ray-deps repo
+          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Plumbum-deps repo
           toolset: 14.2
           arch: ${{ matrix.arch }}
       - name: Cache Qt
@@ -101,11 +101,11 @@ jobs:
         shell: bash
         id: get_package
         run: |
-          echo ::set-output name=NAME::$(basename build/qv2ray-*.exe)
+          echo ::set-output name=NAME::$(basename build/plumbum-*.exe)
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - uploading artifact
         uses: actions/upload-artifact@master
         with:
-          name: Qv2ray-${{ github.sha }}.Windows-${{ matrix.arch }}.qt${{ matrix.qt_version }}.exe
+          name: Plumbum-${{ github.sha }}.Windows-${{ matrix.arch }}.qt${{ matrix.qt_version }}.exe
           path: build/${{ steps.get_package.outputs.NAME }}
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release

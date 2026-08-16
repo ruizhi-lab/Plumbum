@@ -1,10 +1,10 @@
 #pragma once
 #include "DNSBase.hpp"
 #include "LatencyTest.hpp"
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 #include <type_traits>
-namespace Qv2ray::components::latency::tcping
+namespace Plumbum::components::latency::tcping
 {
     class TCPing : public DNSBase<TCPing>
     {
@@ -18,4 +18,4 @@ namespace Qv2ray::components::latency::tcping
         void ping() override;
         void notifyTestHost();
     };
-} // namespace Qv2ray::components::latency::tcping
+} // namespace Plumbum::components::latency::tcping

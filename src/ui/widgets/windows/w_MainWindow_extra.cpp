@@ -1,5 +1,5 @@
 #include "components/proxy/QvProxyConfigurator.hpp"
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
+#include "ui/widgets/PlumbumWidgetApplication.hpp"
 #include "ui/widgets/common/WidgetUIBase.hpp"
 #include "utils/QvHelpers.hpp"
 #include "w_MainWindow.hpp"
@@ -28,7 +28,7 @@ void MainWindow::MWToggleVisibility()
 
 void MainWindow::MWShowWindow()
 {
-#if QV2RAY_FEATURE(ui_has_store_state)
+#if PLUMBUM_FEATURE(ui_has_store_state)
     RestoreState();
 #endif
     this->show();
@@ -51,7 +51,7 @@ void MainWindow::MWHideWindow()
     ProcessSerialNumber psn = { 0, kCurrentProcess };
     TransformProcessType(&psn, kProcessTransformToUIElementApplication);
 #endif
-#if QV2RAY_FEATURE(ui_has_store_state)
+#if PLUMBUM_FEATURE(ui_has_store_state)
     SaveState();
 #endif
     this->hide();
@@ -194,28 +194,28 @@ void MainWindow::updateColorScheme()
 {
     qvAppTrayIcon->setIcon(KernelInstance->CurrentConnection().isEmpty() ? Q_TRAYICON("tray") : Q_TRAYICON("tray-connected"));
     //
-    importConfigButton->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
-    updownImageBox->setStyleSheet("image: url(" + QV2RAY_COLORSCHEME_FILE("netspeed_arrow") + ")");
-    updownImageBox_2->setStyleSheet("image: url(" + QV2RAY_COLORSCHEME_FILE("netspeed_arrow") + ")");
+    importConfigButton->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
+    updownImageBox->setStyleSheet("image: url(" + PLUMBUM_COLORSCHEME_FILE("netspeed_arrow") + ")");
+    updownImageBox_2->setStyleSheet("image: url(" + PLUMBUM_COLORSCHEME_FILE("netspeed_arrow") + ")");
     //
     tray_action_ToggleVisibility->setIcon(this->windowIcon());
 
-    action_RCM_Start->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("start")));
-    action_RCM_Edit->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("edit")));
-    action_RCM_EditJson->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("code")));
-    action_RCM_EditComplex->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("edit")));
-    action_RCM_DuplicateConnection->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("copy")));
-    action_RCM_DeleteConnection->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
-    action_RCM_ResetStats->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
-    action_RCM_TestLatency->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ping_gauge")));
-    action_RCM_RealLatencyTest->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ping_gauge")));
+    action_RCM_Start->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("start")));
+    action_RCM_Edit->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("edit")));
+    action_RCM_EditJson->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("code")));
+    action_RCM_EditComplex->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("edit")));
+    action_RCM_DuplicateConnection->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("copy")));
+    action_RCM_DeleteConnection->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
+    action_RCM_ResetStats->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
+    action_RCM_TestLatency->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ping_gauge")));
+    action_RCM_RealLatencyTest->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ping_gauge")));
     //
-    clearChartBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
-    clearlogButton->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
+    clearChartBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
+    clearlogButton->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
     //
-    locateBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("map")));
-    sortBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("arrow-down-filling")));
-    collapseGroupsBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("arrow-up")));
+    locateBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("map")));
+    sortBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("arrow-down-filling")));
+    collapseGroupsBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("arrow-up")));
 }
 
 void MainWindow::UpdateActionTranslations()
@@ -258,7 +258,7 @@ void MainWindow::UpdateActionTranslations()
     sortAction_SortByData_Dsc->setText(tr("By data, Descending"));
     //
     action_RCM_SwitchCoreLog->setText(tr("Switch to Core log"));
-    action_RCM_SwitchQv2rayLog->setText(tr("Switch to Qv2ray log"));
+    action_RCM_SwitchPlumbumLog->setText(tr("Switch to Plumbum log"));
     //
     action_RCM_CopyGraph->setText(tr("Copy graph as image."));
     action_RCM_CopyRecentLogs->setText(tr("Copy latest logs."));

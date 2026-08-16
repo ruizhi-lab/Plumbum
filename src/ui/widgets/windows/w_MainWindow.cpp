@@ -4,7 +4,7 @@
 #include "core/handler/ConfigHandler.hpp"
 #include "core/settings/SettingsBackend.hpp"
 #include "plugin-interface/QvGUIPluginInterface.hpp"
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
+#include "ui/widgets/PlumbumWidgetApplication.hpp"
 #include "ui/widgets/common/WidgetUIBase.hpp"
 #include "ui/widgets/editors/w_JsonEditor.hpp"
 #include "ui/widgets/editors/w_OutboundEditor.hpp"
@@ -20,7 +20,7 @@
 #include <QScrollBar>
 
 #define QV_MODULE_NAME "MainWindow"
-#define TRAY_TOOLTIP_PREFIX "Qv2ray " QV2RAY_VERSION_STRING
+#define TRAY_TOOLTIP_PREFIX "Plumbum " PLUMBUM_VERSION_STRING
 
 #define CheckCurrentWidget                                                                                                                           \
     auto widget = GetIndexWidget(connectionTreeView->currentIndex());                                                                                \
@@ -118,7 +118,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     //
     modelHelper = new ConnectionListHelper(connectionTreeView);
     //
-    this->setWindowIcon(QIcon(":/assets/icons/qv2ray.png"));
+    this->setWindowIcon(QIcon(":/assets/icons/plumbum.png"));
     updateColorScheme();
     UpdateActionTranslations();
     //
@@ -203,10 +203,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     logRCM_Menu->addAction(action_RCM_CopyRecentLogs);
     logRCM_Menu->addSeparator();
     logRCM_Menu->addAction(action_RCM_SwitchCoreLog);
-    logRCM_Menu->addAction(action_RCM_SwitchQv2rayLog);
+    logRCM_Menu->addAction(action_RCM_SwitchPlumbumLog);
     connect(masterLogBrowser, &QTextBrowser::customContextMenuRequested, [this](const QPoint &) { logRCM_Menu->popup(QCursor::pos()); });
     connect(action_RCM_SwitchCoreLog, &QAction::triggered, [this] { masterLogBrowser->setDocument(vCoreLogDocument); });
-    connect(action_RCM_SwitchQv2rayLog, &QAction::triggered, [this] { masterLogBrowser->setDocument(qvLogDocument); });
+    connect(action_RCM_SwitchPlumbumLog, &QAction::triggered, [this] { masterLogBrowser->setDocument(qvLogDocument); });
     connect(action_RCM_CopyRecentLogs, &QAction::triggered, this, &MainWindow::Action_CopyRecentLogs);
     connect(action_RCM_CopySelected, &QAction::triggered, masterLogBrowser, &QTextBrowser::copy);
     //
@@ -440,7 +440,7 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
     // Ctrl + Q = Exit
     else if (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_Q)
     {
-        if (QvMessageBoxAsk(this, tr("Quit Qv2ray"), tr("Are you sure to exit Qv2ray?")) == Yes)
+        if (QvMessageBoxAsk(this, tr("Quit Plumbum"), tr("Are you sure to exit Plumbum?")) == Yes)
             Action_Exit();
     }
     // Control + W = Close Window
@@ -484,7 +484,7 @@ void MainWindow::Action_Start()
 
 MainWindow::~MainWindow()
 {
-#if QV2RAY_FEATURE(ui_has_store_state)
+#if PLUMBUM_FEATURE(ui_has_store_state)
     SaveState();
 #endif
     delete modelHelper;

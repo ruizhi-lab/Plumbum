@@ -1,13 +1,13 @@
 #include "w_ScreenShot_Core.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "utils/QvHelpers.hpp"
 
 #include <QMessageBox>
 #include <QStyleFactory>
 #include <QThread>
 
-#define QV2RAY_SCREENSHOT_DIM_RATIO 0.6f
+#define PLUMBUM_SCREENSHOT_DIM_RATIO 0.6f
 
 ScreenShotWindow::ScreenShotWindow() : QDialog(), rubber(QRubberBand::Rectangle, this)
 {
@@ -51,9 +51,9 @@ QImage ScreenShotWindow::DoScreenShot()
     {
         for (int j = 0; j < h; j++)
         {
-            r = static_cast<int>(qRed(_xdesktopImg.pixel(i, j)) * QV2RAY_SCREENSHOT_DIM_RATIO);
-            g = static_cast<int>(qGreen(_xdesktopImg.pixel(i, j)) * QV2RAY_SCREENSHOT_DIM_RATIO);
-            b = static_cast<int>(qBlue(_xdesktopImg.pixel(i, j)) * QV2RAY_SCREENSHOT_DIM_RATIO);
+            r = static_cast<int>(qRed(_xdesktopImg.pixel(i, j)) * PLUMBUM_SCREENSHOT_DIM_RATIO);
+            g = static_cast<int>(qGreen(_xdesktopImg.pixel(i, j)) * PLUMBUM_SCREENSHOT_DIM_RATIO);
+            b = static_cast<int>(qBlue(_xdesktopImg.pixel(i, j)) * PLUMBUM_SCREENSHOT_DIM_RATIO);
             bg_grey.setPixel(i, j, qRgb(r, g, b));
         }
     }

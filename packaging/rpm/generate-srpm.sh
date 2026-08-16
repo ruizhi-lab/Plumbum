@@ -6,8 +6,8 @@ committish=${committish:-"dev"}
 pkgrel=${pkgrel:-"1"}
 # Install git-archive-all and initialize repository
 pip install git-archive-all
-git clone https://github.com/Qv2ray/Qv2ray.git
-pushd Qv2ray
+git clone https://github.com/Plumbum/Plumbum.git
+pushd Plumbum
 git checkout ${committish}
 # Get git and version specs
 TAG=$(git tag -l --points-at HEAD)
@@ -15,13 +15,13 @@ COMMIT=$(git rev-parse HEAD)
 VERSION=$(cat makespec/VERSION)
 VERSIONSUFFIX=$(cat makespec/VERSIONSUFFIX)
 # Generate spec variables
-rpm_name=qv2ray
+rpm_name=plumbum
 rpm_version=${VERSION}
 if [ -n "${TAG}" ]; then
-    rpm_name_version=Qv2ray-${TAG##v}
+    rpm_name_version=Plumbum-${TAG##v}
 else
     snapinfo=.$(git log -1 --format="%cd" --date=format:"%Y%m%d")git${COMMIT:0:7}
-    rpm_name_version=Qv2ray-${COMMIT}
+    rpm_name_version=Plumbum-${COMMIT}
 fi
 case "${VERSIONSUFFIX}" in
 "") ;;
@@ -37,14 +37,14 @@ esac
 rpm_release=${pkgrel}${extraver}${snapinfo}%{?dist}
 rpm_source0=${rpm_name_version}.tar.gz
 # Generate spec file
-# For early commits, the spec file template path is makespec/qv2ray.spec.in
+# For early commits, the spec file template path is makespec/plumbum.spec.in
 sed \
     -e "s/@NAME@/${rpm_name}/g" \
     -e "s/@VERSION@/${rpm_version}/g" \
     -e "s/@RELEASE@/${rpm_release}/g" \
     -e "s/@SOURCE0@/${rpm_source0}/g" \
     -e "s/@NAME_VERSION@/${rpm_name_version}/g" \
-    packaging/rpm/qv2ray.spec.in >../qv2ray.spec
+    packaging/rpm/plumbum.spec.in >../plumbum.spec
 # Generate source tarball
 git archive-all --force-submodules ../${rpm_source0}
 # Generate source rpm
@@ -52,6 +52,6 @@ popd
 rpmbuild \
     --define "_sourcedir $(pwd)" \
     --define "_srcrpmdir $(pwd)" \
-    -bs qv2ray.spec
+    -bs plumbum.spec
 # Clean working directory
-rm -rf Qv2ray
+rm -rf Plumbum

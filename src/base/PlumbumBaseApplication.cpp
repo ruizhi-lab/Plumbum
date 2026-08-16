@@ -1,4 +1,4 @@
-#include "Qv2rayBaseApplication.hpp"
+#include "PlumbumBaseApplication.hpp"
 
 #include "components/translations/QvTranslator.hpp"
 #include "core/settings/SettingsBackend.hpp"
@@ -10,41 +10,41 @@ inline QString makeAbs(const QString &p)
     return QDir(p).absolutePath();
 }
 
-Qv2rayApplicationInterface::Qv2rayApplicationInterface()
+PlumbumApplicationInterface::PlumbumApplicationInterface()
 {
-    ConfigObject = new Qv2rayConfigObject;
+    ConfigObject = new PlumbumConfigObject;
     QvCoreApplication = this;
-    LOG("Qv2ray", QV2RAY_VERSION_STRING, "on", QSysInfo::prettyProductName(), QSysInfo::currentCpuArchitecture());
-    DEBUG("Qv2ray Start Time: ", QTime::currentTime().msecsSinceStartOfDay());
-    DEBUG("QV2RAY_BUILD_INFO", QV2RAY_BUILD_INFO);
-    DEBUG("QV2RAY_BUILD_EXTRA_INFO", QV2RAY_BUILD_EXTRA_INFO);
-    DEBUG("QV2RAY_BUILD_NUMBER", QSTRN(QV2RAY_VERSION_BUILD));
+    LOG("Plumbum", PLUMBUM_VERSION_STRING, "on", QSysInfo::prettyProductName(), QSysInfo::currentCpuArchitecture());
+    DEBUG("Plumbum Start Time: ", QTime::currentTime().msecsSinceStartOfDay());
+    DEBUG("PLUMBUM_BUILD_INFO", PLUMBUM_BUILD_INFO);
+    DEBUG("PLUMBUM_BUILD_EXTRA_INFO", PLUMBUM_BUILD_EXTRA_INFO);
+    DEBUG("PLUMBUM_BUILD_NUMBER", QSTRN(PLUMBUM_VERSION_BUILD));
     QStringList licenseList;
     licenseList << "This program comes with ABSOLUTELY NO WARRANTY.";
     licenseList << "This is free software, and you are welcome to redistribute it";
     licenseList << "under certain conditions.";
-    licenseList << "Copyright (c) 2019-2021 Qv2ray Development Group.";
+    licenseList << "Copyright (c) 2019-2021 Plumbum Development Group.";
     licenseList << "Third-party libraries that have been used in this program can be found in the About page.";
     LOG(licenseList.join(NEWLINE));
 }
 
-Qv2rayApplicationInterface::~Qv2rayApplicationInterface()
+PlumbumApplicationInterface::~PlumbumApplicationInterface()
 {
     delete ConfigObject;
     QvCoreApplication = nullptr;
 }
 
-QStringList Qv2rayApplicationInterface::GetAssetsPaths(const QString &dirName) const
+QStringList PlumbumApplicationInterface::GetAssetsPaths(const QString &dirName) const
 {
     // Configuration Path
     QStringList list;
 
-    if (qEnvironmentVariableIsSet("QV2RAY_RESOURCES_PATH"))
-        list << makeAbs(qEnvironmentVariable("QV2RAY_RESOURCES_PATH") + "/" + dirName);
+    if (qEnvironmentVariableIsSet("PLUMBUM_RESOURCES_PATH"))
+        list << makeAbs(qEnvironmentVariable("PLUMBUM_RESOURCES_PATH") + "/" + dirName);
 
     // Default behavior on Windows
     list << makeAbs(QCoreApplication::applicationDirPath() + "/" + dirName);
-    list << makeAbs(QV2RAY_CONFIG_DIR + dirName);
+    list << makeAbs(PLUMBUM_CONFIG_DIR + dirName);
     list << ":/" + dirName;
 
     list << QStandardPaths::locateAll(QStandardPaths::AppDataLocation, dirName, QStandardPaths::LocateDirectory);
@@ -52,19 +52,19 @@ QStringList Qv2rayApplicationInterface::GetAssetsPaths(const QString &dirName) c
 
 #ifdef Q_OS_UNIX
     if (qEnvironmentVariableIsSet("APPIMAGE"))
-        list << makeAbs(QCoreApplication::applicationDirPath() + "/../share/qv2ray/" + dirName);
+        list << makeAbs(QCoreApplication::applicationDirPath() + "/../share/plumbum/" + dirName);
 
     if (qEnvironmentVariableIsSet("SNAP"))
-        list << makeAbs(qEnvironmentVariable("SNAP") + "/usr/share/qv2ray/" + dirName);
+        list << makeAbs(qEnvironmentVariable("SNAP") + "/usr/share/plumbum/" + dirName);
 
     if (qEnvironmentVariableIsSet("XDG_DATA_DIRS"))
         list << makeAbs(qEnvironmentVariable("XDG_DATA_DIRS") + "/" + dirName);
 
-    list << makeAbs("/usr/local/share/qv2ray/" + dirName);
-    list << makeAbs("/usr/local/lib/qv2ray/" + dirName);
-    list << makeAbs("/usr/share/qv2ray/" + dirName);
-    list << makeAbs("/usr/lib/qv2ray/" + dirName);
-    list << makeAbs("/lib/qv2ray/" + dirName);
+    list << makeAbs("/usr/local/share/plumbum/" + dirName);
+    list << makeAbs("/usr/local/lib/plumbum/" + dirName);
+    list << makeAbs("/usr/share/plumbum/" + dirName);
+    list << makeAbs("/usr/lib/plumbum/" + dirName);
+    list << makeAbs("/lib/plumbum/" + dirName);
 #endif
 
 #ifdef Q_OS_MAC

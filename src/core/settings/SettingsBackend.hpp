@@ -1,19 +1,19 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
-namespace Qv2ray::core::config
+namespace Plumbum::core::config
 {
     void SaveGlobalSettings();
     bool LocateConfiguration();
     void SetConfigDirPath(const QString &path);
     bool CheckSettingsPathAvailability(const QString &_path, bool checkExistingConfig);
-} // namespace Qv2ray::core::config
+} // namespace Plumbum::core::config
 
-namespace Qv2ray
+namespace Plumbum
 {
     // Extra header for QvConfigUpgrade.cpp
     QJsonObject UpgradeSettingsVersion(int fromVersion, int toVersion, const QJsonObject &root);
-} // namespace Qv2ray
+} // namespace Plumbum
 
-using namespace Qv2ray::core;
-using namespace Qv2ray::core::config;
+using namespace Plumbum::core;
+using namespace Plumbum::core::config;

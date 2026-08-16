@@ -5,7 +5,7 @@
 #include <QCoreApplication>
 #include <QObject>
 
-namespace Qv2ray
+namespace Plumbum
 {
     enum MessageOpt
     {
@@ -16,7 +16,7 @@ namespace Qv2ray
         Ignore
     };
 
-    enum Qv2rayExitReason
+    enum PlumbumExitReason
     {
         EXIT_NORMAL = 0,
         EXIT_NEW_VERSION_TRIGGER = EXIT_NORMAL,
@@ -25,12 +25,12 @@ namespace Qv2ray
         EXIT_PRECONDITION_FAILED = -2,
     };
 
-    struct Qv2rayStartupArguments
+    struct PlumbumStartupArguments
     {
         enum Argument
         {
             NORMAL = 0,
-            QV2RAY_LINK = 1,
+            PLUMBUM_LINK = 1,
             EXIT = 2,
             RECONNECT = 3,
             DISCONNECT = 4
@@ -46,22 +46,22 @@ namespace Qv2ray
         bool noAutoConnection;
         bool debugLog;
         bool noPlugins;
-        bool exitQv2ray;
+        bool exitPlumbum;
         //
         QString _qvNewVersionPath;
-        JSONSTRUCT_REGISTER(Qv2rayStartupArguments, F(arguments, data, version, links, fullArgs, buildVersion))
+        JSONSTRUCT_REGISTER(PlumbumStartupArguments, F(arguments, data, version, links, fullArgs, buildVersion))
     };
 
-    class Qv2rayApplicationInterface
+    class PlumbumApplicationInterface
     {
       public:
-        Qv2ray::base::config::Qv2rayConfigObject *ConfigObject;
+        Plumbum::base::config::PlumbumConfigObject *ConfigObject;
         QString ConfigPath;
-        Qv2rayStartupArguments StartupArguments;
+        PlumbumStartupArguments StartupArguments;
 
       public:
-        explicit Qv2rayApplicationInterface();
-        ~Qv2rayApplicationInterface();
+        explicit PlumbumApplicationInterface();
+        ~PlumbumApplicationInterface();
 
       public:
         virtual QStringList GetAssetsPaths(const QString &dirName) const final;
@@ -71,7 +71,7 @@ namespace Qv2ray
         virtual MessageOpt MessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &buttons) = 0;
         virtual void OpenURL(const QString &url) = 0;
     };
-    inline Qv2rayApplicationInterface *QvCoreApplication = nullptr;
-} // namespace Qv2ray
+    inline PlumbumApplicationInterface *QvCoreApplication = nullptr;
+} // namespace Plumbum
 
-#define GlobalConfig (*Qv2ray::QvCoreApplication->ConfigObject)
+#define GlobalConfig (*Plumbum::QvCoreApplication->ConfigObject)

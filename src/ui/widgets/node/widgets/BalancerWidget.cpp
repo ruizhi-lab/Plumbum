@@ -1,12 +1,12 @@
 #include "BalancerWidget.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 BalancerWidget::BalancerWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent) : QvNodeWidget(_dispatcher, parent)
 {
     setupUi(this);
-    balancerAddBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
-    balancerDelBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
+    balancerAddBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
+    balancerDelBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
     connect(dispatcher.get(), &NodeDispatcher::OnOutboundCreated, this, &BalancerWidget::OutboundCreated);
     connect(dispatcher.get(), &NodeDispatcher::OnOutboundDeleted, this, &BalancerWidget::OutboundDeleted);
     connect(dispatcher.get(), &NodeDispatcher::OnObjectTagChanged, this, &BalancerWidget::OnTagChanged);

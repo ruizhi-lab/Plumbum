@@ -381,7 +381,7 @@ This option may be useful for some desktop environments without tray support.</s
                </font>
               </property>
               <property name="text">
-               <string>These settings are used by Qv2ray itself.
+               <string>These settings are used by Plumbum itself.
 For example, for updating subscriptions.</string>
               </property>
               <property name="textFormat">
@@ -411,11 +411,11 @@ For example, for updating subscriptions.</string>
                <bool>true</bool>
               </property>
               <property name="text" stdset="0">
-               <string notr="true">Qv2ray/$VERSION WebRequestHelper</string>
+               <string notr="true">Plumbum/$VERSION WebRequestHelper</string>
               </property>
               <item>
                <property name="text">
-                <string notr="true">Qv2ray/$VERSION WebRequestHelper</string>
+                <string notr="true">Plumbum/$VERSION WebRequestHelper</string>
                </property>
               </item>
               <item>
@@ -481,7 +481,7 @@ For example, for updating subscriptions.</string>
             <item row="4" column="0">
              <widget class="QLabel" name="label_71">
               <property name="text">
-               <string>Qv2ray Proxy</string>
+               <string>Plumbum Proxy</string>
               </property>
               <property name="textFormat">
                <enum>Qt::PlainText</enum>
@@ -634,7 +634,7 @@ But could damage your server if improperly used.</string>
              <widget class="QCheckBox" name="setTestLatencyCB">
               <property name="toolTip">
                <string>Run TCPing or ICMPing periodically after connecting to a server.
-Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</string>
+Plumbum will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</string>
               </property>
               <property name="text">
                <string>Enabled</string>
@@ -944,7 +944,7 @@ Custom DNS Settings</string>
           <item row="3" column="0" colspan="2">
            <widget class="QLabel" name="label_63">
             <property name="text">
-             <string>Qv2ray will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</string>
+             <string>Plumbum will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</string>
             </property>
             <property name="textFormat">
              <enum>Qt::PlainText</enum>
@@ -2106,7 +2106,7 @@ Custom DNS Settings</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">image: url(:/assets/icons/qv2ray.png);</string>
+            <string notr="true">image: url(:/assets/icons/plumbum.png);</string>
            </property>
           </widget>
          </item>
@@ -2219,7 +2219,7 @@ Custom DNS Settings</string>
             </font>
            </property>
            <property name="text">
-            <string>Qv2ray</string>
+            <string>Plumbum</string>
            </property>
            <property name="textFormat">
             <enum>Qt::PlainText</enum>
@@ -2310,7 +2310,7 @@ Custom DNS Settings</string>
               </sizepolicy>
              </property>
              <property name="text">
-              <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a style=&quot; text-decoration: none; color:#2980b9;&quot; href=&quot;https://github.com/Qv2ray/Qv2ray&quot;&gt;https://github.com/Qv2ray/Qv2ray&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a style=&quot; text-decoration: none; color:#2980b9;&quot; href=&quot;https://github.com/Plumbum/Plumbum&quot;&gt;https://github.com/Plumbum/Plumbum&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="textFormat">
               <enum>Qt::RichText</enum>

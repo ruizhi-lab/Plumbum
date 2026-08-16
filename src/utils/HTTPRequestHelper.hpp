@@ -6,7 +6,7 @@
 #include <QObject>
 #include <functional>
 
-namespace Qv2ray::common::network
+namespace Plumbum::common::network
 {
     class NetworkRequestHelper : QObject
     {
@@ -22,6 +22,6 @@ namespace Qv2ray::common::network
         static void setAccessManagerAttributes(QNetworkRequest &request, QNetworkAccessManager &accessManager);
         static void setHeader(QNetworkRequest &request, const QByteArray &key, const QByteArray &value);
     };
-} // namespace Qv2ray::common::network
+} // namespace Plumbum::common::network
 
-using namespace Qv2ray::common::network;
+using namespace Plumbum::common::network;

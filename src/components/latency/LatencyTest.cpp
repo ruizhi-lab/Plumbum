@@ -3,7 +3,7 @@
 #include "LatencyTestThread.hpp"
 #include "core/handler/ConfigHandler.hpp"
 
-namespace Qv2ray::components::latency
+namespace Plumbum::components::latency
 {
     LatencyTestHost::LatencyTestHost(const int defaultCount, QObject *parent) : QObject(parent)
     {
@@ -27,13 +27,13 @@ namespace Qv2ray::components::latency
         latencyThread->start();
     }
 
-    void LatencyTestHost::TestLatency(const ConnectionId &id, Qv2rayLatencyTestingMethod method)
+    void LatencyTestHost::TestLatency(const ConnectionId &id, PlumbumLatencyTestingMethod method)
     {
         latencyThread->pushRequest(id, totalTestCount, method);
     }
-    void LatencyTestHost::TestLatency(const QList<ConnectionId> &ids, Qv2rayLatencyTestingMethod method)
+    void LatencyTestHost::TestLatency(const QList<ConnectionId> &ids, PlumbumLatencyTestingMethod method)
     {
         latencyThread->pushRequest(ids, totalTestCount, method);
     }
 
-} // namespace Qv2ray::components::latency
+} // namespace Plumbum::components::latency

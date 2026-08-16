@@ -1,7 +1,7 @@
 #include "QvHelpers.hpp"
 
 #include "3rdparty/puresource/src/PureJson.hpp"
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QStringConverter>
@@ -9,7 +9,7 @@
 
 #define QV_MODULE_NAME "Utils"
 
-namespace Qv2ray::common
+namespace Plumbum::common
 {
     const QString GenerateRandomString(int len)
     {
@@ -242,4 +242,4 @@ namespace Qv2ray::common
         return QvCoreApplication->MessageBoxAsk(parent, title, text, options);
     }
 
-} // namespace Qv2ray::common
+} // namespace Plumbum::common

@@ -8,9 +8,9 @@ using grpc::Status;
 
 #define QV_MODULE_NAME "gRPCBackend"
 
-namespace Qv2ray::core::kernel
+namespace Plumbum::core::kernel
 {
-    constexpr auto Qv2ray_GRPC_ERROR_RETCODE = -1;
+    constexpr auto Plumbum_GRPC_ERROR_RETCODE = -1;
     static QvAPIDataTypeConfig DefaultInboundAPIConfig{ { API_INBOUND, { "dokodemo-door", "http", "socks" } } };
     static QvAPIDataTypeConfig DefaultOutboundAPIConfig{ { API_OUTBOUND_PROXY,
                                                            { "dns", "http", "mtproto", "shadowsocks", "socks", "vmess", "vless", "trojan" } },
@@ -85,7 +85,7 @@ namespace Qv2ray::core::kernel
                     stats_service_stub = service.NewStub(grpc_channel);
                     dialed = true;
                 }
-                if (apiFailCounter == QV2RAY_API_CALL_FAILEDCHECK_THRESHOLD)
+                if (apiFailCounter == PLUMBUM_API_CALL_FAILEDCHECK_THRESHOLD)
                 {
                     LOG("API call failure threshold reached, cancelling further API aclls.");
                     emit OnAPIErrored(tr("Failed to get statistics data, please check if V2Ray is running properly"));
@@ -93,7 +93,7 @@ namespace Qv2ray::core::kernel
                     QThread::msleep(1000);
                     continue;
                 }
-                else if (apiFailCounter > QV2RAY_API_CALL_FAILEDCHECK_THRESHOLD)
+                else if (apiFailCounter > PLUMBUM_API_CALL_FAILEDCHECK_THRESHOLD)
                 {
                     // Ignored future requests.
                     QThread::msleep(1000);
@@ -107,7 +107,7 @@ namespace Qv2ray::core::kernel
                     const QString prefix = config.type == API_INBOUND ? "inbound" : "outbound";
                     const auto value_up = CallStatsAPIByName(prefix % ">>>" % tag % ">>>traffic>>>uplink");
                     const auto value_down = CallStatsAPIByName(prefix % ">>>" % tag % ">>>traffic>>>downlink");
-                    hasError = hasError || value_up == Qv2ray_GRPC_ERROR_RETCODE || value_down == Qv2ray_GRPC_ERROR_RETCODE;
+                    hasError = hasError || value_up == Plumbum_GRPC_ERROR_RETCODE || value_down == Plumbum_GRPC_ERROR_RETCODE;
                     statsResult[config.type].first += std::max(value_up, 0LL);
                     statsResult[config.type].second += std::max(value_down, 0LL);
                 }
@@ -133,11 +133,11 @@ namespace Qv2ray::core::kernel
         if (!status.ok())
         {
             LOG("API call returns: " + QSTRN(status.error_code()) + " (" + QString::fromStdString(status.error_message()) + ")");
-            return Qv2ray_GRPC_ERROR_RETCODE;
+            return Plumbum_GRPC_ERROR_RETCODE;
         }
         else
         {
             return response.stat().value();
         }
     }
-} // namespace Qv2ray::core::kernel
+} // namespace Plumbum::core::kernel

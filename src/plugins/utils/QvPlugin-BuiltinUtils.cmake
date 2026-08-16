@@ -30,14 +30,14 @@ target_include_directories(${UTILS_PLUGIN_TARGET} PRIVATE ${CMAKE_CURRENT_LIST_D
 target_include_directories(${UTILS_PLUGIN_TARGET} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/../common)
 
 if(UNIX AND NOT APPLE AND NOT WIN32 AND NOT ANDROID)
-    install(TARGETS ${UTILS_PLUGIN_TARGET} LIBRARY DESTINATION share/qv2ray/plugins)
+    install(TARGETS ${UTILS_PLUGIN_TARGET} LIBRARY DESTINATION share/plumbum/plugins)
 elseif(WIN32)
     install(TARGETS ${UTILS_PLUGIN_TARGET} LIBRARY DESTINATION plugins)
 elseif(APPLE)
     add_custom_command(TARGET ${UTILS_PLUGIN_TARGET}
         POST_BUILD
         COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "@executable_path/../Frameworks/" $<TARGET_FILE:${UTILS_PLUGIN_TARGET}>)
-    install(TARGETS ${UTILS_PLUGIN_TARGET} LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/qv2ray.app/Contents/Resources/plugins)
+    install(TARGETS ${UTILS_PLUGIN_TARGET} LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/plumbum.app/Contents/Resources/plugins)
 elseif(ANDROID)
     set(deployment_tool "${QT_HOST_PATH}/${QT6_HOST_INFO_BINDIR}/androiddeployqt")
     set(apk_dir "$<TARGET_PROPERTY:${UTILS_PLUGIN_TARGET},BINARY_DIR>/android-build")

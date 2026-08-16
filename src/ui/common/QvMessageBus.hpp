@@ -27,7 +27,7 @@
 #define MBUpdateColorSchemeDefaultImpl                                                                                                               \
     case UPDATE_COLORSCHEME: this->updateColorScheme(); break;
 
-namespace Qv2ray::ui::messaging
+namespace Plumbum::ui::messaging
 {
     Q_NAMESPACE
     enum QvMBMessage
@@ -59,6 +59,6 @@ namespace Qv2ray::ui::messaging
     };
 
     inline QvMessageBusObject UIMessageBus = QvMessageBusObject();
-} // namespace Qv2ray::ui::messaging
+} // namespace Plumbum::ui::messaging
 
-using namespace Qv2ray::ui::messaging;
+using namespace Plumbum::ui::messaging;

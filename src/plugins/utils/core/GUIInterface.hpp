@@ -8,7 +8,7 @@ class GUIInterface : public Qv2rayPlugin::PluginGUIInterface
     GUIInterface();
     QIcon Icon() const override
     {
-        return QIcon(":/assets/qv2ray.png");
+        return QIcon(":/assets/plumbum.png");
     }
     QList<Qv2rayPlugin::PluginGuiComponentType> GetComponents() const override
     {

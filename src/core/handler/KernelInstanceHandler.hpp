@@ -6,7 +6,7 @@
 #include <QObject>
 #include <optional>
 
-namespace Qv2ray::core::handler
+namespace Plumbum::core::handler
 {
     class KernelInstanceHandler : public QObject
     {
@@ -90,4 +90,4 @@ namespace Qv2ray::core::handler
         ConnectionGroupPair currentId = {};
     };
     inline const KernelInstanceHandler *KernelInstance;
-} // namespace Qv2ray::core::handler
+} // namespace Plumbum::core::handler

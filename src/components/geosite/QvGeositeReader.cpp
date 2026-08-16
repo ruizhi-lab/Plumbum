@@ -6,7 +6,7 @@
 
 #define QV_MODULE_NAME "GeositeReader"
 
-namespace Qv2ray::components::geosite
+namespace Plumbum::components::geosite
 {
     QMap<QString, QStringList> GeositeEntries;
     QStringList ReadGeoSiteFromFile(const QString &filepath)
@@ -53,4 +53,4 @@ namespace Qv2ray::components::geosite
             return list;
         }
     }
-} // namespace Qv2ray::components::geosite
+} // namespace Plumbum::components::geosite

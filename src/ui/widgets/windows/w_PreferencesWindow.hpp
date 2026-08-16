@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "ui/common/QvMessageBus.hpp"
 #include "ui/widgets/common/WidgetUIBase.hpp"
 #include "ui_w_PreferencesWindow.h"
@@ -154,7 +154,7 @@ class PreferencesWindow
     //
     bool NeedRestart = false;
     bool finishedLoading = false;
-    Qv2rayConfigObject CurrentConfig;
+    PlumbumConfigObject CurrentConfig;
 
   private:
     std::optional<QString> checkTProxySettings() const;

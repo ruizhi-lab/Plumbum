@@ -262,8 +262,8 @@ void GroupManager::onRCMActionTriggered_Move()
 
 void GroupManager::updateColorScheme()
 {
-    addGroupButton->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
-    removeGroupButton->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("ashbin")));
+    addGroupButton->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
+    removeGroupButton->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("ashbin")));
 }
 
 QvMessageBusSlotImpl(GroupManager)

@@ -1,38 +1,38 @@
-#include "Qv2rayQMLProperty.hpp"
-#include "base/Qv2rayBaseApplication.hpp"
-#include "ui/Qv2rayPlatformApplication.hpp"
+#include "PlumbumQMLProperty.hpp"
+#include "base/PlumbumBaseApplication.hpp"
+#include "ui/PlumbumPlatformApplication.hpp"
 
 #include <QQuickView>
 
-namespace Qv2ray
+namespace Plumbum
 {
-    class Qv2rayQMLApplication : public Qv2rayPlatformApplication
+    class PlumbumQMLApplication : public PlumbumPlatformApplication
     {
         Q_OBJECT
       public:
-        explicit Qv2rayQMLApplication(int &argc, char *argv[]);
+        explicit PlumbumQMLApplication(int &argc, char *argv[]);
         void MessageBoxWarn(QWidget *parent, const QString &title, const QString &text) override;
         void MessageBoxInfo(QWidget *parent, const QString &title, const QString &text) override;
         MessageOpt MessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &buttons) override;
         QStringList checkPrerequisitesInternal() override;
-        Qv2rayExitReason runQv2rayInternal() override;
+        PlumbumExitReason runPlumbumInternal() override;
         void terminateUIInternal() override;
         void OpenURL(const QString &url) override;
 
       private slots:
-#ifndef QV2RAY_NO_SINGLEAPPLICATON
+#ifndef PLUMBUM_NO_SINGLEAPPLICATON
         void onMessageReceived(quint32, QByteArray) override;
 #endif
       private:
         QQuickView qmlViewer;
-        Qv2rayQMLProperty uiProperty;
+        PlumbumQMLProperty uiProperty;
     };
 
-#ifdef Qv2rayApplication
-#undef Qv2rayApplication
+#ifdef PlumbumApplication
+#undef PlumbumApplication
 #endif
 
-#define Qv2rayApplication Qv2rayQMLApplication
-#define QvQmlApplication static_cast<Qv2rayQMLApplication *>(qApp)
+#define PlumbumApplication PlumbumQMLApplication
+#define QvQmlApplication static_cast<PlumbumQMLApplication *>(qApp)
 
-} // namespace Qv2ray
+} // namespace Plumbum

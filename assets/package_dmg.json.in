@@ -1,7 +1,7 @@
 
 {
- "title": "Qv2ray @QV2RAY_VERSION_STRING@",
- "icon": "@CMAKE_SOURCE_DIR@/assets/icons/qv2ray.icns",
+ "title": "Plumbum @PLUMBUM_VERSION_STRING@",
+ "icon": "@CMAKE_SOURCE_DIR@/assets/icons/plumbum.icns",
  "background": "@CMAKE_SOURCE_DIR@/assets/CMakeDMGBackground.png",
  "icon-size": 128,
  "window": {
@@ -11,7 +11,7 @@
     }
  },
  "contents": [
-   { "x": 130, "y": 205, "type": "file", "path": "@CMAKE_INSTALL_PREFIX@/qv2ray.app" },
+   { "x": 130, "y": 205, "type": "file", "path": "@CMAKE_INSTALL_PREFIX@/plumbum.app" },
    { "x": 375, "y": 205, "type": "link", "path": "/Applications" }
  ]
 }

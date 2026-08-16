@@ -5,7 +5,7 @@
 
 #define QV_MODULE_NAME "VMessImporter"
 
-namespace Qv2ray::core::connection
+namespace Plumbum::core::connection
 {
     namespace serialization::vmess
     {
@@ -312,4 +312,4 @@ namespace Qv2ray::core::connection
 #undef default
         }
     } // namespace serialization::vmess
-} // namespace Qv2ray::core::connection
+} // namespace Plumbum::core::connection

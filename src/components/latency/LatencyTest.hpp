@@ -1,11 +1,11 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 namespace uvw
 {
     class Loop;
 }
 struct sockaddr_storage;
-namespace Qv2ray::components::latency
+namespace Plumbum::components::latency
 {
     class LatencyTestThread;
     struct LatencyTestResult
@@ -16,7 +16,7 @@ namespace Qv2ray::components::latency
         long worst = LATENCY_TEST_VALUE_ERROR;
         long best = LATENCY_TEST_VALUE_ERROR;
         long avg = LATENCY_TEST_VALUE_ERROR;
-        Qv2rayLatencyTestingMethod method;
+        PlumbumLatencyTestingMethod method;
     };
     struct LatencyTestRequest
     {
@@ -24,7 +24,7 @@ namespace Qv2ray::components::latency
         QString host;
         int port;
         int totalCount;
-        Qv2rayLatencyTestingMethod method;
+        PlumbumLatencyTestingMethod method;
     };
 
     class LatencyTestHost : public QObject
@@ -32,8 +32,8 @@ namespace Qv2ray::components::latency
         Q_OBJECT
       public:
         explicit LatencyTestHost(const int defaultCount = 3, QObject *parent = nullptr);
-        void TestLatency(const ConnectionId &connectionId, Qv2rayLatencyTestingMethod);
-        void TestLatency(const QList<ConnectionId> &connectionIds, Qv2rayLatencyTestingMethod);
+        void TestLatency(const ConnectionId &connectionId, PlumbumLatencyTestingMethod);
+        void TestLatency(const QList<ConnectionId> &connectionIds, PlumbumLatencyTestingMethod);
         void StopAllLatencyTest();
 
         ~LatencyTestHost() override;
@@ -48,7 +48,7 @@ namespace Qv2ray::components::latency
         // and libuv event loop is fast.
         LatencyTestThread *latencyThread;
     };
-} // namespace Qv2ray::components::latency
+} // namespace Plumbum::components::latency
 
-using namespace Qv2ray::components::latency;
+using namespace Plumbum::components::latency;
 Q_DECLARE_METATYPE(LatencyTestResult)

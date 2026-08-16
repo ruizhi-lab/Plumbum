@@ -1,4 +1,4 @@
-name: Qv2ray build matrix - cmake
+name: Plumbum build matrix - cmake
 
 on:
   push:
@@ -38,8 +38,8 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     env:
-      _QV2RAY_BUILD_INFO_: "Qv2ray built from Github Action"
-      _QV2RAY_BUILD_EXTRA_INFO_: "qt${{ matrix.qt_version }}-${{ github.sha }}-ci.${{ matrix.platform }}"
+      _PLUMBUM_BUILD_INFO_: "Plumbum built from Github Action"
+      _PLUMBUM_BUILD_EXTRA_INFO_: "qt${{ matrix.qt_version }}-${{ github.sha }}-ci.${{ matrix.platform }}"
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
@@ -60,7 +60,7 @@ jobs:
         if: matrix.platform == 'windows-latest'
         uses: ilammy/msvc-dev-cmd@v1
         with:
-          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Qv2ray-deps repo
+          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Plumbum-deps repo
           toolset: 14.2
           arch: ${{ matrix.arch }}
       - name: Cache Qt
@@ -123,12 +123,12 @@ jobs:
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
             -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13 \
             -DDS_STORE_SCRIPT=ON \
-            -DQV2RAY_USE_V5_CORE=ON \
-            -DQV2RAY_DEFAULT_VASSETS_PATH=/usr/local/opt/v2ray/share/v2ray \
-            -DQV2RAY_DEFAULT_VCORE_PATH=/usr/local/opt/v2ray/bin/v2ray
+            -DPLUMBUM_USE_V5_CORE=ON \
+            -DPLUMBUM_DEFAULT_VASSETS_PATH=/usr/local/opt/v2ray/share/v2ray \
+            -DPLUMBUM_DEFAULT_VCORE_PATH=/usr/local/opt/v2ray/bin/v2ray
           cmake --build . --parallel $(sysctl -n hw.logicalcpu)
           sudo cmake --install .
-          appdmg ../assets/package_dmg.json ../Qv2ray.dmg
+          appdmg ../assets/package_dmg.json ../Plumbum.dmg
       # --------------------------------------------------------
       - name: Windows - ${{ matrix.qt_version }} - Generate Dependencies and Build
         shell: bash
@@ -141,7 +141,7 @@ jobs:
           cd build
           cmake .. -GNinja \
             -DCMAKE_INSTALL_PREFIX=./deployment \
-            -DQV2RAY_USE_V5_CORE=ON \
+            -DPLUMBUM_USE_V5_CORE=ON \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
           cmake --build . --parallel $(nproc)
           cmake --install .
@@ -155,9 +155,9 @@ jobs:
           cd build
           cmake .. -GNinja \
             -DCMAKE_INSTALL_PREFIX=./AppDir/usr \
-            -DQV2RAY_USE_V5_CORE=ON \
+            -DPLUMBUM_USE_V5_CORE=ON \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DQV2RAY_TRANSLATION_PATH=QApplication::applicationDirPath\(\)+"/../share/qv2ray/lang"
+            -DPLUMBUM_TRANSLATION_PATH=QApplication::applicationDirPath\(\)+"/../share/plumbum/lang"
           cmake --build . --parallel $(nproc)
           cmake --install .
       # ========================================================================================================= Deployments
@@ -171,25 +171,25 @@ jobs:
           cd ..
           wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
           chmod +x ./linuxdeployqt-continuous-x86_64.AppImage
-          ./linuxdeployqt-continuous-x86_64.AppImage AppDir/usr/share/applications/qv2ray.desktop \
+          ./linuxdeployqt-continuous-x86_64.AppImage AppDir/usr/share/applications/plumbum.desktop \
               -appimage \
               -no-strip \
               -always-overwrite \
               -extra-plugins=iconengines,imageformats,platforminputcontexts
-          mv ./Qv2ray*.AppImage ./Qv2ray.AppImage
+          mv ./Plumbum*.AppImage ./Plumbum.AppImage
       - name: Linux - ${{ matrix.qt_version }} - Uploading Artifact
         if: matrix.platform == 'ubuntu-20.04'
         uses: actions/upload-artifact@master
         with:
-          name: Qv2ray-${{ github.sha }}.linux-${{ matrix.arch }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.AppImage
-          path: build/Qv2ray.AppImage
+          name: Plumbum-${{ github.sha }}.linux-${{ matrix.arch }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.AppImage
+          path: build/Plumbum.AppImage
       - name: Linux - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
         if: github.event_name == 'release' && matrix.platform == 'ubuntu-20.04' && matrix.qt_version == '5.15.0' && matrix.build_type == 'Release'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/Qv2ray.AppImage
-          asset_name: Qv2ray.${{ steps.get_version.outputs.VERSION }}.linux-${{ matrix.arch }}.AppImage
+          file: build/Plumbum.AppImage
+          asset_name: Plumbum.${{ steps.get_version.outputs.VERSION }}.linux-${{ matrix.arch }}.AppImage
           tag: ${{ github.ref }}
           overwrite: true
       # --------------------------------------------------------
@@ -197,15 +197,15 @@ jobs:
         if: matrix.platform == 'macos-latest'
         uses: actions/upload-artifact@master
         with:
-          name: Qv2ray-${{ github.sha }}.macOS-${{ matrix.arch }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.dmg
-          path: Qv2ray.dmg
+          name: Plumbum-${{ github.sha }}.macOS-${{ matrix.arch }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.dmg
+          path: Plumbum.dmg
       - name: macOS - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && matrix.qt_version == '5.15.0' && matrix.build_type == 'Release'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: Qv2ray.dmg
-          asset_name: Qv2ray.${{ steps.get_version.outputs.VERSION }}.macOS-${{ matrix.arch }}.dmg
+          file: Plumbum.dmg
+          asset_name: Plumbum.${{ steps.get_version.outputs.VERSION }}.macOS-${{ matrix.arch }}.dmg
           tag: ${{ github.ref }}
           overwrite: true
       # --------------------------------------------------------
@@ -219,7 +219,7 @@ jobs:
         if: matrix.platform == 'windows-latest'
         uses: actions/upload-artifact@master
         with:
-          name: Qv2ray-${{ github.sha }}.Windows-${{ matrix.arch }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.7z
+          name: Plumbum-${{ github.sha }}.Windows-${{ matrix.arch }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.7z
           path: release.7z
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
@@ -227,6 +227,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: release.7z
-          asset_name: Qv2ray.${{ steps.get_version.outputs.VERSION }}.Windows-${{ matrix.arch }}.7z
+          asset_name: Plumbum.${{ steps.get_version.outputs.VERSION }}.Windows-${{ matrix.arch }}.7z
           tag: ${{ github.ref }}
           overwrite: true

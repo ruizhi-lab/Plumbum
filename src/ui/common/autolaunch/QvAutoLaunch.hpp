@@ -1,10 +1,10 @@
 #pragma once
 
-namespace Qv2ray::components::autolaunch
+namespace Plumbum::components::autolaunch
 {
     bool GetLaunchAtLoginStatus();
     void SetLaunchAtLoginStatus(bool enable);
-} // namespace Qv2ray::components::autolaunch
+} // namespace Plumbum::components::autolaunch
 
-using namespace Qv2ray::components;
-using namespace Qv2ray::components::autolaunch;
+using namespace Plumbum::components;
+using namespace Plumbum::components::autolaunch;

@@ -10,7 +10,7 @@ namespace uvw
     class Loop;
     class TimerHandle;
 } // namespace uvw
-namespace Qv2ray::components::latency::realping
+namespace Plumbum::components::latency::realping
 {
     class RealPing : public std::enable_shared_from_this<RealPing>
     {
@@ -32,4 +32,4 @@ namespace Qv2ray::components::latency::realping
         std::shared_ptr<uvw::TimerHandle> timeout;
         std::unordered_map<CURL *, std::chrono::system_clock::time_point> reqStartTime;
     };
-} // namespace Qv2ray::components::latency::realping
+} // namespace Plumbum::components::latency::realping

@@ -5,7 +5,7 @@
 
 #define QV_MODULE_NAME "VLESSImporter"
 
-namespace Qv2ray::core::connection
+namespace Plumbum::core::connection
 {
     namespace serialization::vless
     {
@@ -196,4 +196,4 @@ namespace Qv2ray::core::connection
             return root;
         }
     } // namespace serialization::vless
-} // namespace Qv2ray::core::connection
+} // namespace Plumbum::core::connection

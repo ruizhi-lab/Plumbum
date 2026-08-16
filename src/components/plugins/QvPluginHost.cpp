@@ -1,22 +1,22 @@
 #include "QvPluginHost.hpp"
 
-#include "base/Qv2rayBase.hpp"
-#include "base/Qv2rayLog.hpp"
+#include "base/PlumbumBase.hpp"
+#include "base/PlumbumLog.hpp"
 #include "core/settings/SettingsBackend.hpp"
 #include "utils/QvHelpers.hpp"
 
 #include <QPluginLoader>
 
 #define QV_MODULE_NAME "PluginHost"
-namespace Qv2ray::components::plugins
+namespace Plumbum::components::plugins
 {
     QvPluginHost::QvPluginHost(QObject *parent) : QObject(parent)
     {
         if (!QvCoreApplication->StartupArguments.noPlugins)
         {
-            if (auto dir = QDir(QV2RAY_PLUGIN_SETTINGS_DIR); !dir.exists())
+            if (auto dir = QDir(PLUMBUM_PLUGIN_SETTINGS_DIR); !dir.exists())
             {
-                dir.mkpath(QV2RAY_PLUGIN_SETTINGS_DIR);
+                dir.mkpath(PLUMBUM_PLUGIN_SETTINGS_DIR);
             }
             initializePluginHost();
         }
@@ -35,7 +35,7 @@ namespace Qv2ray::components::plugins
             const QStringList entries = QDir(pluginDirPath).entryList(QDir::Files);
             for (const auto &fileName : entries)
             {
-                if (!fileName.endsWith(QV2RAY_LIBRARY_SUFFIX))
+                if (!fileName.endsWith(PLUMBUM_LIBRARY_SUFFIX))
                 {
                     DEBUG("Skipping: " + fileName + " in: " + pluginDirPath);
                     continue;
@@ -66,12 +66,12 @@ namespace Qv2ray::components::plugins
 
                 if (info.pluginInterface->QvPluginInterfaceVersion != QV2RAY_PLUGIN_INTERFACE_VERSION)
                 {
-                    // The plugin was built for a not-compactable version of Qv2ray. Don't load the plugin by default.
+                    // The plugin was built for a not-compactable version of Plumbum. Don't load the plugin by default.
                     LOG(info.libraryPath + " is built with an older Interface, ignoring");
                     QvMessageBoxWarn(nullptr, tr("Cannot load plugin"),
                                      tr("The plugin cannot be loaded: ") + NEWLINE + info.libraryPath + NEWLINE NEWLINE +
                                          tr("This plugin was built against a different version of the Plugin Interface.") + NEWLINE +
-                                         tr("Please contact the plugin provider or report the issue to Qv2ray Workgroup."));
+                                         tr("Please contact the plugin provider or report the issue to Plumbum Workgroup."));
                     info.pluginLoader->unload();
                     continue;
                 }
@@ -127,7 +127,7 @@ namespace Qv2ray::components::plugins
         {
             // Load plugin if it haven't been loaded.
             initializePlugin(internalName);
-            QvMessageBoxInfo(nullptr, tr("Enabling a plugin"), tr("The plugin will become fully functional after restarting Qv2ray."));
+            QvMessageBoxInfo(nullptr, tr("Enabling a plugin"), tr("The plugin will become fully functional after restarting Plumbum."));
         }
     }
 
@@ -170,8 +170,8 @@ namespace Qv2ray::components::plugins
             return false;
         }
 
-        auto conf = JsonFromString(StringFromFile(QV2RAY_PLUGIN_SETTINGS_DIR + internalName + ".conf"));
-        plugins[internalName].pluginInterface->InitializePlugin(QV2RAY_PLUGIN_SETTINGS_DIR + internalName + "/", conf);
+        auto conf = JsonFromString(StringFromFile(PLUMBUM_PLUGIN_SETTINGS_DIR + internalName + ".conf"));
+        plugins[internalName].pluginInterface->InitializePlugin(PLUMBUM_PLUGIN_SETTINGS_DIR + internalName + "/", conf);
         plugins[internalName].isLoaded = true;
         return true;
     }
@@ -184,7 +184,7 @@ namespace Qv2ray::components::plugins
             {
                 LOG("Saving plugin settings for: \"" + name + "\"");
                 auto &conf = plugins[name].pluginInterface->GetSettngs();
-                StringToFile(JsonToString(conf), QV2RAY_PLUGIN_SETTINGS_DIR + name + ".conf");
+                StringToFile(JsonToString(conf), PLUMBUM_PLUGIN_SETTINGS_DIR + name + ".conf");
             }
         }
     }
@@ -365,4 +365,4 @@ namespace Qv2ray::components::plugins
         }
         return typesList;
     }
-} // namespace Qv2ray::components::plugins
+} // namespace Plumbum::components::plugins

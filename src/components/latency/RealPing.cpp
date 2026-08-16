@@ -16,7 +16,7 @@ struct RealPingContext
 };
 struct RealPingGlobalInfo
 {
-    std::shared_ptr<Qv2ray::components::latency::realping::RealPing> _preserve_life_time;
+    std::shared_ptr<Plumbum::components::latency::realping::RealPing> _preserve_life_time;
     CURLM *multiHandle;
     std::shared_ptr<uvw::TimerHandle> timer;
     int *successCountPtr;
@@ -149,7 +149,7 @@ namespace
         return addr.s_addr == INADDR_ANY;
     }
 } // namespace
-namespace Qv2ray::components::latency::realping
+namespace Plumbum::components::latency::realping
 {
     RealPing::RealPing(std::shared_ptr<uvw::Loop> loopin, LatencyTestRequest &req, LatencyTestHost *testHost)
         : req(std::move(req)), testHost(testHost), loop(std::move(loopin)), timeout(loop->resource<uvw::TimerHandle>())
@@ -270,4 +270,4 @@ namespace Qv2ray::components::latency::realping
     {
         reqStartTime.emplace(h, std::chrono::system_clock::now());
     }
-} // namespace Qv2ray::components::latency::realping
+} // namespace Plumbum::components::latency::realping

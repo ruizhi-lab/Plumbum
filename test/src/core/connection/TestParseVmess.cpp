@@ -17,7 +17,7 @@ SCENARIO("Test Parse VMess V2 url", "[ParseVMessV2]")
         const int port = 11451;
         const QString comment = "日本 VIP节点5 - 10Mbps带宽 苏州-日本 IPLC-CEN专线 游戏加速用 30倍流量比例 原生日本IP落地";
 
-        WHEN("parse Qv2ray 2.5.0 generated uri")
+        WHEN("parse Plumbum 2.5.0 generated uri")
         {
             const QString vmessString = "vmess://eyJhZGQiOiI0Mi4yNTUuMjU1LjI1NCIsImFpZCI6NCwiaWQiOiI1OWYzNGU4Yy1mMzEw"
                                         "LTQ5YjAtYjI0MC0xMTY2M2UzNjU2MDEiLCJuZXQiOiJ0Y3AiLCJwb3J0IjoxMTQ1MSwicHMiOiLm"

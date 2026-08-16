@@ -7,7 +7,7 @@
 
 #include <memory>
 
-namespace Qv2ray::components::latency::icmping
+namespace Plumbum::components::latency::icmping
 {
     class ICMPPing : public DNSBase<ICMPPing>
     {
@@ -30,5 +30,5 @@ namespace Qv2ray::components::latency::icmping
         uint64_t timeout = DEFAULT_TIMEOUT;
         std::shared_ptr<uvw::TimerHandle> waitHandleTimer;
     };
-} // namespace Qv2ray::components::latency::icmping
+} // namespace Plumbum::components::latency::icmping
 #endif

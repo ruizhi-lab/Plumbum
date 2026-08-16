@@ -5,7 +5,7 @@
 
 #define QV_MODULE_NAME "ShadowsocksImporter"
 
-namespace Qv2ray::core::connection
+namespace Plumbum::core::connection
 {
     namespace serialization::ss
     {
@@ -115,4 +115,4 @@ namespace Qv2ray::core::connection
             return url.toString(QUrl::ComponentFormattingOption::FullyEncoded);
         }
     } // namespace serialization::ss
-} // namespace Qv2ray::core::connection
+} // namespace Plumbum::core::connection

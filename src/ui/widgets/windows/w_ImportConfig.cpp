@@ -15,7 +15,7 @@
 namespace
 {
     constexpr auto LINK_PAGE = 0;
-#if QV2RAY_FEATURE(ui_has_import_qrcode)
+#if PLUMBUM_FEATURE(ui_has_import_qrcode)
     constexpr auto QRCODE_PAGE = 1;
     constexpr auto ADVANCED_PAGE = 2;
 #else
@@ -32,7 +32,7 @@ ImportConfigWindow::ImportConfigWindow(QWidget *parent) : QvDialog("ImportWindow
 
     setupUi(this);
     QvMessageBusConnect(ImportConfigWindow);
-    RESTORE_RUNTIME_CONFIG(screenShotHideQv2ray, hideQv2rayCB->setChecked)
+    RESTORE_RUNTIME_CONFIG(screenShotHidePlumbum, hidePlumbumCB->setChecked)
     //
     auto defaultItemIndex = 0;
     for (const auto &gid : ConnectionManager->AllGroups())
@@ -42,7 +42,7 @@ ImportConfigWindow::ImportConfigWindow(QWidget *parent) : QvDialog("ImportWindow
             defaultItemIndex = groupCombo->count() - 1;
     }
     groupCombo->setCurrentIndex(defaultItemIndex);
-#if !QV2RAY_FEATURE(ui_has_import_qrcode)
+#if !PLUMBUM_FEATURE(ui_has_import_qrcode)
     qrCodeTab->setVisible(false);
     tabWidget->removeTab(1);
 #endif
@@ -126,12 +126,12 @@ int ImportConfigWindow::PerformImportConnection()
     return count;
 }
 
-#if QV2RAY_FEATURE(ui_has_import_qrcode)
+#if PLUMBUM_FEATURE(ui_has_import_qrcode)
 void ImportConfigWindow::on_qrFromScreenBtn_clicked()
 {
-    bool hideQv2ray = hideQv2rayCB->isChecked();
+    bool hidePlumbum = hidePlumbumCB->isChecked();
 
-    if (hideQv2ray)
+    if (hidePlumbum)
     {
         UIMessageBus.EmitGlobalSignal(QvMBMessage::HIDE_WINDOWS);
     }
@@ -140,7 +140,7 @@ void ImportConfigWindow::on_qrFromScreenBtn_clicked()
     QThread::msleep(doubleSpinBox->value() * 1000UL);
     ScreenShotWindow w;
     auto pix = w.DoScreenShot();
-    if (hideQv2ray)
+    if (hidePlumbum)
     {
         UIMessageBus.EmitGlobalSignal(QvMBMessage::SHOW_WINDOWS);
     }
@@ -182,10 +182,10 @@ void ImportConfigWindow::on_selectImageBtn_clicked()
     qrCodeLinkTxt->setText(str.trimmed());
 }
 
-void ImportConfigWindow::on_hideQv2rayCB_stateChanged(int arg1)
+void ImportConfigWindow::on_hidePlumbumCB_stateChanged(int arg1)
 {
     Q_UNUSED(arg1)
-    SET_RUNTIME_CONFIG(screenShotHideQv2ray, hideQv2rayCB->isChecked)
+    SET_RUNTIME_CONFIG(screenShotHidePlumbum, hidePlumbumCB->isChecked)
 }
 #endif
 
@@ -261,7 +261,7 @@ void ImportConfigWindow::on_beginImportBtn_clicked()
 
             break;
         }
-#if QV2RAY_FEATURE(ui_has_import_qrcode)
+#if PLUMBUM_FEATURE(ui_has_import_qrcode)
         case QRCODE_PAGE:
         {
             QString errorMsg;

@@ -1,15 +1,15 @@
 #include <QtGlobal>
 
-#ifdef QV2RAY_CLI
-#include "ui/cli/Qv2rayCliApplication.hpp"
+#ifdef PLUMBUM_CLI
+#include "ui/cli/PlumbumCliApplication.hpp"
 #endif
 
-#ifdef QV2RAY_GUI_QWIDGETS
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
+#ifdef PLUMBUM_GUI_QWIDGETS
+#include "ui/widgets/PlumbumWidgetApplication.hpp"
 #endif
 
-#ifdef QV2RAY_GUI_QML
-#include "ui/qml/Qv2rayQMLApplication.hpp"
+#ifdef PLUMBUM_GUI_QML
+#include "ui/qml/PlumbumQMLApplication.hpp"
 #endif
 
 #include "utils/QvHelpers.hpp"
@@ -31,7 +31,7 @@ char **globalArgv;
 
 void BootstrapMessageBox(const QString &title, const QString &text)
 {
-#ifdef QV2RAY_GUI
+#ifdef PLUMBUM_GUI
     if (qApp)
     {
         QMessageBox::warning(nullptr, title, text);
@@ -49,7 +49,7 @@ void BootstrapMessageBox(const QString &title, const QString &text)
 const QString SayLastWords() noexcept
 {
     QStringList msg;
-    msg << "------- BEGIN QV2RAY CRASH REPORT -------";
+    msg << "------- BEGIN PLUMBUM CRASH REPORT -------";
 
     {
 #ifdef Q_OS_WIN
@@ -134,7 +134,7 @@ const QString SayLastWords() noexcept
         msg << JsonToString(GlobalConfig.toJson(), QJsonDocument::Compact);
     }
 
-    msg << "------- END OF QV2RAY CRASH REPORT -------";
+    msg << "------- END OF PLUMBUM CRASH REPORT -------";
     return msg.join(NEWLINE);
 }
 
@@ -147,7 +147,7 @@ void signalHandler(int signum)
         return;
     }
 #endif
-    std::cout << "Qv2ray: Interrupt signal (" << signum << ") received." << std::endl;
+    std::cout << "Plumbum: Interrupt signal (" << signum << ") received." << std::endl;
 
     if (signum == SIGTERM)
     {
@@ -161,11 +161,11 @@ void signalHandler(int signum)
 
     if (qApp && QvCoreApplication)
     {
-        QDir().mkpath(QV2RAY_CONFIG_DIR + "bugreport/");
-        const auto filePath = QV2RAY_CONFIG_DIR + "bugreport/QvBugReport_" + QSTRN(system_clock::to_time_t(system_clock::now())) + ".stacktrace";
+        QDir().mkpath(PLUMBUM_CONFIG_DIR + "bugreport/");
+        const auto filePath = PLUMBUM_CONFIG_DIR + "bugreport/QvBugReport_" + QSTRN(system_clock::to_time_t(system_clock::now())) + ".stacktrace";
         StringToFile(msg, filePath);
         std::cout << "Backtrace saved in: " + filePath.toStdString() << std::endl;
-        const auto message = QObject::tr("Qv2ray has encountered an uncaught exception: ") + NEWLINE +              //
+        const auto message = QObject::tr("Plumbum has encountered an uncaught exception: ") + NEWLINE +              //
                              QObject::tr("Please report a bug via Github with the file located here: ") + NEWLINE + //
                              NEWLINE + filePath;
         BootstrapMessageBox("UNCAUGHT EXCEPTION", message);
@@ -203,23 +203,23 @@ int main(int argc, char *argv[])
     //
     // This line must be called before any other ones, since we are using these
     // values to identify instances.
-    QCoreApplication::setApplicationVersion(QV2RAY_VERSION_STRING);
+    QCoreApplication::setApplicationVersion(PLUMBUM_VERSION_STRING);
 
 #ifdef QT_DEBUG
-    QCoreApplication::setApplicationName("qv2ray_debug");
+    QCoreApplication::setApplicationName("plumbum_debug");
 #else
-    QCoreApplication::setApplicationName("qv2ray");
+    QCoreApplication::setApplicationName("plumbum");
 #endif
 
-#ifdef QV2RAY_GUI
-    QApplication::setApplicationDisplayName("Qv2ray");
+#ifdef PLUMBUM_GUI
+    QApplication::setApplicationDisplayName("Plumbum");
 #endif
 
 #ifdef QT_DEBUG
     std::cerr << "WARNING: ================ This is a debug build, many features are not stable enough. ================" << std::endl;
 #endif
 
-    if (qEnvironmentVariableIsSet("QV2RAY_NO_SCALE_FACTORS"))
+    if (qEnvironmentVariableIsSet("PLUMBUM_NO_SCALE_FACTORS"))
     {
         LOG("Force set QT_SCALE_FACTOR to 1.");
         DEBUG("UI", "Original QT_SCALE_FACTOR was:", qEnvironmentVariable("QT_SCALE_FACTOR"));
@@ -228,25 +228,25 @@ int main(int argc, char *argv[])
     else
     {
         DEBUG("High DPI scaling is enabled.");
-#ifndef QV2RAY_QT6
+#ifndef PLUMBUM_QT6
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-#ifdef QV2RAY_GUI
+#ifdef PLUMBUM_GUI
         QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
 #endif
     }
 
-#ifndef QV2RAY_QT6
+#ifndef PLUMBUM_QT6
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 #endif
 
-    Qv2rayApplication app(argc, argv);
+    PlumbumApplication app(argc, argv);
     if (const auto list = app.CheckPrerequisites(); !list.isEmpty())
     {
-        BootstrapMessageBox("Qv2ray Prerequisites Check Failed", list.join(NEWLINE));
-        return Qv2rayExitReason::EXIT_PRECONDITION_FAILED;
+        BootstrapMessageBox("Plumbum Prerequisites Check Failed", list.join(NEWLINE));
+        return PlumbumExitReason::EXIT_PRECONDITION_FAILED;
     }
 
     if (!app.Initialize())
@@ -254,8 +254,8 @@ int main(int argc, char *argv[])
         const auto reason = app.GetExitReason();
         if (reason == EXIT_INITIALIZATION_FAILED)
         {
-            BootstrapMessageBox("Qv2ray Initialization Failed", "PreInitialization Failed." NEWLINE "For more information, please see the log.");
-            LOG("Qv2ray initialization failed:", reason);
+            BootstrapMessageBox("Plumbum Initialization Failed", "PreInitialization Failed." NEWLINE "For more information, please see the log.");
+            LOG("Plumbum initialization failed:", reason);
         }
         return reason;
     }
@@ -265,11 +265,11 @@ int main(int argc, char *argv[])
     signal(SIGUSR2, [](int) { ConnectionManager->StopConnection(); });
 #endif
 
-    app.RunQv2ray();
+    app.RunPlumbum();
     const auto reason = app.GetExitReason();
     if (reason == EXIT_NEW_VERSION_TRIGGER)
     {
-        LOG("Starting new version of Qv2ray: " + app.StartupArguments._qvNewVersionPath);
+        LOG("Starting new version of Plumbum: " + app.StartupArguments._qvNewVersionPath);
         QProcess::startDetached(app.StartupArguments._qvNewVersionPath, {});
     }
     return reason;

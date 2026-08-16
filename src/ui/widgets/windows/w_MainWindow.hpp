@@ -157,7 +157,7 @@ class MainWindow
     DECL_ACTION(sortMenu, sortAction_SortByData_Dsc);
     DECL_ACTION(graphWidgetMenu, action_RCM_CopyGraph);
     DECL_ACTION(logRCM_Menu, action_RCM_SwitchCoreLog);
-    DECL_ACTION(logRCM_Menu, action_RCM_SwitchQv2rayLog);
+    DECL_ACTION(logRCM_Menu, action_RCM_SwitchPlumbumLog);
     DECL_ACTION(logRCM_Menu, action_RCM_CopyRecentLogs);
     DECL_ACTION(logRCM_Menu, action_RCM_CopySelected);
 #undef DECL_ACTION
@@ -180,5 +180,5 @@ class MainWindow
     //
     QList<Qv2rayPlugin::QvPluginMainWindowWidget *> pluginWidgets;
     //
-    Qv2ray::ui::widgets::models::ConnectionListHelper *modelHelper;
+    Plumbum::ui::widgets::models::ConnectionListHelper *modelHelper;
 };

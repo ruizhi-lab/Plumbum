@@ -28,7 +28,7 @@
 #define QV_MODULE_NAME "RouteEditor"
 
 using namespace QtNodes;
-using namespace Qv2ray::ui::nodemodels;
+using namespace Plumbum::ui::nodemodels;
 
 namespace
 {
@@ -61,8 +61,8 @@ namespace
 void RouteEditor::updateColorScheme()
 {
     // Setup icons according to the theme settings.
-    addInboundBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
-    addOutboundBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
+    addInboundBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
+    addOutboundBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("add")));
     if (GlobalConfig.uiConfig.useDarkTheme)
     {
         QtNodes::NodeStyle::reset();
@@ -166,12 +166,12 @@ void RouteEditor::OnDispatcherOutboundCreated(std::shared_ptr<OutboundObjectMeta
 
 void RouteEditor::OnDispatcherRuleCreated(std::shared_ptr<RuleObject> rule, QtNodes::Node &)
 {
-    ruleListWidget->addItem(rule->QV2RAY_RULE_TAG);
+    ruleListWidget->addItem(rule->PLUMBUM_RULE_TAG);
 }
 
 void RouteEditor::OnDispatcherRuleDeleted(const RuleObject &rule)
 {
-    const auto items = ruleListWidget->findItems(rule.QV2RAY_RULE_TAG, Qt::MatchExactly);
+    const auto items = ruleListWidget->findItems(rule.PLUMBUM_RULE_TAG, Qt::MatchExactly);
     if (!items.isEmpty())
         ruleListWidget->takeItem(ruleListWidget->row(items.first()));
 }

@@ -42,10 +42,10 @@
 			<key>CFBundleURLIconFile</key>
 			<string>Icon</string>
 			<key>CFBundleURLName</key>
-			<string>com.qv2ray.qv2ray</string>
+			<string>com.plumbum.plumbum</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>qv2ray</string>
+				<string>plumbum</string>
 			</array>
 		</dict>
 	</array>

@@ -22,10 +22,10 @@
 #include <QInputDialog>
 #include <QMessageBox>
 
-using Qv2ray::common::validation::IsIPv4Address;
-using Qv2ray::common::validation::IsIPv6Address;
-using Qv2ray::common::validation::IsValidDNSServer;
-using Qv2ray::common::validation::IsValidIPAddress;
+using Plumbum::common::validation::IsIPv4Address;
+using Plumbum::common::validation::IsIPv6Address;
+using Plumbum::common::validation::IsValidDNSServer;
+using Plumbum::common::validation::IsValidIPAddress;
 
 #define LOADINGCHECK                                                                                                                                 \
     if (!finishedLoading)                                                                                                                            \
@@ -58,10 +58,10 @@ PreferencesWindow::PreferencesWindow(QWidget *parent) : QvDialog("PreferenceWind
     QvMessageBusConnect(PreferencesWindow);
     textBrowser->setHtml(StringFromFile(":/assets/credit.html"));
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
-    configdirLabel->setText(QV2RAY_CONFIG_DIR);
+    configdirLabel->setText(PLUMBUM_CONFIG_DIR);
 
     // We add locales
-    auto langs = Qv2rayTranslator->GetAvailableLanguages();
+    auto langs = PlumbumTranslator->GetAvailableLanguages();
     if (!langs.empty())
     {
         languageComboBox->clear();
@@ -78,9 +78,9 @@ PreferencesWindow::PreferencesWindow(QWidget *parent) : QvDialog("PreferenceWind
     SetAutoStartButtonsState(GetLaunchAtLoginStatus());
     themeCombo->addItems(StyleManager->AllStyles());
     //
-    qvVersion->setText(QV2RAY_VERSION_STRING ":" + QSTRN(QV2RAY_VERSION_BUILD));
-    qvBuildInfo->setText(QV2RAY_BUILD_INFO);
-    qvBuildExInfo->setText(QV2RAY_BUILD_EXTRA_INFO);
+    qvVersion->setText(PLUMBUM_VERSION_STRING ":" + QSTRN(PLUMBUM_VERSION_BUILD));
+    qvBuildInfo->setText(PLUMBUM_BUILD_INFO);
+    qvBuildExInfo->setText(PLUMBUM_BUILD_EXTRA_INFO);
     qvBuildTime->setText(__DATE__ " " __TIME__);
     qvPluginInterfaceVersionLabel->setText(tr("Version: %1").arg(QV2RAY_PLUGIN_INTERFACE_VERSION));
     //
@@ -222,10 +222,10 @@ PreferencesWindow::PreferencesWindow(QWidget *parent) : QvDialog("PreferenceWind
         qvProxyTypeCombo->setCurrentText(CurrentConfig.networkConfig.type);
         qvNetworkUATxt->setEditText(CurrentConfig.networkConfig.userAgent);
         //
-        qvProxyNoProxy->setChecked(CurrentConfig.networkConfig.proxyType == Qv2rayConfig_Network::QVPROXY_NONE);
-        qvProxySystemProxy->setChecked(CurrentConfig.networkConfig.proxyType == Qv2rayConfig_Network::QVPROXY_SYSTEM);
-        qvProxyCustomProxy->setChecked(CurrentConfig.networkConfig.proxyType == Qv2rayConfig_Network::QVPROXY_CUSTOM);
-        SET_PROXY_UI_ENABLE(CurrentConfig.networkConfig.proxyType == Qv2rayConfig_Network::QVPROXY_CUSTOM)
+        qvProxyNoProxy->setChecked(CurrentConfig.networkConfig.proxyType == PlumbumConfig_Network::QVPROXY_NONE);
+        qvProxySystemProxy->setChecked(CurrentConfig.networkConfig.proxyType == PlumbumConfig_Network::QVPROXY_SYSTEM);
+        qvProxyCustomProxy->setChecked(CurrentConfig.networkConfig.proxyType == PlumbumConfig_Network::QVPROXY_CUSTOM);
+        SET_PROXY_UI_ENABLE(CurrentConfig.networkConfig.proxyType == PlumbumConfig_Network::QVPROXY_CUSTOM)
     }
     //
     //
@@ -389,7 +389,7 @@ void PreferencesWindow::on_buttonBox_accepted()
         if (CurrentConfig.uiConfig.language != GlobalConfig.uiConfig.language)
         {
             // Install translator
-            if (Qv2rayTranslator->InstallTranslation(CurrentConfig.uiConfig.language))
+            if (PlumbumTranslator->InstallTranslation(CurrentConfig.uiConfig.language))
             {
                 UIMessageBus.EmitGlobalSignal(QvMBMessage::RETRANSLATE);
                 QApplication::processEvents();
@@ -755,16 +755,16 @@ void PreferencesWindow::on_checkVCoreSettings_clicked()
     auto vcorePath = vCorePathTxt->text();
     auto vAssetsPath = vCoreAssetsPathTxt->text();
 
-#if QV2RAY_FEATURE(kernel_check_filename)
+#if PLUMBUM_FEATURE(kernel_check_filename)
     // prevent some bullshit situations.
-    if (const auto vCorePathSmallCased = vcorePath.toLower(); vCorePathSmallCased.endsWith("qv2ray") || vCorePathSmallCased.endsWith("qv2ray.exe"))
+    if (const auto vCorePathSmallCased = vcorePath.toLower(); vCorePathSmallCased.endsWith("plumbum") || vCorePathSmallCased.endsWith("plumbum.exe"))
     {
-        const auto content = tr("You may be about to set V2Ray core incorrectly to Qv2ray itself, which is absolutely not correct.\r\n"
-                                "This won't trigger a fork bomb, however, since Qv2ray works in singleton mode.\r\n"
-                                "If your V2Ray core filename happened to be 'qv2ray'-something, you are totally free to ignore this warning.");
+        const auto content = tr("You may be about to set V2Ray core incorrectly to Plumbum itself, which is absolutely not correct.\r\n"
+                                "This won't trigger a fork bomb, however, since Plumbum works in singleton mode.\r\n"
+                                "If your V2Ray core filename happened to be 'plumbum'-something, you are totally free to ignore this warning.");
         QvMessageBoxWarn(this, tr("Watch Out!"), content);
     }
-#if !defined(QV2RAY_USE_V5_CORE)
+#if !defined(PLUMBUM_USE_V5_CORE)
     else if (vCorePathSmallCased.endsWith("v2ctl") || vCorePathSmallCased.endsWith("v2ctl.exe"))
     {
         const auto content = tr("You may be about to set V2Ray core incorrectly to V2Ray Control executable, which is absolutely not correct.\r\n"
@@ -779,7 +779,7 @@ void PreferencesWindow::on_checkVCoreSettings_clicked()
     {
         QvMessageBoxWarn(this, tr("V2Ray Core Settings"), *msg);
     }
-#if QV2RAY_FEATURE(kernel_check_output)
+#if PLUMBUM_FEATURE(kernel_check_output)
     else if (!msg->toLower().contains("v2ray") && !msg->toLower().contains("xray"))
     {
         const auto content = tr("This does not seem like an output from V2Ray Core.") + NEWLINE +                         //
@@ -847,7 +847,7 @@ void PreferencesWindow::on_enableAPI_stateChanged(int arg1)
 void PreferencesWindow::on_updateChannelCombo_currentIndexChanged(int index)
 {
     LOADINGCHECK
-    CurrentConfig.updateConfig.updateChannel = (Qv2rayConfig_Update::UpdateChannel) index;
+    CurrentConfig.updateConfig.updateChannel = (PlumbumConfig_Update::UpdateChannel) index;
     CurrentConfig.updateConfig.ignoredVersion.clear();
 }
 
@@ -1022,7 +1022,7 @@ void PreferencesWindow::on_dnsIntercept_toggled(bool checked)
 
 void PreferencesWindow::on_qvProxyCustomProxy_clicked()
 {
-    CurrentConfig.networkConfig.proxyType = Qv2rayConfig_Network::QVPROXY_CUSTOM;
+    CurrentConfig.networkConfig.proxyType = PlumbumConfig_Network::QVPROXY_CUSTOM;
     SET_PROXY_UI_ENABLE(true);
     qvProxyNoProxy->setChecked(false);
     qvProxySystemProxy->setChecked(false);
@@ -1031,7 +1031,7 @@ void PreferencesWindow::on_qvProxyCustomProxy_clicked()
 
 void PreferencesWindow::on_qvProxySystemProxy_clicked()
 {
-    CurrentConfig.networkConfig.proxyType = Qv2rayConfig_Network::QVPROXY_SYSTEM;
+    CurrentConfig.networkConfig.proxyType = PlumbumConfig_Network::QVPROXY_SYSTEM;
     SET_PROXY_UI_ENABLE(false);
     qvProxyNoProxy->setChecked(false);
     qvProxyCustomProxy->setChecked(false);
@@ -1040,7 +1040,7 @@ void PreferencesWindow::on_qvProxySystemProxy_clicked()
 
 void PreferencesWindow::on_qvProxyNoProxy_clicked()
 {
-    CurrentConfig.networkConfig.proxyType = Qv2rayConfig_Network::QVPROXY_NONE;
+    CurrentConfig.networkConfig.proxyType = PlumbumConfig_Network::QVPROXY_NONE;
     SET_PROXY_UI_ENABLE(false);
     qvProxySystemProxy->setChecked(false);
     qvProxyCustomProxy->setChecked(false);
@@ -1120,7 +1120,7 @@ void PreferencesWindow::on_socksOverrideTLSCB_stateChanged(int arg1)
 
 void PreferencesWindow::on_pushButton_clicked()
 {
-#if QV2RAY_FEATURE(util_has_ntp)
+#if PLUMBUM_FEATURE(util_has_ntp)
     const auto ntpTitle = tr("NTP Checker");
     const auto ntpHint = tr("Check date and time from server:");
     const static QStringList ntpServerList = { "cn.pool.ntp.org",      "cn.ntp.org.cn",           "edu.ntp.org.cn",
@@ -1159,7 +1159,7 @@ void PreferencesWindow::on_pushButton_clicked()
     else
         QvMessageBoxWarn(this, ntpTitle, tr("Failed to lookup server: %1").arg(hostInfo.errorString()));
 #else
-    QvMessageBoxWarn(this, tr("No NTP Backend"), tr("Qv2ray was not built with NTP support."));
+    QvMessageBoxWarn(this, tr("No NTP Backend"), tr("Plumbum was not built with NTP support."));
 #endif
 }
 
@@ -1245,7 +1245,7 @@ void PreferencesWindow::on_disableSystemRootCB_stateChanged(int arg1)
 
 void PreferencesWindow::on_openConfigDirCB_clicked()
 {
-    QvCoreApplication->OpenURL(QV2RAY_CONFIG_DIR);
+    QvCoreApplication->OpenURL(PLUMBUM_CONFIG_DIR);
 }
 
 void PreferencesWindow::on_startMinimizedCB_stateChanged(int arg1)

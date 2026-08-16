@@ -135,15 +135,15 @@ void PluginManageWindow::on_pluginListWidget_itemSelectionChanged()
 
 void PluginManageWindow::on_openPluginFolder_clicked()
 {
-    QDir pluginPath(QV2RAY_CONFIG_DIR + "plugins/");
+    QDir pluginPath(PLUMBUM_CONFIG_DIR + "plugins/");
     if (!pluginPath.exists())
     {
-        pluginPath.mkpath(QV2RAY_CONFIG_DIR + "plugins/");
+        pluginPath.mkpath(PLUMBUM_CONFIG_DIR + "plugins/");
     }
     QDesktopServices::openUrl(QUrl::fromLocalFile(pluginPath.absolutePath()));
 }
 
 void PluginManageWindow::on_toolButton_clicked()
 {
-    QDesktopServices::openUrl(QUrl("https://qv2ray.net/plugins/"));
+    QDesktopServices::openUrl(QUrl("https://plumbum.net/plugins/"));
 }

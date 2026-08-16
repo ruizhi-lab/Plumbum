@@ -1,18 +1,18 @@
 /**
- * A Naive SSD Decoder for Qv2ray
+ * A Naive SSD Decoder for Plumbum
  *
  * @author DuckSoft <realducksoft@gmail.com>
  * @copyright Licensed under GPLv3.
  */
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "core/connection/Generation.hpp"
 #include "core/connection/Serialization.hpp"
 #include "utils/QvHelpers.hpp"
 
 #define QV_MODULE_NAME "SSDConverter"
 
-namespace Qv2ray::core::connection::serialization
+namespace Plumbum::core::connection::serialization
 {
 
     namespace ssd
@@ -190,7 +190,7 @@ namespace Qv2ray::core::connection::serialization
                 //  }
 
                 // format the total name of the node.
-                const auto finalName = QV2RAY_SSD_DEFAULT_NAME_PATTERN.arg(*groupName, nodeName).arg(ratio);
+                const auto finalName = PLUMBUM_SSD_DEFAULT_NAME_PATTERN.arg(*groupName, nodeName).arg(ratio);
                 // appending to the total list
                 CONFIGROOT root;
                 OUTBOUNDS outbounds;
@@ -210,4 +210,4 @@ namespace Qv2ray::core::connection::serialization
 #undef SHOULD_EXIST
 #undef SHOULD_STRING
     } // namespace ssd
-} // namespace Qv2ray::core::connection::serialization
+} // namespace Plumbum::core::connection::serialization

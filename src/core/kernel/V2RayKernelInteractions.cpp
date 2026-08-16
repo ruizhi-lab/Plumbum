@@ -6,10 +6,10 @@
 
 #include <QProcess>
 
-#define QV2RAY_GENERATED_FILE_PATH (QV2RAY_GENERATED_DIR + "config.gen.json")
+#define PLUMBUM_GENERATED_FILE_PATH (PLUMBUM_GENERATED_DIR + "config.gen.json")
 #define QV_MODULE_NAME "V2RayInteraction"
 
-#ifdef QV2RAY_USE_V5_CORE
+#ifdef PLUMBUM_USE_V5_CORE
 #define V2RAY_CORE_VERSION_ARGV "version"
 #define V2RAY_CORE_CONFIG_ARGV "run", "-config"
 #else
@@ -17,9 +17,9 @@
 #define V2RAY_CORE_CONFIG_ARGV "--config"
 #endif
 
-namespace Qv2ray::core::kernel
+namespace Plumbum::core::kernel
 {
-#if QV2RAY_FEATURE(kernel_check_permission)
+#if PLUMBUM_FEATURE(kernel_check_permission)
     std::pair<bool, std::optional<QString>> V2RayKernelInstance::CheckAndSetCoreExecutableState(const QString &vCorePath)
     {
 #ifdef Q_OS_UNIX
@@ -28,14 +28,14 @@ namespace Qv2ray::core::kernel
         QFile coreFile(vCorePath);
         if (!coreFile.permissions().testFlag(QFileDevice::ExeUser))
         {
-#if QV2RAY_FEATURE(kernel_set_permission)
+#if PLUMBUM_FEATURE(kernel_set_permission)
             DEBUG("Core file not executable. Trying to enable.");
             const auto result = coreFile.setPermissions(coreFile.permissions().setFlag(QFileDevice::ExeUser));
             if (!result)
             {
                 DEBUG("Failed to enable executable permission.");
                 const auto message = tr("Core file is lacking executable permission for the current user.") +
-                                     tr("Qv2ray tried to set, but failed because permission denied.");
+                                     tr("Plumbum tried to set, but failed because permission denied.");
                 return { false, message };
             }
             else
@@ -73,7 +73,7 @@ namespace Qv2ray::core::kernel
 
         coreFile.close();
 
-#if QV2RAY_FEATURE(kernel_check_abi)
+#if PLUMBUM_FEATURE(kernel_check_abi)
         // Get Core ABI.
         const auto [abi, err] = kernel::abi::deduceKernelABI(corePath);
         if (err)
@@ -112,7 +112,7 @@ namespace Qv2ray::core::kernel
         }
 #endif
 
-#if QV2RAY_FEATURE(kernel_check_permission)
+#if PLUMBUM_FEATURE(kernel_check_permission)
         // Check executable permissions.
         const auto [isExecutableOk, strExecutableErr] = CheckAndSetCoreExecutableState(corePath);
         if (!isExecutableOk)
@@ -176,7 +176,7 @@ namespace Qv2ray::core::kernel
             QProcess process;
             process.setProcessEnvironment(env);
             DEBUG("Starting V2Ray core with test options");
-#ifdef QV2RAY_USE_V5_CORE
+#ifdef PLUMBUM_USE_V5_CORE
             process.start(kernelPath, { "test", "-c", path }, QIODevice::ReadWrite | QIODevice::Text);
 #else
             process.start(kernelPath, { "-test", "-config", path }, QIODevice::ReadWrite | QIODevice::Text);
@@ -231,9 +231,9 @@ namespace Qv2ray::core::kernel
         }
 
         const auto json = JsonToString(root);
-        StringToFile(json, QV2RAY_GENERATED_FILE_PATH);
+        StringToFile(json, PLUMBUM_GENERATED_FILE_PATH);
         //
-        auto filePath = QV2RAY_GENERATED_FILE_PATH;
+        auto filePath = PLUMBUM_GENERATED_FILE_PATH;
 
         if (const auto &result = ValidateConfig(filePath); result)
         {
@@ -316,4 +316,4 @@ namespace Qv2ray::core::kernel
         delete vProcess;
     }
 
-} // namespace Qv2ray::core::kernel
+} // namespace Plumbum::core::kernel

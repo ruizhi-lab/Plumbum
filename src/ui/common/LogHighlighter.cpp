@@ -4,7 +4,7 @@
 
 #define TO_EOL "(([\\s\\S]*)|([\\d\\D]*)|([\\w\\W]*))$"
 
-namespace Qv2ray::ui
+namespace Plumbum::ui
 {
     SyntaxHighlighter::SyntaxHighlighter(bool darkMode, QTextDocument *parent) : QSyntaxHighlighter(parent)
     {
@@ -134,4 +134,4 @@ namespace Qv2ray::ui
 
         setCurrentBlockState(0);
     }
-} // namespace Qv2ray::ui
+} // namespace Plumbum::ui

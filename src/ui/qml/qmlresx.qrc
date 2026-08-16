@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>forms/MainWindow.qml</file>
-        <file>forms/MainWindowForm.ui.qml</file>
-        <file>forms/widgets/IconButton.qml</file>
-        <file>forms/widgets/IconButtonForm.ui.qml</file>
-        <file>forms/components/ConnectionItem.qml</file>
-        <file>forms/components/ConnectionItemForm.ui.qml</file>
+        <file>forms/ConnectionPage.qml</file>
+        <file>forms/SubscriptionPage.qml</file>
+        <file>forms/SettingsPage.qml</file>
+        <file>forms/components/ConnectionCard.qml</file>
+        <file>forms/components/StatusBar.qml</file>
     </qresource>
 </RCC>

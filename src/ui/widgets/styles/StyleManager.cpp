@@ -1,6 +1,6 @@
 #include "StyleManager.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "ui/widgets/common/WidgetUIBase.hpp"
 #include "utils/QvHelpers.hpp"
 
@@ -10,10 +10,10 @@
 #include <QStyle>
 #include <QStyleFactory>
 
-constexpr auto QV2RAY_BUILT_IN_DARK_MODE_NAME = "Built-in Darkmode";
+constexpr auto PLUMBUM_BUILT_IN_DARK_MODE_NAME = "Built-in Darkmode";
 #define QV_MODULE_NAME "StyleManager"
 
-namespace Qv2ray::ui::styles
+namespace Plumbum::ui::styles
 {
     QvStyleManager::QvStyleManager(QObject *parent) : QObject(parent)
     {
@@ -23,7 +23,7 @@ namespace Qv2ray::ui::styles
     void QvStyleManager::ReloadStyles()
     {
         styles.clear();
-        styles.insert(QV2RAY_BUILT_IN_DARK_MODE_NAME, {});
+        styles.insert(PLUMBUM_BUILT_IN_DARK_MODE_NAME, {});
         for (const auto &key : QStyleFactory::keys())
         {
             LOG("Found factory style: " + key);
@@ -56,7 +56,7 @@ namespace Qv2ray::ui::styles
         if (!styles.contains(style))
             return false;
         qApp->setStyle("fusion");
-        if (style == QV2RAY_BUILT_IN_DARK_MODE_NAME)
+        if (style == PLUMBUM_BUILT_IN_DARK_MODE_NAME)
         {
             LOG("Applying built-in darkmode theme.");
             // From https://forum.qt.io/topic/101391/windows-10-dark-theme/4
@@ -118,4 +118,4 @@ namespace Qv2ray::ui::styles
         qApp->processEvents();
         return true;
     }
-} // namespace Qv2ray::ui::styles
+} // namespace Plumbum::ui::styles

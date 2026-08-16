@@ -1,17 +1,17 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "utils/QvHelpers.hpp"
 
-namespace Qv2ray::core::connection::serialization
+namespace Plumbum::core::connection::serialization
 {
-    const inline QString QV2RAY_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER = "(N/A)";
+    const inline QString PLUMBUM_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER = "(N/A)";
     /**
      * pattern for the nodes in ssd links.
      * %1: airport name
      * %2: node name
      * %3: rate
      */
-    const inline QString QV2RAY_SSD_DEFAULT_NAME_PATTERN = "%1 - %2 (rate %3)";
+    const inline QString PLUMBUM_SSD_DEFAULT_NAME_PATTERN = "%1 - %2 (rate %3)";
     QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &link, QString *aliasPrefix, QString *errMessage,
                                                                   QString *newGroupName = nullptr);
     const QString ConvertConfigToString(const ConnectionGroupPair &id, bool isSip002 = true);
@@ -45,8 +45,8 @@ namespace Qv2ray::core::connection::serialization
         QList<std::pair<QString, CONFIGROOT>> Deserialize(const QString &uri, QString *groupName, QStringList *logList);
     } // namespace ssd
 
-} // namespace Qv2ray::core::connection::serialization
+} // namespace Plumbum::core::connection::serialization
 
-using namespace Qv2ray::core;
-using namespace Qv2ray::core::connection;
-using namespace Qv2ray::core::connection::serialization;
+using namespace Plumbum::core;
+using namespace Plumbum::core::connection;
+using namespace Plumbum::core::connection::serialization;

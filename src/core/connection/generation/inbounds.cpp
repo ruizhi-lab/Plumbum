@@ -2,7 +2,7 @@
 
 #define QV_MODULE_NAME "InboundGenerator"
 
-namespace Qv2ray::core::connection::generation::inbounds
+namespace Plumbum::core::connection::generation::inbounds
 {
     INBOUNDSETTING GenerateDokodemoIN(const QString &address, int port, const QString &network, int timeout, bool followRedirect)
     {
@@ -160,4 +160,4 @@ namespace Qv2ray::core::connection::generation::inbounds
 #undef INCONF
         return inboundsList;
     }
-} // namespace Qv2ray::core::connection::generation::inbounds
+} // namespace Plumbum::core::connection::generation::inbounds

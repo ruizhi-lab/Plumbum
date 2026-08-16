@@ -1,18 +1,18 @@
 #pragma once
 
-#include "ui/Qv2rayPlatformApplication.hpp"
+#include "ui/PlumbumPlatformApplication.hpp"
 
 #include <QSystemTrayIcon>
 
 class MainWindow;
 
-namespace Qv2ray
+namespace Plumbum
 {
-    class Qv2rayWidgetApplication : public Qv2rayPlatformApplication
+    class PlumbumWidgetApplication : public PlumbumPlatformApplication
     {
         Q_OBJECT
       public:
-        explicit Qv2rayWidgetApplication(int &argc, char *argv[]);
+        explicit PlumbumWidgetApplication(int &argc, char *argv[]);
         QJsonObject UIStates;
 
       public:
@@ -29,23 +29,23 @@ namespace Qv2ray
 
       private:
         QStringList checkPrerequisitesInternal() override;
-        Qv2rayExitReason runQv2rayInternal() override;
+        PlumbumExitReason runPlumbumInternal() override;
         bool isInitialized;
         void terminateUIInternal() override;
-#ifndef QV2RAY_NO_SINGLEAPPLICATON
+#ifndef PLUMBUM_NO_SINGLEAPPLICATON
         void onMessageReceived(quint32 clientID, QByteArray msg) override;
 #endif
         QSystemTrayIcon *hTray;
         MainWindow *mainWindow;
     };
-} // namespace Qv2ray
+} // namespace Plumbum
 
-#ifdef Qv2rayApplication
-#undef Qv2rayApplication
+#ifdef PlumbumApplication
+#undef PlumbumApplication
 #endif
-#define Qv2rayApplication Qv2rayWidgetApplication
+#define PlumbumApplication PlumbumWidgetApplication
 
-#define QvWidgetApplication static_cast<Qv2rayWidgetApplication *>(qApp)
+#define QvWidgetApplication static_cast<PlumbumWidgetApplication *>(qApp)
 #define qvAppTrayIcon (*(QvWidgetApplication->GetTrayIcon()))
 
-using namespace Qv2ray;
+using namespace Plumbum;

@@ -6,7 +6,7 @@
 #include "uvw.hpp"
 
 #include <QString>
-namespace Qv2ray::components::latency::icmping
+namespace Plumbum::components::latency::icmping
 {
     class ICMPPing : public DNSBase<ICMPPing>
     {
@@ -29,5 +29,5 @@ namespace Qv2ray::components::latency::icmping
         std::shared_ptr<uvw::PollHandle> pollHandle;
         std::vector<timeval> startTimevals;
     };
-} // namespace Qv2ray::components::latency::icmping
+} // namespace Plumbum::components::latency::icmping
 #endif

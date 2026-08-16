@@ -1,11 +1,11 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <QTreeView>
 
-namespace Qv2ray::ui::widgets::models
+namespace Plumbum::ui::widgets::models
 {
     enum ConnectionInfoRole
     {
@@ -54,6 +54,6 @@ namespace Qv2ray::ui::widgets::models
         QHash<ConnectionId, QList<QStandardItem *>> connections;
     };
 
-} // namespace Qv2ray::ui::widgets::models
+} // namespace Plumbum::ui::widgets::models
 
-using namespace Qv2ray::ui::widgets::models;
+using namespace Plumbum::ui::widgets::models;

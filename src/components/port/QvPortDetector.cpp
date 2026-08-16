@@ -3,7 +3,7 @@
 #include <QHostAddress>
 #include <QTcpServer>
 
-namespace Qv2ray::components::port
+namespace Plumbum::components::port
 {
     bool CheckTCPPortStatus(const QString &addr, int port)
     {
@@ -16,4 +16,4 @@ namespace Qv2ray::components::port
         return server.listen(address, port);
     }
 
-} // namespace Qv2ray::components::port
+} // namespace Plumbum::components::port

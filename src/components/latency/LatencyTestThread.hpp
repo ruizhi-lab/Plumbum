@@ -11,7 +11,7 @@ namespace uvw
     class Loop;
     class TimerHandle;
 } // namespace uvw
-namespace Qv2ray::components::latency
+namespace Plumbum::components::latency
 {
     class LatencyTestThread : public QThread
     {
@@ -22,8 +22,8 @@ namespace Qv2ray::components::latency
         {
             isStop = true;
         }
-        void pushRequest(const QList<ConnectionId> &ids, int totalTestCount, Qv2rayLatencyTestingMethod method);
-        void pushRequest(const ConnectionId &id, int totalTestCount, Qv2rayLatencyTestingMethod method);
+        void pushRequest(const QList<ConnectionId> &ids, int totalTestCount, PlumbumLatencyTestingMethod method);
+        void pushRequest(const ConnectionId &id, int totalTestCount, PlumbumLatencyTestingMethod method);
 
       protected:
         void run() override;
@@ -50,4 +50,4 @@ namespace Qv2ray::components::latency
         // static LatencyTestResult TestLatency_p(const ConnectionId &id, const int count);
     };
 
-} // namespace Qv2ray::components::latency
+} // namespace Plumbum::components::latency

@@ -9,13 +9,13 @@
 
 #define QV_MODULE_NAME "ConfigHandler"
 
-namespace Qv2ray::core::handler
+namespace Plumbum::core::handler
 {
     QvConfigHandler::QvConfigHandler(QObject *parent) : QObject(parent)
     {
         DEBUG("ConnectionHandler Constructor.");
-        const auto connectionJson = JsonFromString(StringFromFile(QV2RAY_CONFIG_DIR + "connections.json"));
-        const auto groupJson = JsonFromString(StringFromFile(QV2RAY_CONFIG_DIR + "groups.json"));
+        const auto connectionJson = JsonFromString(StringFromFile(PLUMBUM_CONFIG_DIR + "connections.json"));
+        const auto groupJson = JsonFromString(StringFromFile(PLUMBUM_CONFIG_DIR + "groups.json"));
         //
         for (const auto &connectionId : connectionJson.keys())
         {
@@ -41,7 +41,7 @@ namespace Qv2ray::core::handler
             auto const &connectionObject = connections.value(id);
             if (connectionObject.__qvConnectionRefCount == 0)
             {
-                QFile connectionFile(QV2RAY_CONNECTIONS_DIR + id.toString() + QV2RAY_CONFIG_FILE_EXTENSION);
+                QFile connectionFile(PLUMBUM_CONNECTIONS_DIR + id.toString() + PLUMBUM_CONFIG_FILE_EXTENSION);
                 if (connectionFile.exists())
                 {
                     if (!connectionFile.remove())
@@ -52,7 +52,7 @@ namespace Qv2ray::core::handler
             }
             else
             {
-                const auto connectionFilePath = QV2RAY_CONNECTIONS_DIR + id.toString() + QV2RAY_CONFIG_FILE_EXTENSION;
+                const auto connectionFilePath = PLUMBUM_CONNECTIONS_DIR + id.toString() + PLUMBUM_CONFIG_FILE_EXTENSION;
                 connectionRootCache[id] = CONFIGROOT(JsonFromString(StringFromFile(connectionFilePath)));
                 DEBUG("Loaded connection id: " + id.toString() + " into cache.");
             }
@@ -89,14 +89,14 @@ namespace Qv2ray::core::handler
         {
             connectionsObject[key.toString()] = connections[key].toJson();
         }
-        StringToFile(JsonToString(connectionsObject), QV2RAY_CONFIG_DIR + "connections.json");
+        StringToFile(JsonToString(connectionsObject), PLUMBUM_CONFIG_DIR + "connections.json");
         //
         QJsonObject groupObject;
         for (const auto &key : groups.keys())
         {
             groupObject[key.toString()] = groups[key].toJson();
         }
-        StringToFile(JsonToString(groupObject), QV2RAY_CONFIG_DIR + "groups.json");
+        StringToFile(JsonToString(groupObject), PLUMBUM_CONFIG_DIR + "groups.json");
     }
 
     void QvConfigHandler::timerEvent(QTimerEvent *event)
@@ -137,7 +137,7 @@ namespace Qv2ray::core::handler
         pingHelper->TestLatency(groups[id].connections, GlobalConfig.networkConfig.latencyTestingMethod);
     }
 
-    void QvConfigHandler::StartLatencyTest(const ConnectionId &id, Qv2rayLatencyTestingMethod method)
+    void QvConfigHandler::StartLatencyTest(const ConnectionId &id, PlumbumLatencyTestingMethod method)
     {
         emit OnLatencyTestStarted(id);
         pingHelper->TestLatency(id, method);
@@ -225,7 +225,7 @@ namespace Qv2ray::core::handler
             LOG("Fully removing a connection from cache.");
             connectionRootCache.remove(id);
             //
-            QFile connectionFile(QV2RAY_CONNECTIONS_DIR + id.toString() + QV2RAY_CONFIG_FILE_EXTENSION);
+            QFile connectionFile(PLUMBUM_CONNECTIONS_DIR + id.toString() + PLUMBUM_CONFIG_FILE_EXTENSION);
             if (connectionFile.exists())
             {
                 if (!connectionFile.remove())
@@ -368,7 +368,7 @@ namespace Qv2ray::core::handler
     {
         CheckValidId(id, false);
         //
-        auto path = QV2RAY_CONNECTIONS_DIR + id.toString() + QV2RAY_CONFIG_FILE_EXTENSION;
+        auto path = PLUMBUM_CONNECTIONS_DIR + id.toString() + PLUMBUM_CONFIG_FILE_EXTENSION;
         auto content = JsonToString(root);
         bool result = StringToFile(content, path);
         //
@@ -753,7 +753,7 @@ namespace Qv2ray::core::handler
         return { newId, groupId };
     }
 
-} // namespace Qv2ray::core::handler
+} // namespace Plumbum::core::handler
 
 #undef CheckIdExistance
 #undef CheckGroupExistanceEx

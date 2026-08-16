@@ -1,10 +1,10 @@
 #pragma once
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "ui/common/QvMessageBus.hpp"
 #include "ui_DnsSettingsWidget.h"
 
-namespace Qv2ray::ui::widgets
+namespace Plumbum::ui::widgets
 {
     class AutoCompleteTextEdit;
 }
@@ -55,6 +55,6 @@ class DnsSettingsWidget
     FakeDNSObject fakeDNS;
     // int currentServerIndex;
     //
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *domainListTxt;
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *ipListTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *domainListTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *ipListTxt;
 };

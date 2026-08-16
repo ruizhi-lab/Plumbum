@@ -1,6 +1,6 @@
 #include "RuleWidget.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "utils/QvHelpers.hpp"
 
 #define LOAD_FLAG_END isLoading = false;
@@ -44,10 +44,10 @@ void QvNodeRuleWidget::setValue(std::shared_ptr<RuleObject> _ruleptr)
     this->ruleptr = _ruleptr;
     // Switch to the detailed page.
     ruleEnableCB->setEnabled(true);
-    ruleEnableCB->setChecked(rule.QV2RAY_RULE_ENABLED);
+    ruleEnableCB->setChecked(rule.PLUMBUM_RULE_ENABLED);
     ruleTagLineEdit->setEnabled(true);
     LOAD_FLAG_BEGIN
-    ruleTagLineEdit->setText(rule.QV2RAY_RULE_TAG);
+    ruleTagLineEdit->setText(rule.PLUMBUM_RULE_TAG);
     isLoading = false;
     // Networks
     auto network = rule.network.toLower();
@@ -137,7 +137,7 @@ void QvNodeRuleWidget::on_sourceIPList_textChanged()
 void QvNodeRuleWidget::on_ruleEnableCB_stateChanged(int arg1)
 {
     bool _isEnabled = arg1 == Qt::Checked;
-    rule.QV2RAY_RULE_ENABLED = _isEnabled;
+    rule.PLUMBUM_RULE_ENABLED = _isEnabled;
     settingsFrame->setEnabled(_isEnabled);
 }
 
@@ -150,11 +150,11 @@ void QvNodeRuleWidget::on_toolButton_clicked()
 
 void QvNodeRuleWidget::on_ruleTagLineEdit_textEdited(const QString &arg1)
 {
-    const auto originalTag = rule.QV2RAY_RULE_TAG;
+    const auto originalTag = rule.PLUMBUM_RULE_TAG;
     if (originalTag == arg1 || dispatcher->RenameTag<NODE_RULE>(originalTag, arg1))
     {
         BLACK(ruleTagLineEdit);
-        rule.QV2RAY_RULE_TAG = arg1;
+        rule.PLUMBUM_RULE_TAG = arg1;
         return;
     }
     RED(ruleTagLineEdit);

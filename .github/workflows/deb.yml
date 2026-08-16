@@ -1,4 +1,4 @@
-name: Qv2ray build debian package
+name: Plumbum build debian package
 
 on:
   push:
@@ -73,10 +73,10 @@ jobs:
           dpkg-buildpackage -us -uc -i -b
       - name: Copy binary
         run: |
-          cp ../qv2ray_*.deb ./
+          cp ../plumbum_*.deb ./
       - name: Get package name
         id: get_package
-        run: echo ::set-output name=NAME::$(basename qv2ray_*.deb)
+        run: echo ::set-output name=NAME::$(basename plumbum_*.deb)
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -125,10 +125,10 @@ jobs:
           dpkg-buildpackage -a${{ matrix.arch }} -us -uc -i -b -d
       - name: Copy binary
         run: |
-          cp ../qv2ray_*.deb ./
+          cp ../plumbum_*.deb ./
       - name: Get package name
         id: get_package
-        run: echo ::set-output name=NAME::$(basename qv2ray_*.deb)
+        run: echo ::set-output name=NAME::$(basename plumbum_*.deb)
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -156,7 +156,7 @@ jobs:
       - name: Setup Repository (development branch)
         if: github.event_name != 'release'
         run: |
-          git clone git@github.com:Qv2ray/debian-dev.git
+          git clone git@github.com:Plumbum/debian-dev.git
           cd debian-dev
           git config --local user.name "${{ github.actor }}"
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"

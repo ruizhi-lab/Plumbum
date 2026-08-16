@@ -31,21 +31,21 @@ steps:
       cmake .. -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12
       cmake --build .
       sudo cmake --install .
-      appdmg ../assets/package_dmg.json ../qv2ray-legacy.dmg
-    displayName: Build Qv2ray
+      appdmg ../assets/package_dmg.json ../plumbum-legacy.dmg
+    displayName: Build Plumbum
     env:
       Qt5_DIR: $(Agent.BuildDirectory)/qt/5.15.1/clang_64/lib/cmake/Qt5
       PKG_CONFIG_PATH: /usr/local/opt/openssl@1.1/lib/pkgconfig
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: "qv2ray-legacy.dmg"
-      ArtifactName: "qv2ray-legacy.dmg"
+      PathtoPublish: "plumbum-legacy.dmg"
+      ArtifactName: "plumbum-legacy.dmg"
       publishLocation: "Container"
   - task: GitHubRelease@0
     condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/v')
     inputs:
       gitHubConnection: "GitHub - DuckSoft"
-      assets: "qv2ray-legacy.dmg"
+      assets: "plumbum-legacy.dmg"
       action: edit
       tag: "$(Build.SourceBranchName)"
       isPreRelease: true

@@ -5,12 +5,12 @@
 
 #define CurrentStatAPIType (GlobalConfig.uiConfig.graphConfig.useOutboundStats ? API_OUTBOUND_PROXY : API_INBOUND)
 
-namespace Qv2ray::core
+namespace Plumbum::core
 {
     const inline GroupId DefaultGroupId{ "000000000000" };
-    using namespace Qv2ray::base;
-    using namespace Qv2ray::base::safetype;
-    using namespace Qv2ray::base::objects;
+    using namespace Plumbum::base;
+    using namespace Plumbum::base::safetype;
+    using namespace Plumbum::base::objects;
     inline const QString getTag(const INBOUND &in)
     {
         return in["tag"].toString();
@@ -23,7 +23,7 @@ namespace Qv2ray::core
 
     inline const QString getTag(const RuleObject &in)
     {
-        return in.QV2RAY_RULE_TAG;
+        return in.PLUMBUM_RULE_TAG;
     }
     //
     int64_t GetConnectionLatency(const ConnectionId &id);
@@ -60,6 +60,6 @@ namespace Qv2ray::core
 
     const QMap<QString, ProtocolSettingsInfoObject> GetInboundInfo(const CONFIGROOT &root);
     const QMap<QString, ProtocolSettingsInfoObject> GetInboundInfo(const ConnectionId &id);
-} // namespace Qv2ray::core
+} // namespace Plumbum::core
 
-using namespace Qv2ray::core;
+using namespace Plumbum::core;

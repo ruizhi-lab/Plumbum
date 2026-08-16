@@ -6,7 +6,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-namespace Qv2ray::core::connection
+namespace Plumbum::core::connection
 {
     namespace serialization::vmess_new
     {
@@ -212,4 +212,4 @@ namespace Qv2ray::core::connection
             return url.toString();
         }
     } // namespace serialization::vmess_new
-} // namespace Qv2ray::core::connection
+} // namespace Plumbum::core::connection

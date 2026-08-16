@@ -4,7 +4,7 @@
 #include "QvConfigIdentifier.hpp"
 #include "QvSafeType.hpp"
 
-namespace Qv2ray::base::objects::complex
+namespace Plumbum::base::objects::complex
 {
     /*****************************************************************
      *   ROOT
@@ -14,7 +14,7 @@ namespace Qv2ray::base::objects::complex
      *      | - Routing Rules
      *      | - DNS /
      *      |
-     *      | Qv2ray-only structures
+     *      | Plumbum-only structures
      *      | ======================
      *      |
      *      | - Outbounds
@@ -22,7 +22,7 @@ namespace Qv2ray::base::objects::complex
      *      |   | - OUTBOUND
      *      |   |   - Original Outbound Object
      *      |   |   ==========================================
-     *      |   |   - "QV2RAY_OUTBOUND_METADATA" -> OutboundObjectMeta
+     *      |   |   - "PLUMBUM_OUTBOUND_METADATA" -> OutboundObjectMeta
      *      |   |     - realOutbound                -> OUTBOUND A.K.A ref<OUTBOUND>
      *      |   |     - chainId                     -> ChainID
      *      |   |     - object                      -> OutboundObject
@@ -50,8 +50,8 @@ namespace Qv2ray::base::objects::complex
         METAOUTBOUND_CHAIN
     };
 
-    constexpr auto META_OUTBOUND_KEY_NAME = "QV2RAY_OUTBOUND_METADATA";
-    constexpr auto QV2RAY_CHAINED_OUTBOUND_PORT_ALLOCATION = 15500;
+    constexpr auto META_OUTBOUND_KEY_NAME = "PLUMBUM_OUTBOUND_METADATA";
+    constexpr auto PLUMBUM_CHAINED_OUTBOUND_PORT_ALLOCATION = 15500;
 
     typedef BalancerObject ComplexBalancerObject;
 
@@ -63,7 +63,7 @@ namespace Qv2ray::base::objects::complex
         ConnectionId connectionId;
         QList<QString> outboundTags;
         QString strategyType;
-        int chainPortAllocation = QV2RAY_CHAINED_OUTBOUND_PORT_ALLOCATION;
+        int chainPortAllocation = PLUMBUM_CHAINED_OUTBOUND_PORT_ALLOCATION;
         //
         safetype::OUTBOUND realOutbound;
         QString getDisplayName() const
@@ -120,6 +120,6 @@ namespace Qv2ray::base::objects::complex
         meta.displayName = outbound["tag"].toString();
         return meta;
     }
-} // namespace Qv2ray::base::objects::complex
+} // namespace Plumbum::base::objects::complex
 
-using namespace Qv2ray::base::objects::complex;
+using namespace Plumbum::base::objects::complex;

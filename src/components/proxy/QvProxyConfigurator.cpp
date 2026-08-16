@@ -1,6 +1,6 @@
 #include "QvProxyConfigurator.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "components/plugins/QvPluginHost.hpp"
 #include "utils/QvHelpers.hpp"
 #ifdef Q_OS_WIN
@@ -15,7 +15,7 @@
 
 #define QV_MODULE_NAME "SystemProxy"
 
-namespace Qv2ray::components::proxy
+namespace Plumbum::components::proxy
 {
 
     using ProcessArgument = QPair<QString, QStringList>;
@@ -260,7 +260,7 @@ namespace Qv2ray::components::proxy
         }
         else
         {
-            LOG("Qv2ray will set system proxy to use HTTP");
+            LOG("Plumbum will set system proxy to use HTTP");
         }
 #else
         if (!hasHTTP && !hasSOCKS)
@@ -271,12 +271,12 @@ namespace Qv2ray::components::proxy
 
         if (hasHTTP)
         {
-            LOG("Qv2ray will set system proxy to use HTTP");
+            LOG("Plumbum will set system proxy to use HTTP");
         }
 
         if (hasSOCKS)
         {
-            LOG("Qv2ray will set system proxy to use SOCKS");
+            LOG("Plumbum will set system proxy to use SOCKS");
         }
 #endif
 
@@ -497,4 +497,4 @@ namespace Qv2ray::components::proxy
         // Trigger plugin events
         PluginHost->SendEvent(Events::SystemProxy::EventObject{ {}, Events::SystemProxy::SystemProxyStateType::ClearProxy });
     }
-} // namespace Qv2ray::components::proxy
+} // namespace Plumbum::components::proxy

@@ -1,13 +1,13 @@
 #include "HTTPRequestHelper.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 #include <QByteArray>
 #include <QNetworkProxy>
 
 #define QV_MODULE_NAME "NetworkCore"
 
-namespace Qv2ray::common::network
+namespace Plumbum::common::network
 {
     void NetworkRequestHelper::setHeader(QNetworkRequest &request, const QByteArray &key, const QByteArray &value)
     {
@@ -19,18 +19,18 @@ namespace Qv2ray::common::network
     {
         switch (GlobalConfig.networkConfig.proxyType)
         {
-            case Qv2rayConfig_Network::QVPROXY_NONE:
+            case PlumbumConfig_Network::QVPROXY_NONE:
             {
                 DEBUG("Get without proxy.");
                 accessManager.setProxy(QNetworkProxy(QNetworkProxy::ProxyType::NoProxy));
                 break;
             }
-            case Qv2rayConfig_Network::QVPROXY_SYSTEM:
+            case PlumbumConfig_Network::QVPROXY_SYSTEM:
             {
                 accessManager.setProxy(QNetworkProxyFactory::systemProxyForQuery().first());
                 break;
             }
-            case Qv2rayConfig_Network::QVPROXY_CUSTOM:
+            case PlumbumConfig_Network::QVPROXY_CUSTOM:
             {
                 QNetworkProxy p{
                     GlobalConfig.networkConfig.type == "http" ? QNetworkProxy::HttpProxy : QNetworkProxy::Socks5Proxy, //
@@ -58,7 +58,7 @@ namespace Qv2ray::common::network
 #endif
 
         auto ua = GlobalConfig.networkConfig.userAgent;
-        ua.replace("$VERSION", QV2RAY_VERSION_STRING);
+        ua.replace("$VERSION", PLUMBUM_VERSION_STRING);
         request.setHeader(QNetworkRequest::KnownHeaders::UserAgentHeader, ua);
     }
 
@@ -108,4 +108,4 @@ namespace Qv2ray::common::network
         });
     }
 
-} // namespace Qv2ray::common::network
+} // namespace Plumbum::common::network

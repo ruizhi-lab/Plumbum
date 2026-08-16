@@ -95,21 +95,21 @@ Item {
         IconButton {
             id: _deleteBtn
             visible: !isConnected
-            imageSource: qv2ray.assetsPrefix + "/ashbin.svg"
+            imageSource: plumbum.assetsPrefix + "/ashbin.svg"
         }
         IconButton {
             id: _editBtn
             visible: !isConnected
-            imageSource: qv2ray.assetsPrefix + "/edit.svg"
+            imageSource: plumbum.assetsPrefix + "/edit.svg"
         }
         IconButton {
             id: _editJsonBtn
             visible: !isConnected
-            imageSource: qv2ray.assetsPrefix + "/code.svg"
+            imageSource: plumbum.assetsPrefix + "/code.svg"
         }
         IconButton {
             id: _toggleConnectivityBtn
-            imageSource: qv2ray.assetsPrefix + (!isConnected ? "/start.svg" : "/stop.svg")
+            imageSource: plumbum.assetsPrefix + (!isConnected ? "/start.svg" : "/stop.svg")
         }
     }
 }

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
-namespace Qv2ray::core::handler
+namespace Plumbum::core::handler
 {
     class RouteHandler : public QObject
     {
@@ -35,5 +35,5 @@ namespace Qv2ray::core::handler
       private:
         QHash<GroupRoutingId, GroupRoutingConfig> configs;
     };
-    inline ::Qv2ray::core::handler::RouteHandler *RouteManager = nullptr;
-} // namespace Qv2ray::core::handler
+    inline ::Plumbum::core::handler::RouteHandler *RouteManager = nullptr;
+} // namespace Plumbum::core::handler

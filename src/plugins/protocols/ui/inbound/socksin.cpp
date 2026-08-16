@@ -5,7 +5,7 @@
 SocksInboundEditor::SocksInboundEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
-    setProperty("QV2RAY_INTERNAL_HAS_STREAMSETTINGS", true);
+    setProperty("PLUMBUM_INTERNAL_HAS_STREAMSETTINGS", true);
 }
 
 void SocksInboundEditor::changeEvent(QEvent *e)

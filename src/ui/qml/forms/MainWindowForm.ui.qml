@@ -27,7 +27,7 @@ Item {
 
             Text {
                 id: element1
-                text: qsTr("Qv2ray")
+                text: qsTr("Plumbum")
                 font.pixelSize: frame.width / 15
             }
         }

@@ -1,15 +1,15 @@
 #pragma once
-#include "base/Qv2rayBase.hpp"
-namespace Qv2ray::components::route
+#include "base/PlumbumBase.hpp"
+namespace Plumbum::components::route
 {
     const inline QvConfig_Route emptyScheme;
     const inline QvConfig_Route noAdsScheme({ {}, { "geosite:category-ads-all" }, {} }, { {}, {}, {} }, "AsIs");
 
     /**
-     * @brief The Qv2rayRouteScheme struct
+     * @brief The PlumbumRouteScheme struct
      * @author DuckSoft <realducksoft@gmail.com>
      */
-    struct Qv2rayRouteScheme : QvConfig_Route
+    struct PlumbumRouteScheme : QvConfig_Route
     {
         /**
          * @brief the name of the scheme.
@@ -28,8 +28,8 @@ namespace Qv2ray::components::route
         QString description;
 
         // M: all these fields are mandatory
-        JSONSTRUCT_REGISTER(Qv2rayRouteScheme, F(name, author, description), B(QvConfig_Route));
+        JSONSTRUCT_REGISTER(PlumbumRouteScheme, F(name, author, description), B(QvConfig_Route));
     };
-} // namespace Qv2ray::components::route
+} // namespace Plumbum::components::route
 
-using namespace Qv2ray::components::route;
+using namespace Plumbum::components::route;

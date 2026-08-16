@@ -1,7 +1,7 @@
 #pragma once
 
 #include "3rdparty/QJsonStruct/macroexpansion.hpp"
-#include "base/Qv2rayBaseApplication.hpp"
+#include "base/PlumbumBaseApplication.hpp"
 #include "base/models/QvStartupConfig.hpp"
 
 #include <QPair>
@@ -18,28 +18,28 @@
 #define QVLOG_A(...) FOREACH_CALL_FUNC(QVLOG_A_DO_EXPAND, __VA_ARGS__)
 
 #ifdef QT_DEBUG
-#define QV2RAY_IS_DEBUG true
+#define PLUMBUM_IS_DEBUG true
 // __FILE__ ":" QT_STRINGIFY(__LINE__),
-#define QV2RAY_LOG_PREPEND_CONTENT Q_FUNC_INFO,
+#define PLUMBUM_LOG_PREPEND_CONTENT Q_FUNC_INFO,
 #else
-#define QV2RAY_IS_DEBUG false
-#define QV2RAY_LOG_PREPEND_CONTENT
+#define PLUMBUM_IS_DEBUG false
+#define PLUMBUM_LOG_PREPEND_CONTENT
 #endif
 
-#define _LOG_ARG_(...) QV2RAY_LOG_PREPEND_CONTENT "[" QV_MODULE_NAME "]", __VA_ARGS__
+#define _LOG_ARG_(...) PLUMBUM_LOG_PREPEND_CONTENT "[" QV_MODULE_NAME "]", __VA_ARGS__
 
-#define LOG(...) Qv2ray::base::log_internal<QV2RAY_LOG_NORMAL>(_LOG_ARG_(__VA_ARGS__))
-#define DEBUG(...) Qv2ray::base::log_internal<QV2RAY_LOG_DEBUG>(_LOG_ARG_(__VA_ARGS__))
+#define LOG(...) Plumbum::base::log_internal<PLUMBUM_LOG_NORMAL>(_LOG_ARG_(__VA_ARGS__))
+#define DEBUG(...) Plumbum::base::log_internal<PLUMBUM_LOG_DEBUG>(_LOG_ARG_(__VA_ARGS__))
 
 enum QvLogType
 {
-    QV2RAY_LOG_NORMAL = 0,
-    QV2RAY_LOG_DEBUG = 1
+    PLUMBUM_LOG_NORMAL = 0,
+    PLUMBUM_LOG_DEBUG = 1
 };
 
 Q_DECLARE_METATYPE(const char *)
 
-namespace Qv2ray::base
+namespace Plumbum::base
 {
     inline QString logBuffer;
     inline QString tempBuffer;
@@ -61,9 +61,9 @@ namespace Qv2ray::base
         // We only process DEBUG log in Release mode
         // Prevent QvCoreApplication nullptr
         // TODO: Move log function inside QvCoreApplication
-        if (t == QV2RAY_LOG_DEBUG && QvCoreApplication && !QvCoreApplication->StartupArguments.debugLog)
+        if (t == PLUMBUM_LOG_DEBUG && QvCoreApplication && !QvCoreApplication->StartupArguments.debugLog)
         {
-            // Discard debug log in non-debug Qv2ray version with
+            // Discard debug log in non-debug Plumbum version with
             // no-debugLog mode.
             return;
         }
@@ -71,12 +71,12 @@ namespace Qv2ray::base
 
         const auto logString = tempStream.readAll();
 #ifdef Q_OS_ANDROID
-        __android_log_write(ANDROID_LOG_INFO, "Qv2ray", logString.toStdString().c_str());
+        __android_log_write(ANDROID_LOG_INFO, "Plumbum", logString.toStdString().c_str());
 #else
         std::cout << logString.toStdString() << std::endl;
 #endif
     }
-} // namespace Qv2ray::base
+} // namespace Plumbum::base
 
 template<typename TKey, typename TVal>
 QTextStream &operator<<(QTextStream &stream, const QPair<TKey, TVal> &pair)

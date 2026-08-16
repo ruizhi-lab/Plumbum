@@ -4,7 +4,7 @@
 
 #define QV_MODULE_NAME "TCPingWorker"
 
-namespace Qv2ray::components::latency::tcping
+namespace Plumbum::components::latency::tcping
 {
     constexpr int conn_timeout_sec = 5;
 
@@ -93,4 +93,4 @@ namespace Qv2ray::components::latency::tcping
             tcpClient->connect(reinterpret_cast<const sockaddr &>(storage));
         }
     }
-} // namespace Qv2ray::components::latency::tcping
+} // namespace Plumbum::components::latency::tcping

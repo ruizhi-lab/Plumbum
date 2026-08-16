@@ -17,10 +17,10 @@
 
 #include "QvNTPClient.hpp"
 
-#if QV2RAY_FEATURE(util_has_ntp)
+#if PLUMBUM_FEATURE(util_has_ntp)
 #include <cmath>
 
-namespace Qv2ray::components::ntp
+namespace Plumbum::components::ntp
 {
 
     NtpTimestamp NtpTimestamp::fromDateTime(const QDateTime &dateTime)
@@ -214,5 +214,5 @@ namespace Qv2ray::components::ntp
         }
     }
 
-} // namespace Qv2ray::components::ntp
+} // namespace Plumbum::components::ntp
 #endif

@@ -1,4 +1,4 @@
-#include "Qv2rayPlatformApplication.hpp"
+#include "PlumbumPlatformApplication.hpp"
 
 #include "core/settings/SettingsBackend.hpp"
 
@@ -10,12 +10,12 @@
 #define QV_MODULE_NAME "PlatformApplication"
 
 #ifdef QT_DEBUG
-const static inline QString QV2RAY_URL_SCHEME = "qv2ray-debug";
+const static inline QString PLUMBUM_URL_SCHEME = "plumbum-debug";
 #else
-const static inline QString QV2RAY_URL_SCHEME = "qv2ray";
+const static inline QString PLUMBUM_URL_SCHEME = "plumbum";
 #endif
 
-QStringList Qv2rayPlatformApplication::CheckPrerequisites()
+QStringList PlumbumPlatformApplication::CheckPrerequisites()
 {
     QStringList errors;
     if (!QSslSocket::supportsSsl())
@@ -25,14 +25,14 @@ QStringList Qv2rayPlatformApplication::CheckPrerequisites()
         const auto osslCurVersion = QSslSocket::sslLibraryVersionString();
         LOG("Current OpenSSL version: " + osslCurVersion);
         LOG("Required OpenSSL version: " + osslReqVersion);
-        errors << "Qv2ray cannot run without OpenSSL.";
+        errors << "Plumbum cannot run without OpenSSL.";
         errors << "This is usually caused by using the wrong version of OpenSSL";
         errors << "Required=" + osslReqVersion + "Current=" + osslCurVersion;
     }
     return errors + checkPrerequisitesInternal();
 }
 
-bool Qv2rayPlatformApplication::Initialize()
+bool PlumbumPlatformApplication::Initialize()
 {
     QString errorMessage;
     bool canContinue;
@@ -42,7 +42,7 @@ bool Qv2rayPlatformApplication::Initialize()
         LOG("Command line:" QVLOG_A(errorMessage));
         if (!canContinue)
         {
-            LOG("Fatal, Qv2ray cannot continue.");
+            LOG("Fatal, Plumbum cannot continue.");
             return false;
         }
         else
@@ -53,9 +53,9 @@ bool Qv2rayPlatformApplication::Initialize()
 
 #ifdef Q_OS_WIN
     const auto appPath = QDir::toNativeSeparators(applicationFilePath());
-    const auto regPath = "HKEY_CURRENT_USER\\Software\\Classes\\" + QV2RAY_URL_SCHEME;
+    const auto regPath = "HKEY_CURRENT_USER\\Software\\Classes\\" + PLUMBUM_URL_SCHEME;
     QSettings reg(regPath, QSettings::NativeFormat);
-    reg.setValue("Default", "Qv2ray");
+    reg.setValue("Default", "Plumbum");
     reg.setValue("URL Protocol", "");
     reg.beginGroup("DefaultIcon");
     reg.setValue("Default", QString("%1,1").arg(appPath));
@@ -66,16 +66,16 @@ bool Qv2rayPlatformApplication::Initialize()
     reg.setValue("Default", appPath + " %1");
 #endif
 
-    connect(this, &Qv2rayPlatformApplication::aboutToQuit, this, &Qv2rayPlatformApplication::quitInternal);
-#ifndef QV2RAY_NO_SINGLEAPPLICATON
-    connect(this, &SingleApplication::receivedMessage, this, &Qv2rayPlatformApplication::onMessageReceived, Qt::QueuedConnection);
+    connect(this, &PlumbumPlatformApplication::aboutToQuit, this, &PlumbumPlatformApplication::quitInternal);
+#ifndef PLUMBUM_NO_SINGLEAPPLICATON
+    connect(this, &SingleApplication::receivedMessage, this, &PlumbumPlatformApplication::onMessageReceived, Qt::QueuedConnection);
     if (isSecondary())
     {
-        StartupArguments.version = QV2RAY_VERSION_STRING;
-        StartupArguments.buildVersion = QV2RAY_VERSION_BUILD;
+        StartupArguments.version = PLUMBUM_VERSION_STRING;
+        StartupArguments.buildVersion = PLUMBUM_VERSION_BUILD;
         StartupArguments.fullArgs = arguments();
         if (StartupArguments.arguments.isEmpty())
-            StartupArguments.arguments << Qv2rayStartupArguments::NORMAL;
+            StartupArguments.arguments << PlumbumStartupArguments::NORMAL;
         bool status = sendMessage(JsonToString(StartupArguments.toJson(), QJsonDocument::Compact).toUtf8());
         if (!status)
             LOG("Cannot send message.");
@@ -84,7 +84,7 @@ bool Qv2rayPlatformApplication::Initialize()
     }
 #endif
 
-#ifdef QV2RAY_GUI
+#ifdef PLUMBUM_GUI
 #ifdef Q_OS_LINUX
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setFallbackSessionManagementEnabled(false);
@@ -108,9 +108,9 @@ bool Qv2rayPlatformApplication::Initialize()
 #endif
 
     // Install a default translater. From the OS/DE
-    Qv2rayTranslator = std::make_unique<QvTranslator>();
-    Qv2rayTranslator->InstallTranslation(QLocale::system().name());
-    const auto allTranslations = Qv2rayTranslator->GetAvailableLanguages();
+    PlumbumTranslator = std::make_unique<QvTranslator>();
+    PlumbumTranslator->InstallTranslation(QLocale::system().name());
+    const auto allTranslations = PlumbumTranslator->GetAvailableLanguages();
     const auto osLanguage = QLocale::system().name();
     //
     LocateConfiguration();
@@ -127,7 +127,7 @@ bool Qv2rayPlatformApplication::Initialize()
         }
     }
 
-    if (!Qv2rayTranslator->InstallTranslation(GlobalConfig.uiConfig.language))
+    if (!PlumbumTranslator->InstallTranslation(GlobalConfig.uiConfig.language))
     {
         QvMessageBoxWarn(nullptr, "Translation Failed",
                          "Cannot load translation for " + GlobalConfig.uiConfig.language + NEWLINE + //
@@ -139,15 +139,15 @@ bool Qv2rayPlatformApplication::Initialize()
     return true;
 }
 
-Qv2rayExitReason Qv2rayPlatformApplication::RunQv2ray()
+PlumbumExitReason PlumbumPlatformApplication::RunPlumbum()
 {
     PluginHost = new QvPluginHost();
     RouteManager = new RouteHandler();
     ConnectionManager = new QvConfigHandler();
-    return runQv2rayInternal();
+    return runPlumbumInternal();
 }
 
-void Qv2rayPlatformApplication::quitInternal()
+void PlumbumPlatformApplication::quitInternal()
 {
     // Do not change the order.
     ConnectionManager->StopConnection();
@@ -164,7 +164,7 @@ void Qv2rayPlatformApplication::quitInternal()
     PluginHost = nullptr;
 }
 
-bool Qv2rayPlatformApplication::parseCommandLine(QString *errorMessage, bool *canContinue)
+bool PlumbumPlatformApplication::parseCommandLine(QString *errorMessage, bool *canContinue)
 {
     *canContinue = true;
     QStringList filteredArgs;
@@ -184,9 +184,9 @@ bool Qv2rayPlatformApplication::parseCommandLine(QString *errorMessage, bool *ca
     QCommandLineOption noAutoConnectionOption("noAutoConnection", QObject::tr("Do not automatically connect"));
     QCommandLineOption disconnectOption("disconnect", QObject::tr("Stop current connection"));
     QCommandLineOption reconnectOption("reconnect", QObject::tr("Reconnect last connection"));
-    QCommandLineOption exitOption("exit", QObject::tr("Exit Qv2ray"));
+    QCommandLineOption exitOption("exit", QObject::tr("Exit Plumbum"));
     //
-    parser.setApplicationDescription(QObject::tr("Qv2ray - A cross-platform Qt frontend for V2Ray."));
+    parser.setApplicationDescription(QObject::tr("Plumbum - A cross-platform Qt frontend for V2Ray."));
     parser.setSingleDashWordOptionMode(QCommandLineParser::ParseAsLongOptions);
     //
     parser.addOption(noAPIOption);
@@ -221,9 +221,9 @@ bool Qv2rayPlatformApplication::parseCommandLine(QString *errorMessage, bool *ca
 
     for (const auto &arg : parser.positionalArguments())
     {
-        if (arg.startsWith(QV2RAY_URL_SCHEME + "://"))
+        if (arg.startsWith(PLUMBUM_URL_SCHEME + "://"))
         {
-            StartupArguments.arguments << Qv2rayStartupArguments::QV2RAY_LINK;
+            StartupArguments.arguments << PlumbumStartupArguments::PLUMBUM_LINK;
             StartupArguments.links << arg;
         }
     }
@@ -231,19 +231,19 @@ bool Qv2rayPlatformApplication::parseCommandLine(QString *errorMessage, bool *ca
     if (parser.isSet(exitOption))
     {
         DEBUG("disconnectOption is set.");
-        StartupArguments.arguments << Qv2rayStartupArguments::EXIT;
+        StartupArguments.arguments << PlumbumStartupArguments::EXIT;
     }
 
     if (parser.isSet(disconnectOption))
     {
         DEBUG("disconnectOption is set.");
-        StartupArguments.arguments << Qv2rayStartupArguments::DISCONNECT;
+        StartupArguments.arguments << PlumbumStartupArguments::DISCONNECT;
     }
 
     if (parser.isSet(reconnectOption))
     {
         DEBUG("reconnectOption is set.");
-        StartupArguments.arguments << Qv2rayStartupArguments::RECONNECT;
+        StartupArguments.arguments << PlumbumStartupArguments::RECONNECT;
     }
 
 #define ProcessExtraStartupOptions(option)                                                                                                           \

@@ -1,6 +1,6 @@
 #pragma once
 #include "QvAutoCompleteTextEdit.hpp"
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "ui_RouteSettingsMatrix.h"
 
 #include <QMenu>
@@ -36,11 +36,11 @@ class RouteSettingsMatrixWidget
     const QString &assetsDirPath;
 
   private:
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *directDomainTxt;
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *proxyDomainTxt;
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *blockDomainTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *directDomainTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *proxyDomainTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *blockDomainTxt;
     //
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *directIPTxt;
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *blockIPTxt;
-    Qv2ray::ui::widgets::AutoCompleteTextEdit *proxyIPTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *directIPTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *blockIPTxt;
+    Plumbum::ui::widgets::AutoCompleteTextEdit *proxyIPTxt;
 };

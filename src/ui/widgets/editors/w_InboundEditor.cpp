@@ -259,6 +259,6 @@ void InboundEditor::on_stackedWidget_currentChanged(int)
     if (!widget)
         return;
     stackedWidget->setCurrentWidget(widget);
-    const auto hasStreamSettings = GetProperty(widget, "QV2RAY_INTERNAL_HAS_STREAMSETTINGS");
+    const auto hasStreamSettings = GetProperty(widget, "PLUMBUM_INTERNAL_HAS_STREAMSETTINGS");
     streamSettingsWidget->setEnabled(hasStreamSettings);
 }

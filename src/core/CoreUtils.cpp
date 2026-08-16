@@ -6,7 +6,7 @@
 
 #define QV_MODULE_NAME "CoreUtils"
 
-namespace Qv2ray::core
+namespace Plumbum::core
 {
     bool IsComplexConfig(const ConnectionId &id)
     {
@@ -110,7 +110,7 @@ namespace Qv2ray::core
         // Don't bother with the complex connection configs.
         if (IsComplexConfig(id))
         {
-            return QV2RAY_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER;
+            return PLUMBUM_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER;
         }
 
         const auto root = ConnectionManager->GetConnectionRoot(id);
@@ -167,4 +167,4 @@ namespace Qv2ray::core
     {
         return GetInboundInfo(ConnectionManager->GetConnectionRoot(id));
     }
-} // namespace Qv2ray::core
+} // namespace Plumbum::core

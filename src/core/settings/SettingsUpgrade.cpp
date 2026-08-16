@@ -1,16 +1,16 @@
 //
 // This file handles some important migration
-// from old to newer versions of Qv2ray.
+// from old to newer versions of Plumbum.
 //
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "utils/QvHelpers.hpp"
 
 #define QV_MODULE_NAME "SettingsUpgrade"
 
 #define UPGRADELOG(msg) LOG("[" + QSTRN(fromVersion) + "-" + QSTRN(fromVersion + 1) + "] --> " + msg)
 
-namespace Qv2ray
+namespace Plumbum
 {
     // Private member
     QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
@@ -18,7 +18,7 @@ namespace Qv2ray
         auto root = original;
         switch (fromVersion)
         {
-            // Qv2ray version 2, RC 4
+            // Plumbum version 2, RC 4
             case 6:
             {
                 // Moved API Stats port from connectionConfig to apiConfig
@@ -48,9 +48,9 @@ namespace Qv2ray
                 defaultGroup["displayName"] = QObject::tr("Default Group");
                 QString defaultGroupId = "000000000000";
 
-                if (!QDir(QV2RAY_CONNECTIONS_DIR + defaultGroupId).exists())
+                if (!QDir(PLUMBUM_CONNECTIONS_DIR + defaultGroupId).exists())
                 {
-                    QDir().mkpath(QV2RAY_CONNECTIONS_DIR + defaultGroupId);
+                    QDir().mkpath(PLUMBUM_CONNECTIONS_DIR + defaultGroupId);
                 }
 
                 QString autoStartId;
@@ -62,8 +62,8 @@ namespace Qv2ray
                     UPGRADELOG("Migrating: " + config.toString());
                     //
                     // MOVE FILES.
-                    // OLD PATH is at QV2RAY_CONFIG_DIR
-                    auto filePath = QV2RAY_CONFIG_DIR + config.toString() + QV2RAY_CONFIG_FILE_EXTENSION;
+                    // OLD PATH is at PLUMBUM_CONFIG_DIR
+                    auto filePath = PLUMBUM_CONFIG_DIR + config.toString() + PLUMBUM_CONFIG_FILE_EXTENSION;
                     auto configFile = QFile(filePath);
                     auto newUuid = GenerateUuid();
                     DEBUG("Generated new UUID: " + newUuid);
@@ -79,7 +79,7 @@ namespace Qv2ray
 
                     if (configFile.exists())
                     {
-                        auto newPath = QV2RAY_CONNECTIONS_DIR + defaultGroupId + "/" + newUuid + QV2RAY_CONFIG_FILE_EXTENSION;
+                        auto newPath = PLUMBUM_CONNECTIONS_DIR + defaultGroupId + "/" + newUuid + PLUMBUM_CONFIG_FILE_EXTENSION;
                         configFile.rename(newPath);
                         UPGRADELOG("Moved: " + filePath + " to " + newPath);
                     }
@@ -114,8 +114,8 @@ namespace Qv2ray
                     subs["updateInterval"] = value["updateInterval"];
                     subs["displayName"] = key;
                     //
-                    auto baseDirPath = QV2RAY_CONFIG_DIR + "/subscriptions/" + key;
-                    auto newDirPath = QV2RAY_CONFIG_DIR + "/subscriptions/" + subsUuid;
+                    auto baseDirPath = PLUMBUM_CONFIG_DIR + "/subscriptions/" + key;
+                    auto newDirPath = PLUMBUM_CONFIG_DIR + "/subscriptions/" + subsUuid;
                     QDir newDir(newDirPath);
 
                     if (!newDir.exists())
@@ -131,10 +131,10 @@ namespace Qv2ray
                     {
                         auto subsConnectionId = GenerateUuid();
                         auto baseFilePath = baseDirPath + "/" + fileName;
-                        auto newFilePath = newDirPath + "/" + subsConnectionId + QV2RAY_CONFIG_FILE_EXTENSION;
+                        auto newFilePath = newDirPath + "/" + subsConnectionId + PLUMBUM_CONFIG_FILE_EXTENSION;
                         //
                         QJsonObject subsConnection;
-                        subsConnection["displayName"] = fileName.chopped(QString(QV2RAY_CONFIG_FILE_EXTENSION).count());
+                        subsConnection["displayName"] = fileName.chopped(QString(PLUMBUM_CONFIG_FILE_EXTENSION).count());
                         QFile(baseFilePath).rename(newFilePath);
                         UPGRADELOG("Moved subscription file from: " + baseFilePath + " to: " + newFilePath);
                         subsConnectionIds << subsConnectionId;
@@ -212,7 +212,7 @@ namespace Qv2ray
                 break;
             }
 
-            // Splitted Qv2ray.conf,
+            // Splitted Plumbum.conf,
             case 11:
             {
                 // Process AutoStartSettings
@@ -221,11 +221,11 @@ namespace Qv2ray
                 // Process connection entries.
                 //
                 {
-                    // Moved root["connections"] into separated file: $QV2RAY_CONFIG_PATH/connections.json
-                    QDir connectionsDir(QV2RAY_CONNECTIONS_DIR);
+                    // Moved root["connections"] into separated file: $PLUMBUM_CONFIG_PATH/connections.json
+                    QDir connectionsDir(PLUMBUM_CONNECTIONS_DIR);
                     if (!connectionsDir.exists())
                     {
-                        connectionsDir.mkpath(QV2RAY_CONNECTIONS_DIR);
+                        connectionsDir.mkpath(PLUMBUM_CONNECTIONS_DIR);
                     }
                     const auto connectionsArray = root["connections"].toObject().keys();
                     QJsonObject newConnectionsArray;
@@ -257,9 +257,9 @@ namespace Qv2ray
                     root["connections"] = QJsonArray::fromStringList(connectionsArray);
                     //
                     // Store Connection.json
-                    StringToFile(JsonToString(newConnectionsArray), QV2RAY_CONFIG_DIR + "connections.json");
+                    StringToFile(JsonToString(newConnectionsArray), PLUMBUM_CONFIG_DIR + "connections.json");
                 }
-                // Merged groups and subscriptions. $QV2RAY_GROUPS_PATH + groupId.json
+                // Merged groups and subscriptions. $PLUMBUM_GROUPS_PATH + groupId.json
                 {
                     // Susbcription Object
                     //      Doesn't exist anymore, convert into normal group Object.
@@ -287,7 +287,7 @@ namespace Qv2ray
                         for (const auto &cid : aSubscription["connections"].toArray())
                         {
                             ConnectionsCache[cid.toString()] = JsonFromString(
-                                StringFromFile(QV2RAY_CONFIG_DIR + "subscriptions/" + key + "/" + cid.toString() + QV2RAY_CONFIG_FILE_EXTENSION));
+                                StringFromFile(PLUMBUM_CONFIG_DIR + "subscriptions/" + key + "/" + cid.toString() + PLUMBUM_CONFIG_FILE_EXTENSION));
                         }
                         //
                         allGroupsObject[key] = aSubscription;
@@ -317,20 +317,20 @@ namespace Qv2ray
                         for (const auto &cid : aGroup["connections"].toArray())
                         {
                             ConnectionsCache[cid.toString()] = JsonFromString(
-                                StringFromFile(QV2RAY_CONFIG_DIR + "connections/" + key + "/" + cid.toString() + QV2RAY_CONFIG_FILE_EXTENSION));
+                                StringFromFile(PLUMBUM_CONFIG_DIR + "connections/" + key + "/" + cid.toString() + PLUMBUM_CONFIG_FILE_EXTENSION));
                         }
                         //
                         allGroupsObject[key] = aGroup;
                     }
                     //
-                    StringToFile(JsonToString(allGroupsObject), QV2RAY_CONFIG_DIR + "groups.json");
+                    StringToFile(JsonToString(allGroupsObject), PLUMBUM_CONFIG_DIR + "groups.json");
                     //
                     root.remove("groups"); //
                     UPGRADELOG("Removing unused directory");
-                    QDir(QV2RAY_CONFIG_DIR + "subscriptions/").removeRecursively();
-                    QDir(QV2RAY_CONFIG_DIR + "connections/").removeRecursively();
+                    QDir(PLUMBUM_CONFIG_DIR + "subscriptions/").removeRecursively();
+                    QDir(PLUMBUM_CONFIG_DIR + "connections/").removeRecursively();
                     //
-                    QDir().mkpath(QV2RAY_CONFIG_DIR + "connections/");
+                    QDir().mkpath(PLUMBUM_CONFIG_DIR + "connections/");
                     //
                     //
                     // FileSystem Migrations
@@ -338,7 +338,7 @@ namespace Qv2ray
                     //      Only Store (connections.json in CONFIG_PATH) and ($groupID.json in GROUP_PATH)
                     for (const auto &cid : ConnectionsCache.keys())
                     {
-                        StringToFile(JsonToString(ConnectionsCache[cid]), QV2RAY_CONFIG_DIR + "connections/" + cid + QV2RAY_CONFIG_FILE_EXTENSION);
+                        StringToFile(JsonToString(ConnectionsCache[cid]), PLUMBUM_CONFIG_DIR + "connections/" + cid + PLUMBUM_CONFIG_FILE_EXTENSION);
                     }
                     //
                 }
@@ -358,7 +358,7 @@ namespace Qv2ray
                 kernelConfig["enableAPI"] = root["apiConfig"].toObject()["enableAPI"];
                 kernelConfig["statsPort"] = root["apiConfig"].toObject()["statsPort"];
                 root["kernelConfig"] = kernelConfig;
-                UPGRADELOG("Finished upgrading config file for Qv2ray Group Routing update.");
+                UPGRADELOG("Finished upgrading config file for Plumbum Group Routing update.");
                 break;
             }
             case 12:
@@ -410,7 +410,7 @@ namespace Qv2ray
                 for (auto i = 0; i < dnsList.count(); i++)
                 {
                     QJsonIO::SetValue(defaultRouteConfig, dnsList[i], "dnsConfig", "servers", i, "address");
-                    QJsonIO::SetValue(defaultRouteConfig, false, "dnsConfig", "servers", i, "QV2RAY_DNS_IS_COMPLEX_DNS");
+                    QJsonIO::SetValue(defaultRouteConfig, false, "dnsConfig", "servers", i, "PLUMBUM_DNS_IS_COMPLEX_DNS");
                 }
                 root["defaultRouteConfig"] = defaultRouteConfig;
                 break;
@@ -419,14 +419,14 @@ namespace Qv2ray
             {
                 //
                 // Due to technical issue, we cannot maintain all of those upgrade processes anymore. Check
-                // https://github.com/Qv2ray/Qv2ray/issues/353#issuecomment-586117507
+                // https://github.com/Plumbum/Plumbum/issues/353#issuecomment-586117507
                 // for more information, see commit 2f716a9a443b71ddb96aaab081de73c0095cb637
                 //
                 QvMessageBoxWarn(nullptr, QObject::tr("Configuration Upgrade Failed"),
                                  QObject::tr("Unsupported config version number: ") + QSTRN(fromVersion) + NEWLINE + NEWLINE +
-                                     QObject::tr("Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again."));
-                LOG("The configuration version of your old Qv2ray installation is out-of-date and that"
-                    " version is not supported anymore, please try to update to an intermediate version of Qv2ray first.");
+                                     QObject::tr("Please upgrade firstly up to Plumbum v2.0/v2.1 and try again."));
+                LOG("The configuration version of your old Plumbum installation is out-of-date and that"
+                    " version is not supported anymore, please try to update to an intermediate version of Plumbum first.");
                 qApp->exit(1);
             }
         }
@@ -447,4 +447,4 @@ namespace Qv2ray
 
         return root;
     }
-} // namespace Qv2ray
+} // namespace Plumbum

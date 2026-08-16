@@ -5,7 +5,7 @@
 
 #include <QImage>
 
-namespace Qv2ray::ui
+namespace Plumbum::ui
 {
     QString DecodeQRCode(const QImage &)
     {
@@ -18,4 +18,4 @@ namespace Qv2ray::ui
         c.setData(content.toUtf8());
         return QtQrCodePainter(2.0).toImage(c, size);
     }
-} // namespace Qv2ray::ui
+} // namespace Plumbum::ui

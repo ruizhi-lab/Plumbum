@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base/Qv2rayBaseApplication.hpp"
+#include "base/PlumbumBaseApplication.hpp"
 
 #include <QDateTime>
 #include <QDir>
@@ -15,7 +15,7 @@
     R"((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5]))"
 #define REGEX_PORT_NUMBER R"(([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-5]{2}[0-3][0-5])*)"
 
-namespace Qv2ray::common
+namespace Plumbum::common
 {
     QString SafeBase64Decode(QString string);
     QString SafeBase64Encode(const QString &string, bool trim);
@@ -96,7 +96,7 @@ namespace Qv2ray::common
     void QvMessageBoxWarn(QWidget *parent, const QString &title, const QString &text);
     void QvMessageBoxInfo(QWidget *parent, const QString &title, const QString &text);
     MessageOpt QvMessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &opt = { Yes, No });
-} // namespace Qv2ray::common
+} // namespace Plumbum::common
 
-using namespace Qv2ray::common;
-using namespace Qv2ray::common::validation;
+using namespace Plumbum::common;
+using namespace Plumbum::common::validation;

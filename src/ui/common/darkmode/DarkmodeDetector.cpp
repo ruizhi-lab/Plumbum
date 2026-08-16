@@ -1,6 +1,6 @@
 #include "DarkmodeDetector.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 #include <QApplication>
 #include <QStyle>
@@ -12,7 +12,7 @@
 #include <CoreServices/CoreServices.h>
 #endif
 
-namespace Qv2ray::components::darkmode
+namespace Plumbum::components::darkmode
 {
     // Referenced from github.com/keepassxreboot/keepassxc. Licensed under GPL2/3.
     // Copyright (C) 2020 KeePassXC Team <team@keepassxc.org>
@@ -44,4 +44,4 @@ namespace Qv2ray::components::darkmode
         return qApp->style()->standardPalette().color(QPalette::Window).toHsl().lightness() < 110;
     }
 
-} // namespace Qv2ray::components::darkmode
+} // namespace Plumbum::components::darkmode

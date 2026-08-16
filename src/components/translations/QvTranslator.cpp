@@ -1,29 +1,29 @@
 #include "QvTranslator.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 #include "utils/QvHelpers.hpp"
 
 #define QV_MODULE_NAME "Translator"
 
-using namespace Qv2ray::base;
+using namespace Plumbum::base;
 
 // path searching list.
 QStringList getLanguageSearchPaths()
 {
     // Configuration Path
     QStringList list = QvCoreApplication->GetAssetsPaths("lang");
-#ifdef QV2RAY_EMBED_TRANSLATIONS
+#ifdef PLUMBUM_EMBED_TRANSLATIONS
     // If the translations have been embedded.
     list << QString(":/translations/");
 #endif
-#ifdef QV2RAY_TRANSLATION_PATH
+#ifdef PLUMBUM_TRANSLATION_PATH
     // Platform-specific dir, if specified.
-    list << QString(QV2RAY_TRANSLATION_PATH);
+    list << QString(PLUMBUM_TRANSLATION_PATH);
 #endif
     return list;
 }
 
-namespace Qv2ray::common
+namespace Plumbum::common
 {
     QvTranslator::QvTranslator()
     {
@@ -69,4 +69,4 @@ namespace Qv2ray::common
         }
         return false;
     }
-} // namespace Qv2ray::common
+} // namespace Plumbum::common

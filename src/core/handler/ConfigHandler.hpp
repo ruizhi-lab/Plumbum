@@ -5,7 +5,7 @@
 #include "core/connection/ConnectionIO.hpp"
 #include "core/handler/KernelInstanceHandler.hpp"
 
-namespace Qv2ray::common::network
+namespace Plumbum::common::network
 {
     class NetworkRequestHelper;
 }
@@ -14,7 +14,7 @@ namespace Qv2ray::common::network
     if (!IsValidId(id))                                                                                                                              \
         return returnValue;
 
-namespace Qv2ray::core::handler
+namespace Plumbum::core::handler
 {
     class QvConfigHandler : public QObject
     {
@@ -106,7 +106,7 @@ namespace Qv2ray::core::handler
         // Misc Connection Operations
         void StartLatencyTest();
         void StartLatencyTest(const GroupId &id);
-        void StartLatencyTest(const ConnectionId &id, Qv2rayLatencyTestingMethod method = GlobalConfig.networkConfig.latencyTestingMethod);
+        void StartLatencyTest(const ConnectionId &id, PlumbumLatencyTestingMethod method = GlobalConfig.networkConfig.latencyTestingMethod);
         //
         // Group Operations
         const GroupId CreateGroup(const QString &displayName, bool isSubscription);
@@ -176,7 +176,7 @@ namespace Qv2ray::core::handler
         KernelInstanceHandler *kernelHandler;
     };
 
-    inline ::Qv2ray::core::handler::QvConfigHandler *ConnectionManager = nullptr;
-} // namespace Qv2ray::core::handler
+    inline ::Plumbum::core::handler::QvConfigHandler *ConnectionManager = nullptr;
+} // namespace Plumbum::core::handler
 
-using namespace Qv2ray::core::handler;
+using namespace Plumbum::core::handler;

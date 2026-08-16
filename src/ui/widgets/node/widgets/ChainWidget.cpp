@@ -1,11 +1,11 @@
 #include "ChainWidget.hpp"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/PlumbumBase.hpp"
 
 ChainWidget::ChainWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent) : QvNodeWidget(_dispatcher, parent)
 {
     setupUi(this);
-    editChainBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("edit")));
+    editChainBtn->setIcon(QIcon(PLUMBUM_COLORSCHEME_FILE("edit")));
 }
 
 void ChainWidget::setValue(std::shared_ptr<OutboundObjectMeta> data)
