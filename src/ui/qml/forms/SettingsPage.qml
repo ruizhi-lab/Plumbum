@@ -25,6 +25,93 @@ Rectangle {
                 color: window.cText
             }
 
+            // -------- Appearance / theme card --------
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 96
+                radius: 10
+                color: window.cSurface
+                border.color: window.cBorder
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    anchors.margins: 18
+                    spacing: 12
+
+                    Text {
+                        text: qsTr("Appearance")
+                        font.pixelSize: 13
+                        font.bold: true
+                        color: window.cPrimaryAlt
+                    }
+
+                    RowLayout {
+                        spacing: 10
+
+                        // Follow system
+                        Rectangle {
+                            Layout.preferredWidth: 110
+                            Layout.preferredHeight: 34
+                            radius: 6
+                            color: plumbum.themeMode === 0 ? window.cPrimary : window.cSurfaceAlt
+                            border.color: plumbum.themeMode === 0 ? window.cPrimary : window.cBorder
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: qsTr("Follow System")
+                                font.pixelSize: 11
+                                font.bold: plumbum.themeMode === 0
+                                color: plumbum.themeMode === 0 ? "#ffffff" : window.cTextDim
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: plumbum.setThemeMode(0)
+                            }
+                        }
+                        // Light
+                        Rectangle {
+                            Layout.preferredWidth: 110
+                            Layout.preferredHeight: 34
+                            radius: 6
+                            color: plumbum.themeMode === 1 ? window.cPrimary : window.cSurfaceAlt
+                            border.color: plumbum.themeMode === 1 ? window.cPrimary : window.cBorder
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: qsTr("Light")
+                                font.pixelSize: 11
+                                font.bold: plumbum.themeMode === 1
+                                color: plumbum.themeMode === 1 ? "#ffffff" : window.cTextDim
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: plumbum.setThemeMode(1)
+                            }
+                        }
+                        // Dark
+                        Rectangle {
+                            Layout.preferredWidth: 110
+                            Layout.preferredHeight: 34
+                            radius: 6
+                            color: plumbum.themeMode === 2 ? window.cPrimary : window.cSurfaceAlt
+                            border.color: plumbum.themeMode === 2 ? window.cPrimary : window.cBorder
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: qsTr("Dark")
+                                font.pixelSize: 11
+                                font.bold: plumbum.themeMode === 2
+                                color: plumbum.themeMode === 2 ? "#ffffff" : window.cTextDim
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: plumbum.setThemeMode(2)
+                            }
+                        }
+                    }
+                }
+            }
+
             // -------- Core settings card --------
             Rectangle {
                 Layout.fillWidth: true
@@ -118,6 +205,100 @@ Rectangle {
                             value: plumbum.statsPort
                             editable: true
                             onValueModified: plumbum.setStatsPort(value)
+                        }
+                    }
+                }
+            }
+
+            // -------- TUN system proxy card --------
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: tunGrid.implicitHeight + 36
+                radius: 10
+                color: window.cSurface
+                border.color: window.cBorder
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    anchors.margins: 18
+                    spacing: 12
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 8
+
+                        Text {
+                            text: qsTr("TUN System Proxy")
+                            font.pixelSize: 13
+                            font.bold: true
+                            color: window.cPrimaryAlt
+                            Layout.fillWidth: true
+                        }
+                        Switch {
+                            checked: plumbum.tunEnabled
+                            enabled: plumbum.tunAvailable
+                            onToggled: plumbum.setTunEnabled(checked)
+                        }
+                    }
+
+                    Text {
+                        visible: plumbum.tunAvailable && !plumbum.tunEnabled
+                        text: qsTr("Route all system traffic through the proxy via a virtual TUN interface.")
+                        font.pixelSize: 10
+                        color: window.cTextDim
+                        wrapMode: Text.Wrap
+                        Layout.fillWidth: true
+                    }
+
+                    Text {
+                        visible: !plumbum.tunAvailable
+                        text: qsTr("⚠ TUN requires root privileges or CAP_NET_ADMIN. Please run Plumbum with sudo or grant the capability: sudo setcap cap_net_admin,cap_net_raw+eip $(which xray)")
+                        font.pixelSize: 10
+                        color: window.cOrange
+                        wrapMode: Text.Wrap
+                        Layout.fillWidth: true
+                    }
+
+                    GridLayout {
+                        id: tunGrid
+                        columns: 2
+                        columnSpacing: 12
+                        rowSpacing: 10
+
+                        Text {
+                            text: qsTr("TUN IPv4:")
+                            font.pixelSize: 12
+                            color: window.cTextDim
+                            Layout.preferredWidth: 140
+                        }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 8
+                            TextField {
+                                id: tunIpv4Input
+                                Layout.fillWidth: true
+                                text: plumbum.tunIpv4
+                                validator: RegularExpressionValidator { regularExpression: /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/ }
+                            }
+                            Button {
+                                text: qsTr("Apply")
+                                enabled: tunIpv4Input.text !== plumbum.tunIpv4 && tunIpv4Input.acceptableInput
+                                onClicked: plumbum.setTunIpv4(tunIpv4Input.text)
+                            }
+                        }
+
+                        Text {
+                            text: qsTr("MTU:")
+                            font.pixelSize: 12
+                            color: window.cTextDim
+                            Layout.preferredWidth: 140
+                        }
+                        SpinBox {
+                            from: 576
+                            to: 65535
+                            value: plumbum.tunMtu
+                            editable: true
+                            onValueModified: plumbum.setTunMtu(value)
                         }
                     }
                 }

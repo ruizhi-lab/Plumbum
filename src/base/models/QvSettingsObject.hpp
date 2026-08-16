@@ -55,6 +55,8 @@ namespace Plumbum::base::config
         PlumbumConfig_Graph graphConfig;
         bool quietMode = false;
         bool useDarkTheme = false;
+        // Theme mode: 0=follow system, 1=light, 2=dark
+        int themeMode = 0;
         bool useGlyphTrayIcon = true;
         bool useDarkTrayIcon = false;
         int maximumLogLines = 500;
@@ -62,9 +64,9 @@ namespace Plumbum::base::config
         bool useOldShareLinkFormat = false;
         bool startMinimized = true;
         bool exitByCloseEvent = false;
-        JSONSTRUCT_COMPARE(PlumbumConfig_UI, theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon, maximumLogLines,
-                           maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent)
-        JSONSTRUCT_REGISTER(PlumbumConfig_UI, F(theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon,
+        JSONSTRUCT_COMPARE(PlumbumConfig_UI, theme, language, quietMode, graphConfig, useDarkTheme, themeMode, useDarkTrayIcon, useGlyphTrayIcon,
+                           maximumLogLines, maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent)
+        JSONSTRUCT_REGISTER(PlumbumConfig_UI, F(theme, language, quietMode, graphConfig, useDarkTheme, themeMode, useDarkTrayIcon, useGlyphTrayIcon,
                                                maximumLogLines, maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent))
     };
 

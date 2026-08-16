@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-// Top status bar: connection name + realtime speed + total traffic
+// Top status bar: PAC mode selector + connection name + realtime speed + total traffic
 Rectangle {
     id: root
     height: 56
@@ -13,6 +13,85 @@ Rectangle {
         anchors.leftMargin: 20
         anchors.rightMargin: 20
         spacing: 16
+
+        // -------- PAC mode selector (v2rayN style) --------
+        ColumnLayout {
+            spacing: 2
+            Layout.preferredWidth: 240
+
+            Text {
+                text: qsTr("PAC Mode")
+                font.pixelSize: 9
+                color: window.cTextDim
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            RowLayout {
+                spacing: 2
+                Layout.alignment: Qt.AlignHCenter
+
+                // Whitelist (bypass mainland)
+                Rectangle {
+                    Layout.preferredWidth: 76
+                    Layout.preferredHeight: 24
+                    radius: 4
+                    color: plumbum.pacMode === 0 ? window.cPrimary : window.cSurfaceAlt
+                    border.color: plumbum.pacMode === 0 ? window.cPrimary : window.cBorder
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: qsTr("Whitelist")
+                        font.pixelSize: 10
+                        font.bold: plumbum.pacMode === 0
+                        color: plumbum.pacMode === 0 ? "#ffffff" : window.cTextDim
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: plumbum.pacMode = 0
+                    }
+                }
+                // Blacklist (GFW)
+                Rectangle {
+                    Layout.preferredWidth: 76
+                    Layout.preferredHeight: 24
+                    radius: 4
+                    color: plumbum.pacMode === 1 ? window.cPrimary : window.cSurfaceAlt
+                    border.color: plumbum.pacMode === 1 ? window.cPrimary : window.cBorder
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: qsTr("Blacklist")
+                        font.pixelSize: 10
+                        font.bold: plumbum.pacMode === 1
+                        color: plumbum.pacMode === 1 ? "#ffffff" : window.cTextDim
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: plumbum.pacMode = 1
+                    }
+                }
+                // Global
+                Rectangle {
+                    Layout.preferredWidth: 76
+                    Layout.preferredHeight: 24
+                    radius: 4
+                    color: plumbum.pacMode === 2 ? window.cPrimary : window.cSurfaceAlt
+                    border.color: plumbum.pacMode === 2 ? window.cPrimary : window.cBorder
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: qsTr("Global")
+                        font.pixelSize: 10
+                        font.bold: plumbum.pacMode === 2
+                        color: plumbum.pacMode === 2 ? "#ffffff" : window.cTextDim
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: plumbum.pacMode = 2
+                    }
+                }
+            }
+        }
 
         // Connection name
         ColumnLayout {

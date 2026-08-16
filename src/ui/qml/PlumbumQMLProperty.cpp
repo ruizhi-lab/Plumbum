@@ -7,6 +7,11 @@
 
 #include <QClipboard>
 #include <QGuiApplication>
+#include <QStyleHints>
+
+#ifdef Q_OS_LINUX
+#include <unistd.h>
+#endif
 
 using namespace Plumbum;
 using namespace Plumbum::core::connection;
@@ -456,6 +461,94 @@ void PlumbumQMLProperty::setStatsPort(int port)
     }
 }
 
+void PlumbumQMLProperty::setPacMode(int mode)
+{
+    if (mode < 0 || mode > 2)
+        return;
+    if (GlobalConfig.defaultRouteConfig.connectionConfig.pacMode == mode)
+        return;
+    GlobalConfig.defaultRouteConfig.connectionConfig.pacMode = mode;
+    SaveGlobalSettings();
+    emit pacModeChanged();
+    // Apply the new routing immediately if a connection is active.
+    if (KernelInstance && !KernelInstance->CurrentConnection().isEmpty())
+    {
+        ConnectionManager->RestartConnection();
+        emit toastMessage(tr("PAC mode changed, restarting connection..."));
+    }
+    else
+    {
+        emit toastMessage(tr("PAC mode changed."));
+    }
+}
+
+void PlumbumQMLProperty::setTunEnabled(bool enabled)
+{
+    if (GlobalConfig.inboundConfig.tunSettings.enabled == enabled)
+        return;
+    GlobalConfig.inboundConfig.tunSettings.enabled = enabled;
+    SaveGlobalSettings();
+    emit settingsChanged();
+    if (KernelInstance && !KernelInstance->CurrentConnection().isEmpty())
+    {
+        ConnectionManager->RestartConnection();
+        emit toastMessage(enabled ? tr("TUN mode enabled, restarting connection...") : tr("TUN mode disabled, restarting connection..."));
+    }
+    else
+    {
+        emit toastMessage(enabled ? tr("TUN mode enabled.") : tr("TUN mode disabled."));
+    }
+}
+
+void PlumbumQMLProperty::setTunIpv4(const QString &ip)
+{
+    if (ip.trimmed().isEmpty())
+        return;
+    GlobalConfig.inboundConfig.tunSettings.ipv4 = ip.trimmed();
+    SaveGlobalSettings();
+    emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTunMtu(int mtu)
+{
+    if (mtu < 576 || mtu > 65535)
+        return;
+    GlobalConfig.inboundConfig.tunSettings.mtu = mtu;
+    SaveGlobalSettings();
+    emit settingsChanged();
+}
+
+bool PlumbumQMLProperty::tunAvailable() const
+{
+    // On Linux, TUN interface creation requires root or CAP_NET_ADMIN.
+#ifdef Q_OS_LINUX
+    return geteuid() == 0 || access("/dev/net/tun", W_OK) == 0;
+#else
+    return true;
+#endif
+}
+
+void PlumbumQMLProperty::setThemeMode(int mode)
+{
+    if (mode < 0 || mode > 2)
+        return;
+    if (GlobalConfig.uiConfig.themeMode == mode)
+        return;
+    GlobalConfig.uiConfig.themeMode = mode;
+    SaveGlobalSettings();
+    emit themeModeChanged();
+}
+
+bool PlumbumQMLProperty::systemDark() const
+{
+#ifdef Q_OS_WIN
+    QSettings reg(R"(HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize)", QSettings::NativeFormat);
+    return reg.value("AppsUseLightTheme", 1).toInt() == 0;
+#else
+    return QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+#endif
+}
+
 // =================================================================================
 // Event slots (bound to ConfigHandler signals)
 // =================================================================================
@@ -622,4 +715,9 @@ void PlumbumQMLProperty::initialize()
     connect(ConnectionManager, &QvConfigHandler::OnStatsAvailable, this, &PlumbumQMLProperty::onStatsAvailable);
     connect(ConnectionManager, &QvConfigHandler::OnKernelLogAvailable, this, &PlumbumQMLProperty::onKernelLog);
     connect(ConnectionManager, &QvConfigHandler::OnSubscriptionAsyncUpdateFinished, this, &PlumbumQMLProperty::onSubscriptionUpdated);
+
+    // Follow system theme changes.
+    connect(QGuiApplication::styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
+        emit systemThemeChanged();
+    });
 }

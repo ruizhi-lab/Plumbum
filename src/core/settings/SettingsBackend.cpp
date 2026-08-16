@@ -258,6 +258,15 @@ namespace Plumbum::core::config
 
             // Let's save the config.
             GlobalConfig.loadJson(conf);
+            //
+            // PAC mode migration: configs written before PAC modes existed default
+            // to WHITELIST. If the legacy bypassCN toggle was explicitly disabled,
+            // the old semantics were "proxy everything" -> upgrade to GLOBAL.
+            if (GlobalConfig.defaultRouteConfig.connectionConfig.pacMode == QvConfig_Connection::PAC_MODE_WHITELIST &&
+                !GlobalConfig.defaultRouteConfig.connectionConfig.bypassCN)
+            {
+                GlobalConfig.defaultRouteConfig.connectionConfig.pacMode = QvConfig_Connection::PAC_MODE_GLOBAL;
+            }
             SaveGlobalSettings();
             return true;
         }

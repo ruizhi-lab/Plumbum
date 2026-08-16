@@ -47,6 +47,9 @@ namespace Plumbum::core::handler
         auto portDetectionMsg = tr("There are other processes occupying the ports necessary to start the connection:") + NEWLINE + NEWLINE;
         for (const auto &key : info.keys())
         {
+            // Skip inbound types without a real port (e.g. TUN uses port 0).
+            if (info[key].port <= 0)
+                continue;
             const auto result = components::port::CheckTCPPortStatus(info[key].address, info[key].port);
             if (!result)
                 portDetectionErrorMessage << tr("Endpoint: %1:%2 for inbound: \"%3\"").arg(info[key].address).arg(info[key].port).arg(key);

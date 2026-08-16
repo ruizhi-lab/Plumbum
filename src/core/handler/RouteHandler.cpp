@@ -285,7 +285,7 @@ namespace Plumbum::core::handler
                 tag = GenerateRandomString(15);
                 QJsonIO::SetValue(root, tag, "outbounds", 0, "tag");
             }
-            root["routing"] = GenerateRoutes(connConf.enableProxy, connConf.bypassCN, connConf.bypassLAN, tag, routeConf);
+            root["routing"] = GenerateRoutes(connConf.enableProxy, connConf.bypassCN, connConf.pacMode, connConf.bypassLAN, tag, routeConf);
 
             // Browser Forwarding
             if (QJsonIO::GetValue(root, "outbounds", 0, "streamSettings", "wsSettings", "useBrowserForwarding").toBool(false))

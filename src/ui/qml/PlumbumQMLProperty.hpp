@@ -98,6 +98,10 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(QString v2rayAssetsPath READ v2rayAssetsPath WRITE setV2rayAssetsPath NOTIFY settingsChanged)
     Q_PROPERTY(bool kernelApiEnabled READ kernelApiEnabled WRITE setKernelApiEnabled NOTIFY settingsChanged)
     Q_PROPERTY(int statsPort READ statsPort WRITE setStatsPort NOTIFY settingsChanged)
+    Q_PROPERTY(int pacMode READ pacMode WRITE setPacMode NOTIFY pacModeChanged)
+    Q_PROPERTY(bool tunEnabled READ tunEnabled WRITE setTunEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(int themeMode READ themeMode WRITE setThemeMode NOTIFY themeModeChanged)
+    Q_PROPERTY(bool systemDark READ systemDark NOTIFY systemThemeChanged)
 
   public:
     explicit PlumbumQMLProperty(QObject *parent = nullptr);
@@ -127,6 +131,23 @@ class PlumbumQMLProperty : public QObject
     void setKernelApiEnabled(bool enabled);
     int statsPort() const { return GlobalConfig.kernelConfig.statsPort; }
     void setStatsPort(int port);
+    // PAC routing mode (0=whitelist, 1=blacklist, 2=global)
+    int pacMode() const { return GlobalConfig.defaultRouteConfig.connectionConfig.pacMode; }
+    void setPacMode(int mode);
+    // TUN system-level proxy
+    bool tunEnabled() const { return GlobalConfig.inboundConfig.tunSettings.enabled; }
+    void setTunEnabled(bool enabled);
+    QString tunIpv4() const { return GlobalConfig.inboundConfig.tunSettings.ipv4; }
+    void setTunIpv4(const QString &ip);
+    int tunMtu() const { return GlobalConfig.inboundConfig.tunSettings.mtu; }
+    void setTunMtu(int mtu);
+    // Whether the current process can create TUN interfaces (root / CAP_NET_ADMIN).
+    bool tunAvailable() const;
+    // Theme: 0=follow system, 1=light, 2=dark
+    int themeMode() const { return GlobalConfig.uiConfig.themeMode; }
+    void setThemeMode(int mode);
+    // Whether the OS is currently in dark mode.
+    bool systemDark() const;
 
   public:
     // Call this once, after ConnectionManager has been created.
@@ -170,6 +191,9 @@ class PlumbumQMLProperty : public QObject
     void statsChanged();
     void kernelStatusChanged();
     void settingsChanged();
+    void pacModeChanged();
+    void themeModeChanged();
+    void systemThemeChanged();
     void toastMessage(const QString &message);
     void logMessage(const QString &message);
 

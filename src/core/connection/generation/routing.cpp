@@ -32,7 +32,12 @@ namespace Plumbum::core::connection::generation::routing
     }
 
     // -------------------------- BEGIN CONFIG GENERATIONS
-    ROUTING GenerateRoutes(bool enableProxy, bool bypassCN, bool bypassLAN, const QString &outTag, const QvConfig_Route &routeConfig)
+    //
+    // PAC routing modes (v2rayN style):
+    //   WHITELIST: mainland (geoip:cn / geosite:cn) -> direct, everything else -> proxy (default).
+    //   BLACKLIST: geosite:gfw -> proxy, everything else -> direct.
+    //   GLOBAL:    everything -> proxy (default outbound).
+    ROUTING GenerateRoutes(bool enableProxy, bool bypassCN, int pacMode, bool bypassLAN, const QString &outTag, const QvConfig_Route &routeConfig)
     {
         ROUTING root;
         root.insert("domainStrategy", routeConfig.domainStrategy);
@@ -59,24 +64,47 @@ namespace Plumbum::core::connection::generation::routing
             if (!routeConfig.domains.block.isEmpty())
                 rulesList << GenerateSingleRouteRule(RULE_DOMAIN, routeConfig.domains.block, OUTBOUND_TAG_BLACKHOLE);
             //
-            // Proxied
+            // Explicit proxy/direct overrides take priority over PAC mode.
             if (!routeConfig.ips.proxy.isEmpty())
                 rulesList << GenerateSingleRouteRule(RULE_IP, routeConfig.ips.proxy, outTag);
             if (!routeConfig.domains.proxy.isEmpty())
                 rulesList << GenerateSingleRouteRule(RULE_DOMAIN, routeConfig.domains.proxy, outTag);
             //
-            // Directed
             if (!routeConfig.ips.direct.isEmpty())
                 rulesList << GenerateSingleRouteRule(RULE_IP, routeConfig.ips.direct, OUTBOUND_TAG_DIRECT);
             if (!routeConfig.domains.direct.isEmpty())
                 rulesList << GenerateSingleRouteRule(RULE_DOMAIN, routeConfig.domains.direct, OUTBOUND_TAG_DIRECT);
             //
-            // Check if CN needs proxy, or direct.
-            if (bypassCN)
+            // PAC mode routing rules.
+            switch (pacMode)
             {
-                // No proxy agains CN addresses.
-                rulesList << GenerateSingleRouteRule(RULE_IP, "geoip:cn", OUTBOUND_TAG_DIRECT);
-                rulesList << GenerateSingleRouteRule(RULE_DOMAIN, "geosite:cn", OUTBOUND_TAG_DIRECT);
+                case QvConfig_Connection::PAC_MODE_WHITELIST:
+                {
+                    // Bypass mainland China: cn direct, the rest falls through to proxy.
+                    // bypassCN is the legacy toggle; old configs default pacMode to WHITELIST
+                    // and rely on bypassCN, so respect it here.
+                    if (bypassCN)
+                    {
+                        rulesList << GenerateSingleRouteRule(RULE_IP, "geoip:cn", OUTBOUND_TAG_DIRECT);
+                        rulesList << GenerateSingleRouteRule(RULE_DOMAIN, "geosite:cn", OUTBOUND_TAG_DIRECT);
+                    }
+                    break;
+                }
+                case QvConfig_Connection::PAC_MODE_BLACKLIST:
+                {
+                    // GFW list proxied, everything else direct.
+                    rulesList << GenerateSingleRouteRule(RULE_DOMAIN, "geosite:gfw", outTag);
+                    rulesList << GenerateSingleRouteRule(RULE_DOMAIN, "regexp:.*", OUTBOUND_TAG_DIRECT);
+                    rulesList << GenerateSingleRouteRule(RULE_IP, "0.0.0.0/0", OUTBOUND_TAG_DIRECT);
+                    rulesList << GenerateSingleRouteRule(RULE_IP, "::/0", OUTBOUND_TAG_DIRECT);
+                    break;
+                }
+                case QvConfig_Connection::PAC_MODE_GLOBAL:
+                default:
+                {
+                    // Everything proxied (default outbound), nothing to add.
+                    break;
+                }
             }
         }
 

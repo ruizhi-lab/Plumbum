@@ -85,6 +85,28 @@ namespace Plumbum::core::connection::generation::inbounds
         return root;
     }
 
+    // TUN inbound: unlike other inbounds it has no listen/port, only settings.
+    INBOUND GenerateTunInbound(const QString &tag, const QvConfig_Tun &tun)
+    {
+        INBOUND root;
+        root["protocol"] = "tun";
+        root["tag"] = tag;
+        QJsonObject settings;
+        QJsonArray addresses;
+        if (!tun.ipv4.isEmpty())
+            addresses << tun.ipv4;
+        if (!tun.ipv6.isEmpty())
+            addresses << tun.ipv6;
+        settings["address"] = addresses;
+        settings["mtu"] = tun.mtu;
+        settings["autoRoute"] = tun.autoRoute;
+        settings["strictRoute"] = tun.strictRoute;
+        root["settings"] = settings;
+        if (tun.sniffing)
+            root["sniffing"] = GenerateSniffingObject(true, tun.destOverride, false);
+        return root;
+    }
+
     INBOUNDS GenerateDefaultInbounds()
     {
 #define INCONF GlobalConfig.inboundConfig
@@ -155,6 +177,13 @@ namespace Plumbum::core::connection::generation::inbounds
                 tProxyIn.insert("streamSettings", QJsonObject{ { "sockopt", QJsonObject{ { "tproxy", INCONF.tProxySettings.mode } } } });
                 inboundsList.append(tProxyIn);
             }
+        }
+
+        // TUN Inbound (system-level proxy, requires root / CAP_NET_ADMIN)
+        if (INCONF.tunSettings.enabled)
+        {
+            LOG("Processing TUN inbound (system-level proxy)");
+            inboundsList.append(GenerateTunInbound("tun_IN", INCONF.tunSettings));
         }
 
 #undef INCONF

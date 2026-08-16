@@ -54,16 +54,24 @@ namespace Plumbum::base::config
 
     struct QvConfig_Connection
     {
+        // PAC (proxy auto-config) routing modes, following v2rayN semantics.
+        enum PACMode
+        {
+            PAC_MODE_WHITELIST = 0, // Whitelist: mainland (geoip:cn / geosite:cn) direct, everything else proxied.
+            PAC_MODE_BLACKLIST = 1, // Blacklist: geosite:gfw proxied, everything else direct.
+            PAC_MODE_GLOBAL = 2     // Global: everything proxied.
+        };
         bool enableProxy = true;
         bool bypassCN = true;
+        int pacMode = PAC_MODE_WHITELIST;
         bool bypassBT = false;
         bool bypassLAN = true;
         bool v2rayFreedomDNS = false;
         bool dnsIntercept = false;
         JSONSTRUCT_COMPARE(QvConfig_Connection, enableProxy, //
-                           bypassCN, bypassBT, bypassLAN,    //
+                           bypassCN, pacMode, bypassBT, bypassLAN, //
                            v2rayFreedomDNS, dnsIntercept)
-        JSONSTRUCT_REGISTER(QvConfig_Connection, F(bypassCN, bypassBT, bypassLAN, enableProxy, v2rayFreedomDNS, dnsIntercept))
+        JSONSTRUCT_REGISTER(QvConfig_Connection, F(bypassCN, pacMode, bypassBT, bypassLAN, enableProxy, v2rayFreedomDNS, dnsIntercept))
     };
 
     struct QvConfig_SystemProxy
@@ -134,6 +142,22 @@ namespace Plumbum::base::config
         JSONSTRUCT_REGISTER(QvConfig_BrowserForwarder, F(address, port))
     };
 
+    // TUN system-level proxy (requires root / CAP_NET_ADMIN on Linux).
+    struct QvConfig_Tun
+    {
+        bool enabled = false;
+        QString ipv4 = "10.0.0.1";
+        QString ipv6 = "fd00::1";
+        int mtu = 1500;
+        bool autoRoute = true;
+        bool strictRoute = true;
+        bool sniffing = true;
+        QList<QString> destOverride = { "http", "tls", "quic" };
+        QvConfig_Tun(){};
+        JSONSTRUCT_COMPARE(QvConfig_Tun, enabled, ipv4, ipv6, mtu, autoRoute, strictRoute, sniffing, destOverride)
+        JSONSTRUCT_REGISTER(QvConfig_Tun, F(enabled, ipv4, ipv6, mtu, autoRoute, strictRoute, sniffing, destOverride))
+    };
+
     struct QvConfig_Inbounds
     {
         QString listenip = "127.0.0.1";
@@ -142,16 +166,17 @@ namespace Plumbum::base::config
         bool useTPROXY = false;
         //
         QvConfig_TProxy tProxySettings;
+        QvConfig_Tun tunSettings;
         QvConfig_HttpInbound httpSettings;
         QvConfig_SocksInbound socksSettings;
         QvConfig_SystemProxy systemProxySettings;
         QvConfig_BrowserForwarder browserForwarderSettings;
         //
-        JSONSTRUCT_COMPARE(QvConfig_Inbounds, listenip, useSocks, useHTTP, useTPROXY, tProxySettings, httpSettings, socksSettings,
+        JSONSTRUCT_COMPARE(QvConfig_Inbounds, listenip, useSocks, useHTTP, useTPROXY, tProxySettings, tunSettings, httpSettings, socksSettings,
                            systemProxySettings, browserForwarderSettings);
         JSONSTRUCT_REGISTER(QvConfig_Inbounds,                         //
                             A(socksSettings),                          //
                             F(listenip, useSocks, useHTTP, useTPROXY), //
-                            F(tProxySettings, httpSettings, systemProxySettings, browserForwarderSettings));
+                            F(tProxySettings, tunSettings, httpSettings, systemProxySettings, browserForwarderSettings));
     };
 } // namespace Plumbum::base::config

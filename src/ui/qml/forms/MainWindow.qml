@@ -13,21 +13,25 @@ ApplicationWindow {
     visible: true
     title: qsTr("Plumbum - Xray/V2Ray Client")
 
-    // Modern dark palette
-    readonly property color cBackground: "#0f1115"
-    readonly property color cSurface: "#161a22"
-    readonly property color cSurfaceAlt: "#1c212c"
-    readonly property color cBorder: "#262d3b"
+    // -------- Theme (light/dark/system) --------
+    readonly property bool isDark: plumbum.themeMode === 2 || (plumbum.themeMode === 0 && plumbum.systemDark)
+    readonly property int currentTheme: isDark ? 2 : 1
+
+    // Modern palette
+    readonly property color cBackground: isDark ? "#0f1115" : "#f2f4f8"
+    readonly property color cSurface: isDark ? "#161a22" : "#ffffff"
+    readonly property color cSurfaceAlt: isDark ? "#1c212c" : "#e9edf3"
+    readonly property color cBorder: isDark ? "#262d3b" : "#d7dce5"
     readonly property color cPrimary: "#5b8cff"
-    readonly property color cPrimaryAlt: "#7aa2ff"
-    readonly property color cText: "#dbe2f0"
-    readonly property color cTextDim: "#7f8ba3"
+    readonly property color cPrimaryAlt: isDark ? "#7aa2ff" : "#4a7dff"
+    readonly property color cText: isDark ? "#dbe2f0" : "#1a2332"
+    readonly property color cTextDim: isDark ? "#7f8ba3" : "#67738a"
     readonly property color cGreen: "#3ddc97"
     readonly property color cRed: "#ff6b6b"
     readonly property color cOrange: "#ffb86c"
     readonly property color cAccent: "#bd93f9"
 
-    Material.theme: Material.Dark
+    Material.theme: isDark ? Material.Dark : Material.Light
     Material.accent: cPrimary
     Material.background: cBackground
     Material.foreground: cText
