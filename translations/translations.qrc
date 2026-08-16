@@ -4,5 +4,7 @@
         <file>ja_JP.qm</file>
         <file>zh_CN.qm</file>
         <file>zh_TW.qm</file>
+        <file>ru_RU.qm</file>
+        <file>yue.qm</file>
     </qresource>
 </RCC>

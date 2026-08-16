@@ -148,6 +148,10 @@ class PlumbumQMLProperty : public QObject
     void setThemeMode(int mode);
     // Whether the OS is currently in dark mode.
     bool systemDark() const;
+    // Language (locale code, e.g. en_US, zh_CN, zh_TW, ru_RU)
+    QString language() const { return GlobalConfig.uiConfig.language; }
+    void setLanguage(const QString &code);
+    QStringList availableLanguages() const;
 
   public:
     // Call this once, after ConnectionManager has been created.

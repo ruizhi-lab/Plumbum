@@ -5,6 +5,7 @@
         <file>forms/SubscriptionPage.qml</file>
         <file>forms/SettingsPage.qml</file>
         <file>forms/components/ConnectionCard.qml</file>
+        <file>forms/components/FlatButton.qml</file>
         <file>forms/components/SectionCard.qml</file>
         <file>forms/components/SideBarButton.qml</file>
         <file>forms/components/TopStatusBar.qml</file>

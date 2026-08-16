@@ -37,7 +37,7 @@ Rectangle {
                 ComboBox {
                     id: groupSelector
                     Layout.preferredWidth: 180
-                    Layout.preferredHeight: 34
+                    Layout.preferredHeight: 36
                     model: plumbum.groupModel
                     textRole: "displayName"
                     currentIndex: groupModelIndexFor(plumbum.currentGroupId)
@@ -59,33 +59,28 @@ Rectangle {
                     }
                 }
 
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     text: qsTr("New Group")
                     onClicked: newGroupDialog.open()
                 }
 
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     text: qsTr("Import")
-                    highlighted: true
+                    active: true
                     onClicked: plumbum.importFromClipboard()
                 }
 
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     text: qsTr("Import URL")
                     onClicked: importDialog.open()
                 }
 
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     text: qsTr("Latency Test")
                     onClicked: plumbum.startLatencyTest()
                 }
 
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     visible: isCurrentGroupSubscription
                     text: qsTr("Update Subscription")
                     onClicked: plumbum.updateSubscription(plumbum.currentGroupId)

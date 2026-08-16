@@ -157,12 +157,12 @@ Rectangle {
         }
 
         // Action button
-        Button {
-            Layout.preferredWidth: 86
-            Layout.preferredHeight: 30
+        FlatButton {
+            Layout.preferredWidth: 88
+            controlHeight: 30
             text: root.isConnected ? qsTr("Disconnect") : qsTr("Connect")
-            highlighted: true
-            Material.accent: root.isConnected ? window.cRed : window.cPrimary
+            active: !root.isConnected
+            danger: root.isConnected
             onClicked: root.isConnected
                        ? root.disconnectRequested(root.connId)
                        : root.connectRequested(root.connId)

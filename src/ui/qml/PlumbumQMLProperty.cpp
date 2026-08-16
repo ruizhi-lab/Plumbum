@@ -1,5 +1,6 @@
 #include "PlumbumQMLProperty.hpp"
 
+#include "components/translations/QvTranslator.hpp"
 #include "core/connection/Serialization.hpp"
 #include "core/CoreUtils.hpp"
 #include "core/handler/KernelInstanceHandler.hpp"
@@ -547,6 +548,25 @@ bool PlumbumQMLProperty::systemDark() const
 #else
     return QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
 #endif
+}
+
+void PlumbumQMLProperty::setLanguage(const QString &code)
+{
+    if (code.isEmpty() || GlobalConfig.uiConfig.language == code)
+        return;
+    GlobalConfig.uiConfig.language = code;
+    SaveGlobalSettings();
+    // Apply the new translator immediately.
+    if (PlumbumTranslator)
+        PlumbumTranslator->InstallTranslation(code);
+    emit settingsChanged();
+}
+
+QStringList PlumbumQMLProperty::availableLanguages() const
+{
+    if (PlumbumTranslator)
+        return PlumbumTranslator->GetAvailableLanguages();
+    return {};
 }
 
 // =================================================================================

@@ -28,7 +28,7 @@ Rectangle {
             // -------- Appearance / theme card --------
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 96
+                Layout.preferredHeight: 128
                 radius: 10
                 color: window.cSurface
                 border.color: window.cBorder
@@ -106,6 +106,36 @@ Rectangle {
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: plumbum.setThemeMode(2)
+                            }
+                        }
+
+                        Item { Layout.fillWidth: true }
+
+                        // Language selector
+                        Text {
+                            text: qsTr("Language")
+                            font.pixelSize: 12
+                            color: window.cTextDim
+                        }
+                        ComboBox {
+                            id: langSelector
+                            Layout.preferredWidth: 130
+                            Layout.preferredHeight: 34
+                            model: [
+                                { code: "en_US", label: "English" },
+                                { code: "zh_CN", label: "简体中文" },
+                                { code: "zh_TW", label: "繁體中文" },
+                                { code: "ru_RU", label: "Русский" }
+                            ]
+                            textRole: "label"
+                            Component.onCompleted: {
+                                for (var i = 0; i < model.length; i++) {
+                                    if (model[i].code === plumbum.language)
+                                        currentIndex = i
+                                }
+                            }
+                            onActivated: function(index) {
+                                plumbum.setLanguage(model[index].code)
                             }
                         }
                     }

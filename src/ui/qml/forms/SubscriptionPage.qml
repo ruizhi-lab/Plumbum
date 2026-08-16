@@ -33,15 +33,13 @@ Rectangle {
 
                 Item { Layout.fillWidth: true }
 
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     text: qsTr("Update All")
                     onClicked: plumbum.updateAllSubscriptions()
                 }
-                Button {
-                    Layout.preferredHeight: 34
+                FlatButton {
                     text: qsTr("Add Subscription")
-                    highlighted: true
+                    active: true
                     onClicked: addSubDialog.open()
                 }
             }
@@ -116,23 +114,23 @@ Rectangle {
                         }
                     }
 
-                    Button {
-                        Layout.preferredHeight: 30
+                    FlatButton {
+                        controlHeight: 30
                         text: qsTr("Update")
                         onClicked: plumbum.updateSubscription(groupId)
                     }
-                    Button {
-                        Layout.preferredHeight: 30
+                    FlatButton {
+                        controlHeight: 30
                         text: qsTr("Open")
                         onClicked: {
                             plumbum.currentGroupId = groupId
                             stackView.currentIndex = 0
                         }
                     }
-                    Button {
-                        Layout.preferredHeight: 30
+                    FlatButton {
+                        controlHeight: 30
+                        danger: true
                         text: qsTr("Delete")
-                        Material.accent: window.cRed
                         onClicked: {
                             deleteSubDialog.groupToDelete = groupId
                             deleteSubDialog.groupName = displayName

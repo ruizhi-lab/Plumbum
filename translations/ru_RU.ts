@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TS version="2.1" language="zh_CN" sourcelanguage="en">
+<TS version="2.1" language="ru_RU">
     <context>
         <name>BalancerWidget</name>
         <message>
             <location filename="../src/ui/widgets/node/widgets/BalancerWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/BalancerWidget.ui" line="23" />
             <source>Show / Hide</source>
-            <translation>显示/隐藏</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/BalancerWidget.ui" line="34" />
             <source>Selector</source>
-            <translation>选择器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/BalancerWidget.ui" line="86" />
             <location filename="../src/ui/widgets/node/widgets/BalancerWidget.ui" line="92" />
             <source>Strategy</source>
-            <translation>策略</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -29,13 +29,13 @@
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="14" />
             <source>Certificate Item Editor</source>
-            <translation>证书项编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="20" />
             <source>Usage</source>
             <extracomment>Certificate Usage</extracomment>
-            <translation>用途</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="30" />
@@ -46,77 +46,71 @@
 &lt;li&gt;&lt;code&gt;verify&lt;/code&gt;: Used for verification of remote ceritificate. CA certificates are required.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;issue&lt;/code&gt;: Used to issue other certificates. CA certificates are required.&lt;/li&gt;
 &lt;/ul&gt;</source>
-            <translation>证书的用途。默认值是 &lt;code&gt;encipherment&lt;/code&gt;。
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;encipherment&lt;/code&gt;: 用于 TLS 身份验证和加密。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;verify&lt;/code&gt;: 用于验证远程证书。需要CA 证书。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;issue&lt;/code&gt;: 用于签发其他证书。需要CA证书。&lt;/li&gt;
-&lt;/ul&gt;</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="65" />
             <source>Certificate</source>
             <extracomment>Certificate Tab</extracomment>
-            <translation>证书</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="71" />
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="135" />
             <source>From File</source>
-            <translation>从文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="74" />
             <source>Alt+C, Alt+F</source>
-            <translation>Alt+C, Alt+F</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="84" />
             <source>Drag and drop *.crt here...</source>
-            <translation>拖拽*.crt 到此处...</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="94" />
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="158" />
             <source>Configure Manually</source>
-            <translation>手动配置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="97" />
             <source>Alt+C, Alt+M</source>
-            <translation>Alt+C, Alt+M</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="129" />
             <source>Certificate Key</source>
             <extracomment>Tab Certificate Key</extracomment>
-            <translation>证书密钥</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="138" />
             <source>Alt+K, Alt+F</source>
-            <translation>Alt+K, Alt+F</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="161" />
             <source>Alt+K, Alt+M</source>
-            <translation>Alt+K, Alt+M</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="185" />
             <source>-----BEGIN RSA PRIVATE KEY-----... </source>
-            <translation>-----BEGIN RSA PRIVATE KEY-----... </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="192" />
             <source>Certificate Key is not necessarily set if usage is set to &lt;code&gt;verify&lt;/code&gt;.</source>
-            <translation>若证书用途设为 &lt;code&gt;verify&lt;/code&gt;，则证书密钥不一定需要设定。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/CertificateItemWidget.ui" line="195" />
             <source>Unset</source>
-            <translation>未设定</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -124,33 +118,33 @@
         <message>
             <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="109" />
             <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="207" />
             <source>Chain Editor</source>
-            <translation>代理链编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="109" />
             <source>Could not find outbound tag: %1, The chain may be corrupted</source>
-            <translation>找不到出站标签 %1，代理链可能已损坏</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="191" />
             <source>OK</source>
-            <translation>好</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="207" />
-            <source>Please Select a Chain</source>
-            <translation>请选择一条链</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="194" />
             <source>There's an error in your connection.</source>
-            <translation>你的连接出了点问题。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/complex/ChainEditorWidget.cpp" line="207" />
+            <source>Please Select a Chain</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -158,12 +152,12 @@
         <message>
             <location filename="../src/ui/widgets/node/widgets/ChainOutboundWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/ChainOutboundWidget.ui" line="42" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -171,22 +165,22 @@
         <message>
             <location filename="../src/ui/widgets/editors/w_ChainSha256Editor.ui" line="14" />
             <source>pinnedPeerCertificateChainSha256 Editor</source>
-            <translation>PinnedPeerCerCercatateChainSha256编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_ChainSha256Editor.cpp" line="31" />
-            <source>Invalid Certificate Hash Chain</source>
-            <translation>证书哈希链无效</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_ChainSha256Editor.cpp" line="58" />
-            <source>invalid SHA256: %1</source>
-            <translation>无效的 SHA256: %1</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_ChainSha256Editor.ui" line="30" />
             <source>One SHA-256 per line. eg: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </source>
-            <translation>每行一个 SHA-256 ，例如: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_ChainSha256Editor.cpp" line="31" />
+            <source>Invalid Certificate Hash Chain</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_ChainSha256Editor.cpp" line="58" />
+            <source>invalid SHA256: %1</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -194,12 +188,12 @@
         <message>
             <location filename="../src/ui/widgets/node/widgets/ChainWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/ChainWidget.ui" line="34" />
             <source>Chained</source>
-            <translation>链式</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -207,32 +201,32 @@
         <message>
             <location filename="../src/ui/qml/forms/components/ConnectionCard.qml" line="134" />
             <source>latency</source>
-            <translation>延迟</translation>
+            <translation>задержка</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/ConnectionCard.qml" line="163" />
             <source>Disconnect</source>
-            <translation>断开</translation>
+            <translation>Отключить</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/ConnectionCard.qml" line="163" />
             <source>Connect</source>
-            <translation>连接</translation>
+            <translation>Подключить</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/ConnectionCard.qml" line="180" />
             <source>Copy share link</source>
-            <translation>复制分享链接</translation>
+            <translation>Копировать ссылку</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/ConnectionCard.qml" line="184" />
             <source>Test latency</source>
-            <translation>测试延迟</translation>
+            <translation>Проверить задержку</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/ConnectionCard.qml" line="189" />
             <source>Delete</source>
-            <translation>删除</translation>
+            <translation>Удалить</translation>
         </message>
     </context>
     <context>
@@ -240,104 +234,106 @@
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="23" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="36" />
             <source>Configuration Details</source>
-            <translation>配置详情</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="58" />
             <source>Connect/Disconnect</source>
-            <translation>连接/断开</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="72" />
             <source>Edit Connection</source>
-            <translation>编辑连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="86" />
             <source>Edit Connection as JSON</source>
-            <translation>将连接编辑为 JSON</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="100" />
             <source>Latency Test</source>
-            <translation>测试延迟</translation>
+            <translation>Тест задержки</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="110" />
             <source>Delete Connection</source>
-            <translation>删除连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="153" />
             <source>Group</source>
-            <translation>分组</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="182" />
             <source>Protocol</source>
-            <translation>协议</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="211" />
             <source>Address</source>
-            <translation>地址</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="240" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="266" />
             <source>Link</source>
-            <translation>链接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="324" />
             <source>QR Code</source>
-            <translation>二维码</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="375" />
             <source>Group Name</source>
-            <translation>分组名称</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="398" />
             <source>Subscription Link</source>
-            <translation>订阅链接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.ui" line="405" />
             <source>Share Link</source>
-            <translation>分享链接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="116" />
-            <source>Not a subscription</source>
-            <translation>不是订阅</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="169" />
-            <source>Delete an item</source>
-            <translation>删除项目</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="169" />
-            <source>Are you sure to delete the current item?</source>
-            <translation>您确定要删除当前项目吗？</translation>
+            <translation type="unfinished" />
         </message>
         <message numerus="yes">
             <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="111" />
             <source>(Ignored %n complex config(s))</source>
-            <translation>
-                <numerusform>（忽略 %n 个复杂配置）</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="116" />
+            <source>Not a subscription</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="169" />
+            <source>Delete an item</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/ConnectionInfoWidget.cpp" line="169" />
+            <source>Are you sure to delete the current item?</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -345,49 +341,49 @@
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="31" />
             <source>Not Tested</source>
-            <translation>未测试</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="33" />
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="159" />
             <source>Error</source>
-            <translation>错误</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="112" />
             <source>connection</source>
-            <translation>个</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="112" />
             <source>connections</source>
-            <translation>个</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="152" />
             <source>Testing...</source>
-            <translation>正在测试…</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="159" />
             <source>ms</source>
-            <translation>ms</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="203" />
             <source>Last Connected: </source>
-            <translation>上次连接: </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="204" />
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="217" />
             <source>Last Updated: </source>
-            <translation>最后更新: </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.cpp" line="216" />
             <source>Subscription</source>
-            <translation>订阅</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -395,22 +391,22 @@
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="54" />
             <source>Timeout</source>
-            <translation>超时</translation>
+            <translation>Таймаут</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="56" />
             <source>N/A</source>
-            <translation>暂无</translation>
+            <translation>Н/Д</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="57" />
             <source>%1 ms</source>
-            <translation>%1 毫秒</translation>
+            <translation>%1 мс</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="76" />
             <source>Never</source>
-            <translation>从未</translation>
+            <translation>Никогда</translation>
         </message>
     </context>
     <context>
@@ -418,72 +414,72 @@
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="28" />
             <source>Connections</source>
-            <translation>连接</translation>
+            <translation>Подключения</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="63" />
             <source>New Group</source>
-            <translation>新建分组</translation>
+            <translation>Новая группа</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="68" />
             <source>Import</source>
-            <translation>导入</translation>
+            <translation>Импорт</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="74" />
             <source>Import URL</source>
-            <translation>导入链接</translation>
+            <translation>Импорт ссылки</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="79" />
             <source>Latency Test</source>
-            <translation>延迟测试</translation>
+            <translation>Тест задержки</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="85" />
             <source>Update Subscription</source>
-            <translation>更新订阅</translation>
+            <translation>Обновить подписку</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="121" />
             <source>Delete connection "%1"?</source>
-            <translation>删除连接 "%1"？</translation>
+            <translation>Удалить подключение "%1"?</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="145" />
             <source>No connections in this group</source>
-            <translation>此分组暂无连接</translation>
+            <translation>В этой группе нет подключений</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="151" />
             <source>Click "Import" to add a server link (vmess://, vless://, ss://, trojan:// ...)</source>
-            <translation>点击 "导入" 添加服务器链接 (vmess://, vless://, ss://, trojan:// ...)</translation>
+            <translation>Нажмите "Импорт" чтобы добавить ссылку (vmess://, vless://, ss://, trojan:// ...)</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="174" />
             <source>Import from link</source>
-            <translation>从链接导入</translation>
+            <translation>Импорт из ссылки</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="185" />
             <source>Paste one or more share links below:</source>
-            <translation>在下方粘贴一个或多个分享链接:</translation>
+            <translation>Вставьте одну или несколько ссылок ниже:</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="205" />
             <source>Create new group</source>
-            <translation>创建新分组</translation>
+            <translation>Создать новую группу</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="218" />
             <source>Group name</source>
-            <translation>分组名称</translation>
+            <translation>Имя группы</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/ConnectionPage.qml" line="231" />
             <source>Confirm</source>
-            <translation>确认</translation>
+            <translation>Подтвердить</translation>
         </message>
     </context>
     <context>
@@ -491,7 +487,7 @@
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionSettingsWidget.ui" line="16" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -499,32 +495,32 @@
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="26" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="74" />
             <source>Connection Name</source>
-            <translation>连接名称</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="81" />
             <source>500ms</source>
-            <translation>500ms</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="112" />
-            <source>0KB / 0KB</source>
-            <translation>0KB / 0KB</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="137" />
-            <source>OK</source>
-            <translation>好</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="100" />
             <source>VMESS + WS + TLS</source>
-            <translation>VMESS + WS + TLS</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="112" />
+            <source>0KB / 0KB</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/ConnectionItemWidget.ui" line="137" />
+            <source>OK</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -532,207 +528,205 @@
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="22" />
             <source>Client IP</source>
-            <translation>客户端 IP</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="38" />
-            <source>Tag</source>
-            <translation>标签</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="65" />
-            <source>DNS Servers</source>
-            <translation>DNS 服务器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="73" />
-            <source>DNS List</source>
-            <translation>DNS 列表</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="150" />
-            <source>DNS Server Settings</source>
-            <translation>DNS 服务器设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="158" />
-            <source>Address</source>
-            <translation>地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="170" />
-            <source>Detail Settings</source>
-            <translation>详细设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="179" />
-            <source>Expectd IPs</source>
-            <translation>期待 IP</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="189" />
-            <source>Domains</source>
-            <translation>域名</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="201" />
-            <source>Port</source>
-            <translation>端口</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="237" />
-            <source>Statically Resolved Domains</source>
-            <translation>静态解析域名</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="253" />
-            <source>Domain</source>
-            <translation>域名</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="258" />
-            <source>Resolved IP</source>
-            <translation>解析 IP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="29" />
             <source>The current system's IP address is used to notify the server of the client's location when querying DNS. 
 
 It cannot be a private address.</source>
-            <translation>当前系统的 IP 地址。用作在查询 DNS 时提示服务器客户端所在的位置。
-不能是私有 IP 地址。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="38" />
+            <source>Tag</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="45" />
             <source>(V2Ray 4.13+) The query traffic sent by this DNS, except for localhost and DOHL modes, will carry this identifier, which can be matched with inboundTag in the route.</source>
-            <translation>(V2Ray 4.13+) 除 localhost 和 DoH Local 模式之外，DNS 的查询流量都会被当作从该入站标签进入的流量参与路由。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="52" />
+            <source>Disable Cache</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="65" />
+            <source>DNS Servers</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="73" />
+            <source>DNS List</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="150" />
+            <source>DNS Server Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="158" />
+            <source>Address</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="170" />
+            <source>Detail Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="179" />
+            <source>Expectd IPs</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="189" />
+            <source>Domains</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="201" />
+            <source>Port</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="208" />
             <source>Port for DNS server. Normally it's 53.
 This entry is ignored by V2Ray core when using DoH servers.</source>
-            <translation>DNS 服务器端口。通常为 53。
-当使用 DoH 模式时，此项无效。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="52" />
-            <source>Disable Cache</source>
-            <translation>禁用缓存</translation>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="237" />
+            <source>Statically Resolved Domains</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="322" />
-            <source>Query Strategy</source>
-            <translation>查询策略</translation>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="253" />
+            <source>Domain</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="355" />
-            <source>Enabled</source>
-            <translation>已启用</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="348" />
-            <source>Disable Fallback</source>
-            <translation>禁用回退</translation>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="258" />
+            <source>Resolved IP</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="316" />
             <source>Miscellaneous</source>
-            <translation>杂项</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="322" />
+            <source>Query Strategy</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="348" />
+            <source>Disable Fallback</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="355" />
+            <source>Enabled</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="362" />
             <source>Fake DNS IP Pool</source>
-            <translation>FakeDNS IP池</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/DnsSettingsWidget.ui" line="376" />
             <source>Fake DNS Pool Size</source>
-            <translation>FakeDNS 池大小</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
         <name>GroupManager</name>
         <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="77" />
-            <source>Export Connection(s)</source>
-            <translation>导出连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="78" />
-            <source>Delete Connection(s)</source>
-            <translation>删除连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="79" />
-            <source>Copy to...</source>
-            <translation>复制到...</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="80" />
-            <source>Move to...</source>
-            <translation>移动到...</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="81" />
-            <source>Link to...</source>
-            <translation>链接到...</translation>
-        </message>
-        <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="70" />
             <source>Connection Management</source>
-            <translation>连接管理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="283" />
             <source>New Group</source>
-            <translation>新分组</translation>
+            <translation>Новая группа</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="297" />
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="302" />
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="305" />
             <source>Update Subscription</source>
-            <translation>更新订阅</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="305" />
-            <source>Would you like to update the subscription?</source>
-            <translation>您要更新订阅吗？</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="317" />
-            <source>All connections will be moved to default group, do you want to continue?</source>
-            <translation>本订阅中的所有连接都将移动到默认分组，您确定要继续吗？</translation>
+            <translation>Обновить подписку</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="297" />
             <source>The subscription link is empty.</source>
-            <translation>订阅链接为空。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="302" />
             <source>The subscription link is invalid.</source>
-            <translation>订阅链接无效。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="305" />
+            <source>Would you like to update the subscription?</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="317" />
             <source>Remove a Group</source>
-            <translation>移除分组</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="317" />
+            <source>All connections will be moved to default group, do you want to continue?</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="376" />
             <source>Unknown Subscription Type</source>
-            <translation>未知订阅类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.cpp" line="376" />
             <source>Unknown subscription type "%1", a plugin may be missing.</source>
-            <translation>未知订阅类型“%1”，可能是因为缺少对应的插件。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="77" />
+            <source>Export Connection(s)</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="78" />
+            <source>Delete Connection(s)</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="79" />
+            <source>Copy to...</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="80" />
+            <source>Move to...</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.hpp" line="81" />
+            <source>Link to...</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -740,22 +734,22 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.cpp" line="53" />
             <source>Removing a user</source>
-            <translation>移除用户</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.cpp" line="53" />
             <source>You haven't selected a user yet.</source>
-            <translation>你尚未选择一个用户。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.cpp" line="86" />
             <source>Add a user</source>
-            <translation>添加用户</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.cpp" line="86" />
             <source>This user exists already.</source>
-            <translation>此用户已存在。</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -763,173 +757,173 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="20" />
             <source>Import file</source>
-            <translation>导入文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="34" />
             <source>Name/Prefix</source>
-            <translation>名称/前缀</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="41" />
             <source>A prefix to the imported connection</source>
-            <translation>导入链接的名称前缀</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="48" />
             <source>Import To Group</source>
-            <translation>导入组中</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="64" />
             <source>Link</source>
-            <translation>链接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="70" />
             <source>Share Link</source>
-            <translation>分享链接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="77" />
             <source>Error List</source>
-            <translation>错误列表</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="90" />
             <source>Paste share link here, one line for each.</source>
-            <translation>在此粘贴，一行一个。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="101" />
             <source>QR Code</source>
-            <translation>二维码</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="107" />
+            <source>Screenshot</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="116" />
+            <source>Hide Plumbum</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="123" />
+            <source> secs</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="139" />
+            <source>Delay</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="165" />
+            <source>Go</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="174" />
             <source>QRCode File</source>
-            <translation>二维码文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="193" />
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="259" />
             <source>Select</source>
-            <translation>选择</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="107" />
-            <source>Screenshot</source>
-            <translation>二维码截屏</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="116" />
-            <source>Hide Plumbum</source>
-            <translation>隐藏 Plumbum</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="123" />
-            <source> secs</source>
-            <translation> 秒</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="139" />
-            <source>Delay</source>
-            <translation>延迟</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="165" />
-            <source>Go</source>
-            <translation>开始</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="202" />
             <source>Detected Link</source>
-            <translation>检测到的链接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="230" />
             <source>Advanced</source>
-            <translation>高级</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="236" />
             <source>Manually Input Connections</source>
-            <translation>手动输入连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="243" />
             <source>Path</source>
-            <translation>路径</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="275" />
-            <source>Json Editor</source>
-            <translation>Json 编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="282" />
-            <source>Open JSON Editor</source>
-            <translation>打开 Json 编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="311" />
-            <source>Import</source>
-            <translation>导入</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="318" />
-            <source>Cancel</source>
-            <translation>取消</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="361" />
-            <source>Select file to import</source>
-            <translation>选择要导入的文件</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="154" />
-            <source>Capture QRCode</source>
-            <translation>抓取二维码</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="154" />
-            <source>Cannot find a valid QRCode from this region.</source>
-            <translation>无法从这个区域找到有效的二维码。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="271" />
-            <source>Failed to import connection</source>
-            <translation>连接导入失败</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="289" />
-            <source>Import config file</source>
-            <translation>导入配置文件</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="165" />
-            <source>Select an image to import</source>
-            <translation>选择要导入的图像</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="179" />
-            <source>QRCode scanning failed</source>
-            <translation>二维码扫描失败</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="179" />
-            <source>Cannot find any QRCode from the image.</source>
-            <translation>无法从图像中找到任何二维码。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="219" />
-            <source>WARNING: You may have mistaken 'subscription link' with 'share link'</source>
-            <translation>警告：你有可能把“订阅链接”当成了“分享链接”</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="268" />
             <source>Import as Complex Config</source>
-            <translation>作为复杂配置导入</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="275" />
+            <source>Json Editor</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="282" />
+            <source>Open JSON Editor</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="311" />
+            <source>Import</source>
+            <translation>Импорт</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.ui" line="318" />
+            <source>Cancel</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="154" />
+            <source>Capture QRCode</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="154" />
+            <source>Cannot find a valid QRCode from this region.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="165" />
+            <source>Select an image to import</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="179" />
+            <source>QRCode scanning failed</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="179" />
+            <source>Cannot find any QRCode from the image.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="219" />
+            <source>WARNING: You may have mistaken 'subscription link' with 'share link'</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="271" />
+            <source>Failed to import connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="289" />
+            <source>Import config file</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_ImportConfig.cpp" line="361" />
+            <source>Select file to import</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -937,102 +931,102 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="17" />
             <source>Inbound Editor</source>
-            <translation>入站编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="30" />
             <source>Tag</source>
-            <translation>标签</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="40" />
             <source>Tag of this inbound entry</source>
-            <translation>此入站条目的标签</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="56" />
-            <source>Hostname or IP Address</source>
-            <translation>主机名或IP地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="79" />
-            <source>Protocol</source>
-            <translation>协议</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="162" />
-            <source>Allocation Settings</source>
-            <translation>分配设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="240" />
-            <source>Strategy</source>
-            <translation>策略</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="210" />
-            <source>Refresh</source>
-            <translation>刷新</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="184" />
-            <source>Concurrency</source>
-            <translation>并发连接数</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="101" />
-            <source>Sniffing Settings</source>
-            <translation>筛选设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="146" />
-            <source>Unknown inbound.</source>
-            <translation>未知入站。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="147" />
-            <source>The specified inbound type is invalid, this may be caused by a plugin failure.</source>
-            <translation>指定的入站类型无效，可能是插件问题。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="148" />
-            <source>Please use the JsonEditor or reload the plugin.</source>
-            <translation>请使用 JSON 编辑器或重载对应插件。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="47" />
             <source>Address</source>
-            <translation>地址</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="255" />
-            <source>Inbound Settings</source>
-            <translation>入站设置</translation>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="56" />
+            <source>Hostname or IP Address</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="283" />
-            <source>Stream Settings</source>
-            <translation>流设置</translation>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="79" />
+            <source>Protocol</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="124" />
-            <source>FakeDNS</source>
-            <translation>FakeDNS</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="152" />
-            <source>Metadata Only</source>
-            <translation>仅限元数据</translation>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="101" />
+            <source>Sniffing Settings</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="110" />
             <source>FakeDNS-Others</source>
-            <translation>FakeDNS-其他</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="124" />
+            <source>FakeDNS</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="131" />
             <source>Destination Override</source>
-            <translation>目标覆盖</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="152" />
+            <source>Metadata Only</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="162" />
+            <source>Allocation Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="184" />
+            <source>Concurrency</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="210" />
+            <source>Refresh</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="240" />
+            <source>Strategy</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="255" />
+            <source>Inbound Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.ui" line="283" />
+            <source>Stream Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="146" />
+            <source>Unknown inbound.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="147" />
+            <source>The specified inbound type is invalid, this may be caused by a plugin failure.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="148" />
+            <source>Please use the JsonEditor or reload the plugin.</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1040,43 +1034,43 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.cpp" line="31" />
             <source>External Config</source>
-            <translation>外部配置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.cpp" line="64" />
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.cpp" line="110" />
             <source>Edit Outbound</source>
-            <translation>编辑出站</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.cpp" line="72" />
             <source>Trying to edit an Complex Config</source>
-            <translation>试图编辑复杂配置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.hpp" line="32" />
             <source>You are trying to edit an external connection config, is this what you want?</source>
-            <translation>你正试图编辑一个外来的连接配置，这是你想要的吗？</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.hpp" line="33" />
             <source>You have selected an complex config as outbound.</source>
-            <translation>你已选定一个复杂配置作为出站。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.hpp" line="34" />
             <source>continuing editing this configuration will make you LOSS ALL INBOUND AND ROUTING settings.</source>
-            <translation>继续编辑此配置会使你失去所有的入站与路由设定。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/InboundOutboundWidget.hpp" line="35" />
             <source>Is this what you want?</source>
-            <translation>这是你想要的吗？</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1084,7 +1078,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/widgets/InboundSettingsWidget.ui" line="16" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1092,353 +1086,289 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="17" />
             <source>JSON Editor</source>
-            <translation>JSON 编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="65" />
-            <source>Json Editor</source>
-            <translation>Json 编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="51" />
             <source>Format JSON</source>
-            <translation>格式化 JSON</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="58" />
             <source>Remove All Comments</source>
-            <translation>移除所有注释</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="65" />
+            <source>Json Editor</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="76" />
+            <source>Structure Preview</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="115" />
             <source>OK</source>
-            <translation>好</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.cpp" line="22" />
             <location filename="../src/ui/widgets/editors/w_JsonEditor.cpp" line="48" />
             <source>Json Contains Syntax Errors</source>
-            <translation>JSON 包含语法错误</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.cpp" line="22" />
             <source>Original Json may contain syntax errors. Json tree is disabled.</source>
-            <translation>原 JSON 可能包含语法错误，JSON 树被禁用。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.cpp" line="48" />
             <source>You must correct these errors before continuing.</source>
-            <translation>您必须先更正这些错误才能继续。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.cpp" line="98" />
             <source>Syntax Errors</source>
-            <translation>语法错误</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_JsonEditor.cpp" line="98" />
             <source>Please fix the JSON errors or remove the comments before continue</source>
-            <translation>请先修复 JSON 错误或移除其中的注释再继续</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_JsonEditor.ui" line="76" />
-            <source>Structure Preview</source>
-            <translation>结构预览</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
         <name>MainWindow</name>
+        <message>
+            <location filename="../src/ui/qml/forms/MainWindow.qml" line="14" />
+            <source>Plumbum - Xray/V2Ray Client</source>
+            <translation>Plumbum - Xray/V2Ray клиент</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/qml/forms/MainWindow.qml" line="94" />
+            <source>Connections</source>
+            <translation>Подключения</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/qml/forms/MainWindow.qml" line="103" />
+            <source>Subscriptions</source>
+            <translation>Подписки</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/qml/forms/MainWindow.qml" line="112" />
+            <source>Settings</source>
+            <translation>Настройки</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/qml/forms/MainWindow.qml" line="144" />
+            <source>Connected</source>
+            <translation>Подключено</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/qml/forms/MainWindow.qml" line="145" />
+            <source>Disconnected</source>
+            <translation>Отключено</translation>
+        </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="20" />
             <source>Plumbum</source>
             <translation>Plumbum</translation>
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="46" />
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="229" />
-            <source>Preferences</source>
-            <translation>首选项</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="32" />
+            <source>Groups</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="39" />
             <source>Plugins</source>
-            <translation>插件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="96" />
-            <source>Locate Current Connection</source>
-            <translation>定位到当前连接</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="46" />
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="229" />
+            <source>Preferences</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="83" />
             <source>Search</source>
-            <translation>搜索</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="96" />
+            <source>Locate Current Connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="107" />
+            <source>Collapse all groups</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="121" />
             <source>Sort</source>
-            <translation>排序</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="183" />
             <source>Import Connection</source>
-            <translation>导入连接</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="186" />
+            <source>Import</source>
+            <translation>Импорт</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="193" />
             <source>New</source>
-            <translation>新建</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="200" />
+            <source>New Complex</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="289" />
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="358" />
             <source>Click to toggle show/hide</source>
-            <translation>点击切换显示/隐藏</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="295" />
             <source>  Speed Graph</source>
-            <translation>  速度图像</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="305" />
             <source>Clear chart data</source>
-            <translation>清除图表数据</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="364" />
             <source>  Log</source>
-            <translation>  日志</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="374" />
+            <source>Clear log</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="431" />
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="676" />
             <source>Not Connected</source>
-            <translation>未连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="451" />
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="485" />
             <source>Upload/Download speed</source>
-            <translation>上传/下载速度</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="488" />
             <source>0.00 B/s
 0.00 B/s</source>
-            <translation>0.00 B/s
-0.00 B/s</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="508" />
             <source>Data</source>
-            <translation>数据</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="542" />
             <source>Upload/Download Data</source>
-            <translation>上传/下载流量</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="545" />
             <source>0.00 B
 0.00 B</source>
-            <translation>0.00 B
-0.00 B</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="224" />
-            <source>System Proxy</source>
-            <translation>系统代理</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="225" />
-            <source>Recent Connections</source>
-            <translation>最近连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="226" />
-            <source>Clear Recent Connections</source>
-            <translation>清除最近连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="18" />
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="228" />
-            <source>Hide</source>
-            <translation>隐藏</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="230" />
-            <source>Quit</source>
-            <translation>退出</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="231" />
-            <source>Connect</source>
-            <translation>连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="232" />
-            <source>Reconnect</source>
-            <translation>重新连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="233" />
-            <source>Disconnect</source>
-            <translation>断开连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="236" />
-            <source>Enable System Proxy</source>
-            <translation>启用系统代理</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="237" />
-            <source>Disable System Proxy</source>
-            <translation>禁用系统代理</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="239" />
-            <source>Connect to this</source>
-            <translation>连接到此服务器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="240" />
-            <source>Set as automatically connected</source>
-            <translation>设置为自动连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="245" />
-            <source>Edit</source>
-            <translation>编辑</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="241" />
-            <source>Edit as JSON</source>
-            <translation>编辑为 JSON</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="243" />
-            <source>Edit as Complex Config</source>
-            <translation>编辑为复杂配置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="244" />
-            <source>Rename</source>
-            <translation>重命名</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="246" />
-            <source>Duplicate to the Same Group</source>
-            <translation>复制到同组</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="247" />
-            <source>Test Latency</source>
-            <translation>测试延迟</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="249" />
-            <source>Clear Usage Data</source>
-            <translation>清除统计数据</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="250" />
-            <source>Delete Connection</source>
-            <translation>删除连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="252" />
-            <source>Sort connection list.</source>
-            <translation>排序连接列表。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="253" />
-            <source>By connection name, A-Z</source>
-            <translation>按名称，顺序</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="254" />
-            <source>By connection name, Z-A</source>
-            <translation>按名称，逆序</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="255" />
-            <source>By latency, Ascending</source>
-            <translation>低延迟优先</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="256" />
-            <source>By latency, Descending</source>
-            <translation>高延迟优先</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="257" />
-            <source>By data, Ascending</source>
-            <translation>低数据使用量优先</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="258" />
-            <source>By data, Descending</source>
-            <translation>高数据使用量优先</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="261" />
-            <source>Switch to Plumbum log</source>
-            <translation>切换到 Plumbum 日志</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="128" />
             <source>Kernel terminated.</source>
-            <translation>核心已终止。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="129" />
             <source>The kernel terminated unexpectedly:</source>
-            <translation>核心意外终止：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="130" />
             <source>To solve the problem, read the kernel log in the log text browser.</source>
-            <translation>要解决问题，请阅读日志窗口中的核心日志。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="16" />
-            <source>Show</source>
-            <translation>显示</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="139" />
+            <source>Subscription "%1" has been updated</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="196" />
+            <source>Recent Connection list cleared.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="443" />
             <source>Quit Plumbum</source>
-            <translation>退出 Plumbum</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="443" />
             <source>Are you sure to exit Plumbum?</source>
-            <translation>确信要退出 Plumbum 吗？</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="602" />
+            <source>Do you want to remove this group as well?</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="602" />
+            <source>Group: </source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="603" />
+            <source>Removing Connection</source>
+            <translation type="unfinished" />
         </message>
         <message numerus="yes">
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="609" />
             <source>Removing Connection(s)</source>
-            <translation>
-                <numerusform>删除连接</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message numerus="yes">
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="610" />
             <source>Are you sure to remove selected connection(s)?</source>
-            <translation>
-                <numerusform>您确定要删除这些项目吗？</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="671" />
             <source>Disconnected from: </source>
-            <translation>已断开连接: </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="698" />
@@ -1446,202 +1376,272 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="701" />
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="778" />
             <source>Connected: </source>
-            <translation>已连接: </translation>
+            <translation type="unfinished" />
         </message>
         <message numerus="yes">
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="889" />
             <source>Duplicating Connection(s)</source>
-            <translation>
-                <numerusform>复制连接</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message numerus="yes">
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="890" />
             <source>Are you sure to duplicate these connection(s)?</source>
-            <translation>
-                <numerusform>您确定要复制这（些）连接吗？</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="899" />
             <source> (Copy)</source>
-            <translation> （副本）</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="108" />
-            <source>System proxy configured.</source>
-            <translation>系统代理已设置。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="114" />
-            <source>Cannot set system proxy</source>
-            <translation>无法设置系统代理</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="114" />
-            <source>Both HTTP and SOCKS inbounds are not enabled</source>
-            <translation>HTTP 和 SOCKS 都没有启用</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="124" />
-            <source>System proxy removed.</source>
-            <translation>系统代理已清除。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="172" />
-            <source>Update Subscriptions</source>
-            <translation>更新订阅</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="949" />
+            <source>%1 has been set as auto connect.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="985" />
             <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="242" />
             <source>Update Subscription</source>
-            <translation>更新订阅</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="139" />
-            <source>Subscription "%1" has been updated</source>
-            <translation>已更新订阅 "%1"</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="949" />
-            <source>%1 has been set as auto connect.</source>
-            <translation>已将 %1 设置为自动连接。</translation>
+            <translation>Обновить подписку</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="985" />
             <source>Selected group is not a subscription</source>
-            <translation>所选分组不是订阅</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="173" />
-            <source>Do you want to update these subscriptions?</source>
-            <translation>要更新这些订阅吗？</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="32" />
-            <source>Groups</source>
-            <translation>分组</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="107" />
-            <source>Collapse all groups</source>
-            <translation>收起所有分组</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="186" />
-            <source>Import</source>
-            <translation>导入</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="200" />
-            <source>New Complex</source>
-            <translation>新复杂配置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="196" />
-            <source>Recent Connection list cleared.</source>
-            <translation>已清除最近连接列表。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="1071" />
             <source>Copy latest logs</source>
-            <translation>复制最近日志</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="1071" />
             <source>Number of lines of logs to copy</source>
-            <translation>要复制的日志的行数</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="248" />
-            <source>Test Real Latency</source>
-            <translation>测试真实延迟</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="16" />
+            <source>Show</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="260" />
-            <source>Switch to Core log</source>
-            <translation>切换到核心日志</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="18" />
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="228" />
+            <source>Hide</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="263" />
-            <source>Copy graph as image.</source>
-            <translation>复制图像到剪贴板</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="108" />
+            <source>System proxy configured.</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="264" />
-            <source>Copy latest logs.</source>
-            <translation>复制最近日志</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="114" />
+            <source>Cannot set system proxy</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="602" />
-            <source>Do you want to remove this group as well?</source>
-            <translation>您想要同时删除这个组吗？</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="114" />
+            <source>Both HTTP and SOCKS inbounds are not enabled</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="602" />
-            <source>Group: </source>
-            <translation>组： </translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="124" />
+            <source>System proxy removed.</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.cpp" line="603" />
-            <source>Removing Connection</source>
-            <translation>正在删除连接</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="172" />
+            <source>Update Subscriptions</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="265" />
-            <source>Copy selected.</source>
-            <translation>复制所选项</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="173" />
+            <source>Do you want to update these subscriptions?</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="223" />
             <source>Bypass CN Mainland</source>
-            <translation>绕过中国大陆</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="224" />
+            <source>System Proxy</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="225" />
+            <source>Recent Connections</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="226" />
+            <source>Clear Recent Connections</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="230" />
+            <source>Quit</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="231" />
+            <source>Connect</source>
+            <translation>Подключить</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="232" />
+            <source>Reconnect</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="233" />
+            <source>Disconnect</source>
+            <translation>Отключить</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="234" />
             <source>Enable Bypassing CN Mainland</source>
-            <translation>启用绕过中国大陆</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="235" />
             <source>Disable Bypassing CN Mainland</source>
-            <translation>禁用绕过中国大陆</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_MainWindow.ui" line="374" />
-            <source>Clear log</source>
-            <translation>清除日志</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="236" />
+            <source>Enable System Proxy</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/qml/forms/MainWindow.qml" line="14" />
-            <source>Plumbum - Xray/V2Ray Client</source>
-            <translation>Plumbum - Xray/V2Ray 客户端</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="237" />
+            <source>Disable System Proxy</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/qml/forms/MainWindow.qml" line="94" />
-            <source>Connections</source>
-            <translation>连接</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="239" />
+            <source>Connect to this</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/qml/forms/MainWindow.qml" line="103" />
-            <source>Subscriptions</source>
-            <translation>订阅</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="240" />
+            <source>Set as automatically connected</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/qml/forms/MainWindow.qml" line="112" />
-            <source>Settings</source>
-            <translation>设置</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="241" />
+            <source>Edit as JSON</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/qml/forms/MainWindow.qml" line="144" />
-            <source>Connected</source>
-            <translation>已连接</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="243" />
+            <source>Edit as Complex Config</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/qml/forms/MainWindow.qml" line="145" />
-            <source>Disconnected</source>
-            <translation>未连接</translation>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="244" />
+            <source>Rename</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="245" />
+            <source>Edit</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="246" />
+            <source>Duplicate to the Same Group</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="247" />
+            <source>Test Latency</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="248" />
+            <source>Test Real Latency</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="249" />
+            <source>Clear Usage Data</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="250" />
+            <source>Delete Connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="252" />
+            <source>Sort connection list.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="253" />
+            <source>By connection name, A-Z</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="254" />
+            <source>By connection name, Z-A</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="255" />
+            <source>By latency, Ascending</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="256" />
+            <source>By latency, Descending</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="257" />
+            <source>By data, Ascending</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="258" />
+            <source>By data, Descending</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="260" />
+            <source>Switch to Core log</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="261" />
+            <source>Switch to Plumbum log</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="263" />
+            <source>Copy graph as image.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="264" />
+            <source>Copy latest logs.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_MainWindow_extra.cpp" line="265" />
+            <source>Copy selected.</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1657,7 +1657,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/plugins/utils/core/MainWindowWidget.ui" line="14" />
             <source>Plumbum Utilities</source>
-            <translation>Plumbum 工具</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1665,104 +1665,104 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="26" />
             <source>Edit Connection Settings</source>
-            <translation>编辑连接设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="35" />
             <source>Stream Settings</source>
-            <translation>流设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="66" />
             <source>Tag</source>
-            <translation>标签</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="73" />
             <source>Tag of this outbound setting</source>
-            <translation>此出站设置的标签</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="80" />
             <source>Type</source>
-            <translation>类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="99" />
             <source>Host</source>
-            <translation>主机</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="106" />
             <source>Hostname or IP/IPv6 Address</source>
-            <translation>主机名或 IP/IPv6 地址</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="113" />
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="123" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="134" />
             <source>Misc Settings</source>
-            <translation>其他设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="140" />
             <source>Use Mux</source>
-            <translation>使用Mux</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="147" />
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="174" />
             <source>Enabled</source>
-            <translation>已启用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="154" />
             <source>Mux Concurrency</source>
-            <translation>Mux 并发</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="181" />
             <source>Use Forward Proxy</source>
-            <translation>使用前置代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.ui" line="193" />
             <source>Outbound Settings</source>
-            <translation>出站设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="104" />
             <source>Unknown outbound type.</source>
-            <translation>未知的出站类型。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="105" />
             <source>The specified outbound type is not supported, this may happen due to a plugin failure.</source>
-            <translation>指定的出站类型不受支持，可能是插件问题。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="201" />
-            <source>Forward proxy has been disabled when using plugin outbound</source>
-            <translation>使用插件出站时，前置代理已被禁用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="146" />
             <source>Unknown outbound.</source>
-            <translation>未知出站。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="147" />
             <source>The specified outbound type is invalid, this may be caused by a plugin failure.</source>
-            <translation>指定的出站类型无效，可能是插件问题。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="148" />
             <source>Please use the JsonEditor or reload the plugin.</source>
-            <translation>请使用 JSON 编辑器或重载对应插件。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="201" />
+            <source>Forward proxy has been disabled when using plugin outbound</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1772,7 +1772,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
             <location filename="../src/plugins/protocols/ui/inbound/vless.ui" line="14" />
             <location filename="../src/plugins/protocols/ui/inbound/vmess.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1782,39 +1782,39 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="60" />
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="108" />
             <source>Loaded</source>
-            <translation>已加载</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="24" />
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="60" />
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="108" />
             <source>Not loaded</source>
-            <translation>未加载</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="66" />
             <source>Plugin Not Loaded</source>
-            <translation>插件未加载</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="85" />
             <source>Plugin does not have settings widget.</source>
-            <translation>插件无设置组件。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="118" />
-            <source>Plugin not loaded</source>
-            <translation>插件未加载</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="118" />
-            <source>This plugin is not loaded, please enable or reload the plugin to continue.</source>
-            <translation>插件未加载，请启用或重载此插件。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="90" />
             <source>None</source>
-            <translation>不使用</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="118" />
+            <source>Plugin not loaded</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PluginManager.cpp" line="118" />
+            <source>This plugin is not loaded, please enable or reload the plugin to continue.</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1822,7 +1822,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/mtproto.ui" line="16" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1830,7 +1830,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/plugins/protocols/ui/PluginSettingsWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1838,32 +1838,32 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="59" />
             <source>A new version of Plumbum is starting:</source>
-            <translation>新版 Plumbum 正在启动：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="61" />
             <source>New version information: </source>
-            <translation>新版本信息: </translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="65" />
-            <source>Do you want to exit and launch that new version?</source>
-            <translation>要退出当前版本并运行新版本吗？</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="67" />
-            <source>New version detected</source>
-            <translation>检测到新版</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="62" />
             <source>Version: %1:%2</source>
-            <translation>版本：%1:%2</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="63" />
             <source>Path: %1</source>
-            <translation>路径：%1</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="65" />
+            <source>Do you want to exit and launch that new version?</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/PlumbumWidgetApplication.cpp" line="67" />
+            <source>New version detected</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1871,7 +1871,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/components/update/UpdateChecker.cpp" line="83" />
             <source>Plumbum Update</source>
-            <translation>Plumbum 更新</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1879,37 +1879,37 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="56" />
             <source>Failed to load plugin</source>
-            <translation>加载插件失败</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="71" />
             <source>Cannot load plugin</source>
-            <translation>无法加载插件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="72" />
             <source>The plugin cannot be loaded: </source>
-            <translation>无法加载插件： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="73" />
             <source>This plugin was built against a different version of the Plugin Interface.</source>
-            <translation>此插件是在不同版本的插件接口上构建的。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="74" />
             <source>Please contact the plugin provider or report the issue to Plumbum Workgroup.</source>
-            <translation>请联系插件提供者或将问题报告到 Plumbum 工作组。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="130" />
             <source>Enabling a plugin</source>
-            <translation>启用插件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="130" />
             <source>The plugin will become fully functional after restarting Plumbum.</source>
-            <translation>重新启动 Plumbum 后插件将完全启用。</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1917,23 +1917,23 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/core/handler/KernelInstanceHandler.cpp" line="47" />
             <source>There are other processes occupying the ports necessary to start the connection:</source>
-            <translation>其他进程占用了启动连接所需的端口：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/KernelInstanceHandler.cpp" line="55" />
             <source>Endpoint: %1:%2 for inbound: "%3"</source>
-            <translation>端口: %1:%2 for inbound: "%3"</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/KernelInstanceHandler.cpp" line="64" />
             <source>Local port: %1 for plugin integration.</source>
-            <translation>本地端口： %1 用于插件集成。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/KernelInstanceHandler.cpp" line="177" />
             <location filename="../src/core/handler/KernelInstanceHandler.cpp" line="238" />
             <source>A plugin kernel failed to start. Please check the outbound settings.</source>
-            <translation>插件内核启动失败。请检查出站设置。</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -1941,72 +1941,78 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/core/handler/ConfigHandler.cpp" line="30" />
             <source>Group: %1</source>
-            <translation>分组: %1</translation>
-        </message>
-        <message>
-            <location filename="../src/core/handler/ConfigHandler.cpp" line="289" />
-            <location filename="../src/core/handler/ConfigHandler.cpp" line="409" />
-            <source>Group does not exist</source>
-            <translation>分组不存在</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/ConfigHandler.cpp" line="65" />
             <location filename="../src/core/handler/ConfigHandler.cpp" line="304" />
             <source>Default Group</source>
-            <translation>默认分组</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/handler/ConfigHandler.cpp" line="289" />
+            <location filename="../src/core/handler/ConfigHandler.cpp" line="409" />
+            <source>Group does not exist</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/ConfigHandler.cpp" line="320" />
             <source>Failed to start connection</source>
-            <translation>启动连接失败</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/handler/ConfigHandler.cpp" line="527" />
+            <source>Cannot Update Subscription</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/ConfigHandler.cpp" line="528" />
             <source>Unknown subscription type: %1</source>
-            <translation>未知订阅类型： %1</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/handler/ConfigHandler.cpp" line="528" />
+            <source>A subscription plugin is missing?</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/handler/ConfigHandler.cpp" line="557" />
             <location filename="../src/core/handler/ConfigHandler.cpp" line="645" />
             <location filename="../src/core/handler/ConfigHandler.cpp" line="695" />
             <source>Update Subscription</source>
-            <translation>更新订阅</translation>
+            <translation>Обновить подписку</translation>
         </message>
         <message numerus="yes">
             <location filename="../src/core/handler/ConfigHandler.cpp" line="558" />
             <source>%n entrie(s) have been found from the subscription source, do you want to continue?</source>
-            <translation>
-                <numerusform>在订阅源只找到了 %n 个条目，您想要继续吗？</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message numerus="yes">
             <location filename="../src/core/handler/ConfigHandler.cpp" line="646" />
             <source>%1 out of %n entrie(s) have been filtered out, do you want to continue?</source>
-            <translation>
-                <numerusform>%1 个条目中的 %n 个条目已被过滤出来，您想要继续吗？</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message numerus="yes">
             <location filename="../src/core/handler/ConfigHandler.cpp" line="696" />
             <source>There're %n connection(s) in the group that do not belong the current subscription (any more).</source>
-            <translation>
-                <numerusform>有 %n 个连接已不再属于当前订阅分组。</numerusform>
+            <translation type="unfinished">
+                <numerusform />
+                <numerusform />
+                <numerusform />
             </translation>
         </message>
         <message>
             <location filename="../src/core/handler/ConfigHandler.cpp" line="698" />
             <source>Would you like to remove them?</source>
-            <translation>您想要删除他们吗？</translation>
-        </message>
-        <message>
-            <location filename="../src/core/handler/ConfigHandler.cpp" line="527" />
-            <source>Cannot Update Subscription</source>
-            <translation>无法更新订阅</translation>
-        </message>
-        <message>
-            <location filename="../src/core/handler/ConfigHandler.cpp" line="528" />
-            <source>A subscription plugin is missing?</source>
-            <translation>缺少订阅插件？</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -2014,7 +2020,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/core/kernel/APIBackend.cpp" line="91" />
             <source>Failed to get statistics data, please check if V2Ray is running properly</source>
-            <translation>无法获取统计数据，请检查 V2Ray 是否正常运行</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -2022,76 +2028,74 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="37" />
             <source>Core file is lacking executable permission for the current user.</source>
-            <translation>核心文件缺少当前用户的可执行权限。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="38" />
             <source>Plumbum tried to set, but failed because permission denied.</source>
-            <translation>Plumbum 尝试设置，但由于权限不足而失败。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="47" />
+            <source>Core file not executable.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="57" />
             <source>Check is skipped</source>
-            <translation>检查已跳过</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="67" />
             <source>V2Ray core executable not found.</source>
-            <translation>找不到 V2Ray 核心可执行文件。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="72" />
             <source>V2Ray core file cannot be opened, please ensure there's a file instead of a folder.</source>
-            <translation>V2Ray 核心文件无法打开，请确保路径指向文件而不是文件夹。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="96" />
             <source>V2Ray core is incompatible with your platform.<byte value="xd" />
 Expected core ABI is %1, but got actual %2.<byte value="xd" />
 Maybe you have downloaded the wrong core?</source>
-            <translation>V2Ray 核心与您的平台不兼容。
-预期的核心 ABI 是 %1，但实际上是 %2。
-你可能下载了错误的核心？</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="128" />
             <source>V2Ray assets path is not valid.</source>
-            <translation>V2Ray 资源路径无效。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="131" />
             <source>No geoip.dat in assets path.</source>
-            <translation>asset路径中没有 geoip.dat。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="134" />
             <source>No geosite.dat in assets path.</source>
-            <translation>资源路径中没有 geosite.dat。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="153" />
             <source>V2Ray core failed with an exit code: </source>
-            <translation>V2Ray 核心运行失败，退出代码： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="159" />
             <source>V2Ray core returns empty string.</source>
-            <translation>V2Ray 核心返回空字符串。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="238" />
             <source>Invalid V2Ray Instance Status.</source>
-            <translation>无效的 V2Ray 实例状态。</translation>
-        </message>
-        <message>
-            <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="47" />
-            <source>Core file not executable.</source>
-            <translation>核心文件不可执行。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/V2RayKernelInteractions.cpp" line="249" />
             <source>V2Ray kernel failed to start: </source>
-            <translation>V2Ray 内核启动失败：</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -2099,7 +2103,7 @@ Maybe you have downloaded the wrong core?</source>
         <message>
             <location filename="../src/ui/widgets/widgets/QvAutoCompleteTextEdit.cpp" line="126" />
             <source>You can not input space characters here.</source>
-            <translation>此处不能输入空格。</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -2112,87 +2116,87 @@ Maybe you have downloaded the wrong core?</source>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="225" />
             <source>Failed to start connection.</source>
-            <translation>连接启动失败。</translation>
+            <translation>Не удалось запустить подключение.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="278" />
             <source>Import failed: %1</source>
-            <translation>导入失败: %1</translation>
+            <translation>Ошибка импорта: %1</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="289" />
             <source>Imported %1 connection(s)</source>
-            <translation>已导入 %1 个连接</translation>
+            <translation>Импортировано подключений: %1</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="298" />
             <source>Group "%1" created</source>
-            <translation>分组 "%1" 已创建</translation>
+            <translation>Группа "%1" создана</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="308" />
             <source>Failed to delete group: %1</source>
-            <translation>删除分组失败: %1</translation>
+            <translation>Не удалось удалить группу: %1</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="317" />
             <source>Failed to rename group: %1</source>
-            <translation>重命名分组失败: %1</translation>
+            <translation>Не удалось переименовать группу: %1</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="362" />
             <source>Subscription "%1" created</source>
-            <translation>订阅 "%1" 已创建</translation>
+            <translation>Подписка "%1" создана</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="425" />
             <source>This connection cannot be serialized to a share link.</source>
-            <translation>此连接无法序列化为分享链接。</translation>
+            <translation>Это подключение не может быть преобразовано в ссылку.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="429" />
             <source>Link copied to clipboard.</source>
-            <translation>链接已复制到剪贴板。</translation>
+            <translation>Ссылка скопирована в буфер обмена.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="477" />
             <source>PAC mode changed, restarting connection...</source>
-            <translation>代理模式已更改，正在重启连接...</translation>
+            <translation>Режим PAC изменён, перезапуск подключения...</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="481" />
             <source>PAC mode changed.</source>
-            <translation>代理模式已更改。</translation>
+            <translation>Режим PAC изменён.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="495" />
             <source>TUN mode enabled, restarting connection...</source>
-            <translation>TUN 模式已开启，正在重启连接...</translation>
+            <translation>Режим TUN включён, перезапуск подключения...</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="495" />
             <source>TUN mode disabled, restarting connection...</source>
-            <translation>TUN 模式已关闭，正在重启连接...</translation>
+            <translation>Режим TUN выключен, перезапуск подключения...</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="499" />
             <source>TUN mode enabled.</source>
-            <translation>TUN 模式已开启。</translation>
+            <translation>Режим TUN включён.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="499" />
             <source>TUN mode disabled.</source>
-            <translation>TUN 模式已关闭。</translation>
+            <translation>Режим TUN выключен.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="654" />
             <source>Kernel crashed: %1</source>
-            <translation>内核崩溃: %1</translation>
+            <translation>Ядро завершилось ошибкой: %1</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/PlumbumQMLProperty.cpp" line="690" />
             <source>Subscription updated.</source>
-            <translation>订阅已更新。</translation>
+            <translation>Подписка обновлена.</translation>
         </message>
     </context>
     <context>
@@ -2204,17 +2208,22 @@ Maybe you have downloaded the wrong core?</source>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="381" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="385" />
             <source>Preferences</source>
-            <translation>首选项</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="40" />
             <source>General Settings</source>
-            <translation>常规设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="48" />
             <source>Appearance</source>
-            <translation>外观</translation>
+            <translation>Внешний вид</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="54" />
+            <source>Adapt Dark Theme</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="64" />
@@ -2246,197 +2255,324 @@ Maybe you have downloaded the wrong core?</source>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1913" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2015" />
             <source>Enabled</source>
-            <translation>已启用</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="71" />
+            <source>Adapt Dark Tray Theme</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="88" />
             <source>UI Theme</source>
-            <translation>界面主题</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="108" />
             <source>Language</source>
-            <translation>语言</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="160" />
-            <source>Maximum log lines</source>
-            <translation>日志最大行数</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="179" />
-            <source> lines</source>
-            <translation> 行</translation>
+            <translation>Язык</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="134" />
             <source>Recent Jumplist</source>
-            <translation>最近列表</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="144" />
             <source> Connections</source>
-            <translation> 个</translation>
+            <translation>Подключения</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="160" />
+            <source>Maximum log lines</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="179" />
+            <source> lines</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="195" />
+            <source>Adapt Glyph Tray Icon</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="212" />
             <source>Behavior</source>
-            <translation>行为</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="218" />
             <source>Launch at Login</source>
-            <translation>登录时启动</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="235" />
+            <source>Quiet Mode</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="252" />
+            <source>Old Share Link Format</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="266" />
+            <source>Click Close Button to Exit</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="276" />
+            <source>Exit instead of minimizing to tray when the close button clicked.
+This option may be useful for some desktop environments without tray support.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="284" />
             <source>Auto Connect</source>
-            <translation>自动连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="299" />
             <source>Config</source>
-            <translation>配置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="319" />
             <source>Group</source>
-            <translation>分组</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="331" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="498" />
             <source>None</source>
-            <translation>不使用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="338" />
             <source>Last Connected</source>
-            <translation>记忆上次的连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="345" />
             <source>Fixed</source>
-            <translation>固定连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="235" />
-            <source>Quiet Mode</source>
-            <translation>安静模式</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="354" />
+            <source>Start Minimized</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="373" />
             <source>Network Settings</source>
-            <translation>网络设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="384" />
             <source>These settings are used by Plumbum itself.
 For example, for updating subscriptions.</source>
-            <translation>这些设定是针对 Plumbum 本身的。
-例如，用在更新订阅时。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="395" />
             <source>User-Agent</source>
-            <translation>User Agent</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="436" />
             <source>Latency Test Method</source>
-            <translation>延迟测试方案</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="448" />
             <source>TCPing</source>
-            <translation>TCPing</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="458" />
             <source>ICMPing</source>
-            <translation>ICMPing</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="470" />
+            <source>RealPing Test URL</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="484" />
             <source>Plumbum Proxy</source>
-            <translation>Plumbum 代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="508" />
             <source>System Proxy</source>
-            <translation>使用系统代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="518" />
             <source>Custom Proxy</source>
-            <translation>使用自定义代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="530" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1945" />
             <source>Type</source>
-            <translation>类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="554" />
             <source>Server</source>
-            <translation>服务器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="569" />
             <source>:</source>
-            <translation>:</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="599" />
             <source>Advanced Behavior</source>
-            <translation>高级行为</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="615" />
+            <source>These settings may be useful.
+But could damage your server if improperly used.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="626" />
+            <source>Test Latency Periodically</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="636" />
+            <source>Run TCPing or ICMPing periodically after connecting to a server.
+Plumbum will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="647" />
+            <source>Disable System Root Certificates</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="661" />
+            <source>Test Latency On Connected</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="694" />
             <source>Kernel Settings</source>
-            <translation>内核设置</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="700" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="780" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="795" />
+            <source>V2Ray Core Settings</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="706" />
             <source>Log Level</source>
-            <translation>日志等级</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="729" />
             <source>none</source>
-            <translation>不使用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="734" />
             <source>debug</source>
-            <translation>调试</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="739" />
             <source>info</source>
-            <translation>信息</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="744" />
             <source>warning</source>
-            <translation>警告</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="749" />
             <source>error</source>
-            <translation>错误</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="757" />
+            <source>V2Ray Core Executable Path</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="776" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="800" />
             <source>Select</source>
-            <translation>选择</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="785" />
+            <source>V2Ray Assets Directory</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="809" />
+            <source>Check V2Ray Core Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="816" />
+            <source>Check System Date and Time from the Internet</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="823" />
+            <source>V2Ray API Subsystem</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="840" />
+            <source>V2Ray API Port</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="869" />
+            <source>Outbound Statistics (V2Ray Core v4.26+)</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="876" />
+            <source>Currently:
+- vmess/shadowsocks/socks/http will be treated as PROXY.
+- freedom will be treated as DIRECT
+- blackhole will be treated as BLOCK</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="889" />
+            <source>Include Direct Connection</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="906" />
             <source>Plugin Kernel Settings</source>
-            <translation>插件内核设置</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="912" />
+            <source>Enabling V2Ray Integration will allow the kernel benefit from the V2Ray routing engine.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="922" />
+            <source>V2Ray Integration</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="932" />
@@ -2446,48 +2582,53 @@ Advanced Routing Settings
 Bypass CN websites and IPs
 Direct connection of Local LAN addresses
 Custom DNS Settings</source>
-            <translation>若不勾选此选项，插件的下列功能将被禁用：
-
-高级路由设定
-绕过中国大陆
-本地地址直连
-自定义 DNS 设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="947" />
             <source>Plumbum will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</source>
-            <translation>如果启用，Plumbum 将为每个内核插件分配端口，分别用于 HTTP 和 SOCKS。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="957" />
             <source>Port Allocation Start</source>
-            <translation>端口分配起始值</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="980" />
+            <source>Only V2Ray Core v4.21+ is supported.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1007" />
             <source>Inbound Settings</source>
-            <translation>入站设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1033" />
             <source>Listening Address</source>
-            <translation>监听地址</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1043" />
             <source>IPv4 address, e.g. '127.0.0.1' or IPv6 address, e.g. ::1</source>
-            <translation>IPv4 地址，例如 127.0.0.1；或 IPv6 地址，例如 ::1</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1050" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1060" />
             <source>Set System Proxy</source>
-            <translation>设置系统代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1337" />
-            <source>SOCKS Settings</source>
-            <translation>SOCKS 设置</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1071" />
+            <source>Dokodemo Door Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1085" />
+            <source>IPv4 address, e.g. '127.0.0.1'</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1092" />
@@ -2495,175 +2636,274 @@ Custom DNS Settings</source>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1568" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1982" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1372" />
-            <source>UDP Support</source>
-            <translation>UDP 支持</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1114" />
+            <source>Network Options</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1389" />
-            <source>UDP Local IP</source>
-            <translation>UDP 本地IP</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1126" />
+            <source>TCP</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1406" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1591" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2005" />
-            <source>Authentication</source>
-            <translation>身份验证</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1133" />
+            <source>UDP</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1423" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1608" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2022" />
-            <source>Username</source>
-            <translation>用户名</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1155" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1498" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1683" />
+            <source>Destination Override</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1440" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1625" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2035" />
-            <source>Password</source>
-            <translation>密码</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1167" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1510" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1695" />
+            <source>HTTP</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1174" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1517" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1702" />
+            <source>TLS</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1181" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1524" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1709" />
+            <source>FakeDNS</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1188" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1531" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1716" />
+            <source>FakeDNS+Others</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1210" />
+            <source>Mode</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1240" />
+            <source>Outbound Mark</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1263" />
+            <source>Listening IPv4 Address</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1273" />
+            <source>Listening IPv6 Address</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1289" />
+            <source>IPv6 address, e.g. ::1. Leave blank will disable ipv6.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1296" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1457" />
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1642" />
             <source>Sniffing</source>
-            <translation>嗅探</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1312" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1476" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1661" />
+            <source>Metadata Only</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1337" />
+            <source>SOCKS Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1372" />
+            <source>UDP Support</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1389" />
+            <source>UDP Local IP</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1406" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1591" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2005" />
+            <source>Authentication</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1423" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1608" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2022" />
+            <source>Username</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1440" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1625" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2035" />
+            <source>Password</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1556" />
             <source>HTTP Settings</source>
-            <translation>HTTP 设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1085" />
-            <source>IPv4 address, e.g. '127.0.0.1'</source>
-            <translation>IPv4 地址，例如 127.0.0.1</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1744" />
+            <source>Browser Forwarder Settings</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1114" />
-            <source>Network Options</source>
-            <translation>网络选项</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1756" />
+            <source>Listening Address</source>
+            <comment>Listening Address for Browser Forwarder</comment>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1126" />
-            <source>TCP</source>
-            <translation>TCP</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1770" />
+            <source>Listening Port</source>
+            <comment>Listening Port for Browser Forwarder</comment>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1133" />
-            <source>UDP</source>
-            <translation>UDP</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1903" />
-            <source>DNS Intercept</source>
-            <translation>DNS 拦截</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1210" />
-            <source>Mode</source>
-            <translation>模式</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1240" />
-            <source>Outbound Mark</source>
-            <translation>出站 Mark</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1263" />
-            <source>Listening IPv4 Address</source>
-            <translation>IPv4 监听地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1273" />
-            <source>Listening IPv6 Address</source>
-            <translation>IPv6 监听地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1289" />
-            <source>IPv6 address, e.g. ::1. Leave blank will disable ipv6.</source>
-            <translation>IPv6 地址，例如 ::1。留空会禁用 IPv6 透明代理。</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1792" />
+            <source>This applies to Simple Configs with Browser Forwarder on.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1809" />
             <source>Connection Settings</source>
-            <translation>连接设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1815" />
             <source>General Connection Settings</source>
-            <translation>常规连接设置</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1821" />
+            <source>Force Direct for All Connections</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1838" />
+            <source>Bypass Private Addresses</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1852" />
             <source>Bypass CN Mainland</source>
-            <translation>绕过中国大陆</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1869" />
             <source>Bypass Bittorrent Protocol</source>
-            <translation>绕过 BitTorrent 协议</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2052" />
-            <source>DNS Settings</source>
-            <translation>DNS 设置</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1886" />
+            <source>Use V2Ray DNS for Direct Connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1903" />
+            <source>DNS Intercept</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1923" />
             <source>Forward Proxy</source>
-            <translation>前置代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1935" />
             <source>Only simple config is supported.</source>
-            <translation>只支持简单配置。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1969" />
             <source>Host Address</source>
-            <translation>主机地址</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2052" />
+            <source>DNS Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2058" />
+            <source>You can configure default DNS settings for all simple connection config here.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2069" />
             <source>Advanced Route Settings</source>
-            <translation>高级路由设置</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2078" />
+            <source>You can configure default routing rules for all simple connection config here.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2089" />
             <source>About</source>
-            <translation>关于</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2132" />
+            <source>Config Directory</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2149" />
+            <source>Open Directory</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2162" />
             <source>Ignored Version</source>
-            <translation>忽略版本</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2179" />
             <source>Cancel</source>
-            <translation>取消</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2186" />
             <source>Update Channel</source>
-            <translation>更新通道</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2197" />
             <source>Stable Release</source>
-            <translation>稳定通道</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2202" />
             <source>Testing</source>
-            <translation>测试通道</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2222" />
@@ -2673,783 +2913,496 @@ Custom DNS Settings</source>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2239" />
             <source>Version:</source>
-            <translation>版本：</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2389" />
-            <source>Plugin Interface</source>
-            <translation>插件接口</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2369" />
-            <source>Extra Build Info</source>
-            <translation>额外编译信息</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2379" />
-            <source>Built Time</source>
-            <translation>构建时间</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2284" />
             <source>Build Info</source>
-            <translation>编译信息</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2329" />
             <source>Official Repo</source>
-            <translation>官方仓库</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2369" />
+            <source>Extra Build Info</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2379" />
+            <source>Built Time</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2389" />
+            <source>Plugin Interface</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2435" />
             <source>License</source>
-            <translation>许可证</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2466" />
             <source>About Qt</source>
-            <translation>关于 Qt</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="85" />
             <source>Version: %1</source>
-            <translation>版本：%1</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="252" />
             <source>Update is disabled by your vendor.</source>
-            <translation>自动更新已被供应者禁用。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="373" />
-            <source>Duplicated port numbers detected, please check the port number settings.</source>
-            <translation>检测到重复的端口号，请检查端口号设置。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="377" />
-            <source>Invalid inbound listening address.</source>
-            <translation>入站监听地址不可用。</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="328" />
+            <source>Invalid tproxy listening ipv4 address.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="332" />
             <source>Invalid tproxy listening ipv6 address.</source>
-            <translation>无效的透明代理 IPv6 监听地址。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="576" />
-            <source>Note</source>
-            <translation>注意</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="373" />
+            <source>Duplicated port numbers detected, please check the port number settings.</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="577" />
-            <source>To recognize the protocol of a connection, one must enable sniffing option in inbound proxy.</source>
-            <translation>要识别网络连接的协议，必须要启用入站代理中的嗅探选项。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="578" />
-            <source>tproxy inbound's sniffing is enabled by default.</source>
-            <translation>tProxy 入站的嗅探选项默认开启。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="695" />
-            <source>Start with boot</source>
-            <translation>开机启动</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="695" />
-            <source>Failed to set auto start option.</source>
-            <translation>无法设置自动启动选项。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="894" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="904" />
-            <source>Dangerous Operation</source>
-            <translation>危险操作</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="894" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="904" />
-            <source>This will (probably) make it easy to fingerprint your connection.</source>
-            <translation>这将让 GFW 更容易识别出您的连接。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1124" />
-            <source>NTP Checker</source>
-            <translation>网络时间检查器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1125" />
-            <source>Check date and time from server:</source>
-            <translation>从NTP服务器检查日期与时间：</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1138" />
-            <source>Your time offset is %1 seconds, which is too high.</source>
-            <translation>你的时间偏差为 %1 秒，太高了。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1140" />
-            <source>Time Inaccurate</source>
-            <translation>时间不准</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1144" />
-            <source>Your time offset is %1 seconds, which is a little high.</source>
-            <translation>你的时间偏差为 %1 秒，有点高。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1146" />
-            <source>Time Somewhat Inaccurate</source>
-            <translation>时间略有偏差</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1150" />
-            <source>Your time offset is %1 seconds, which looks good.</source>
-            <translation>你的时间偏差为 %1 秒，没有问题。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1152" />
-            <source>Time Accurate</source>
-            <translation>时间准确</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1160" />
-            <source>Failed to lookup server: %1</source>
-            <translation>无法查找服务器：%1</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2058" />
-            <source>You can configure default DNS settings for all simple connection config here.</source>
-            <translation>你可在此为所有简单连接配置 DNS 设定。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2078" />
-            <source>You can configure default routing rules for all simple connection config here.</source>
-            <translation>你可在此为所有简单连接配置默认路由规则。</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="377" />
+            <source>Invalid inbound listening address.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="385" />
             <source>Invalid DNS settings.</source>
-            <translation>无效的 DNS 设置。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="615" />
-            <source>These settings may be useful.
-But could damage your server if improperly used.</source>
-            <translation>此处的设定可能很有用。
-但若使用不当，将会造成不良后果。</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="421" />
+            <source>You may need to reconnect to apply the settings now.</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="765" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="773" />
-            <source>Watch Out!</source>
-            <translation>小心！</translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="422" />
+            <source>Otherwise they will be applied next time you connect to a server.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="424" />
+            <source>Do you want to reconnect now?</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="425" />
+            <source>Reconnect Required</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="528" />
+            <source>Open V2Ray assets folder</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="539" />
+            <source>Open V2Ray core file</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="576" />
+            <source>Note</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="577" />
+            <source>To recognize the protocol of a connection, one must enable sniffing option in inbound proxy.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="578" />
+            <source>tproxy inbound's sniffing is enabled by default.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="695" />
+            <source>Start with boot</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="695" />
+            <source>Failed to set auto start option.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="762" />
             <source>You may be about to set V2Ray core incorrectly to Plumbum itself, which is absolutely not correct.<byte value="xd" />
 This won't trigger a fork bomb, however, since Plumbum works in singleton mode.<byte value="xd" />
 If your V2Ray core filename happened to be 'plumbum'-something, you are totally free to ignore this warning.</source>
-            <translation>您或许要将 V2Ray 的可执行文件错误地设置成 Plumbum 本身了，这是非常不对的。
-然而，这样做并不会触发 Fork 炸弹，因为 Plumbum 以单例模式工作。
-若你的 V2Ray 核心文件名恰好是 'plumbum' 什么的，你完全可以忽略这个警告。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="816" />
-            <source>Check System Date and Time from the Internet</source>
-            <translation>联网对时</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="876" />
-            <source>Currently:
-- vmess/shadowsocks/socks/http will be treated as PROXY.
-- freedom will be treated as DIRECT
-- blackhole will be treated as BLOCK</source>
-            <translation>当前：
-- VMess/Shadowsocks/SOCKS/HTTP 将被认作代理流量；
-- 直连出站（Freedom）将被认作直连流量；
-- 黑洞出站（Blackhole）将被认作阻断流量</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="889" />
-            <source>Include Direct Connection</source>
-            <translation>包括直连流量</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="252" />
-            <source>Old Share Link Format</source>
-            <translation>旧 VMess 链接格式</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="54" />
-            <source>Adapt Dark Theme</source>
-            <translation>使用浅色界面图标</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="71" />
-            <source>Adapt Dark Tray Theme</source>
-            <translation>使用浅色托盘图标</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="700" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="780" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="795" />
-            <source>V2Ray Core Settings</source>
-            <translation>V2Ray 核心设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="757" />
-            <source>V2Ray Core Executable Path</source>
-            <translation>V2Ray 核心可执行文件路径</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="785" />
-            <source>V2Ray Assets Directory</source>
-            <translation>V2Ray 资源目录</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="809" />
-            <source>Check V2Ray Core Settings</source>
-            <translation>检查 V2Ray 核心设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="823" />
-            <source>V2Ray API Subsystem</source>
-            <translation>V2Ray API 子系统</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="840" />
-            <source>V2Ray API Port</source>
-            <translation>V2Ray API 端口</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="869" />
-            <source>Outbound Statistics (V2Ray Core v4.26+)</source>
-            <translation>分出站统计 (V2Ray v4.26+)</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="912" />
-            <source>Enabling V2Ray Integration will allow the kernel benefit from the V2Ray routing engine.</source>
-            <translation>启用 V2Ray 插件集成将允许核心受益于 V2Ray 的路由引擎。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="922" />
-            <source>V2Ray Integration</source>
-            <translation>V2Ray 集成</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="980" />
-            <source>Only V2Ray Core v4.21+ is supported.</source>
-            <translation>仅支持 V2Ray v4.21+。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1886" />
-            <source>Use V2Ray DNS for Direct Connection</source>
-            <translation>为直连使用 V2Ray DNS</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="528" />
-            <source>Open V2Ray assets folder</source>
-            <translation>打开 V2Ray 资源文件夹</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="539" />
-            <source>Open V2Ray core file</source>
-            <translation>打开 V2Ray 核心文件</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="794" />
-            <source>V2Ray path configuration check passed.</source>
-            <translation>V2Ray 路径配置检查通过。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="794" />
-            <source>Current version of V2Ray is: </source>
-            <translation>V2Ray 当前版本是: </translation>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="765" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="773" />
+            <source>Watch Out!</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="770" />
             <source>You may be about to set V2Ray core incorrectly to V2Ray Control executable, which is absolutely not correct.<byte value="xd" />
 The filename of V2Ray core is usually 'v2ray' or 'v2ray.exe'. Make sure to choose it wisely.<byte value="xd" />
 If you insist to proceed, we're not providing with any support.</source>
-            <translation>您或许要将 V2Ray 的核心可执行文件错误地设置成 V2Ray 控制文件了，这是非常不对的。
-V2Ray 核心可执行文件的文件名通常是 'v2ray' 或者 'v2ray.exe'。确保你作出了正确的选择。
-若您执意继续，我们将不提供任何支持。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1821" />
-            <source>Force Direct for All Connections</source>
-            <translation>强制所有连接直连</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="789" />
-            <source>'V2Ray Core' Settings</source>
-            <translation>“V2Ray 核心”设定</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="470" />
-            <source>RealPing Test URL</source>
-            <translation>真实延迟测试 URL</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1838" />
-            <source>Bypass Private Addresses</source>
-            <translation>绕过私有地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="421" />
-            <source>You may need to reconnect to apply the settings now.</source>
-            <translation>你可能需要重新连接方能应用设定。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="422" />
-            <source>Otherwise they will be applied next time you connect to a server.</source>
-            <translation>否则将在下次连接时生效。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="424" />
-            <source>Do you want to reconnect now?</source>
-            <translation>要现在重连吗？</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="425" />
-            <source>Reconnect Required</source>
-            <translation>需要重连</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1071" />
-            <source>Dokodemo Door Settings</source>
-            <translation>任意门设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="647" />
-            <source>Disable System Root Certificates</source>
-            <translation>禁用系统根证书</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2132" />
-            <source>Config Directory</source>
-            <translation>配置目录</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2149" />
-            <source>Open Directory</source>
-            <translation>打开目录</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="661" />
-            <source>Test Latency On Connected</source>
-            <translation>连接时测试延迟</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="354" />
-            <source>Start Minimized</source>
-            <translation>启动后最小化</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="195" />
-            <source>Adapt Glyph Tray Icon</source>
-            <translation>粒子效果托盘图标</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1155" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1498" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1683" />
-            <source>Destination Override</source>
-            <translation>目标覆盖</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1167" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1510" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1695" />
-            <source>HTTP</source>
-            <translation>HTTP</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1174" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1517" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1702" />
-            <source>TLS</source>
-            <translation>TLS</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1139" />
-            <source>Please synchronize your system to use the VMess protocol.</source>
-            <translation>请同步系统时间，否则无法正常使用 VMess 协议。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1145" />
-            <source>VMess protocol may still work, but we suggest you synchronize your clock.</source>
-            <translation>VMess 协议可能不受影响，但我们建议您同步系统时间。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1151" />
-            <source>VMess protocol may not suffer from time inaccuracy.</source>
-            <translation>VMess协议可能不会因时间不准确而受到影响。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="785" />
             <source>This does not seem like an output from V2Ray Core.</source>
-            <translation>这似乎不是来自 V2Ray Core 的输出。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="787" />
-            <source>Output:</source>
-            <translation>输出：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="786" />
             <source>If you are looking for plugins settings, you should go to plugin settings.</source>
-            <translation>如果你正在寻找插件设置，你应该去插件设置。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="787" />
+            <source>Output:</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="789" />
+            <source>'V2Ray Core' Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="794" />
+            <source>V2Ray path configuration check passed.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="794" />
+            <source>Current version of V2Ray is: </source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="894" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="904" />
+            <source>Dangerous Operation</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="894" />
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="904" />
+            <source>This will (probably) make it easy to fingerprint your connection.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1124" />
+            <source>NTP Checker</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1125" />
+            <source>Check date and time from server:</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1138" />
+            <source>Your time offset is %1 seconds, which is too high.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1139" />
+            <source>Please synchronize your system to use the VMess protocol.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1140" />
+            <source>Time Inaccurate</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1144" />
+            <source>Your time offset is %1 seconds, which is a little high.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1145" />
+            <source>VMess protocol may still work, but we suggest you synchronize your clock.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1146" />
+            <source>Time Somewhat Inaccurate</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1150" />
+            <source>Your time offset is %1 seconds, which looks good.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1151" />
+            <source>VMess protocol may not suffer from time inaccuracy.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1152" />
+            <source>Time Accurate</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1160" />
+            <source>Failed to lookup server: %1</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1162" />
             <source>No NTP Backend</source>
-            <translation>无 NTP 后端</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1162" />
             <source>Plumbum was not built with NTP support.</source>
-            <translation>Plumbum 构建时未开启 NTP 支持选项。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1312" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1476" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1661" />
-            <source>Metadata Only</source>
-            <translation>仅限元数据</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1181" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1524" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1709" />
-            <source>FakeDNS</source>
-            <translation>FakeDNS</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="328" />
-            <source>Invalid tproxy listening ipv4 address.</source>
-            <translation>无效的透明代理 IPv4 监听地址。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1744" />
-            <source>Browser Forwarder Settings</source>
-            <translation>浏览器转发器设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1756" />
-            <source>Listening Address</source>
-            <comment>Listening Address for Browser Forwarder</comment>
-            <translation>监听地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1770" />
-            <source>Listening Port</source>
-            <comment>Listening Port for Browser Forwarder</comment>
-            <translation>监听端口</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1792" />
-            <source>This applies to Simple Configs with Browser Forwarder on.</source>
-            <translation>适用于启用了浏览器转发器的简单配置。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="626" />
-            <source>Test Latency Periodically</source>
-            <translation>定期测试延迟</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="636" />
-            <source>Run TCPing or ICMPing periodically after connecting to a server.
-Plumbum will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
-            <translation>连接到服务器后定期运行TCPing 或 ICMPing。
-如果启用，Plumbum 会给出更准确的延迟值，但是它很容易指纹连接。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1188" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1531" />
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1716" />
-            <source>FakeDNS+Others</source>
-            <translation>FakeDNS+其他</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="266" />
-            <source>Click Close Button to Exit</source>
-            <translation>单击关闭按钮退出程序</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="276" />
-            <source>Exit instead of minimizing to tray when the close button clicked.
-This option may be useful for some desktop environments without tray support.</source>
-            <translation>退出程序，而不是在单击关闭按钮时最小化到托盘。
-此选项可能对某些桌面环境有用，而无需托盘支持。</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
         <name>QObject</name>
         <message>
-            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="24" />
-            <source>Out</source>
-            <translation>出</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="25" />
-            <source>In</source>
-            <translation>入</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="26" />
-            <source>Rule</source>
-            <translation>规则</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="27" />
-            <source>Chain</source>
-            <translation>链条</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="179" />
-            <source>Disable gRPC API subsystem</source>
-            <translation>禁用 gRPC API 子系统</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="180" />
-            <source>Disable plugins feature</source>
-            <translation>禁用插件功能</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="181" />
-            <source>Enable debug output</source>
-            <translation>启用调试输出</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="182" />
-            <source>Do not automatically connect</source>
-            <translation>不要自动连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="183" />
-            <source>Stop current connection</source>
-            <translation>停止当前连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="184" />
-            <source>Reconnect last connection</source>
-            <translation>重新连接上次连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="185" />
-            <source>Exit Plumbum</source>
-            <translation>退出 Plumbum</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="187" />
-            <source>Plumbum - A cross-platform Qt frontend for V2Ray.</source>
-            <translation>Plumbum - 跨平台的 V2Ray Qt 前端。</translation>
-        </message>
-        <message>
             <location filename="../src/components/latency/DNSBase.hpp" line="49" />
             <location filename="../src/components/latency/DNSBase.hpp" line="60" />
             <source>DNS not resolved</source>
-            <translation>无法解析 DNS</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/latency/unix/ICMPPing.cpp" line="59" />
             <source>Socket creation failed</source>
-            <translation>套接字创建失败</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/latency/unix/ICMPPing.cpp" line="67" />
             <source>Failed to setup TTL value</source>
-            <translation>无法设置 TTL 值</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/latency/unix/ICMPPing.cpp" line="174" />
             <source>Destination unreachable</source>
-            <translation>目标不可达</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/latency/unix/ICMPPing.cpp" line="184" />
             <source>Timeout</source>
-            <translation>超时</translation>
+            <translation>Таймаут</translation>
         </message>
         <message>
             <location filename="../src/components/latency/unix/ICMPPing.cpp" line="194" />
             <source>Unknown error</source>
-            <translation>未知错误</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="334" />
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="353" />
             <source>None</source>
-            <translation>无</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="339" />
             <source>Settings Widget</source>
-            <translation>设置组件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="340" />
             <source>Inbound Editor</source>
-            <translation>入站编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="341" />
             <source>Outbound Editor</source>
-            <translation>出站编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="342" />
             <source>MainWindow Widget</source>
-            <translation>主窗口组件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="343" />
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="363" />
             <source>Unknown type.</source>
-            <translation>未知类型。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="358" />
             <source>Kernel</source>
-            <translation>内核</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="359" />
             <source>Outbound Handler/Parser</source>
-            <translation>出站处理/分析器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="360" />
             <source>Subscription Adapter</source>
-            <translation>订阅适配器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="361" />
             <source>Event Handler</source>
-            <translation>事件处理器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/components/plugins/QvPluginHost.cpp" line="362" />
             <source>GUI Components</source>
-            <translation>GUI 组件</translation>
-        </message>
-        <message>
-            <location filename="../src/core/connection/Serialization.cpp" line="66" />
-            <source>Unsupported share link format.</source>
-            <translation>不支持的分享链接格式。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ss.cpp" line="21" />
             <source>SS URI is too short</source>
-            <translation>Shadowsocks 分享链接过短</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ss.cpp" line="47" />
             <location filename="../src/core/connection/serialization/ss.cpp" line="86" />
             <source>Can't find the colon separator between method and password</source>
-            <translation>模式和密码之间缺少冒号</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ss.cpp" line="57" />
             <source>Can't find the at separator between password and hostname</source>
-            <translation>密码和主机名之间缺少分隔符</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ss.cpp" line="67" />
             <source>Can't find the colon separator between hostname and port</source>
-            <translation>主机名和端口之间缺少冒号分隔符</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="24" />
             <source>Invalid ssd link: json: field %1 must exist</source>
-            <translation>无效的 ssd 链接: json: 字段 %1 必须存在</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="31" />
             <source>Invalid ssd link: json: field %1 must be valid port number</source>
-            <translation>无效的 ssd 链接: json: 字段 %1 必须是有效的端口号</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="38" />
             <source>Invalid ssd link: json: field %1 must be of type 'string'</source>
-            <translation>无效的 ssd 链接: json: 字段 %1 必须是 '字符串' 类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="45" />
             <source>Invalid ssd link: json: field %1 must be an array</source>
-            <translation>无效的 ssd 链接: json: 字段 %1 必须是一个数组</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="52" />
             <source>Skipping invalid ssd server: server must be an object</source>
-            <translation>跳过无效的 ssd 服务器：服务器必须是对象</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="58" />
             <source>Skipping invalid ssd server: missing required field %1</source>
-            <translation>跳过无效的 ssd 服务器: 缺少必填字段 %1</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="65" />
             <source>Skipping invalid ssd server: field %1 should be of type 'string'</source>
-            <translation>跳过无效的 ssd 服务器: 字段 %1 应该是 '字符串' 类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="75" />
             <source>Invalid ssd link: should begin with ssd://</source>
-            <translation>无效的 ssd 链接: 应以 ssd:// 开头</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="85" />
             <source>Invalid ssd link: base64 parse failed</source>
-            <translation>无效的 ssd 链接: Base64 解析失败</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="92" />
             <source>Invalid ssd link: json parse failed: </source>
-            <translation>无效的 ssd 链接: json 解析失败: </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/ssd.cpp" line="115" />
             <source>Invalid ssd link: rc4-md5 encryption is not supported by v2ray-core</source>
-            <translation>无效的 ssd 链接: rc4-md5 加密不被 v2ray-core 支持</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/connection/serialization/vless.cpp" line="17" />
+            <source>VLESS link should start with vless://</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/connection/serialization/vless.cpp" line="25" />
+            <source>link parse failed: %1</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/connection/serialization/vless.cpp" line="33" />
+            <source>empty host</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/connection/serialization/vless.cpp" line="42" />
+            <source>missing port</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/connection/serialization/vless.cpp" line="57" />
+            <source>missing uuid</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess.cpp" line="98" />
             <source>VMess string should start with 'vmess://'</source>
-            <translation>VMess 链接应以 'vmess://' 开头</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess.cpp" line="105" />
             <source>VMess string should be a valid base64 string</source>
-            <translation>VMess 字符串应该是一个有效的 Base64 字符串</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess.cpp" line="122" />
             <source>JSON should not be empty</source>
-            <translation>JSON 不应该为空</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess_new.cpp" line="26" />
             <source>vmess:// url is invalid</source>
-            <translation>vmess:// 链接无效</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess_new.cpp" line="51" />
             <source>Invalid streamSettings protocol: </source>
-            <translation>无效的流设置协议： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess_new.cpp" line="119" />
             <source>Unknown transport method: </source>
-            <translation>未知的传输方式： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/connection/serialization/vmess_new.cpp" line="143" />
             <source>(Empty Users)</source>
-            <translation>(空用户)</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/core/connection/Serialization.cpp" line="66" />
+            <source>Unsupported share link format.</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/CoreUtils.cpp" line="31" />
@@ -3457,224 +3410,259 @@ This option may be useful for some desktop environments without tray support.</s
             <location filename="../src/core/CoreUtils.cpp" line="87" />
             <location filename="../src/core/CoreUtils.cpp" line="87" />
             <source>N/A</source>
-            <translation>不适用</translation>
+            <translation>Н/Д</translation>
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="36" />
             <source>core executable file %1 does not exist</source>
-            <translation>核心可执行文件 %1 不存在</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="39" />
             <source>cannot open core executable file %1 in read-only mode</source>
-            <translation>无法以只读模式打开核心可执行文件 %1</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="42" />
             <source>core executable file %1 is an empty file</source>
-            <translation>核心可执行文件 %1 为空文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="46" />
             <source>core executable file %1 is too short to be executed</source>
-            <translation>核心可执行文件 %1 太短，无法执行</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="67" />
             <source>cannot deduce the type of core executable file %1</source>
-            <translation>无法推断核心可执行文件 %1 的类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="75" />
             <source>Windows PE executable</source>
-            <translation>Windows PE 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="76" />
             <source>macOS Mach-O executable</source>
-            <translation>macOS Mach-O 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="77" />
             <source>ELF x86 executable</source>
-            <translation>ELF x86 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="78" />
             <source>ELF amd64 executable</source>
-            <translation>ELF amd64 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="79" />
             <source>ELF arm64 executable</source>
-            <translation>ELF arm64 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="80" />
             <source>ELF arm executable</source>
-            <translation>ELF arm 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="81" />
             <source>other ELF executable</source>
-            <translation>其他 ELF 可执行文件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="82" />
             <source>trusted abi</source>
-            <translation>可信的 abi</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/kernel/QvKernelABIChecker.cpp" line="83" />
             <source>unknown abi</source>
-            <translation>未知的 abi</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="180" />
             <source>Cannot Start Plumbum</source>
-            <translation>无法启动 Plumbum</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="181" />
             <source>Cannot find a place to store config files.</source>
-            <translation>找不到保存配置文件的地方。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="182" />
             <source>Plumbum has searched these paths below:</source>
-            <translation>Plumbum 搜索了以下路径：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="184" />
             <source>It usually means you don't have the write permission to all of those locations.</source>
-            <translation>这通常意味着你对所有这些地方都没有写权限。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="185" />
             <location filename="../src/core/settings/SettingsBackend.cpp" line="210" />
             <location filename="../src/core/settings/SettingsBackend.cpp" line="250" />
             <source>Plumbum will now exit.</source>
-            <translation>Plumbum 现在将退出。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="205" />
             <source>Failed to initialise Plumbum</source>
-            <translation>初始化 Plumbum 失败</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="206" />
             <source>Failed to determine the location of config file:</source>
-            <translation>无法确定配置文件的位置：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="207" />
             <source>Plumbum has found a config file, but it failed to be loaded due to some errors.</source>
-            <translation>Plumbum 找到了一个配置文件，但由于一些错误未能加载。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="208" />
             <source>A workaround is to remove the this file and restart Plumbum:</source>
-            <translation>解决方案是移除此文件并重新启动 Plumbum:</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="211" />
             <source>Please report if you think it's a bug.</source>
-            <translation>如果你认为有问题，请报告。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="246" />
             <source>Plumbum Cannot Continue</source>
-            <translation>Plumbum 无法继续</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="247" />
             <source>You are running a lower version of Plumbum compared to the current config file.</source>
-            <translation>与当前配置文件相比，您正在运行一个较低版本的 Plumbum。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="248" />
             <source>Please check if there's an issue explaining about it.</source>
-            <translation>请检查是否存在有关此问题的说明。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsBackend.cpp" line="249" />
             <source>Or submit a new issue if you think this is an error.</source>
-            <translation>或者如果你认为这是一个错误，请提交一个新 Issue。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="48" />
             <source>Default Group</source>
-            <translation>默认分组</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="203" />
             <source>Deprecated</source>
-            <translation>已弃用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="204" />
             <source>PAC is now deprecated and is not encouraged to be used anymore.</source>
-            <translation>PAC 现已被废弃，不再被鼓励使用。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="205" />
             <source>It will be removed or be provided as a plugin in the future.</source>
-            <translation>它将被删除或在将来作为插件提供。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="206" />
             <source>PAC will still work currently, but please switch to the V2Ray built-in routing as soon as possible.</source>
-            <translation>PAC 目前仍在运行，但请尽快切换到V2Ray内置路由。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="425" />
             <source>Configuration Upgrade Failed</source>
-            <translation>配置升级失败</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="426" />
             <source>Unsupported config version number: </source>
-            <translation>不支持的配置版本号： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/core/settings/SettingsUpgrade.cpp" line="427" />
             <source>Please upgrade firstly up to Plumbum v2.0/v2.1 and try again.</source>
-            <translation>请先升级到 Plumbum v2.0/v2.1 然后重试。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/main.cpp" line="168" />
             <source>Plumbum has encountered an uncaught exception: </source>
-            <translation>Plumbum 遇到未知异常： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/main.cpp" line="169" />
             <source>Please report a bug via Github with the file located here: </source>
-            <translation>请通过 GitHub 报告该文件的错误信息： </translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/core/connection/serialization/vless.cpp" line="17" />
-            <source>VLESS link should start with vless://</source>
-            <translation>VLESS 链接应以 vless:// 开头</translation>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="179" />
+            <source>Disable gRPC API subsystem</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/core/connection/serialization/vless.cpp" line="25" />
-            <source>link parse failed: %1</source>
-            <translation>链接解析失败： %1</translation>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="180" />
+            <source>Disable plugins feature</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/core/connection/serialization/vless.cpp" line="33" />
-            <source>empty host</source>
-            <translation>主机名为空</translation>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="181" />
+            <source>Enable debug output</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/core/connection/serialization/vless.cpp" line="42" />
-            <source>missing port</source>
-            <translation>缺失端口</translation>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="182" />
+            <source>Do not automatically connect</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/core/connection/serialization/vless.cpp" line="57" />
-            <source>missing uuid</source>
-            <translation>UUID 缺失</translation>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="183" />
+            <source>Stop current connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="184" />
+            <source>Reconnect last connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="185" />
+            <source>Exit Plumbum</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/PlumbumPlatformApplication.cpp" line="187" />
+            <source>Plumbum - A cross-platform Qt frontend for V2Ray.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="24" />
+            <source>Out</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="25" />
+            <source>In</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="26" />
+            <source>Rule</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/node/NodeBase.hpp" line="27" />
+            <source>Chain</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -3683,283 +3671,283 @@ This option may be useful for some desktop environments without tray support.</s
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="20" />
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="282" />
             <source>Route Editor</source>
-            <translation>路由编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="416" />
-            <source>Protocol</source>
-            <translation>协议</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="402" />
-            <source>Tag</source>
-            <translation>标签</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="430" />
-            <source>Host</source>
-            <translation>主机</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="444" />
-            <source>Port</source>
-            <translation>端口</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="230" />
-            <source>Domain Strategy</source>
-            <translation>域名策略</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="256" />
-            <source>Default Outbound</source>
-            <translation>默认出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="486" />
-            <source>Drag and drop to re-order the rules.</source>
-            <translation>拖放以重新排序规则。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="506" />
-            <source>Status</source>
-            <translation>状态</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="331" />
-            <source>Added DIRECT outbound</source>
-            <translation>已添加直连出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="60" />
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="68" />
-            <source>New Outbound</source>
-            <translation>新建出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="78" />
-            <source>Import</source>
-            <translation>导入</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="98" />
-            <source>Blackhole</source>
-            <translation>黑洞</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="31" />
             <source>New Inbound</source>
-            <translation>新入站</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="37" />
+            <source>Add Inbound</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="40" />
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="88" />
             <source>Editor</source>
-            <translation>编辑器</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="47" />
+            <source>Add Inbound from Global Settings</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="50" />
             <source>Global Settings</source>
-            <translation>全局设定</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="60" />
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="68" />
+            <source>New Outbound</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="75" />
+            <source>Import Outbound</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="78" />
+            <source>Import</source>
+            <translation>Импорт</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="85" />
+            <source>Add Outbound</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="95" />
+            <source>Add Blackhole Outbound</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="98" />
+            <source>Blackhole</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="105" />
+            <source>Add Freedom Outbound</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="108" />
             <source>Freedom</source>
-            <translation>自由</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="115" />
+            <source>Add Balancer</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="118" />
             <source>Balancer</source>
-            <translation>均衡器</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="125" />
+            <source>Add Proxy Chain</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="128" />
             <source>Chain</source>
-            <translation>代理链</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="139" />
             <source>Existing Connection</source>
-            <translation>现有连接</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="146" />
+            <source>Group</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="153" />
+            <source>Connection</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="160" />
+            <source>Copy Connection</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="163" />
             <source>Copy</source>
-            <translation>复制</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="170" />
+            <source>Reference Connection</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="173" />
             <source>Reference</source>
-            <translation>引用</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="188" />
+            <source>Connection Template</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="194" />
+            <source>Inbound</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="201" />
+            <source>Outbound</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="224" />
             <source>Routing Settings</source>
-            <translation>路由设定</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="230" />
+            <source>Domain Strategy</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="256" />
+            <source>Default Outbound</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="299" />
             <source>Chain Editor</source>
-            <translation>代理链编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="309" />
             <source>DNS Settings</source>
-            <translation>DNS 设置</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="318" />
+            <source>Override global DNS settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="326" />
+            <source>Misc</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="332" />
+            <source>Browser Forwarder</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="338" />
+            <source>Listening Address</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="348" />
+            <source>:Listening Port</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="371" />
+            <source> Observatory</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="377" />
+            <source>Subject Selector</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="396" />
+            <source>Inbound / Outbound Info</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="402" />
+            <source>Tag</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="409" />
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="423" />
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="437" />
             <source>Unknown</source>
-            <translation>未知</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="416" />
+            <source>Protocol</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="430" />
+            <source>Host</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="444" />
+            <source>Port</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="451" />
             <source>0</source>
-            <translation>0</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="513" />
-            <source>Debug Connection Painter</source>
-            <translation>调试连接绘图</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="188" />
-            <source>Connection Template</source>
-            <translation>连接模板</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="194" />
-            <source>Inbound</source>
-            <translation>入站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="201" />
-            <source>Outbound</source>
-            <translation>出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="318" />
-            <source>Override global DNS settings</source>
-            <translation>覆盖全局DNS设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="396" />
-            <source>Inbound / Outbound Info</source>
-            <translation>入站/出站信息</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="461" />
             <source>Rules Ordering</source>
-            <translation>规则顺序</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="486" />
+            <source>Drag and drop to re-order the rules.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="506" />
+            <source>Status</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="513" />
+            <source>Debug Connection Painter</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="331" />
+            <source>Added DIRECT outbound</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="467" />
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="494" />
             <source>Importing All Connections</source>
-            <translation>导入所有连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="467" />
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="494" />
             <source>Do you want to import all the connections?</source>
-            <translation>您想要导入所有连接吗？</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/editors/w_RoutesEditor.cpp" line="517" />
             <source>(All Connections)</source>
-            <translation>(所有连接)</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="37" />
-            <source>Add Inbound</source>
-            <translation>添加入站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="47" />
-            <source>Add Inbound from Global Settings</source>
-            <translation>从全局设置中添加入站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="75" />
-            <source>Import Outbound</source>
-            <translation>导入出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="85" />
-            <source>Add Outbound</source>
-            <translation>添加出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="95" />
-            <source>Add Blackhole Outbound</source>
-            <translation>添加黑洞出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="105" />
-            <source>Add Freedom Outbound</source>
-            <translation>添加自由出站</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="115" />
-            <source>Add Balancer</source>
-            <translation>添加均衡器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="125" />
-            <source>Add Proxy Chain</source>
-            <translation>添加代理链</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="146" />
-            <source>Group</source>
-            <translation>分组</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="153" />
-            <source>Connection</source>
-            <translation>连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="160" />
-            <source>Copy Connection</source>
-            <translation>复制连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="170" />
-            <source>Reference Connection</source>
-            <translation>引用连接</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="326" />
-            <source>Misc</source>
-            <translation>其他</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="332" />
-            <source>Browser Forwarder</source>
-            <translation>浏览器转发器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="338" />
-            <source>Listening Address</source>
-            <translation>监听地址</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="348" />
-            <source>:Listening Port</source>
-            <translation>:监听端口</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="371" />
-            <source> Observatory</source>
-            <translation> 连接观测</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/editors/w_RoutesEditor.ui" line="377" />
-            <source>Subject Selector</source>
-            <translation>主题选择器</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -3967,87 +3955,87 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="22" />
             <source>Domain Strategy</source>
-            <translation>域名策略</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="71" />
-            <source>Lines start with "geoip:" or "geosite:" will have its autocompletion from geoip.dat and geosite.dat</source>
-            <translation>以“geoip:”或“geosite:”开头的行可以自动补全</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="80" />
-            <source>Block</source>
-            <translation>阻断</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="93" />
-            <source>Direct</source>
-            <translation>直连</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="103" />
-            <source>Domain</source>
-            <translation>域名</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="119" />
-            <source>Proxy</source>
-            <translation>代理</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="135" />
-            <source>IP</source>
-            <translation>IP</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="171" />
-            <source>Use built-in route schemes</source>
-            <translation>使用预置路由方案</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="174" />
-            <source>Built-in Schemes...</source>
-            <translation>预置方案...</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="193" />
-            <source>Import route scheme from file</source>
-            <translation>从文件导入路由方案</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="196" />
-            <source>Import Scheme...</source>
-            <translation>导入方案...</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="206" />
-            <source>Export route scheme to file</source>
-            <translation>导出方案到文件</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="209" />
-            <source>Export Scheme...</source>
-            <translation>导出方案...</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="48" />
             <source>Matcher</source>
-            <translation>匹配器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="56" />
             <source>Original</source>
-            <translation>原始</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="61" />
             <source>Minimal Perfect Hash Matcher</source>
-            <translation>最小完美哈希匹配器</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="71" />
+            <source>Lines start with "geoip:" or "geosite:" will have its autocompletion from geoip.dat and geosite.dat</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="80" />
+            <source>Block</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="93" />
+            <source>Direct</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="103" />
+            <source>Domain</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="119" />
+            <source>Proxy</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="135" />
+            <source>IP</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="171" />
+            <source>Use built-in route schemes</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="174" />
+            <source>Built-in Schemes...</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="193" />
+            <source>Import route scheme from file</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="196" />
+            <source>Import Scheme...</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="206" />
+            <source>Export route scheme to file</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.ui" line="209" />
+            <source>Export Scheme...</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4055,65 +4043,64 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="47" />
             <source>empty scheme</source>
-            <translation>空白方案</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="48" />
+            <source>empty scheme (no ads)</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="116" />
             <source>Import scheme '%1' made by '%2'? <byte value="xd" />
  Description: %3</source>
-            <translation>要导入 '%2' 的方案 '%1' 吗？
-描述: %3</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="117" />
             <source>Importing Scheme</source>
-            <translation>导入方案</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="148" />
             <source>Exporting Scheme</source>
-            <translation>导出方案</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="152" />
             <source>Scheme name:</source>
-            <translation>方案名称：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="152" />
             <source>Unnamed Scheme</source>
-            <translation>无名方案</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="157" />
             <source>Author:</source>
-            <translation>作者：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="163" />
             <source>Description:</source>
-            <translation>描述：</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="163" />
             <source>The author is too lazy to leave a comment</source>
-            <translation>作者太懒，没有写描述</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="187" />
             <source>Your route scheme has been successfully exported!</source>
-            <translation>路由方案成功导出！</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="205" />
             <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="223" />
             <source>QvRoute Schemes(*.json)</source>
-            <translation>QvRoute 方案(*.json)</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/RouteSettingsMatrix.cpp" line="48" />
-            <source>empty scheme (no ads)</source>
-            <translation>空白方案（去广告）</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4121,52 +4108,52 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.ui" line="34" />
             <source>A rule with no inbound connected means there's no inbound restriction.</source>
-            <translation>没有入站连接的规则意味着没有入站限制。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.ui" line="54" />
             <source>Add new route</source>
-            <translation>添加新路由</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.ui" line="57" />
             <source>Add Rule</source>
-            <translation>添加路由规则</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.ui" line="64" />
             <source>Delete outbound</source>
-            <translation>删除出站</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.ui" line="67" />
             <source>Delete Selection</source>
-            <translation>删除所选项</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.cpp" line="89" />
             <source>Remove Items</source>
-            <translation>移除项目</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.cpp" line="89" />
             <source>Please select a node from the graph to continue.</source>
-            <translation>请从图表中选择要继续的节点。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.cpp" line="96" />
             <source>Deleting a node</source>
-            <translation>删除节点</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/complex/RoutingEditorWidget.cpp" line="96" />
             <source>You need to select a node first</source>
-            <translation>你需要先选中一个节点</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4174,72 +4161,72 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="20" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="40" />
             <source>Enabled</source>
-            <translation>已启用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="52" />
             <source>Details</source>
-            <translation>详情</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="82" />
             <source>Target IP</source>
-            <translation>目的IP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="95" />
             <source>Target Domain</source>
-            <translation>目的域名</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="102" />
             <source>Source IP</source>
-            <translation>源IP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="109" />
             <source>General</source>
-            <translation>常规</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="126" />
             <source>TCP</source>
-            <translation>TCP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="133" />
             <source>UDP</source>
-            <translation>UDP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="147" />
             <source>HTTP</source>
-            <translation>HTTP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="154" />
             <source>TLS</source>
-            <translation>TLS</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="161" />
             <source>Torrent</source>
-            <translation>BitTorrent</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="172" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/node/widgets/RuleWidget.ui" line="179" />
             <source>80, 443, 8000-8080</source>
-            <translation>80, 443, 8000-8080</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4247,22 +4234,22 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/windows/w_ScreenShot_Core.ui" line="20" />
             <source>ScreenShot</source>
-            <translation>屏幕截图</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ScreenShot_Core.ui" line="35" />
             <source>Size</source>
-            <translation>大小</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ScreenShot_Core.ui" line="48" />
             <source>Screen Shot</source>
-            <translation>截屏</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_ScreenShot_Core.ui" line="61" />
             <source>FG</source>
-            <translation>FG</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4270,84 +4257,84 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="22" />
             <source>Settings</source>
-            <translation>设置</translation>
+            <translation>Настройки</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="42" />
             <source>Appearance</source>
-            <translation>外观</translation>
+            <translation>Внешний вид</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="61" />
             <source>Follow System</source>
-            <translation>跟随系统</translation>
+            <translation>Как в системе</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="81" />
             <source>Light</source>
-            <translation>浅色</translation>
+            <translation>Светлая</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="101" />
             <source>Dark</source>
-            <translation>深色</translation>
+            <translation>Тёмная</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="129" />
             <source>V2Ray / Xray Core</source>
-            <translation>V2Ray / Xray 内核</translation>
+            <translation>Ядро V2Ray / Xray</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="142" />
             <source>Core executable:</source>
-            <translation>内核程序:</translation>
+            <translation>Исполняемый файл ядра:</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="154" />
             <source>e.g. /usr/local/bin/xray or v2ray</source>
-            <translation>例如 /usr/local/bin/xray 或 v2ray</translation>
+            <translation>напр. /usr/local/bin/xray или v2ray</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="157" />
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="179" />
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="284" />
             <source>Apply</source>
-            <translation>应用</translation>
+            <translation>Применить</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="164" />
             <source>Assets directory:</source>
-            <translation>资源目录:</translation>
+            <translation>Каталог ресурсов:</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="176" />
             <source>geoip.dat / geosite.dat directory</source>
-            <translation>geoip.dat / geosite.dat 目录</translation>
+            <translation>каталог geoip.dat / geosite.dat</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="186" />
             <source>API Statistics:</source>
-            <translation>API 统计:</translation>
+            <translation>API статистика:</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="197" />
             <source>Stats port:</source>
-            <translation>统计端口:</translation>
+            <translation>Порт статистики:</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="231" />
             <source>TUN System Proxy</source>
-            <translation>TUN 系统代理</translation>
+            <translation>TUN системный прокси</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="246" />
             <source>Route all system traffic through the proxy via a virtual TUN interface.</source>
-            <translation>通过虚拟 TUN 接口将全部系统流量路由到代理。</translation>
+            <translation>Маршрутизация всего системного трафика через прокси с помощью виртуального интерфейса TUN.</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="255" />
             <source>⚠ TUN requires root privileges or CAP_NET_ADMIN. Please run Plumbum with sudo or grant the capability: sudo setcap cap_net_admin,cap_net_raw+eip $(which xray)</source>
-            <translation>⚠ TUN 需要 root 权限或 CAP_NET_ADMIN。请使用 sudo 运行 Plumbum 或授予内核能力: sudo setcap cap_net_admin,cap_net_raw+eip $(which xray)</translation>
+            <translation>⚠ TUN требует прав root или CAP_NET_ADMIN. Запустите Plumbum через sudo или выдайте ядру способности: sudo setcap cap_net_admin,cap_net_raw+eip $(which xray)</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="269" />
@@ -4362,17 +4349,17 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="327" />
             <source>A modern Qt6 Xray / V2Ray client</source>
-            <translation>基于 Qt6 的现代化 Xray / V2Ray 客户端</translation>
+            <translation>Современный Qt6 клиент Xray / V2Ray</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="332" />
             <source>Protocols: VMess, VLESS, Shadowsocks, Trojan, HTTP, SOCKS and more</source>
-            <translation>协议: VMess、VLESS、Shadowsocks、Trojan、HTTP、SOCKS 等</translation>
+            <translation>Протоколы: VMess, VLESS, Shadowsocks, Trojan, HTTP, SOCKS и другие</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SettingsPage.qml" line="338" />
             <source>Kernel: xray-core / v2ray-core (v5 config)</source>
-            <translation>内核: xray-core / v2ray-core (v5 配置)</translation>
+            <translation>Ядро: xray-core / v2ray-core (конфиг v5)</translation>
         </message>
     </context>
     <context>
@@ -4380,22 +4367,22 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.cpp" line="61" />
             <source>Removing a user</source>
-            <translation>移除用户</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.cpp" line="61" />
             <source>You haven't selected a user yet.</source>
-            <translation>你尚未选择一个用户。</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.cpp" line="79" />
             <source>Add a user</source>
-            <translation>添加用户</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.cpp" line="79" />
             <source>This user exists already.</source>
-            <translation>此用户已存在。</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4404,19 +4391,19 @@ This option may be useful for some desktop environments without tray support.</s
             <location filename="../src/ui/common/speedchart/speedwidget.cpp" line="185" />
             <location filename="../src/ui/common/speedchart/speedwidget.cpp" line="186" />
             <source>Proxy</source>
-            <translation>代理</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/common/speedchart/speedwidget.cpp" line="189" />
             <location filename="../src/ui/common/speedchart/speedwidget.cpp" line="190" />
             <source>Direct</source>
-            <translation>直连</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/common/speedchart/speedwidget.cpp" line="195" />
             <location filename="../src/ui/common/speedchart/speedwidget.cpp" line="196" />
             <source>Total</source>
-            <translation>总计</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4424,257 +4411,257 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="14" />
             <source>Stream Settings Widget</source>
-            <translation>流设置控件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="24" />
             <source>Protocol Settings</source>
-            <translation>协议设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="51" />
             <source>Type</source>
-            <translation>类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="121" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="135" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="289" />
             <source>Edit</source>
-            <translation>编辑</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="128" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="142" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="296" />
             <source>Reset</source>
-            <translation>重置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="149" />
             <source>Response</source>
-            <translation>响应</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="156" />
             <source>Request</source>
-            <translation>请求</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="169" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="311" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="645" />
             <source>Path</source>
-            <translation>路径</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="183" />
+            <source>Method</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="246" />
             <source>Host</source>
-            <translation>主机</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="253" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="392" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="709" />
             <source>Headers</source>
-            <translation>请求头</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="581" />
-            <source>MTU</source>
-            <translation>MTU</translation>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="318" />
+            <source>Max Early Data</source>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="558" />
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="565" />
-            <source>Congestion</source>
-            <translation>拥塞控制</translation>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="348" />
+            <source>Browser Forwarding</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="355" />
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="990" />
             <source>Enabled</source>
-            <translation>已启用</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="666" />
-            <source>Security</source>
-            <translation>安全选项</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="692" />
-            <source>Key</source>
-            <translation>密钥</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="702" />
-            <source>keys</source>
-            <translation>密钥</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="804" />
-            <source>Transport Protocol</source>
-            <translation>传输协议</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="853" />
-            <source>TLS Settings</source>
-            <translation>TLS 设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="891" />
-            <source>Allow Insecure Certificates</source>
-            <translation>允许不安全的证书</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="925" />
-            <source>ALPN</source>
-            <translation>ALPN</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="963" />
-            <source>SOCK Options</source>
-            <translation>SOCK 选项</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="969" />
-            <source>Mark</source>
-            <translation>Mark</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="983" />
-            <source>TCP Fast Open</source>
-            <translation>TCP 快速打开</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="997" />
-            <source>tProxy Mode</source>
-            <translation>tProxy 工作模式</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="898" />
-            <source>Enable Session Resumption</source>
-            <translation>启用会话恢复</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="859" />
-            <source>Security Type</source>
-            <translation>安全类型</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="403" />
-            <source>Header</source>
-            <translation>请求头</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="450" />
-            <source>Seed</source>
-            <translation>种子</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="460" />
-            <source>Capacity</source>
-            <translation>容量</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="475" />
-            <source>Up: </source>
-            <translation>上行: </translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="497" />
-            <source>Down: </source>
-            <translation>下行: </translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="512" />
-            <source>Buffer Size</source>
-            <translation>缓冲区大小</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="527" />
-            <source>Write Size: </source>
-            <translation>写大小: </translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="543" />
-            <source>Read Size: </source>
-            <translation>读大小: </translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="572" />
-            <source>Options</source>
-            <translation>选项</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="610" />
-            <source>TTI</source>
-            <translation>TTI</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="915" />
-            <source>Server Address (SNI)</source>
-            <translation>服务器地址（SNI）</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="908" />
-            <source>Disable System Root Certificates</source>
-            <translation>禁用系统根证书</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="948" />
-            <source>Open Certificate Editor</source>
-            <translation>打开证书编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="935" />
-            <source>Certificates</source>
-            <translation>证书</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="888" />
-            <source>AllowInsecure is insecure, do not allow insecure.</source>
-            <translation>AllowInsecure 是不安全的，请勿 AllowInsecure。</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="767" />
-            <source>Service Name</source>
-            <translation>服务名称</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="318" />
-            <source>Max Early Data</source>
-            <translation>最大 Early Data</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="348" />
-            <source>Browser Forwarding</source>
-            <translation>浏览器转发</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="777" />
-            <source>Mode</source>
-            <translation>模式</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="955" />
-            <source>Open pinnedPeerCertificateChainSha256 Editor</source>
-            <translation>打开 pinnedPeerCerCercatateChainSha256 编辑器</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="183" />
-            <source>Method</source>
-            <translation>方法</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="362" />
             <source>Early Data Header Name</source>
-            <translation>早期数据头名称</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="403" />
+            <source>Header</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="450" />
+            <source>Seed</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="460" />
+            <source>Capacity</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="475" />
+            <source>Up: </source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="497" />
+            <source>Down: </source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="512" />
+            <source>Buffer Size</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="527" />
+            <source>Write Size: </source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="543" />
+            <source>Read Size: </source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="558" />
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="565" />
+            <source>Congestion</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="572" />
+            <source>Options</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="581" />
+            <source>MTU</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="610" />
+            <source>TTI</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="666" />
+            <source>Security</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="692" />
+            <source>Key</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="702" />
+            <source>keys</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="767" />
+            <source>Service Name</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="777" />
+            <source>Mode</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="804" />
+            <source>Transport Protocol</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="853" />
+            <source>TLS Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="859" />
+            <source>Security Type</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="888" />
+            <source>AllowInsecure is insecure, do not allow insecure.</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="891" />
+            <source>Allow Insecure Certificates</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="898" />
+            <source>Enable Session Resumption</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="908" />
+            <source>Disable System Root Certificates</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="915" />
+            <source>Server Address (SNI)</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="925" />
+            <source>ALPN</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="935" />
+            <source>Certificates</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="948" />
+            <source>Open Certificate Editor</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="955" />
+            <source>Open pinnedPeerCertificateChainSha256 Editor</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="963" />
+            <source>SOCK Options</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="969" />
+            <source>Mark</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="983" />
+            <source>TCP Fast Open</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="997" />
+            <source>tProxy Mode</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1023" />
             <source>TCP Keepalive Interval</source>
-            <translation>TCP保留存活间隔</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4682,67 +4669,67 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="28" />
             <source>Subscriptions</source>
-            <translation>订阅</translation>
+            <translation>Подписки</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="37" />
             <source>Update All</source>
-            <translation>全部更新</translation>
+            <translation>Обновить всё</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="41" />
             <source>Add Subscription</source>
-            <translation>添加订阅</translation>
+            <translation>Добавить подписку</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="102" />
             <source>%1 nodes</source>
-            <translation>%1 个节点</translation>
+            <translation>%1 узлов</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="119" />
             <source>Update</source>
-            <translation>更新</translation>
+            <translation>Обновить</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="124" />
             <source>Open</source>
-            <translation>打开</translation>
+            <translation>Открыть</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="133" />
             <source>Delete</source>
-            <translation>删除</translation>
+            <translation>Удалить</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="155" />
             <source>No subscriptions yet</source>
-            <translation>暂无订阅</translation>
+            <translation>Подписок пока нет</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="161" />
             <source>Add a subscription URL to auto-import server lists</source>
-            <translation>添加订阅链接以自动导入服务器列表</translation>
+            <translation>Добавьте URL подписки для автоматического импорта списка серверов</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="182" />
             <source>Add subscription</source>
-            <translation>添加订阅</translation>
+            <translation>Добавить подписку</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="195" />
             <source>Subscription name</source>
-            <translation>订阅名称</translation>
+            <translation>Имя подписки</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="221" />
             <source>Confirm</source>
-            <translation>确认</translation>
+            <translation>Подтвердить</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/SubscriptionPage.qml" line="229" />
             <source>Delete subscription "%1" and all its connections?</source>
-            <translation>删除订阅 "%1" 及其所有连接？</translation>
+            <translation>Удалить подписку "%1" и все её подключения?</translation>
         </message>
     </context>
     <context>
@@ -4750,60 +4737,60 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="25" />
             <source>PAC Mode</source>
-            <translation>代理模式</translation>
+            <translation>Режим PAC</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="39" />
             <source>Whitelist</source>
-            <translation>白名单</translation>
+            <translation>Белый список</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="47" />
             <source>Blacklist</source>
-            <translation>黑名单</translation>
+            <translation>Чёрный список</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="55" />
             <source>Global</source>
-            <translation>全局</translation>
+            <translation>Глобально</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="70" />
             <source>Current connection</source>
-            <translation>当前连接</translation>
+            <translation>Текущее подключение</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="71" />
             <source>No active connection</source>
-            <translation>无活动连接</translation>
+            <translation>Нет активного подключения</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="126" />
             <source>Total ↑</source>
-            <translation>总计 ↑</translation>
+            <translation>Всего ↑</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="161" />
             <source>Total ↓</source>
-            <translation>总计 ↓</translation>
+            <translation>Всего ↓</translation>
         </message>
         <message>
             <location filename="../src/ui/qml/forms/components/TopStatusBar.qml" line="182" />
             <source>Disconnect</source>
-            <translation>断开</translation>
+            <translation>Отключить</translation>
         </message>
     </context>
     <context>
         <name>VmessOutboundEditor</name>
         <message>
-            <location filename="../src/plugins/protocols/ui/outbound/vmess.cpp" line="41" />
-            <source>Non AEAD VMess detected</source>
-            <translation>检测到非 AEAD 的 VMess。</translation>
-        </message>
-        <message>
             <location filename="../src/plugins/protocols/ui/outbound/vmess.cpp" line="40" />
             <source>VMess MD5 with Non-zero AlterID has been deprecated, please use VMessAEAD.</source>
-            <translation>VMess MD5 使用非零 AlterID 已废弃，请使用 VMessAEAD。</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/plugins/protocols/ui/outbound/vmess.cpp" line="41" />
+            <source>Non AEAD VMess detected</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4811,17 +4798,17 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/blackhole.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/blackhole.ui" line="20" />
             <source>Response</source>
-            <translation>响应</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/blackhole.ui" line="26" />
             <source>Type</source>
-            <translation>类型</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4829,37 +4816,37 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="20" />
             <source>Network</source>
-            <translation>网络</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="29" />
             <source>TCP</source>
-            <translation>TCP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="36" />
             <source>UDP</source>
-            <translation>UDP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="43" />
             <source>Original</source>
-            <translation>原始</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="65" />
             <source>Address</source>
-            <translation>地址</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/dns.ui" line="75" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4867,52 +4854,52 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="20" />
             <source>Address</source>
-            <translation>地址</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="30" />
             <source>Optional when using "Follow Redirect"</source>
-            <translation>使用“跟随重定向”时，此项可选</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="37" />
             <source>Port</source>
-            <translation>端口</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="60" />
             <source>Network</source>
-            <translation>网络</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="72" />
             <source>TCP</source>
-            <translation>TCP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="85" />
             <source>UDP</source>
-            <translation>UDP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="94" />
             <source>Timeout</source>
-            <translation>超时</translation>
+            <translation>Таймаут</translation>
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="117" />
             <source>Follow Redirect</source>
-            <translation>跟随重定向</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/dokodemo-door.ui" line="127" />
             <source>Enabled</source>
-            <translation>已启用</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4920,22 +4907,22 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/freedom.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/freedom.ui" line="20" />
             <source>Domain Strategy</source>
-            <translation>域名策略</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/freedom.ui" line="51" />
             <source>Redirect</source>
-            <translation>重定向</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/freedom.ui" line="58" />
             <source>:0</source>
-            <translation>:0</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4943,37 +4930,37 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="20" />
             <source>Allow Transparent</source>
-            <translation>允许透明连接</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="27" />
             <source>Timeout</source>
-            <translation>超时</translation>
+            <translation>Таймаут</translation>
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="37" />
             <source>s</source>
-            <translation>秒</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="50" />
             <source>Users</source>
-            <translation>用户</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="61" />
             <source>Username</source>
-            <translation>用户名</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/httpin.ui" line="68" />
             <source>Password</source>
-            <translation>密码</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4981,17 +4968,17 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/httpout.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/httpout.ui" line="20" />
             <source>Username</source>
-            <translation>用户名</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/httpout.ui" line="34" />
             <source>Password</source>
-            <translation>密码</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -4999,12 +4986,12 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/loopback.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/loopback.ui" line="20" />
             <source>Inbound Tag</source>
-            <translation>入站标签</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5012,17 +4999,17 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/shadowsocks.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/shadowsocks.ui" line="20" />
             <source>Password</source>
-            <translation>密码</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/shadowsocks.ui" line="34" />
             <source>Encryption Method</source>
-            <translation>加密方式</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5030,47 +5017,47 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="20" />
             <source>UDP</source>
-            <translation>UDP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="30" />
             <source>Enabled</source>
-            <translation>已启用</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="37" />
             <source>UDP Local IP</source>
-            <translation>UDP 本地 IP</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="47" />
             <source>127.0.0.1</source>
-            <translation>127.0.0.1</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="54" />
             <source>Auth</source>
-            <translation>认证</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="78" />
             <source>Users</source>
-            <translation>用户</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="89" />
             <source>Username</source>
-            <translation>用户名</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/inbound/socksin.ui" line="96" />
             <source>Password</source>
-            <translation>密码</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5078,17 +5065,17 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/socksout.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/socksout.ui" line="20" />
             <source>Username</source>
-            <translation>用户名</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/socksout.ui" line="34" />
             <source>Password</source>
-            <translation>密码</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5096,22 +5083,22 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vless.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vless.ui" line="20" />
             <source>UUID</source>
-            <translation>UUID</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vless.ui" line="40" />
             <source>Encryption</source>
-            <translation>加密</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vless.ui" line="65" />
             <source>Flow</source>
-            <translation>流控</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vless.ui" line="72" />
@@ -5120,11 +5107,7 @@ This option may be useful for some desktop environments without tray support.</s
 &lt;p&gt;Some applications like Google Chrome would attempt to use QUIC protocol instead of TLS, which, won't benefit from XTLS at all. What's worse, QUIC over TCP will cause potential congestion control problem, downgrading your experience.&lt;/p&gt;
 
 &lt;p&gt;Non-&lt;code&gt;udp443&lt;/code&gt; methods block UDP 443 outbound traffic to workaround this situation. If you do want to let it go, use at your own peril.&lt;/p&gt;</source>
-            <translation>&lt;h3&gt;关于 &lt;code&gt;udp443&lt;/code&gt; 流控方式&lt;/h3&gt;
-
-&lt;p&gt;某些应用程序如 Google Chrome 尝试使用 QUIC 协议而不是 TLS 协议，这将导致其无法享受到 XTLS 的加成。更糟的是，QUIC over TCP 存在潜在的拥塞控制问题，可能会令你的体验降级。&lt;/p&gt;
-
-&lt;p&gt;非 &lt;code&gt;udp443&lt;/code&gt; 的流控方式会阻断 UDP 目标端口为 443 的出站流量以绕过此情形。若你确实需要放行 UDP 443，请自行斟酌。&lt;/p&gt;</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5132,22 +5115,22 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vmess.ui" line="14" />
             <source>Form</source>
-            <translation>窗体</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vmess.ui" line="20" />
             <source>UUID</source>
-            <translation>UUID</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vmess.ui" line="40" />
             <source>Alter ID</source>
-            <translation>Alter ID</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/plugins/protocols/ui/outbound/vmess.ui" line="57" />
             <source>Security</source>
-            <translation>安全选项</translation>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5155,158 +5138,158 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="14" />
             <source>Group Editor</source>
-            <translation>组编辑器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="26" />
             <source>Group Info</source>
-            <translation>分组信息</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="32" />
             <source>Group Name</source>
-            <translation>分组名称</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="42" />
             <source>Created At</source>
-            <translation>创建于</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="59" />
             <source>Group List</source>
-            <translation>组列表</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="96" />
             <source>Add Subscription</source>
-            <translation>添加订阅</translation>
+            <translation>Добавить подписку</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="113" />
             <source>Remove Subscription</source>
-            <translation>删除订阅</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="159" />
             <source>Connections</source>
-            <translation>连接</translation>
+            <translation>Подключения</translation>
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="165" />
             <source>Delete Selection</source>
-            <translation>删除所选项</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="182" />
             <source>Name</source>
-            <translation>名称</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="187" />
             <source>Type</source>
-            <translation>类型</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="192" />
             <source>Host / Port</source>
-            <translation>地址/端口</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="197" />
             <source>Groups</source>
-            <translation>分组</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="205" />
             <source>Export Selection</source>
-            <translation>导出所选项</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="213" />
             <source>Subscription Settings</source>
-            <translation>订阅设置</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="219" />
             <source>This group is a subscription</source>
-            <translation>此分组是一个订阅</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="240" />
             <source>Subscription Address</source>
-            <translation>订阅地址</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="250" />
+            <source>Subscription Type</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="267" />
             <source>Last Updated</source>
-            <translation>最后更新</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="281" />
+            <source>Update Interval</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="303" />
             <source>Days</source>
-            <translation>天</translation>
+            <translation type="unfinished" />
         </message>
         <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="391" />
-            <source>Leave blank to exclude nothing</source>
-            <translation>留空不排除</translation>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="327" />
+            <source>Import Include Filters</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="333" />
+            <source>Leave blank to include all</source>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="340" />
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="370" />
             <source>Relation</source>
-            <translation>关系</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="333" />
-            <source>Leave blank to include all</source>
-            <translation>留空包含全部</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="406" />
-            <source>Update Subscription</source>
-            <translation>更新订阅</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="414" />
-            <source>DNS Settings</source>
-            <translation>DNS 设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="420" />
-            <source>Override Global DNS Settings</source>
-            <translation>覆盖全局 DNS 设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="434" />
-            <source>Advanced Route Settings</source>
-            <translation>高级路由设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="440" />
-            <source>Override Global Advanced Route Settings</source>
-            <translation>覆盖全局高级路由设置</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="250" />
-            <source>Subscription Type</source>
-            <translation>订阅类型</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="281" />
-            <source>Update Interval</source>
-            <translation>更新间隔</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="327" />
-            <source>Import Include Filters</source>
-            <translation>导入包含条件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="364" />
             <source>Import Exclude Filters</source>
-            <translation>导入排除条件</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="391" />
+            <source>Leave blank to exclude nothing</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="406" />
+            <source>Update Subscription</source>
+            <translation>Обновить подписку</translation>
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="414" />
+            <source>DNS Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="420" />
+            <source>Override Global DNS Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="434" />
+            <source>Advanced Route Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_GroupManager.ui" line="440" />
+            <source>Override Global Advanced Route Settings</source>
+            <translation type="unfinished" />
         </message>
     </context>
     <context>
@@ -5314,82 +5297,82 @@ This option may be useful for some desktop environments without tray support.</s
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="14" />
             <source>Plugin Manager</source>
-            <translation>插件管理器</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="20" />
             <source>Plugins</source>
-            <translation>插件列表</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="32" />
             <source>Open Local Plugin Folder</source>
-            <translation>打开本地插件目录</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="39" />
             <source>Online help about plugins</source>
-            <translation>获取关于插件的在线帮助</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="42" />
             <source>?</source>
-            <translation>?</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="65" />
             <source>Plugin Metadata</source>
-            <translation>元数据</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="73" />
             <source>Name</source>
-            <translation>名称</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="105" />
             <source>Author</source>
-            <translation>作者</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="137" />
             <source>Description</source>
-            <translation>描述</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="169" />
             <source>Library Path</source>
-            <translation>路径</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="201" />
             <source>State</source>
-            <translation>状态</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="333" />
-            <source>Plugin Settings</source>
-            <translation>设定</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="341" />
-            <source>Plugin Not Loaded</source>
-            <translation>插件未加载</translation>
-        </message>
-        <message>
-            <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="353" />
-            <source>Manually Edit Settings</source>
-            <translation>手动编辑设定</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="233" />
             <source>GUI Components</source>
-            <translation>GUI 组件</translation>
+            <translation type="unfinished" />
         </message>
         <message>
             <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="287" />
             <source>Components</source>
-            <translation>组件</translation>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="333" />
+            <source>Plugin Settings</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="341" />
+            <source>Plugin Not Loaded</source>
+            <translation type="unfinished" />
+        </message>
+        <message>
+            <location filename="../src/ui/widgets/windows/w_PluginManager.ui" line="353" />
+            <source>Manually Edit Settings</source>
+            <translation type="unfinished" />
         </message>
     </context>
 </TS>

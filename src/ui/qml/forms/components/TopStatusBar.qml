@@ -33,64 +33,28 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter
 
                 // Whitelist (bypass mainland)
-                Rectangle {
-                    Layout.preferredWidth: 76
-                    Layout.preferredHeight: 24
-                    radius: 4
-                    color: plumbum.pacMode === 0 ? window.cPrimary : window.cSurfaceAlt
-                    border.color: plumbum.pacMode === 0 ? window.cPrimary : window.cBorder
-
-                    Text {
-                        anchors.centerIn: parent
-                        text: qsTr("Whitelist")
-                        font.pixelSize: 10
-                        font.bold: plumbum.pacMode === 0
-                        color: plumbum.pacMode === 0 ? "#ffffff" : window.cTextDim
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: plumbum.pacMode = 0
-                    }
+                FlatButton {
+                    controlHeight: 30
+                    controlMinWidth: 70
+                    text: qsTr("Whitelist")
+                    active: plumbum.pacMode === 0
+                    onClicked: plumbum.pacMode = 0
                 }
                 // Blacklist (GFW)
-                Rectangle {
-                    Layout.preferredWidth: 76
-                    Layout.preferredHeight: 24
-                    radius: 4
-                    color: plumbum.pacMode === 1 ? window.cPrimary : window.cSurfaceAlt
-                    border.color: plumbum.pacMode === 1 ? window.cPrimary : window.cBorder
-
-                    Text {
-                        anchors.centerIn: parent
-                        text: qsTr("Blacklist")
-                        font.pixelSize: 10
-                        font.bold: plumbum.pacMode === 1
-                        color: plumbum.pacMode === 1 ? "#ffffff" : window.cTextDim
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: plumbum.pacMode = 1
-                    }
+                FlatButton {
+                    controlHeight: 30
+                    controlMinWidth: 70
+                    text: qsTr("Blacklist")
+                    active: plumbum.pacMode === 1
+                    onClicked: plumbum.pacMode = 1
                 }
                 // Global
-                Rectangle {
-                    Layout.preferredWidth: 76
-                    Layout.preferredHeight: 24
-                    radius: 4
-                    color: plumbum.pacMode === 2 ? window.cPrimary : window.cSurfaceAlt
-                    border.color: plumbum.pacMode === 2 ? window.cPrimary : window.cBorder
-
-                    Text {
-                        anchors.centerIn: parent
-                        text: qsTr("Global")
-                        font.pixelSize: 10
-                        font.bold: plumbum.pacMode === 2
-                        color: plumbum.pacMode === 2 ? "#ffffff" : window.cTextDim
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: plumbum.pacMode = 2
-                    }
+                FlatButton {
+                    controlHeight: 30
+                    controlMinWidth: 70
+                    text: qsTr("Global")
+                    active: plumbum.pacMode === 2
+                    onClicked: plumbum.pacMode = 2
                 }
             }
         }
@@ -212,12 +176,11 @@ Rectangle {
         }
 
         // Disconnect button (visible when connected)
-        Button {
+        FlatButton {
             id: disconnectBtn
             visible: plumbum.connected
             text: qsTr("Disconnect")
-            highlighted: true
-            Material.accent: window.cRed
+            danger: true
             onClicked: plumbum.disconnectConnection()
         }
     }
