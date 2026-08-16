@@ -46,7 +46,7 @@ Rectangle {
     }
 
     // Convert #RRGGBB hex color to Qt.rgba with given alpha
-    function withAlpha(c: string, a: number): color {
+    function withAlpha(c, a) {
         return Qt.rgba(parseInt(c.substring(1, 3), 16) / 255,
                        parseInt(c.substring(3, 5), 16) / 255,
                        parseInt(c.substring(5, 7), 16) / 255, a)
