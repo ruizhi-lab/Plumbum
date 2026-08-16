@@ -2,7 +2,9 @@
 #include "base/PlumbumBaseApplication.hpp"
 #include "ui/PlumbumPlatformApplication.hpp"
 
+#include <QMenu>
 #include <QQuickView>
+#include <QSystemTrayIcon>
 
 namespace Plumbum
 {
@@ -20,12 +22,27 @@ namespace Plumbum
         void OpenURL(const QString &url) override;
 
       private slots:
+        void onTrayActivated(QSystemTrayIcon::ActivationReason reason);
+        void onTrayConnect();
+        void onTrayDisconnect();
+        void updateTrayMenu();
 #ifndef PLUMBUM_NO_SINGLEAPPLICATON
         void onMessageReceived(quint32, QByteArray) override;
 #endif
       private:
+        void setupTrayIcon();
+        void toggleMainWindowVisibility();
+
+      private:
         QQuickView qmlViewer;
         PlumbumQMLProperty uiProperty;
+        QSystemTrayIcon *trayIcon = nullptr;
+        QMenu *trayMenu = nullptr;
+        QAction *trayShowAction = nullptr;
+        QAction *trayConnInfoAction = nullptr;
+        QAction *trayConnectAction = nullptr;
+        QAction *trayDisconnectAction = nullptr;
+        QAction *trayQuitAction = nullptr;
     };
 
 #ifdef PlumbumApplication

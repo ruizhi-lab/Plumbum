@@ -13,6 +13,12 @@ ApplicationWindow {
     visible: true
     title: qsTr("Plumbum - Xray/V2Ray Client")
 
+    // Hide to tray instead of quitting on close.
+    onClosing: {
+        close.accepted = false
+        window.hide()
+    }
+
     // -------- Theme (light/dark/system) --------
     readonly property bool isDark: plumbum.themeMode === 2 || (plumbum.themeMode === 0 && plumbum.systemDark)
     readonly property int currentTheme: isDark ? 2 : 1
