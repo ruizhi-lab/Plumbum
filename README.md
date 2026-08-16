@@ -15,6 +15,9 @@
 - 📡 **订阅管理** — 订阅分组、一键更新
 - 📊 **实时流量统计** — gRPC API 实时速度与总流量显示
 - ⚡ **延迟测试** — 连接级延迟检测
+- 🌐 **PAC 模式** — v2rayN 式白名单（绕过大陆）/ 黑名单（GFWList）/ 全局
+- 🛡️ **TUN 系统代理** — 虚拟网卡接管全系统流量（需 root / CAP_NET_ADMIN）
+- 🎨 **双主题** — 浅色 / 深色 / 跟随系统
 
 ## 构建
 
@@ -39,6 +42,10 @@ cmake --build build-widget -j$(nproc)
 1. 在「设置」页配置内核路径（如 `/usr/bin/xray` 或 `/usr/bin/v2ray`）与 geo 数据目录
 2. 在「连接」页导入分享链接（`vmess://`、`vless://`、`ss://`、`trojan://`）
 3. 点击「Connect」即可连接，默认 SOCKS 代理端口 1089、HTTP 端口 8889
+4. 在状态栏切换 PAC 模式（白名单/黑名单/全局），在「设置」页启用 TUN 系统代理
+
+> **TUN 权限**：TUN 需要 root 或 CAP_NET_ADMIN。可用 `sudo plumbum` 运行，或
+> 给内核授权：`sudo setcap cap_net_admin,cap_net_raw+eip $(which xray)`
 
 ## 项目结构
 
