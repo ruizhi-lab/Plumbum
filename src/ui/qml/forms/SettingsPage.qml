@@ -9,7 +9,7 @@ Rectangle {
 
     Flickable {
         anchors.fill: parent
-        anchors.margins: 20
+        anchors.margins: 16
         contentHeight: settingsColumn.implicitHeight
         clip: true
 

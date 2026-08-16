@@ -10,23 +10,23 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        spacing: 0
+        anchors.margins: 16
+        spacing: 12
 
-        // -------- Toolbar --------
-        Rectangle {
+        // -------- Toolbar section --------
+        SectionCard {
             Layout.fillWidth: true
-            Layout.preferredHeight: 64
-            color: "transparent"
+            Layout.preferredHeight: 60
 
             RowLayout {
                 anchors.fill: parent
-                anchors.leftMargin: 20
-                anchors.rightMargin: 20
+                anchors.leftMargin: 16
+                anchors.rightMargin: 16
                 spacing: 10
 
                 Text {
                     text: qsTr("Connections")
-                    font.pixelSize: 18
+                    font.pixelSize: 17
                     font.bold: true
                     color: window.cText
                 }
@@ -37,6 +37,7 @@ Rectangle {
                 ComboBox {
                     id: groupSelector
                     Layout.preferredWidth: 180
+                    Layout.preferredHeight: 34
                     model: plumbum.groupModel
                     textRole: "displayName"
                     currentIndex: groupModelIndexFor(plumbum.currentGroupId)
@@ -59,27 +60,32 @@ Rectangle {
                 }
 
                 Button {
+                    Layout.preferredHeight: 34
                     text: qsTr("New Group")
                     onClicked: newGroupDialog.open()
                 }
 
                 Button {
+                    Layout.preferredHeight: 34
                     text: qsTr("Import")
                     highlighted: true
                     onClicked: plumbum.importFromClipboard()
                 }
 
                 Button {
+                    Layout.preferredHeight: 34
                     text: qsTr("Import URL")
                     onClicked: importDialog.open()
                 }
 
                 Button {
+                    Layout.preferredHeight: 34
                     text: qsTr("Latency Test")
                     onClicked: plumbum.startLatencyTest()
                 }
 
                 Button {
+                    Layout.preferredHeight: 34
                     visible: isCurrentGroupSubscription
                     text: qsTr("Update Subscription")
                     onClicked: plumbum.updateSubscription(plumbum.currentGroupId)
@@ -87,73 +93,71 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            Layout.fillWidth: true
-            height: 1
-            color: window.cBorder
-        }
-
-        // -------- Connection list --------
-        ListView {
-            id: connList
+        // -------- Connection list section --------
+        SectionCard {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 16
-            spacing: 10
-            clip: true
-            model: plumbum.connectionModel
 
-            delegate: ConnectionCard {
-                width: connList.width
-                connId: model.connectionId
-                displayName: model.displayName
-                protocol: model.protocol
-                address: model.address
-                port: model.port
-                latencyText: model.latencyText
-                isConnected: model.isConnected
-                upTotal: model.upTotal
-                downTotal: model.downTotal
+            ListView {
+                id: connList
+                anchors.fill: parent
+                anchors.margins: 10
+                spacing: 10
+                clip: true
+                model: plumbum.connectionModel
 
-                onConnectRequested: function(id) { plumbum.connectConnection(id) }
-                onDisconnectRequested: function(id) { plumbum.disconnectConnection() }
-                onCopyLinkRequested: function(id) { plumbum.copyConnectionLink(id) }
-                onLatencyRequested: function(id) { plumbum.startLatencyTestFor(id) }
-                onDeleteRequested: function(id) {
-                    deleteConfirm.message = qsTr("Delete connection \"%1\"?").arg(plumbum.connectionDisplayName(id))
-                    deleteConfirm.connToDelete = id
-                    deleteConfirm.open()
+                delegate: ConnectionCard {
+                    width: connList.width
+                    connId: model.connectionId
+                    displayName: model.displayName
+                    protocol: model.protocol
+                    address: model.address
+                    port: model.port
+                    latencyText: model.latencyText
+                    isConnected: model.isConnected
+                    upTotal: model.upTotal
+                    downTotal: model.downTotal
+
+                    onConnectRequested: function(id) { plumbum.connectConnection(id) }
+                    onDisconnectRequested: function(id) { plumbum.disconnectConnection() }
+                    onCopyLinkRequested: function(id) { plumbum.copyConnectionLink(id) }
+                    onLatencyRequested: function(id) { plumbum.startLatencyTestFor(id) }
+                    onDeleteRequested: function(id) {
+                        deleteConfirm.message = qsTr("Delete connection \"%1\"?").arg(plumbum.connectionDisplayName(id))
+                        deleteConfirm.connToDelete = id
+                        deleteConfirm.open()
+                    }
                 }
-            }
 
-            // Empty state
-            Rectangle {
-                anchors.centerIn: parent
-                visible: connList.count === 0
-                width: parent.width - 40
-                height: 160
-                color: "transparent"
-
-                ColumnLayout {
+                // Empty state
+                Rectangle {
                     anchors.centerIn: parent
-                    spacing: 8
+                    visible: connList.count === 0
+                    width: parent.width - 40
+                    height: 160
+                    color: "transparent"
 
-                    Text {
-                        text: "📭"
-                        font.pixelSize: 40
-                        Layout.alignment: Qt.AlignHCenter
-                    }
-                    Text {
-                        text: qsTr("No connections in this group")
-                        font.pixelSize: 13
-                        color: window.cTextDim
-                        Layout.alignment: Qt.AlignHCenter
-                    }
-                    Text {
-                        text: qsTr("Click \"Import\" to add a server link (vmess://, vless://, ss://, trojan:// ...)")
-                        font.pixelSize: 11
-                        color: window.cTextDim
-                        Layout.alignment: Qt.AlignHCenter
+                    ColumnLayout {
+                        anchors.centerIn: parent
+                        spacing: 8
+
+                        Text {
+                            text: "📭"
+                            font.pixelSize: 40
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                        Text {
+                            text: qsTr("No connections in this group")
+                            font.pixelSize: 13
+                            color: window.cTextDim
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                        Text {
+                            text: qsTr("Click \"Import\" to add a server link (vmess://, vless://, ss://, trojan:// ...)")
+                            font.pixelSize: 11
+                            color: window.cTextDim
+                            Layout.alignment: Qt.AlignHCenter
+                        }
                     }
                 }
             }

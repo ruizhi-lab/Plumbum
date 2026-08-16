@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "components"
 
 // Subscription management page
 Rectangle {
@@ -9,23 +10,23 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        spacing: 0
+        anchors.margins: 16
+        spacing: 12
 
-        // Toolbar
-        Rectangle {
+        // Toolbar section
+        SectionCard {
             Layout.fillWidth: true
-            Layout.preferredHeight: 64
-            color: "transparent"
+            Layout.preferredHeight: 60
 
             RowLayout {
                 anchors.fill: parent
-                anchors.leftMargin: 20
-                anchors.rightMargin: 20
+                anchors.leftMargin: 16
+                anchors.rightMargin: 16
                 spacing: 10
 
                 Text {
                     text: qsTr("Subscriptions")
-                    font.pixelSize: 18
+                    font.pixelSize: 17
                     font.bold: true
                     color: window.cText
                 }
@@ -33,10 +34,12 @@ Rectangle {
                 Item { Layout.fillWidth: true }
 
                 Button {
+                    Layout.preferredHeight: 34
                     text: qsTr("Update All")
                     onClicked: plumbum.updateAllSubscriptions()
                 }
                 Button {
+                    Layout.preferredHeight: 34
                     text: qsTr("Add Subscription")
                     highlighted: true
                     onClicked: addSubDialog.open()
@@ -44,21 +47,18 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            Layout.fillWidth: true
-            height: 1
-            color: window.cBorder
-        }
-
-        // Subscription list
-        ListView {
-            id: subList
+        // Subscription list section
+        SectionCard {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 16
-            spacing: 10
-            clip: true
-            model: plumbum.groupModel
+
+            ListView {
+                id: subList
+                anchors.fill: parent
+                anchors.margins: 10
+                spacing: 10
+                clip: true
+                model: plumbum.groupModel
 
             delegate: Rectangle {
                 required property string groupId
@@ -117,10 +117,12 @@ Rectangle {
                     }
 
                     Button {
+                        Layout.preferredHeight: 30
                         text: qsTr("Update")
                         onClicked: plumbum.updateSubscription(groupId)
                     }
                     Button {
+                        Layout.preferredHeight: 30
                         text: qsTr("Open")
                         onClicked: {
                             plumbum.currentGroupId = groupId
@@ -128,6 +130,7 @@ Rectangle {
                         }
                     }
                     Button {
+                        Layout.preferredHeight: 30
                         text: qsTr("Delete")
                         Material.accent: window.cRed
                         onClicked: {
@@ -163,6 +166,7 @@ Rectangle {
                     Layout.alignment: Qt.AlignHCenter
                 }
             }
+        }
         }
     }
 

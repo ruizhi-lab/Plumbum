@@ -11,11 +11,13 @@ Rectangle {
     RowLayout {
         anchors.fill: parent
         anchors.leftMargin: 20
-        anchors.rightMargin: 20
+        anchors.rightMargin: 24
         spacing: 16
+
 
         // -------- PAC mode selector (v2rayN style) --------
         ColumnLayout {
+            id: pacCol
             spacing: 2
             Layout.preferredWidth: 240
 
@@ -95,6 +97,7 @@ Rectangle {
 
         // Connection name
         ColumnLayout {
+            id: connNameCol
             Layout.fillWidth: true
             spacing: 1
 
@@ -117,7 +120,8 @@ Rectangle {
 
         // Speed widget
         Rectangle {
-            Layout.preferredWidth: 268
+            id: speedBox
+            Layout.preferredWidth: 284
             Layout.preferredHeight: 46
             radius: 8
             color: window.cSurfaceAlt
@@ -125,8 +129,8 @@ Rectangle {
 
             GridLayout {
                 anchors.fill: parent
-                anchors.leftMargin: 12
-                anchors.rightMargin: 12
+                anchors.leftMargin: 14
+                anchors.rightMargin: 16
                 anchors.topMargin: 8
                 anchors.bottomMargin: 8
                 columns: 4
@@ -209,6 +213,7 @@ Rectangle {
 
         // Disconnect button (visible when connected)
         Button {
+            id: disconnectBtn
             visible: plumbum.connected
             text: qsTr("Disconnect")
             highlighted: true
