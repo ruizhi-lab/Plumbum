@@ -79,6 +79,7 @@ PlumbumExitReason PlumbumQMLApplication::runPlumbumInternal()
     // Application-wide icon fallback (used by window managers / dialogs).
     QApplication::setWindowIcon(QIcon(QStringLiteral(":/assets/icons/plumbum.png")));
 
+
 #ifdef PLUMBUM_QMLLIVE_DEBUG
     LiveNodeEngine node;
 

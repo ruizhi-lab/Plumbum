@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 
 // A single connection card in the list
-Rectangle {
+Item {
     id: root
 
     property string connId: ""
@@ -17,6 +18,7 @@ Rectangle {
     property string downTotal: ""
     property string lastConnected: ""
     property int groupIndex: 0
+    property bool hovered: false
 
     signal connectRequested(string id)
     signal disconnectRequested(string id)
@@ -25,10 +27,40 @@ Rectangle {
     signal latencyRequested(string id)
     signal deleteRequested(string id)
 
-    height: 68
-    radius: 10
-    color: isConnected ? Qt.rgba(0.24, 0.86, 0.59, 0.08) : window.cSurface
-    border.color: isConnected ? Qt.rgba(0.24, 0.86, 0.59, 0.35) : window.cBorder
+    height: 72
+
+    // Hover lift animation
+    transform: Translate {
+        y: root.hovered ? -2 : 0
+        Behavior on y { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
+    }
+
+    Rectangle {
+        id: cardRect
+        anchors.fill: parent
+        radius: 12
+        color: isConnected ? (window.isDark ? Qt.rgba(0.24, 0.86, 0.59, 0.08) : Qt.rgba(0.20, 0.78, 0.54, 0.07))
+                           : window.cSurface
+        border.color: isConnected ? Qt.rgba(0.24, 0.86, 0.59, 0.35)
+                       : root.hovered ? window.cPrimary : window.cBorder
+        Behavior on border.color { ColorAnimation { duration: 140 } }
+        clip: true
+        layer.enabled: true
+        layer.smooth: true
+        layer.samples: 4
+    }
+
+    DropShadow {
+        anchors.fill: cardRect
+        source: cardRect
+        horizontalOffset: 0
+        verticalOffset: root.hovered ? 3 : 1
+        radius: root.hovered ? 12 : 7
+        samples: 20
+        color: window.isDark ? "#33000000" : "#161f3245"
+        Behavior on verticalOffset { NumberAnimation { duration: 140 } }
+        Behavior on radius { NumberAnimation { duration: 140 } }
+    }
 
     // Protocol badge color
     function badgeColor(p: string): string {
@@ -194,6 +226,9 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.RightButton
+        hoverEnabled: true
+        onEntered: root.hovered = true
+        onExited: root.hovered = false
         onClicked: ctxMenu.popup()
     }
 }

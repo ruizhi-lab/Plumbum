@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 
 // Top status bar: PAC mode selector + connection name + realtime speed + total traffic
 Rectangle {
@@ -19,13 +20,34 @@ Rectangle {
         ColumnLayout {
             id: pacCol
             spacing: 2
-            Layout.preferredWidth: 240
+            Layout.preferredWidth: 250
 
-            Text {
-                text: qsTr("PAC Mode")
-                font.pixelSize: 9
-                color: window.cTextDim
+            RowLayout {
+                spacing: 4
                 Layout.alignment: Qt.AlignHCenter
+
+                // PAC mode icon
+                Item {
+                    Layout.preferredWidth: 14
+                    Layout.preferredHeight: 14
+                    Image {
+                        anchors.fill: parent
+                        source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19h-5v-5h5v5zm-10 0H4v-5h5v5zm10-10h-5V4h5v5zm-10 0H4V4h5v5z'/></svg>"
+                        sourceSize.width: 14
+                        sourceSize.height: 14
+                    }
+                    ColorOverlay {
+                        anchors.fill: parent
+                        source: parent
+                        color: window.cPrimaryAlt
+                    }
+                }
+                Text {
+                    text: qsTr("PAC Mode")
+                    font.pixelSize: 9
+                    font.bold: true
+                    color: window.cTextDim
+                }
             }
 
             RowLayout {

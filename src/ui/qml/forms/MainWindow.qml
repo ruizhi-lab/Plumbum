@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 import "components"
 
 ApplicationWindow {
@@ -68,20 +69,32 @@ ApplicationWindow {
                     Layout.preferredHeight: 84
                     color: "transparent"
 
-                    ColumnLayout {
+                    RowLayout {
                         anchors.centerIn: parent
-                        spacing: 2
+                        spacing: 10
 
-                        Text {
-                            text: "⚡ Plumbum"
-                            font.pixelSize: 20
-                            font.bold: true
-                            color: cText
+                        Image {
+                            Layout.preferredWidth: 36
+                            Layout.preferredHeight: 36
+                            source: "qrc:/assets/icons/plumbum.png"
+                            sourceSize.width: 36
+                            sourceSize.height: 36
+                            antialiasing: true
                         }
-                        Text {
-                            text: "Xray / V2Ray Client"
-                            font.pixelSize: 11
-                            color: cTextDim
+
+                        ColumnLayout {
+                            spacing: 1
+                            Text {
+                                text: "Plumbum"
+                                font.pixelSize: 18
+                                font.bold: true
+                                color: cText
+                            }
+                            Text {
+                                text: "Xray / V2Ray Client"
+                                font.pixelSize: 10
+                                color: cTextDim
+                            }
                         }
                     }
                 }
@@ -95,28 +108,23 @@ ApplicationWindow {
                 // Navigation
                 SideBarButton {
                     id: navConnections
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 44
+                    Layout.topMargin: 8
                     buttonText: qsTr("Connections")
-                    buttonIcon: "▤"
+                    buttonIcon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M0 0h24v24H0z' fill='none'/><path d='M15.5 15.5a4.5 4.5 0 0 1-4.06 2.99 4.5 4.5 0 0 1-4.4-5.44 4.5 4.5 0 0 1 2.4-2.93V6.5a1.5 1.5 0 0 1 3 0v3.62a4.5 4.5 0 0 1 3.06 5.38zM4 6h2a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0-3h8a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm13 9h3a1 1 0 0 1 0 2h-3a1 1 0 0 1 0-2zm-1-6a1 1 0 0 1 0 2h-2V7a3 3 0 0 1 3-3h1a1 1 0 0 1 0 2z'/></svg>"
                     isActive: stackView.currentIndex === 0
                     onClicked: stackView.currentIndex = 0
                 }
                 SideBarButton {
                     id: navSubscriptions
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 44
                     buttonText: qsTr("Subscriptions")
-                    buttonIcon: "⇄"
+                    buttonIcon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M0 0h24v24H0z' fill='none'/><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.2 14.2L11 13.3V7h1.5v5.4l4.5 2.5-0.8 1.3z'/></svg>"
                     isActive: stackView.currentIndex === 1
                     onClicked: stackView.currentIndex = 1
                 }
                 SideBarButton {
                     id: navSettings
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 44
                     buttonText: qsTr("Settings")
-                    buttonIcon: "⚙"
+                    buttonIcon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M0 0h24v24H0z' fill='none'/><path d='M19.14 12.94a7.5 7.5 0 0 0 .05-.94 7.5 7.5 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.02 7.02 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96a.5.5 0 0 0-.61.22L2.56 8.84a.5.5 0 0 0 .12.64l2.03 1.58a7.5 7.5 0 0 0 0 1.88l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32a.5.5 0 0 0 .61.22l2.39-.96c.49.38 1.03.7 1.62.94l.36 2.54a.5.5 0 0 0 .5.42h3.84a.5.5 0 0 0 .5-.42l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96a.5.5 0 0 0 .61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z'/></svg>"
                     isActive: stackView.currentIndex === 2
                     onClicked: stackView.currentIndex = 2
                 }
@@ -127,14 +135,15 @@ ApplicationWindow {
                 Rectangle {
                     Layout.fillWidth: true
                     Layout.margins: 12
-                    Layout.preferredHeight: 46
-                    radius: 8
+                    Layout.preferredHeight: 48
+                    radius: 10
                     color: cSurfaceAlt
+                    border.color: cBorder
 
                     RowLayout {
                         anchors.fill: parent
-                        anchors.margins: 12
-                        spacing: 8
+                        anchors.margins: 14
+                        spacing: 10
 
                         Rectangle {
                             id: statusDot
@@ -143,15 +152,36 @@ ApplicationWindow {
                             radius: 5
                             color: plumbum.connected ? cGreen : cTextDim
                             Behavior on color { ColorAnimation { duration: 200 } }
+
+                            // Pulse animation when connected
+                            SequentialAnimation {
+                                running: plumbum.connected
+                                loops: Animation.Infinite
+                                NumberAnimation { target: statusDot; property: "opacity"; from: 1; to: 0.4; duration: 900 }
+                                NumberAnimation { target: statusDot; property: "opacity"; from: 0.4; to: 1; duration: 900 }
+                            }
                         }
-                        Text {
+                        ColumnLayout {
                             Layout.fillWidth: true
-                            text: plumbum.connected
-                                  ? qsTr("Connected")
-                                  : qsTr("Disconnected")
-                            color: plumbum.connected ? cGreen : cTextDim
-                            font.pixelSize: 12
-                            elide: Text.ElideRight
+                            spacing: 1
+                            Text {
+                                Layout.fillWidth: true
+                                text: plumbum.connected
+                                      ? qsTr("Connected")
+                                      : qsTr("Disconnected")
+                                color: plumbum.connected ? cGreen : cTextDim
+                                font.pixelSize: 11
+                                font.bold: plumbum.connected
+                                elide: Text.ElideRight
+                            }
+                            Text {
+                                Layout.fillWidth: true
+                                visible: plumbum.connected
+                                text: plumbum.connectedName
+                                color: cTextDim
+                                font.pixelSize: 9
+                                elide: Text.ElideRight
+                            }
                         }
                     }
                 }
@@ -211,24 +241,32 @@ ApplicationWindow {
         }
     }
 
-    // Toast notifications
+    // Toast notifications (modern with shadow)
     Rectangle {
         id: toast
         visible: false
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 28
-        width: toastText.implicitWidth + 48
-        height: 42
-        radius: 21
-        color: Qt.rgba(0.1, 0.12, 0.18, 0.92)
-        border.color: cBorder
+        width: toastText.implicitWidth + 56
+        height: 44
+        radius: 22
+        color: window.isDark ? Qt.rgba(0.12, 0.14, 0.20, 0.95) : Qt.rgba(0.12, 0.14, 0.20, 0.92)
         z: 100
+        layer.enabled: true
+        layer.smooth: true
+        layer.effect: DropShadow {
+            horizontalOffset: 0
+            verticalOffset: 4
+            radius: 12
+            samples: 24
+            color: "#40000000"
+        }
 
         Text {
             id: toastText
             anchors.centerIn: parent
-            color: cText
+            color: "#f0f4ff"
             font.pixelSize: 13
         }
 

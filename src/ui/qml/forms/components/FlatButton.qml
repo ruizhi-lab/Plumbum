@@ -1,10 +1,7 @@
 import QtQuick
+import Qt5Compat.GraphicalEffects
 
-// Flat rounded button matching the PAC selector style.
-// Usage:
-//   FlatButton { text: "Import"; onClicked: ... }
-//   FlatButton { text: "Delete"; danger: true; onClicked: ... }
-//   FlatButton { text: "Active"; active: true; onClicked: ... }
+// Modern flat button: rounded, with hover/press feedback and subtle elevation.
 Rectangle {
     id: root
 
@@ -15,12 +12,23 @@ Rectangle {
     property int controlMinWidth: 0
     signal clicked()
 
+    // Interaction state
+    property bool hovered: false
+    property bool pressed: false
+
     height: controlHeight
-    radius: 8
+    radius: 9
+
     color: {
+        if (pressed) {
+            if (active) return window.cPrimaryAlt
+            if (danger) return Qt.rgba(1.0, 0.42, 0.42, 0.20)
+            return window.isDark ? Qt.rgba(1, 1, 1, 0.10) : Qt.rgba(0, 0, 0, 0.08)
+        }
         if (active) return window.cPrimary
         if (danger) return Qt.rgba(1.0, 0.42, 0.42, 0.12)
-        return window.cSurfaceAlt
+        return hovered ? (window.isDark ? Qt.rgba(1, 1, 1, 0.07) : Qt.rgba(0, 0, 0, 0.05))
+                       : window.cSurfaceAlt
     }
     border.color: {
         if (active) return window.cPrimary
@@ -30,6 +38,17 @@ Rectangle {
     border.width: 1
 
     Behavior on color { ColorAnimation { duration: 120 } }
+
+    // Shadow for active buttons (elevation)
+    layer.enabled: root.active
+    layer.smooth: true
+    layer.effect: DropShadow {
+        horizontalOffset: 0
+        verticalOffset: 2
+        radius: 6
+        samples: 14
+        color: window.isDark ? "#59000000" : "#33203b5e"
+    }
 
     Text {
         id: label
@@ -42,18 +61,20 @@ Rectangle {
             if (root.danger) return window.cRed
             return window.cText
         }
+        Behavior on color { ColorAnimation { duration: 120 } }
     }
 
-    // Size hint so controls with variable text keep consistent layout
-    implicitWidth: Math.max(controlMinWidth, label.implicitWidth + 28)
+    implicitWidth: Math.max(controlMinWidth, label.implicitWidth + 30)
     implicitHeight: controlHeight
 
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
-        onEntered: if (!root.active) root.opacity = 0.85
-        onExited: root.opacity = 1.0
+        onEntered: root.hovered = true
+        onExited: { root.hovered = false; root.pressed = false }
+        onPressed: root.pressed = true
+        onReleased: root.pressed = false
         onClicked: root.clicked()
     }
 }
