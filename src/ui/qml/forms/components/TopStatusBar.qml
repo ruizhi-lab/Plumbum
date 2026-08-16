@@ -117,58 +117,92 @@ Rectangle {
 
         // Speed widget
         Rectangle {
-            Layout.preferredWidth: 190
-            Layout.preferredHeight: 40
+            Layout.preferredWidth: 268
+            Layout.preferredHeight: 46
             radius: 8
             color: window.cSurfaceAlt
             border.color: window.cBorder
 
-            RowLayout {
+            GridLayout {
                 anchors.fill: parent
-                anchors.margins: 12
-                spacing: 14
+                anchors.leftMargin: 12
+                anchors.rightMargin: 12
+                anchors.topMargin: 8
+                anchors.bottomMargin: 8
+                columns: 4
+                columnSpacing: 6
+                rowSpacing: 4
 
-                ColumnLayout {
-                    spacing: 0
-                    Text {
-                        text: qsTr("↑")
-                        font.pixelSize: 11
-                        color: window.cGreen
-                    }
-                    Text {
-                        text: qsTr("↓")
-                        font.pixelSize: 11
-                        color: window.cPrimaryAlt
-                    }
+                // ---- Row 1: upload ----
+                // Col 1: arrow (right-aligned, fixed)
+                Text {
+                    text: "↑"
+                    font.pixelSize: 10
+                    font.bold: true
+                    color: window.cGreen
+                    Layout.preferredWidth: 14
+                    horizontalAlignment: Text.AlignRight
                 }
-                ColumnLayout {
-                    spacing: 0
-                    Text {
-                        text: plumbum.upSpeedText || "0 B/s"
-                        font.pixelSize: 11
-                        color: window.cText
-                        font.family: "monospace"
-                    }
-                    Text {
-                        text: plumbum.downSpeedText || "0 B/s"
-                        font.pixelSize: 11
-                        color: window.cText
-                        font.family: "monospace"
-                    }
+                // Col 2: speed (fixed width, right-aligned, monospace)
+                Text {
+                    text: plumbum.upSpeedText || "0 B/s"
+                    font.pixelSize: 12
+                    font.bold: true
+                    font.family: "monospace"
+                    color: window.cText
+                    Layout.preferredWidth: 92
+                    horizontalAlignment: Text.AlignRight
                 }
-                Item { Layout.fillWidth: true }
-                ColumnLayout {
-                    spacing: 0
-                    Text {
-                        text: qsTr("Total ↑") + "  " + (plumbum.upTotalText || "0 B")
-                        font.pixelSize: 9
-                        color: window.cTextDim
-                    }
-                    Text {
-                        text: qsTr("Total ↓") + "  " + (plumbum.downTotalText || "0 B")
-                        font.pixelSize: 9
-                        color: window.cTextDim
-                    }
+                // Col 3: total label (fixed, right-aligned)
+                Text {
+                    text: qsTr("Total ↑")
+                    font.pixelSize: 9
+                    color: window.cTextDim
+                    Layout.preferredWidth: 46
+                    horizontalAlignment: Text.AlignRight
+                }
+                // Col 4: total value (fixed, right-aligned, monospace)
+                Text {
+                    text: plumbum.upTotalText || "0 B"
+                    font.pixelSize: 10
+                    font.family: "monospace"
+                    color: window.cTextDim
+                    Layout.preferredWidth: 84
+                    horizontalAlignment: Text.AlignRight
+                }
+
+                // ---- Row 2: download ----
+                Text {
+                    text: "↓"
+                    font.pixelSize: 10
+                    font.bold: true
+                    color: window.cPrimaryAlt
+                    Layout.preferredWidth: 14
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    text: plumbum.downSpeedText || "0 B/s"
+                    font.pixelSize: 12
+                    font.bold: true
+                    font.family: "monospace"
+                    color: window.cText
+                    Layout.preferredWidth: 92
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    text: qsTr("Total ↓")
+                    font.pixelSize: 9
+                    color: window.cTextDim
+                    Layout.preferredWidth: 46
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    text: plumbum.downTotalText || "0 B"
+                    font.pixelSize: 10
+                    font.family: "monospace"
+                    color: window.cTextDim
+                    Layout.preferredWidth: 84
+                    horizontalAlignment: Text.AlignRight
                 }
             }
         }
