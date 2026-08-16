@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "components"
 
 // Main connections page
 Rectangle {
@@ -36,24 +37,24 @@ Rectangle {
                 ComboBox {
                     id: groupSelector
                     Layout.preferredWidth: 180
-                    model: qv2ray.groupModel
+                    model: plumbum.groupModel
                     textRole: "displayName"
-                    currentIndex: groupModelIndexFor(qv2ray.currentGroupId)
+                    currentIndex: groupModelIndexFor(plumbum.currentGroupId)
 
                     function groupModelIndexFor(gid: string): int {
-                        for (var i = 0; i < qv2ray.groupModel.rowCount(); i++) {
-                            if (qv2ray.groupModel.data(qv2ray.groupModel.index(i, 0), 0x0101) === gid)
+                        for (var i = 0; i < plumbum.groupModel.rowCount(); i++) {
+                            if (plumbum.groupModel.data(plumbum.groupModel.index(i, 0), 0x0101) === gid)
                                 return i
                         }
                         return 0
                     }
 
                     onActivated: function(index) {
-                        qv2ray.setCurrentGroupId(qv2ray.groupModel.data(qv2ray.groupModel.index(index, 0), 0x0101))
+                        plumbum.currentGroupId = plumbum.groupModel.data(plumbum.groupModel.index(index, 0), 0x0101)
                     }
 
                     Component.onCompleted: {
-                        qv2ray.setCurrentGroupId(qv2ray.groupModel.data(qv2ray.groupModel.index(currentIndex, 0), 0x0101))
+                        plumbum.currentGroupId = plumbum.groupModel.data(plumbum.groupModel.index(currentIndex, 0), 0x0101)
                     }
                 }
 
@@ -65,7 +66,7 @@ Rectangle {
                 Button {
                     text: qsTr("Import")
                     highlighted: true
-                    onClicked: qv2ray.importFromClipboard()
+                    onClicked: plumbum.importFromClipboard()
                 }
 
                 Button {
@@ -75,13 +76,13 @@ Rectangle {
 
                 Button {
                     text: qsTr("Latency Test")
-                    onClicked: qv2ray.startLatencyTest()
+                    onClicked: plumbum.startLatencyTest()
                 }
 
                 Button {
                     visible: isCurrentGroupSubscription
                     text: qsTr("Update Subscription")
-                    onClicked: qv2ray.updateSubscription(qv2ray.currentGroupId)
+                    onClicked: plumbum.updateSubscription(plumbum.currentGroupId)
                 }
             }
         }
@@ -100,7 +101,7 @@ Rectangle {
             Layout.margins: 16
             spacing: 10
             clip: true
-            model: qv2ray.connectionModel
+            model: plumbum.connectionModel
 
             delegate: ConnectionCard {
                 width: connList.width
@@ -114,12 +115,12 @@ Rectangle {
                 upTotal: upTotal
                 downTotal: downTotal
 
-                onConnectRequested: function(id) { qv2ray.connectConnection(id) }
-                onDisconnectRequested: function(id) { qv2ray.disconnectConnection() }
-                onCopyLinkRequested: function(id) { qv2ray.copyConnectionLink(id) }
-                onLatencyRequested: function(id) { qv2ray.startLatencyTestFor(id) }
+                onConnectRequested: function(id) { plumbum.connectConnection(id) }
+                onDisconnectRequested: function(id) { plumbum.disconnectConnection() }
+                onCopyLinkRequested: function(id) { plumbum.copyConnectionLink(id) }
+                onLatencyRequested: function(id) { plumbum.startLatencyTestFor(id) }
                 onDeleteRequested: function(id) {
-                    deleteConfirm.text = qsTr("Delete connection \"%1\"?").arg(qv2ray.connectionDisplayName(id))
+                    deleteConfirm.message = qsTr("Delete connection \"%1\"?").arg(plumbum.connectionDisplayName(id))
                     deleteConfirm.connToDelete = id
                     deleteConfirm.open()
                 }
@@ -160,9 +161,9 @@ Rectangle {
     }
 
     readonly property bool isCurrentGroupSubscription: {
-        for (var i = 0; i < qv2ray.groupModel.rowCount(); i++) {
-            if (qv2ray.groupModel.data(qv2ray.groupModel.index(i, 0), 0x0101) === qv2ray.currentGroupId)
-                return qv2ray.groupModel.data(qv2ray.groupModel.index(i, 0), 0x0103)
+        for (var i = 0; i < plumbum.groupModel.rowCount(); i++) {
+            if (plumbum.groupModel.data(plumbum.groupModel.index(i, 0), 0x0101) === plumbum.currentGroupId)
+                return plumbum.groupModel.data(plumbum.groupModel.index(i, 0), 0x0103)
         }
         return false
     }
@@ -194,7 +195,7 @@ Rectangle {
             }
         }
 
-        onAccepted: qv2ray.importFromLink(importText.text)
+        onAccepted: plumbum.importFromLink(importText.text)
         onOpened: importText.text = ""
     }
 
@@ -218,7 +219,7 @@ Rectangle {
             }
         }
 
-        onAccepted: qv2ray.createGroup(groupNameInput.text)
+        onAccepted: plumbum.createGroup(groupNameInput.text)
         onOpened: groupNameInput.text = ""
     }
 
@@ -226,6 +227,7 @@ Rectangle {
     Dialog {
         id: deleteConfirm
         property string connToDelete: ""
+        property string message: ""
         title: qsTr("Confirm")
         anchors.centerIn: parent
         width: 400
@@ -233,12 +235,11 @@ Rectangle {
         standardButtons: Dialog.Yes | Dialog.No
 
         Text {
-            id: deleteConfirmText
             anchors.fill: parent
-            text: deleteConfirm.text
+            text: deleteConfirm.message
             wrapMode: Text.Wrap
         }
 
-        onAccepted: qv2ray.deleteConnection(deleteConfirm.connToDelete)
+        onAccepted: plumbum.deleteConnection(deleteConfirm.connToDelete)
     }
 }

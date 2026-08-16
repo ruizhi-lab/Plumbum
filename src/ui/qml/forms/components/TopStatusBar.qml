@@ -20,14 +20,14 @@ Rectangle {
             spacing: 1
 
             Text {
-                text: qv2ray.connected
+                text: plumbum.connected
                       ? qsTr("Current connection")
                       : qsTr("No active connection")
                 font.pixelSize: 10
                 color: window.cTextDim
             }
             Text {
-                text: qv2ray.connected ? qv2ray.connectedName : "—"
+                text: plumbum.connected ? plumbum.connectedName : "—"
                 font.pixelSize: 15
                 font.bold: true
                 color: window.cText
@@ -65,13 +65,13 @@ Rectangle {
                 ColumnLayout {
                     spacing: 0
                     Text {
-                        text: qv2ray.upSpeedText || "0 B/s"
+                        text: plumbum.upSpeedText || "0 B/s"
                         font.pixelSize: 11
                         color: window.cText
                         font.family: "monospace"
                     }
                     Text {
-                        text: qv2ray.downSpeedText || "0 B/s"
+                        text: plumbum.downSpeedText || "0 B/s"
                         font.pixelSize: 11
                         color: window.cText
                         font.family: "monospace"
@@ -81,12 +81,12 @@ Rectangle {
                 ColumnLayout {
                     spacing: 0
                     Text {
-                        text: qsTr("Total ↑") + "  " + (qv2ray.upTotalText || "0 B")
+                        text: qsTr("Total ↑") + "  " + (plumbum.upTotalText || "0 B")
                         font.pixelSize: 9
                         color: window.cTextDim
                     }
                     Text {
-                        text: qsTr("Total ↓") + "  " + (qv2ray.downTotalText || "0 B")
+                        text: qsTr("Total ↓") + "  " + (plumbum.downTotalText || "0 B")
                         font.pixelSize: 9
                         color: window.cTextDim
                     }
@@ -96,11 +96,11 @@ Rectangle {
 
         // Disconnect button (visible when connected)
         Button {
-            visible: qv2ray.connected
+            visible: plumbum.connected
             text: qsTr("Disconnect")
             highlighted: true
             Material.accent: window.cRed
-            onClicked: qv2ray.disconnectConnection()
+            onClicked: plumbum.disconnectConnection()
         }
     }
 }

@@ -61,7 +61,8 @@ class GroupListModel : public QAbstractListModel
         GroupIdRole = Qt::UserRole + 1,
         DisplayNameRole,
         IsSubscriptionRole,
-        ConnectionCountRole
+        ConnectionCountRole,
+        SubscriptionAddressRole
     };
 
     explicit GroupListModel(QObject *parent = nullptr);
@@ -93,6 +94,10 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(QString upTotalText READ upTotalText NOTIFY statsChanged)
     Q_PROPERTY(QString downTotalText READ downTotalText NOTIFY statsChanged)
     Q_PROPERTY(QString kernelStatusText READ kernelStatusText NOTIFY kernelStatusChanged)
+    Q_PROPERTY(QString v2rayCorePath READ v2rayCorePath WRITE setV2rayCorePath NOTIFY settingsChanged)
+    Q_PROPERTY(QString v2rayAssetsPath READ v2rayAssetsPath WRITE setV2rayAssetsPath NOTIFY settingsChanged)
+    Q_PROPERTY(bool kernelApiEnabled READ kernelApiEnabled WRITE setKernelApiEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(int statsPort READ statsPort WRITE setStatsPort NOTIFY settingsChanged)
 
   public:
     explicit PlumbumQMLProperty(QObject *parent = nullptr);
@@ -112,6 +117,16 @@ class PlumbumQMLProperty : public QObject
     QString upTotalText() const { return _upTotalText; }
     QString downTotalText() const { return _downTotalText; }
     QString kernelStatusText() const { return _kernelStatusText; }
+
+    // Settings (GlobalConfig)
+    QString v2rayCorePath() const { return GlobalConfig.kernelConfig.KernelPath(); }
+    void setV2rayCorePath(const QString &path);
+    QString v2rayAssetsPath() const { return GlobalConfig.kernelConfig.AssetsPath(); }
+    void setV2rayAssetsPath(const QString &path);
+    bool kernelApiEnabled() const { return GlobalConfig.kernelConfig.enableAPI; }
+    void setKernelApiEnabled(bool enabled);
+    int statsPort() const { return GlobalConfig.kernelConfig.statsPort; }
+    void setStatsPort(int port);
 
   public:
     // Call this once, after ConnectionManager has been created.
@@ -137,6 +152,7 @@ class PlumbumQMLProperty : public QObject
     // Subscriptions
     void updateSubscription(const QString &groupId);
     void updateAllSubscriptions();
+    QString createSubscription(const QString &name, const QString &url);
 
     // Misc
     QString groupDisplayName(const QString &groupId) const;
@@ -153,6 +169,7 @@ class PlumbumQMLProperty : public QObject
     void connectivityChanged();
     void statsChanged();
     void kernelStatusChanged();
+    void settingsChanged();
     void toastMessage(const QString &message);
     void logMessage(const QString &message);
 
@@ -182,6 +199,7 @@ class PlumbumQMLProperty : public QObject
     GroupId _currentGroupId;
     bool _connected = false;
     ConnectionGroupPair _connectedPair;
+    ConnectionId _connectedConnectionId;
     QString _connectedName;
     //
     QString _upSpeedText;

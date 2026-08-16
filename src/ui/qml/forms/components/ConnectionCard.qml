@@ -87,10 +87,11 @@ Rectangle {
                     radius: 4
                     color: Qt.rgba(root.badgeColor(root.protocol), 0.18)
                     border.color: Qt.rgba(root.badgeColor(root.protocol), 0.4)
-                    padding: 4
+                    Layout.preferredWidth: badgeText.implicitWidth + 12
                     Layout.preferredHeight: 18
 
                     Text {
+                        id: badgeText
                         anchors.centerIn: parent
                         text: root.protocol
                         font.pixelSize: 9

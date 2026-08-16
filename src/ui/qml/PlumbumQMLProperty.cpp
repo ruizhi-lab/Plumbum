@@ -3,6 +3,7 @@
 #include "core/connection/Serialization.hpp"
 #include "core/CoreUtils.hpp"
 #include "core/handler/KernelInstanceHandler.hpp"
+#include "core/settings/SettingsBackend.hpp"
 
 #include <QClipboard>
 #include <QGuiApplication>
@@ -54,9 +55,15 @@ QVariant ConnectionListModel::data(const QModelIndex &index, int role) const
         case IsRunningRole:
             return ConnectionManager->IsConnected({ id, _groupId });
         case UpTotalRole:
-            return FormatBytes(meta.stats[API_OUTBOUND_PROXY].upLinkData);
+        {
+            auto stats = meta.stats;
+            return FormatBytes(stats[API_OUTBOUND_PROXY].upLinkData);
+        }
         case DownTotalRole:
-            return FormatBytes(meta.stats[API_OUTBOUND_PROXY].downLinkData);
+        {
+            auto stats = meta.stats;
+            return FormatBytes(stats[API_OUTBOUND_PROXY].downLinkData);
+        }
         case LastConnectedRole:
         {
             if (meta.lastConnected <= 0)
@@ -125,16 +132,19 @@ QVariant GroupListModel::data(const QModelIndex &index, int role) const
         case DisplayNameRole: return meta.displayName;
         case IsSubscriptionRole: return meta.isSubscription;
         case ConnectionCountRole: return meta.connections.count();
+        case SubscriptionAddressRole:
+            return meta.isSubscription ? meta.subscriptionOption.address : QString{};
         default: return {};
     }
 }
 
 QHash<int, QByteArray> GroupListModel::roleNames() const
 {
-    return { { GroupIdRole, "groupId" },             //
-             { DisplayNameRole, "displayName" },     //
+    return { { GroupIdRole, "groupId" },               //
+             { DisplayNameRole, "displayName" },       //
              { IsSubscriptionRole, "isSubscription" }, //
-             { ConnectionCountRole, "connectionCount" } };
+             { ConnectionCountRole, "connectionCount" }, //
+             { SubscriptionAddressRole, "subscriptionAddress" } };
 }
 
 void GroupListModel::refresh()
@@ -193,7 +203,7 @@ void PlumbumQMLProperty::updateConnectivityState()
     else
     {
         _connectedPair = {};
-        _connectedConnectionId = {};
+        _connectedConnectionId = NullConnectionId;
         _connectedName = {};
     }
     emit connectivityChanged();
@@ -337,6 +347,16 @@ void PlumbumQMLProperty::updateAllSubscriptions()
     }
 }
 
+QString PlumbumQMLProperty::createSubscription(const QString &name, const QString &url)
+{
+    if (!ConnectionManager || name.trimmed().isEmpty() || url.trimmed().isEmpty())
+        return {};
+    const auto gid = ConnectionManager->CreateGroup(name.trimmed(), true);
+    ConnectionManager->SetSubscriptionData(gid, true, url.trimmed());
+    emit toastMessage(tr("Subscription \"%1\" created").arg(name.trimmed()));
+    return gid.toString();
+}
+
 // ---- Misc ----
 QString PlumbumQMLProperty::groupDisplayName(const QString &groupId) const
 {
@@ -401,6 +421,38 @@ void PlumbumQMLProperty::copyConnectionLink(const QString &connectionId)
     }
     QGuiApplication::clipboard()->setText(link);
     emit toastMessage(tr("Link copied to clipboard."));
+}
+
+// ---- Settings ----
+void PlumbumQMLProperty::setV2rayCorePath(const QString &path)
+{
+    GlobalConfig.kernelConfig.KernelPath(path.trimmed());
+    SaveGlobalSettings();
+    emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setV2rayAssetsPath(const QString &path)
+{
+    GlobalConfig.kernelConfig.AssetsPath(path.trimmed());
+    SaveGlobalSettings();
+    emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setKernelApiEnabled(bool enabled)
+{
+    GlobalConfig.kernelConfig.enableAPI = enabled;
+    SaveGlobalSettings();
+    emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setStatsPort(int port)
+{
+    if (port > 0 && port < 65536)
+    {
+        GlobalConfig.kernelConfig.statsPort = port;
+        SaveGlobalSettings();
+        emit settingsChanged();
+    }
 }
 
 // =================================================================================
@@ -493,7 +545,7 @@ void PlumbumQMLProperty::onDisconnected(const ConnectionGroupPair &id)
     Q_UNUSED(id)
     _connected = false;
     _connectedPair = {};
-    _connectedConnectionId = {};
+    _connectedConnectionId = NullConnectionId;
     _connectedName = {};
     emit connectivityChanged();
     _connectionModel.refresh();

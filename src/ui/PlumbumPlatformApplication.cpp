@@ -129,10 +129,8 @@ bool PlumbumPlatformApplication::Initialize()
 
     if (!PlumbumTranslator->InstallTranslation(GlobalConfig.uiConfig.language))
     {
-        QvMessageBoxWarn(nullptr, "Translation Failed",
-                         "Cannot load translation for " + GlobalConfig.uiConfig.language + NEWLINE + //
-                             "English is now used." + NEWLINE + NEWLINE +                            //
-                             "Please go to Preferences Window to change language or open an Issue");
+        // Silently fall back to English when no translation file is available.
+        // (e.g. a fresh build without generated .qm files)
         GlobalConfig.uiConfig.language = "en_US";
     }
 

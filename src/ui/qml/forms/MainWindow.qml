@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
+import "components"
 
 ApplicationWindow {
     id: window
@@ -167,7 +168,7 @@ ApplicationWindow {
                 anchors.fill: parent
                 spacing: 0
 
-                StatusBar {
+                TopStatusBar {
                     Layout.fillWidth: true
                 }
 
