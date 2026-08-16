@@ -184,9 +184,18 @@ ApplicationWindow {
                     Layout.fillHeight: true
                     currentIndex: 0
 
-                    ConnectionPage {}
-                    SubscriptionPage {}
-                    SettingsPage {}
+                    ConnectionPage {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+                    SubscriptionPage {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+                    SettingsPage {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
                 }
             }
         }

@@ -45,6 +45,13 @@ Rectangle {
         }
     }
 
+    // Convert #RRGGBB hex color to Qt.rgba with given alpha
+    function withAlpha(c: string, a: number): color {
+        return Qt.rgba(parseInt(c.substring(1, 3), 16) / 255,
+                       parseInt(c.substring(3, 5), 16) / 255,
+                       parseInt(c.substring(5, 7), 16) / 255, a)
+    }
+
     RowLayout {
         anchors.fill: parent
         anchors.leftMargin: 18
@@ -85,8 +92,8 @@ Rectangle {
                 Rectangle {
                     visible: root.protocol.length > 0
                     radius: 4
-                    color: Qt.rgba(root.badgeColor(root.protocol), 0.18)
-                    border.color: Qt.rgba(root.badgeColor(root.protocol), 0.4)
+                    color: root.withAlpha(root.badgeColor(root.protocol), 0.18)
+                    border.color: root.withAlpha(root.badgeColor(root.protocol), 0.4)
                     Layout.preferredWidth: badgeText.implicitWidth + 12
                     Layout.preferredHeight: 18
 

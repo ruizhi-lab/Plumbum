@@ -105,15 +105,15 @@ Rectangle {
 
             delegate: ConnectionCard {
                 width: connList.width
-                connId: connectionId
-                displayName: displayName
-                protocol: protocol
-                address: address
-                port: port
-                latencyText: latencyText
-                isConnected: isConnected
-                upTotal: upTotal
-                downTotal: downTotal
+                connId: model.connectionId
+                displayName: model.displayName
+                protocol: model.protocol
+                address: model.address
+                port: model.port
+                latencyText: model.latencyText
+                isConnected: model.isConnected
+                upTotal: model.upTotal
+                downTotal: model.downTotal
 
                 onConnectRequested: function(id) { plumbum.connectConnection(id) }
                 onDisconnectRequested: function(id) { plumbum.disconnectConnection() }
@@ -167,6 +167,7 @@ Rectangle {
         }
         return false
     }
+
 
     // -------- Import URL dialog --------
     Dialog {

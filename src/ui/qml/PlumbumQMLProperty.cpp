@@ -35,6 +35,7 @@ QVariant ConnectionListModel::data(const QModelIndex &index, int role) const
     const auto meta = ConnectionManager->GetConnectionMetaObject(id);
     const auto info = GetConnectionInfo(ConnectionManager->GetConnectionRoot(id));
 
+
     switch (role)
     {
         case ConnectionIdRole: return id.toString();
