@@ -1,5 +1,5 @@
 <p align="center">
-<img width="210" height="210" align="left" style="float: left; margin: 0 10px 0 0;" src="https://raw.githubusercontent.com/ruizhi-lab/Plumbum/dev/assets/icons/plumbum.png" alt="Plumbum"/>
+<img width="210" height="210" align="left" style="float: left; margin: 0 10px 0 0;" src="https://raw.githubusercontent.com/ruizhi-lab/Plumbum/main/assets/icons/plumbum.png" alt="Plumbum"/>
 </br>
 <h1>Plumbum - Unleash Your Xray & V2Ray</h1>
 基于 <b>Qt6</b> 的跨平台 <b>Xray / V2Ray</b> 客户端
@@ -9,7 +9,7 @@
 
 <p align="center">
 <a href="https://github.com/ruizhi-lab/Plumbum/releases"><img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue"/></a>
-<a href="https://github.com/ruizhi-lab/Plumbum/blob/dev/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPLv3-green"/></a>
+<a href="https://github.com/ruizhi-lab/Plumbum/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPLv3-green"/></a>
 <a href="https://github.com/ruizhi-lab/Plumbum"><img alt="Qt6" src="https://img.shields.io/badge/Qt-6.5%2B-brightgreen"/></a>
 </p>
 
