@@ -176,8 +176,15 @@ namespace Plumbum::core::kernel
             QProcess process;
             process.setProcessEnvironment(env);
             DEBUG("Starting V2Ray core with test options");
+            const auto kernelFileName = QFileInfo(kernelPath).fileName().toLower();
+            const bool isXrayCore = kernelFileName.startsWith("xray");
 #ifdef PLUMBUM_USE_V5_CORE
-            process.start(kernelPath, { "test", "-c", path }, QIODevice::ReadWrite | QIODevice::Text);
+            // Xray (26.x+) dropped the 'test' subcommand but supports 'run -test'.
+            // V2Ray v5 core supports 'test -c <config>'.
+            if (isXrayCore)
+                process.start(kernelPath, { "run", "-test", "-c", path }, QIODevice::ReadWrite | QIODevice::Text);
+            else
+                process.start(kernelPath, { "test", "-c", path }, QIODevice::ReadWrite | QIODevice::Text);
 #else
             process.start(kernelPath, { "-test", "-config", path }, QIODevice::ReadWrite | QIODevice::Text);
 #endif
@@ -186,7 +193,8 @@ namespace Plumbum::core::kernel
             if (process.exitCode() != 0)
             {
                 QString output = QString(process.readAllStandardOutput());
-                QvMessageBoxWarn(nullptr, tr("Configuration Error"), output.mid(output.indexOf("anti-censorship.") + 17));
+                // Do not block the UI with a modal dialog here; log instead.
+                LOG("Config validation failed: " + output);
                 return std::nullopt;
             }
 
