@@ -102,6 +102,7 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(bool tunEnabled READ tunEnabled WRITE setTunEnabled NOTIFY settingsChanged)
     Q_PROPERTY(int themeMode READ themeMode WRITE setThemeMode NOTIFY themeModeChanged)
     Q_PROPERTY(bool systemDark READ systemDark NOTIFY systemThemeChanged)
+    Q_PROPERTY(QString versionString READ versionString CONSTANT)
 
   public:
     explicit PlumbumQMLProperty(QObject *parent = nullptr);
@@ -148,6 +149,8 @@ class PlumbumQMLProperty : public QObject
     void setThemeMode(int mode);
     // Whether the OS is currently in dark mode.
     bool systemDark() const;
+    // Real version from build (makespec/VERSION), e.g. 1.0.0
+    QString versionString() const { return QString(PLUMBUM_VERSION_STRING); }
     // Language (locale code, e.g. en_US, zh_CN, zh_TW, ru_RU)
     QString language() const { return GlobalConfig.uiConfig.language; }
     void setLanguage(const QString &code);

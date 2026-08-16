@@ -160,7 +160,7 @@ ApplicationWindow {
                 Text {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.bottomMargin: 10
-                    text: "v2.7.0 · Qt6"
+                    text: "v" + plumbum.versionString + " · Qt6"
                     font.pixelSize: 10
                     color: cTextDim
                 }
