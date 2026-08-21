@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Check out Plumbum
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Install build dependencies
         run: |
