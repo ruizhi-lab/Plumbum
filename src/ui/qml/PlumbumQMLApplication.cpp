@@ -13,6 +13,7 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QQuickWindow>
+#include <QPainter>
 #include <QSystemTrayIcon>
 
 #ifdef PLUMBUM_QMLLIVE_DEBUG
@@ -129,7 +130,10 @@ void PlumbumQMLApplication::setupTrayIcon()
         return;
     }
 
-    trayIcon = new QSystemTrayIcon(QIcon(QStringLiteral(":/assets/icons/plumbum.png")), this);
+    trayBasePixmap = QPixmap(QStringLiteral(":/assets/icons/plumbum.png"));
+    trayIcon = new QSystemTrayIcon(QIcon(trayBasePixmap), this);
+    trayAnimationTimer.setInterval(80);
+    connect(&trayAnimationTimer, &QTimer::timeout, this, &PlumbumQMLApplication::animateTrayIcon);
     trayIcon->setToolTip(QStringLiteral("Plumbum - Xray/V2Ray Client"));
     LOG("Tray icon loaded: " + QString::number(!trayIcon->icon().isNull()) + ", tray available: " + QString::number(QSystemTrayIcon::isSystemTrayAvailable()));
 
@@ -162,6 +166,7 @@ void PlumbumQMLApplication::setupTrayIcon()
                 const auto name = ConnectionManager->GetConnectionMetaObject(id.connectionId).displayName;
                 trayConnInfoAction->setText(QObject::tr("Connected: %1").arg(name));
                 trayIcon->setToolTip(QObject::tr("Plumbum - %1").arg(name));
+                setTrayAnimationEnabled(true);
             }
             trayConnectAction->setEnabled(false);
             trayDisconnectAction->setEnabled(true);
@@ -171,11 +176,13 @@ void PlumbumQMLApplication::setupTrayIcon()
             trayIcon->setToolTip(QStringLiteral("Plumbum - Xray/V2Ray Client"));
             trayConnectAction->setEnabled(true);
             trayDisconnectAction->setEnabled(false);
+            setTrayAnimationEnabled(false);
         });
         connect(ConnectionManager, &QvConfigHandler::OnKernelCrashed, this, [this](const ConnectionGroupPair &, const QString &) {
             trayConnInfoAction->setText(QObject::tr("Not Connected"));
             trayConnectAction->setEnabled(true);
             trayDisconnectAction->setEnabled(false);
+            setTrayAnimationEnabled(false);
         });
     }
 }
@@ -225,6 +232,7 @@ void PlumbumQMLApplication::updateTrayMenu()
     if (!trayIcon)
         return;
     const bool connected = KernelInstance && !KernelInstance->CurrentConnection().isEmpty();
+    setTrayAnimationEnabled(connected);
     trayConnectAction->setEnabled(!connected);
     trayDisconnectAction->setEnabled(connected);
     if (connected && ConnectionManager)
@@ -237,6 +245,43 @@ void PlumbumQMLApplication::updateTrayMenu()
     {
         trayConnInfoAction->setText(QObject::tr("Not Connected"));
     }
+}
+
+void PlumbumQMLApplication::setTrayAnimationEnabled(bool enabled)
+{
+    if (!trayIcon)
+        return;
+    if (enabled)
+    {
+        if (!trayAnimationTimer.isActive())
+            trayAnimationTimer.start();
+    }
+    else
+    {
+        trayAnimationTimer.stop();
+        trayRotation = 0.0;
+        trayIcon->setIcon(QIcon(trayBasePixmap));
+    }
+}
+
+void PlumbumQMLApplication::animateTrayIcon()
+{
+    if (!trayIcon || trayBasePixmap.isNull())
+        return;
+    constexpr int iconSize = 32;
+    QPixmap frame(iconSize, iconSize);
+    frame.fill(Qt::transparent);
+    QPainter painter(&frame);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+    painter.translate(iconSize / 2.0, iconSize / 2.0);
+    painter.rotate(trayRotation);
+    const auto source = trayBasePixmap.scaled(iconSize - 2, iconSize - 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter.drawPixmap(-source.width() / 2, -source.height() / 2, source);
+    painter.end();
+    trayIcon->setIcon(QIcon(frame));
+    trayRotation += 6.0;
+    if (trayRotation >= 360.0)
+        trayRotation -= 360.0;
 }
 
 void PlumbumQMLApplication::OpenURL(const QString &url)

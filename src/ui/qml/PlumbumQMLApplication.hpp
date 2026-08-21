@@ -4,7 +4,9 @@
 
 #include <QMenu>
 #include <QPointer>
+#include <QPixmap>
 #include <QQuickWindow>
+#include <QTimer>
 #include <QSystemTrayIcon>
 
 namespace Plumbum
@@ -33,6 +35,8 @@ namespace Plumbum
       private:
         void setupTrayIcon();
         void toggleMainWindowVisibility();
+        void animateTrayIcon();
+        void setTrayAnimationEnabled(bool enabled);
 
       private:
         QPointer<QQuickWindow> mainWindow;
@@ -44,6 +48,9 @@ namespace Plumbum
         QAction *trayConnectAction = nullptr;
         QAction *trayDisconnectAction = nullptr;
         QAction *trayQuitAction = nullptr;
+        QTimer trayAnimationTimer;
+        QPixmap trayBasePixmap;
+        qreal trayRotation = 0.0;
     };
 
 #ifdef PlumbumApplication
