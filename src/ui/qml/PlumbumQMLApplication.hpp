@@ -3,7 +3,8 @@
 #include "ui/PlumbumPlatformApplication.hpp"
 
 #include <QMenu>
-#include <QQuickView>
+#include <QPointer>
+#include <QQuickWindow>
 #include <QSystemTrayIcon>
 
 namespace Plumbum
@@ -34,7 +35,7 @@ namespace Plumbum
         void toggleMainWindowVisibility();
 
       private:
-        QQuickView qmlViewer;
+        QPointer<QQuickWindow> mainWindow;
         PlumbumQMLProperty uiProperty;
         QSystemTrayIcon *trayIcon = nullptr;
         QMenu *trayMenu = nullptr;

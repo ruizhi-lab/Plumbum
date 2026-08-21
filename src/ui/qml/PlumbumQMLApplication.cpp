@@ -78,7 +78,10 @@ PlumbumExitReason PlumbumQMLApplication::runPlumbumInternal()
     if (!rootObjects.isEmpty())
     {
         if (auto *win = qobject_cast<QQuickWindow *>(rootObjects.first()))
+        {
+            mainWindow = win;
             win->setIcon(QIcon(QStringLiteral(":/assets/icons/plumbum.png")));
+        }
     }
     // Application-wide icon fallback (used by window managers / dialogs).
     QApplication::setWindowIcon(QIcon(QStringLiteral(":/assets/icons/plumbum.png")));
@@ -179,15 +182,7 @@ void PlumbumQMLApplication::setupTrayIcon()
 
 void PlumbumQMLApplication::toggleMainWindowVisibility()
 {
-    QQuickWindow *win = nullptr;
-    for (auto *w : QApplication::topLevelWindows())
-    {
-        if (auto *qw = qobject_cast<QQuickWindow *>(w))
-        {
-            win = qw;
-            break;
-        }
-    }
+    auto *win = mainWindow.data();
     if (!win)
         return;
     if (win->isVisible())
