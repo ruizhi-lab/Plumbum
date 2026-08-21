@@ -126,7 +126,7 @@ endif()
 
 cmake_policy(SET CMP0072 NEW)
 set(QV_QT_MAJOR_VERSION 6)
-set(QV_QT_MINOR_VERSION 5)
+set(QV_QT_MINOR_VERSION 4)
 set(QV_QT_LIBNAME Qt6)
 
 
@@ -217,7 +217,7 @@ if(PLUMBUM_USE_QML)
         ${QV_QT_LIBNAME}::QuickControls2
         ${QV_QT_LIBNAME}::Gui)
     # Qt5Compat.GraphicalEffects is a Qt6 runtime compatibility module.
-    find_package(Qt6 6.5 COMPONENTS Core5Compat REQUIRED)
+    find_package(Qt6 6.4 COMPONENTS Core5Compat REQUIRED)
     get_target_property(_PLUMBUM_QT_CORE_LOCATION Qt6::Core IMPORTED_LOCATION_RELEASE)
     if(NOT _PLUMBUM_QT_CORE_LOCATION)
         get_target_property(_PLUMBUM_QT_CORE_LOCATION Qt6::Core IMPORTED_LOCATION)
