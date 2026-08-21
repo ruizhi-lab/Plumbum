@@ -636,6 +636,16 @@ Rectangle {
                         Text { text: qsTr("Override DNS / FakeDNS"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
                         Switch { checked: plumbum.groupDnsOverride; onToggled: plumbum.setGroupDnsOverride(checked) }
                     }
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: qsTr("Override connection mode"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
+                        Switch { checked: plumbum.groupConnectionOverride; onToggled: plumbum.setGroupConnectionOverride(checked) }
+                    }
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: qsTr("Override Forward Proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
+                        Switch { checked: plumbum.groupForwardProxyOverride; onToggled: plumbum.setGroupForwardProxyOverride(checked) }
+                    }
                 }
             }
 

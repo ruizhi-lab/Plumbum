@@ -20,9 +20,19 @@ namespace Plumbum::core::handler
         {
             return { configs[id].overrideRoute, configs[id].routeConfig };
         }
+        std::pair<bool, QvConfig_Connection> GetConnectionSettings(const GroupRoutingId &id) const
+        {
+            return { configs[id].overrideConnectionConfig, configs[id].connectionConfig };
+        }
+        std::pair<bool, QvConfig_ForwardProxy> GetForwardProxySettings(const GroupRoutingId &id) const
+        {
+            return { configs[id].overrideForwardProxyConfig, configs[id].forwardProxyConfig };
+        }
         //
         bool SetDNSSettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_DNS &dns, const QvConfig_FakeDNS &fakeDNS);
         bool SetAdvancedRouteSettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_Route &dns);
+        bool SetConnectionSettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_Connection &connection);
+        bool SetForwardProxySettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_ForwardProxy &forwardProxy);
         //
         OUTBOUNDS ExpandExternalConnection(const OUTBOUNDS &outbounds) const;
         //

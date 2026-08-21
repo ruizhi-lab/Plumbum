@@ -49,6 +49,20 @@ namespace Plumbum::core::handler
         return true;
     }
 
+    bool RouteHandler::SetConnectionSettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_Connection &connection)
+    {
+        configs[id].overrideConnectionConfig = overrideGlobal;
+        configs[id].connectionConfig = connection;
+        return true;
+    }
+
+    bool RouteHandler::SetForwardProxySettings(const GroupRoutingId &id, bool overrideGlobal, const QvConfig_ForwardProxy &forwardProxy)
+    {
+        configs[id].overrideForwardProxyConfig = overrideGlobal;
+        configs[id].forwardProxyConfig = forwardProxy;
+        return true;
+    }
+
     bool RouteHandler::ExpandChainedOutbounds(CONFIGROOT &root) const
     {
         // Proxy Chain Expansion

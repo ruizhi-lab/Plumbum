@@ -144,6 +144,8 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(QString ipProxyRules READ ipProxyRules NOTIFY settingsChanged)
     Q_PROPERTY(bool groupRouteOverride READ groupRouteOverride NOTIFY settingsChanged)
     Q_PROPERTY(bool groupDnsOverride READ groupDnsOverride NOTIFY settingsChanged)
+    Q_PROPERTY(bool groupConnectionOverride READ groupConnectionOverride NOTIFY settingsChanged)
+    Q_PROPERTY(bool groupForwardProxyOverride READ groupForwardProxyOverride NOTIFY settingsChanged)
     Q_PROPERTY(QString fakeDnsIpPool READ fakeDnsIpPool NOTIFY settingsChanged)
     Q_PROPERTY(int fakeDnsPoolSize READ fakeDnsPoolSize NOTIFY settingsChanged)
     Q_PROPERTY(bool forwardProxyEnabled READ forwardProxyEnabled NOTIFY settingsChanged)
@@ -258,6 +260,8 @@ class PlumbumQMLProperty : public QObject
     QString ipProxyRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.ips.proxy).join('\n'); }
     bool groupRouteOverride() const;
     bool groupDnsOverride() const;
+    bool groupConnectionOverride() const;
+    bool groupForwardProxyOverride() const;
     QString fakeDnsIpPool() const { return GlobalConfig.defaultRouteConfig.fakeDNSConfig.ipPool; }
     int fakeDnsPoolSize() const { return GlobalConfig.defaultRouteConfig.fakeDNSConfig.poolSize; }
     bool forwardProxyEnabled() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.enableForwardProxy; }
@@ -284,6 +288,8 @@ class PlumbumQMLProperty : public QObject
     Q_INVOKABLE void setIpProxyRules(const QString &value);
     Q_INVOKABLE void setGroupRouteOverride(bool value);
     Q_INVOKABLE void setGroupDnsOverride(bool value);
+    Q_INVOKABLE void setGroupConnectionOverride(bool value);
+    Q_INVOKABLE void setGroupForwardProxyOverride(bool value);
     Q_INVOKABLE void setFakeDnsIpPool(const QString &value);
     Q_INVOKABLE void setFakeDnsPoolSize(int value);
     Q_INVOKABLE void setForwardProxyEnabled(bool value);

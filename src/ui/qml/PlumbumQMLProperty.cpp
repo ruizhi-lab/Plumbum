@@ -835,6 +835,20 @@ bool PlumbumQMLProperty::groupDnsOverride() const
     return std::get<0>(RouteManager->GetDNSSettings(ConnectionManager->GetGroupRoutingId(_currentGroupId)));
 }
 
+bool PlumbumQMLProperty::groupConnectionOverride() const
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return false;
+    return RouteManager->GetConnectionSettings(ConnectionManager->GetGroupRoutingId(_currentGroupId)).first;
+}
+
+bool PlumbumQMLProperty::groupForwardProxyOverride() const
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return false;
+    return RouteManager->GetForwardProxySettings(ConnectionManager->GetGroupRoutingId(_currentGroupId)).first;
+}
+
 void PlumbumQMLProperty::setGroupRouteOverride(bool value)
 {
     if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
@@ -865,6 +879,38 @@ void PlumbumQMLProperty::setGroupDnsOverride(bool value)
     if (enabled != value || value)
     {
         RouteManager->SetDNSSettings(routingId, value, dns, fakeDns);
+        RouteManager->SaveRoutes();
+        emit settingsChanged();
+    }
+}
+
+void PlumbumQMLProperty::setGroupConnectionOverride(bool value)
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return;
+    const auto routingId = ConnectionManager->GetGroupRoutingId(_currentGroupId);
+    auto [enabled, connection] = RouteManager->GetConnectionSettings(routingId);
+    if (value && !enabled)
+        connection = GlobalConfig.defaultRouteConfig.connectionConfig;
+    if (enabled != value || value)
+    {
+        RouteManager->SetConnectionSettings(routingId, value, connection);
+        RouteManager->SaveRoutes();
+        emit settingsChanged();
+    }
+}
+
+void PlumbumQMLProperty::setGroupForwardProxyOverride(bool value)
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return;
+    const auto routingId = ConnectionManager->GetGroupRoutingId(_currentGroupId);
+    auto [enabled, forwardProxy] = RouteManager->GetForwardProxySettings(routingId);
+    if (value && !enabled)
+        forwardProxy = GlobalConfig.defaultRouteConfig.forwardProxyConfig;
+    if (enabled != value || value)
+    {
+        RouteManager->SetForwardProxySettings(routingId, value, forwardProxy);
         RouteManager->SaveRoutes();
         emit settingsChanged();
     }
