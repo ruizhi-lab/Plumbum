@@ -51,8 +51,10 @@ QStringList PlumbumApplicationInterface::GetAssetsPaths(const QString &dirName) 
     list << QStandardPaths::locateAll(QStandardPaths::AppConfigLocation, dirName, QStandardPaths::LocateDirectory);
 
 #ifdef Q_OS_UNIX
-    if (qEnvironmentVariableIsSet("APPIMAGE"))
-        list << makeAbs(QCoreApplication::applicationDirPath() + "/../share/plumbum/" + dirName);
+    // Standard local installs place the executable in bin/ and translations
+    // in ../share/plumbum/lang. APPIMAGE uses the same layout, so this path
+    // must not be restricted to the APPIMAGE environment variable.
+    list << makeAbs(QCoreApplication::applicationDirPath() + "/../share/plumbum/" + dirName);
 
     if (qEnvironmentVariableIsSet("SNAP"))
         list << makeAbs(qEnvironmentVariable("SNAP") + "/usr/share/plumbum/" + dirName);
