@@ -1,0 +1,83 @@
+name: Verify Plumbum installation, protocols and routing
+
+on:
+  push:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-install-and-test:
+    name: Build, install and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Plumbum
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qt6-base-dev libgrpc++-dev protobuf-compiler-grpc libcurl4-openssl-dev libssl-dev ninja-build
+
+      - name: Configure CLI build
+        run: >-
+          cmake -S . -B build-ci -GNinja
+          -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+          -DCMAKE_BUILD_TYPE=Release
+          -DPLUMBUM_UI_TYPE=CLI
+          -DPLUMBUM_QT6=ON
+          -DPLUMBUM_HAS_SINGLEAPPLICATION=OFF
+          -DBUILD_TESTING=ON
+          -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install-ci
+
+      - name: Build
+        run: cmake --build build-ci --parallel
+
+      - name: Run protocol and routing tests
+        run: ctest --test-dir build-ci --output-on-failure
+
+      - name: Install and smoke-test installed CLI
+        run: |
+          cmake --install build-ci
+          test -x install-ci/bin/plumbum
+          install-ci/bin/plumbum --help
+
+  docker-trojan:
+    name: Validate Trojan through Docker Xray
+    runs-on: ubuntu-latest
+    needs: build-install-and-test
+    steps:
+      - name: Check out Plumbum
+        uses: actions/checkout@v4
+
+      - name: Start Xray Trojan server and client
+        run: |
+          set -euo pipefail
+          docker network create plumbum-ci
+          docker run -d --name plumbum-xray-server --network plumbum-ci --network-alias trojan-server \
+            -v "$PWD/ci/docker/xray-trojan-server.json:/etc/xray/config.json:ro" \
+            teddysun/xray:latest
+          docker run -d --name plumbum-xray-client --network plumbum-ci -p 127.0.0.1:10880:10880 \
+            -v "$PWD/ci/docker/xray-trojan-client.json:/etc/xray/config.json:ro" \
+            teddysun/xray:latest
+          sleep 3
+          docker exec plumbum-xray-server /usr/bin/xray -test -config /etc/xray/config.json
+          docker exec plumbum-xray-client /usr/bin/xray -test -config /etc/xray/config.json
+          curl --fail --silent --show-error --socks5-hostname 127.0.0.1:10880 --max-time 20 -I https://example.com
+
+      - name: Dump Xray logs on failure
+        if: failure()
+        run: |
+          docker logs plumbum-xray-server || true
+          docker logs plumbum-xray-client || true
+
+      - name: Clean up Docker resources
+        if: always()
+        run: |
+          docker rm -f plumbum-xray-client plumbum-xray-server || true
+          docker network rm plumbum-ci || true
