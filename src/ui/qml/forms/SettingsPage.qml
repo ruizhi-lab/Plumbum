@@ -27,7 +27,35 @@ Rectangle {
         padding: 10
     }
     component CompactSwitch: Switch {
+        id: compactSwitch
         implicitHeight: 32
+        spacing: 7
+
+        indicator: Rectangle {
+            x: compactSwitch.leftPadding
+            y: (compactSwitch.height - height) / 2
+            implicitWidth: 34
+            implicitHeight: 18
+            radius: height / 2
+            color: compactSwitch.checked ? window.cPrimary : window.cBorder
+
+            Rectangle {
+                width: 14
+                height: 14
+                y: 2
+                x: compactSwitch.checked ? parent.width - width - 2 : 2
+                radius: width / 2
+                color: compactSwitch.checked ? "#ffffff" : window.cTextDim
+                Behavior on x { NumberAnimation { duration: 100 } }
+            }
+        }
+        contentItem: Text {
+            text: compactSwitch.text
+            font: compactSwitch.font
+            color: window.cText
+            verticalAlignment: Text.AlignVCenter
+            leftPadding: compactSwitch.indicator.width + compactSwitch.spacing
+        }
     }
 
     ScrollView {

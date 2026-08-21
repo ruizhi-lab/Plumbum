@@ -85,6 +85,9 @@ Rectangle {
         ColumnLayout {
             id: connNameCol
             Layout.fillWidth: true
+            Layout.minimumWidth: 140
+            Layout.preferredWidth: 220
+            Layout.maximumWidth: 360
             spacing: 1
 
             Text {
@@ -101,6 +104,7 @@ Rectangle {
                 color: window.cText
                 elide: Text.ElideRight
                 Layout.fillWidth: true
+                Layout.minimumWidth: 0
             }
             Text {
                 visible: !plumbum.connected && plumbum.kernelStatusText.length > 0
@@ -109,13 +113,15 @@ Rectangle {
                 color: window.cOrange
                 elide: Text.ElideRight
                 Layout.fillWidth: true
+                Layout.minimumWidth: 0
             }
         }
 
         // Speed widget
         Rectangle {
             id: speedBox
-            Layout.preferredWidth: 284
+            Layout.preferredWidth: 250
+            Layout.minimumWidth: 230
             Layout.preferredHeight: 46
             radius: 8
             color: window.cSurfaceAlt
@@ -148,7 +154,7 @@ Rectangle {
                     font.bold: true
                     font.family: "monospace"
                     color: window.cText
-                    Layout.preferredWidth: 92
+                    Layout.preferredWidth: 72
                     horizontalAlignment: Text.AlignRight
                 }
                 // Col 3: total label (fixed, right-aligned)
@@ -156,7 +162,7 @@ Rectangle {
                     text: qsTr("Total ↑")
                     font.pixelSize: 9
                     color: window.cTextDim
-                    Layout.preferredWidth: 46
+                    Layout.preferredWidth: 38
                     horizontalAlignment: Text.AlignRight
                 }
                 // Col 4: total value (fixed, right-aligned, monospace)
@@ -165,7 +171,7 @@ Rectangle {
                     font.pixelSize: 10
                     font.family: "monospace"
                     color: window.cTextDim
-                    Layout.preferredWidth: 84
+                    Layout.preferredWidth: 68
                     horizontalAlignment: Text.AlignRight
                 }
 
@@ -184,14 +190,14 @@ Rectangle {
                     font.bold: true
                     font.family: "monospace"
                     color: window.cText
-                    Layout.preferredWidth: 92
+                    Layout.preferredWidth: 72
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {
                     text: qsTr("Total ↓")
                     font.pixelSize: 9
                     color: window.cTextDim
-                    Layout.preferredWidth: 46
+                    Layout.preferredWidth: 38
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {
@@ -199,7 +205,7 @@ Rectangle {
                     font.pixelSize: 10
                     font.family: "monospace"
                     color: window.cTextDim
-                    Layout.preferredWidth: 84
+                    Layout.preferredWidth: 68
                     horizontalAlignment: Text.AlignRight
                 }
             }
