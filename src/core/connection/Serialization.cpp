@@ -40,6 +40,11 @@ namespace Plumbum::core::connection
                 auto conf = ss::Deserialize(link, aliasPrefix, errMessage);
                 connectionConf << std::pair{ *aliasPrefix, conf };
             }
+            else if (link.startsWith("trojan://"))
+            {
+                auto conf = trojan::Deserialize(link, aliasPrefix, errMessage);
+                connectionConf << std::pair{ *aliasPrefix, conf };
+            }
             else if (link.startsWith("ssd://"))
             {
                 QStringList errMessageList;
@@ -108,6 +113,10 @@ namespace Plumbum::core::connection
             {
                 auto ssServer = ShadowSocksServerObject::fromJson(settings["servers"].toArray().first().toObject());
                 sharelink = ss::Serialize(ssServer, alias, isSip002);
+            }
+            else if (type == "trojan")
+            {
+                sharelink = trojan::Serialize(settings, streamSettings, alias);
             }
             else
             {

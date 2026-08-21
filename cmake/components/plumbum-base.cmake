@@ -81,6 +81,7 @@ set(PLUMBUM_BASE_SOURCES
     ${PLUMBUM_BASEDIR_CORE}/connection/serialization/vmess.cpp
     ${PLUMBUM_BASEDIR_CORE}/connection/serialization/vmess_new.cpp
     ${PLUMBUM_BASEDIR_CORE}/connection/serialization/vless.cpp
+    ${PLUMBUM_BASEDIR_CORE}/connection/serialization/trojan.cpp
     #
     ${PLUMBUM_BASEDIR_CORE}/CoreUtils.cpp
     ${PLUMBUM_BASEDIR_CORE}/CoreUtils.hpp

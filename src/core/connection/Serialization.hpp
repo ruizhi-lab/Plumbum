@@ -40,6 +40,12 @@ namespace Plumbum::core::connection::serialization
         const QString Serialize(const ShadowSocksServerObject &server, const QString &alias, bool isSip002);
     } // namespace ss
 
+    namespace trojan
+    {
+        CONFIGROOT Deserialize(const QString &trojan, QString *alias, QString *errMessage);
+        QString Serialize(const QJsonObject &settings, const QJsonObject &stream, const QString &alias);
+    } // namespace trojan
+
     namespace ssd
     {
         QList<std::pair<QString, CONFIGROOT>> Deserialize(const QString &uri, QString *groupName, QStringList *logList);
