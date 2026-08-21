@@ -610,6 +610,35 @@ Rectangle {
                 }
             }
 
+            // -------- Current group overrides --------
+            Rectangle {
+                Layout.fillWidth: true
+                implicitHeight: groupOverrideLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
+                radius: 10
+                color: window.cSurface
+                border.color: window.cBorder
+
+                ColumnLayout {
+                    id: groupOverrideLayout
+                    anchors.fill: parent
+                    anchors.margins: 18
+                    spacing: 8
+                    Text { text: qsTr("Current group overrides"); font.pixelSize: 13; font.bold: true; color: window.cPrimaryAlt }
+                    Text { text: qsTr("Select a group on the Connections page before enabling these options."); color: window.cTextDim; font.pixelSize: 11; wrapMode: Text.WordWrap; Layout.fillWidth: true }
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: qsTr("Override routing rules"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
+                        Switch { checked: plumbum.groupRouteOverride; onToggled: plumbum.setGroupRouteOverride(checked) }
+                    }
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: qsTr("Override DNS / FakeDNS"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
+                        Switch { checked: plumbum.groupDnsOverride; onToggled: plumbum.setGroupDnsOverride(checked) }
+                    }
+                }
+            }
+
             // -------- About card --------
             Rectangle {
                 id: aboutCard

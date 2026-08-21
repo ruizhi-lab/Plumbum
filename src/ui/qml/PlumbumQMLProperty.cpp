@@ -4,6 +4,7 @@
 #include "core/connection/Serialization.hpp"
 #include "core/CoreUtils.hpp"
 #include "core/handler/KernelInstanceHandler.hpp"
+#include "core/handler/RouteHandler.hpp"
 #include "core/settings/SettingsBackend.hpp"
 #include "ui/common/autolaunch/QvAutoLaunch.hpp"
 
@@ -818,6 +819,55 @@ void PlumbumQMLProperty::setIpBlockRules(const QString &value)
 void PlumbumQMLProperty::setIpProxyRules(const QString &value)
 {
     if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.ips.proxy, routeRulesFromText(value))) emit settingsChanged();
+}
+
+bool PlumbumQMLProperty::groupRouteOverride() const
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return false;
+    return RouteManager->GetAdvancedRoutingSettings(ConnectionManager->GetGroupRoutingId(_currentGroupId)).first;
+}
+
+bool PlumbumQMLProperty::groupDnsOverride() const
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return false;
+    return std::get<0>(RouteManager->GetDNSSettings(ConnectionManager->GetGroupRoutingId(_currentGroupId)));
+}
+
+void PlumbumQMLProperty::setGroupRouteOverride(bool value)
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return;
+    const auto routingId = ConnectionManager->GetGroupRoutingId(_currentGroupId);
+    auto [enabled, route] = RouteManager->GetAdvancedRoutingSettings(routingId);
+    if (value && !enabled && route == QvConfig_Route{})
+        route = GlobalConfig.defaultRouteConfig.routeConfig;
+    if (enabled != value || value)
+    {
+        RouteManager->SetAdvancedRouteSettings(routingId, value, route);
+        RouteManager->SaveRoutes();
+        emit settingsChanged();
+    }
+}
+
+void PlumbumQMLProperty::setGroupDnsOverride(bool value)
+{
+    if (!RouteManager || !ConnectionManager || _currentGroupId == NullGroupId)
+        return;
+    const auto routingId = ConnectionManager->GetGroupRoutingId(_currentGroupId);
+    auto [enabled, dns, fakeDns] = RouteManager->GetDNSSettings(routingId);
+    if (value && !enabled)
+    {
+        dns = GlobalConfig.defaultRouteConfig.dnsConfig;
+        fakeDns = GlobalConfig.defaultRouteConfig.fakeDNSConfig;
+    }
+    if (enabled != value || value)
+    {
+        RouteManager->SetDNSSettings(routingId, value, dns, fakeDns);
+        RouteManager->SaveRoutes();
+        emit settingsChanged();
+    }
 }
 
 void PlumbumQMLProperty::setFakeDnsIpPool(const QString &value)
