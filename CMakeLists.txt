@@ -126,7 +126,7 @@ endif()
 
 cmake_policy(SET CMP0072 NEW)
 set(QV_QT_MAJOR_VERSION 6)
-set(QV_QT_MINOR_VERSION 4)
+set(QV_QT_MINOR_VERSION 5)
 set(QV_QT_LIBNAME Qt6)
 
 
@@ -216,29 +216,6 @@ if(PLUMBUM_USE_QML)
         ${QV_QT_LIBNAME}::Svg
         ${QV_QT_LIBNAME}::QuickControls2
         ${QV_QT_LIBNAME}::Gui)
-    # Qt5Compat.GraphicalEffects is a Qt6 runtime compatibility module.
-    find_package(Qt6 6.4 COMPONENTS Core5Compat REQUIRED)
-    get_target_property(_PLUMBUM_QT_CORE_LOCATION Qt6::Core IMPORTED_LOCATION_RELEASE)
-    if(NOT _PLUMBUM_QT_CORE_LOCATION)
-        get_target_property(_PLUMBUM_QT_CORE_LOCATION Qt6::Core IMPORTED_LOCATION)
-    endif()
-    get_filename_component(_PLUMBUM_QT_LIB_DIR "${_PLUMBUM_QT_CORE_LOCATION}" DIRECTORY)
-    get_filename_component(_PLUMBUM_QT_PREFIX "${_PLUMBUM_QT_LIB_DIR}" DIRECTORY)
-    file(GLOB _PLUMBUM_QML_ROOTS
-        "${_PLUMBUM_QT_LIB_DIR}/qml"
-        "${_PLUMBUM_QT_LIB_DIR}/qt6/qml"
-        "${_PLUMBUM_QT_PREFIX}/qml"
-        "${_PLUMBUM_QT_PREFIX}/lib/qt*/qml"
-        "/usr/lib/qt6/qml"
-        "/usr/lib/*/qt6/qml"
-        "/nix/store/*-qt5compat-*/lib/qt*/qml")
-    find_path(_PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR
-        NAMES qmldir
-        PATHS ${_PLUMBUM_QML_ROOTS} ENV QML2_IMPORT_PATH
-        PATH_SUFFIXES Qt5Compat/GraphicalEffects)
-    if(NOT _PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR)
-        message(FATAL_ERROR "Qt5Compat.GraphicalEffects QML module is required by the Qt6 GUI but was not found next to the Qt installation")
-    endif()
     set(_PLUMBUM_HAS_GUI_INTERNAL_ ON)
 elseif(PLUMBUM_USE_QWIDGET)
     find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS Widgets Svg Gui REQUIRED)

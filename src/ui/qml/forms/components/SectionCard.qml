@@ -1,5 +1,5 @@
 import QtQuick
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
 // Modern elevated card: rounded surface with soft drop shadow.
 // Usage: SectionCard { children... }
@@ -21,13 +21,12 @@ Item {
         layer.samples: 4
     }
 
-    DropShadow {
+    MultiEffect {
         anchors.fill: cardRect
         source: cardRect
-        horizontalOffset: 0
-        verticalOffset: 2
-        radius: 10
-        samples: 20
-        color: window.isDark ? "#33000000" : "#14203345"
+        shadowEnabled: true
+        shadowVerticalOffset: 2
+        shadowBlur: 0.8
+        shadowColor: window.isDark ? "#33000000" : "#14203345"
     }
 }

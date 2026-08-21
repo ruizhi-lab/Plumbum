@@ -135,16 +135,7 @@ namespace Plumbum::core::kernel
 
         // Check if V2Ray core returns a version number correctly.
         QProcess proc;
-#ifdef Q_OS_WIN32
-        // nativeArguments are required for Windows platform, without a
-        // reason...
-        proc.setProcessChannelMode(QProcess::MergedChannels);
-        proc.setProgram(corePath);
-        proc.setNativeArguments(V2RAY_CORE_VERSION_ARGV);
-        proc.start();
-#else
         proc.start(corePath, { V2RAY_CORE_VERSION_ARGV });
-#endif
         if (!proc.waitForStarted(10000))
             return { false, tr("Failed to start V2Ray core: ") + proc.errorString() };
         if (!proc.waitForFinished(10000))

@@ -162,11 +162,7 @@ namespace Plumbum::core::config
             }
             else
             {
-#if defined(Q_OS_WIN) && !defined(PLUMBUM_NO_ASIDECONFIG)
-                configPath = currentPathConfig;
-#else
                 configPath = configPlumbum;
-#endif
             }
 
             bool hasPossibleNewLocation = QDir().mkpath(configPath) && CheckSettingsPathAvailability(configPath, false);

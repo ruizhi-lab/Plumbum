@@ -16,8 +16,6 @@ namespace Plumbum::core::kernel
     {
         enum QvKernelABIType
         {
-            ABI_WIN32,
-            ABI_MACH_O,
             ABI_ELF_X86,
             ABI_ELF_X86_64,
             ABI_ELF_AARCH64,
@@ -38,10 +36,6 @@ namespace Plumbum::core::kernel
             QvKernelABIType::ABI_ELF_X86_64;
 #elif defined(Q_OS_LINUX) && defined(Q_PROCESSOR_X86_32)
             QvKernelABIType::ABI_ELF_X86;
-#elif defined(Q_OS_MACOS)
-            QvKernelABIType::ABI_MACH_O;
-#elif defined(Q_OS_WINDOWS)
-            QvKernelABIType::ABI_WIN32;
 #elif defined(Q_OS_LINUX) && defined(Q_PROCESSOR_ARM_64)
             QvKernelABIType::ABI_ELF_AARCH64;
 #elif defined(Q_OS_LINUX) && defined(Q_PROCESSOR_ARM_V7)

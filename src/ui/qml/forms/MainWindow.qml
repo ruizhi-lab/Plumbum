@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
 import "components"
 
 ApplicationWindow {
@@ -253,16 +252,6 @@ ApplicationWindow {
         radius: 22
         color: window.isDark ? Qt.rgba(0.12, 0.14, 0.20, 0.95) : Qt.rgba(0.12, 0.14, 0.20, 0.92)
         z: 100
-        layer.enabled: true
-        layer.smooth: true
-        layer.effect: DropShadow {
-            horizontalOffset: 0
-            verticalOffset: 4
-            radius: 12
-            samples: 24
-            color: "#40000000"
-        }
-
         Text {
             id: toastText
             anchors.centerIn: parent

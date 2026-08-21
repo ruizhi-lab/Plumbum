@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
 // A single connection card in the list
 Item {
@@ -50,16 +50,15 @@ Item {
         layer.samples: 4
     }
 
-    DropShadow {
+    MultiEffect {
         anchors.fill: cardRect
         source: cardRect
-        horizontalOffset: 0
-        verticalOffset: root.hovered ? 3 : 1
-        radius: root.hovered ? 12 : 7
-        samples: 20
-        color: window.isDark ? "#33000000" : "#161f3245"
-        Behavior on verticalOffset { NumberAnimation { duration: 140 } }
-        Behavior on radius { NumberAnimation { duration: 140 } }
+        shadowEnabled: true
+        shadowVerticalOffset: root.hovered ? 3 : 1
+        shadowBlur: root.hovered ? 1.0 : 0.7
+        shadowColor: window.isDark ? "#33000000" : "#161f3245"
+        Behavior on shadowVerticalOffset { NumberAnimation { duration: 140 } }
+        Behavior on shadowBlur { NumberAnimation { duration: 140 } }
     }
 
     // Protocol badge color

@@ -995,15 +995,10 @@ void PlumbumQMLProperty::setThemeMode(int mode)
 
 bool PlumbumQMLProperty::systemDark() const
 {
-#ifdef Q_OS_WIN
-    QSettings reg(R"(HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize)", QSettings::NativeFormat);
-    return reg.value("AppsUseLightTheme", 1).toInt() == 0;
-#else
 #if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     return QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
 #else
     return QGuiApplication::palette().color(QPalette::Window).lightness() < 128;
-#endif
 #endif
 }
 

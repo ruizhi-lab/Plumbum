@@ -9,9 +9,6 @@
 #include <QTextStream>
 #include <iostream>
 
-#ifdef Q_OS_ANDROID
-#include <android/log.h>
-#endif
 
 #define NEWLINE "\r\n"
 #define QVLOG_A_DO_EXPAND(___x) , QPair<std::string, decltype(___x)>(std::string(#___x), [&] { return ___x; }())
@@ -70,11 +67,7 @@ namespace Plumbum::base
 #endif
 
         const auto logString = tempStream.readAll();
-#ifdef Q_OS_ANDROID
-        __android_log_write(ANDROID_LOG_INFO, "Plumbum", logString.toStdString().c_str());
-#else
-        std::cout << logString.toStdString() << std::endl;
-#endif
+    std::cout << logString.toStdString() << std::endl;
     }
 } // namespace Plumbum::base
 

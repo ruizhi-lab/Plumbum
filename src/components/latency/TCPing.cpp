@@ -11,28 +11,15 @@ namespace Plumbum::components::latency::tcping
     int getSocket(int af, int socktype, int proto)
     {
         uv_os_sock_t fd;
-#ifndef INVALID_SOCKET
-#define INVALID_SOCKET -1
-#endif
-        if ((fd = socket(af, socktype, proto)) == INVALID_SOCKET)
+        if ((fd = socket(af, socktype, proto)) == -1)
         {
             return 0;
         }
 
         // Set TCP connection timeout per-socket level.
         // See [https://github.com/libuv/help/issues/54] for details.
-#if defined(_WIN32) && !defined(__SYMBIAN32__)
-#ifndef TCP_MAXRT
-#define TCP_MAXRT 5
-#endif
-        setsockopt(fd, IPPROTO_TCP, TCP_MAXRT, (char *) &conn_timeout_sec, sizeof(conn_timeout_sec));
-#elif defined(__APPLE__)
-        // (billhoo) MacOS uses TCP_CONNECTIONTIMEOUT to do so.
-        setsockopt(fd, IPPROTO_TCP, TCP_CONNECTIONTIMEOUT, (char *) &conn_timeout_sec, sizeof(conn_timeout_sec));
-#else // Linux like systems
         uint32_t conn_timeout_ms = conn_timeout_sec * 1000;
         setsockopt(fd, IPPROTO_TCP, TCP_USER_TIMEOUT, (char *) &conn_timeout_ms, sizeof(conn_timeout_ms));
-#endif
         return (int) fd;
     }
 

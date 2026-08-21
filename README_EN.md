@@ -18,7 +18,7 @@ The CI validation matrix covers Debian, Ubuntu, Fedora, Arch Linux, openSUSE, Ge
 
 ## Build
 
-Requirements: Linux, Qt 6.5+, CMake 3.21+, Qt6 QML/Quick Controls, Qt5Compat GraphicalEffects, gRPC, protobuf, libcurl and OpenSSL.
+Requirements: Linux, Qt 6.5+, CMake 3.21+, Qt6 QML/Quick Controls and Effects, gRPC, protobuf, libcurl and OpenSSL.
 
 ```bash
 git clone --recurse-submodules https://github.com/ruizhi-lab/Plumbum.git

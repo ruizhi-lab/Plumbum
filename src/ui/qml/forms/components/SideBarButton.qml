@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
 // Modern sidebar navigation button: SVG icon + label + active indicator
 Rectangle {
@@ -59,13 +59,14 @@ Rectangle {
                 sourceSize.height: 18
                 antialiasing: true
             }
-            ColorOverlay {
+            MultiEffect {
                 anchors.fill: navIcon
                 source: navIcon
-                color: root.isActive ? window.cPrimary
-                     : root.hovered ? window.cText
-                     : window.cTextDim
-                Behavior on color { ColorAnimation { duration: 150 } }
+                colorizationColor: root.isActive ? window.cPrimary
+                                 : root.hovered ? window.cText
+                                 : window.cTextDim
+                colorization: 1.0
+                Behavior on colorizationColor { ColorAnimation { duration: 150 } }
             }
         }
 

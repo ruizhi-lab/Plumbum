@@ -47,21 +47,6 @@ bool PlumbumPlatformApplication::Initialize()
         }
     }
 
-#ifdef Q_OS_WIN
-    const auto appPath = QDir::toNativeSeparators(applicationFilePath());
-    const auto regPath = "HKEY_CURRENT_USER\\Software\\Classes\\" + PLUMBUM_URL_SCHEME;
-    QSettings reg(regPath, QSettings::NativeFormat);
-    reg.setValue("Default", "Plumbum");
-    reg.setValue("URL Protocol", "");
-    reg.beginGroup("DefaultIcon");
-    reg.setValue("Default", QString("%1,1").arg(appPath));
-    reg.endGroup();
-    reg.beginGroup("shell");
-    reg.beginGroup("open");
-    reg.beginGroup("command");
-    reg.setValue("Default", appPath + " %1");
-#endif
-
     connect(this, &PlumbumPlatformApplication::aboutToQuit, this, &PlumbumPlatformApplication::quitInternal);
 #ifndef PLUMBUM_NO_SINGLEAPPLICATON
     connect(this, &SingleApplication::receivedMessage, this, &PlumbumPlatformApplication::onMessageReceived, Qt::QueuedConnection);
@@ -81,26 +66,12 @@ bool PlumbumPlatformApplication::Initialize()
 #endif
 
 #ifdef PLUMBUM_GUI
-#ifdef Q_OS_LINUX
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    setFallbackSessionManagementEnabled(false);
-#endif
     connect(this, &QGuiApplication::commitDataRequest, [] {
         RouteManager->SaveRoutes();
         ConnectionManager->SaveConnectionConfig();
         PluginHost->SavePluginSettings();
         SaveGlobalSettings();
     });
-#endif
-
-#ifdef Q_OS_WIN
-    SetCurrentDirectory(applicationDirPath().toStdWString().c_str());
-    // Set special font in Windows
-    QFont font;
-    font.setPointSize(9);
-    font.setFamily("Microsoft YaHei");
-    setFont(font);
-#endif
 #endif
 
     // Install a default translater. From the OS/DE
@@ -166,10 +137,6 @@ bool PlumbumPlatformApplication::parseCommandLine(QString *errorMessage, bool *c
     QStringList filteredArgs;
     for (const auto &arg : arguments())
     {
-#ifdef Q_OS_MACOS
-        if (arg.contains("-psn"))
-            continue;
-#endif
         filteredArgs << arg;
     }
     QCommandLineParser parser;
@@ -182,7 +149,7 @@ bool PlumbumPlatformApplication::parseCommandLine(QString *errorMessage, bool *c
     QCommandLineOption reconnectOption("reconnect", QObject::tr("Reconnect last connection"));
     QCommandLineOption exitOption("exit", QObject::tr("Exit Plumbum"));
     //
-    parser.setApplicationDescription(QObject::tr("Plumbum - A cross-platform Qt frontend for V2Ray."));
+    parser.setApplicationDescription(QObject::tr("Plumbum - A Linux Qt6 frontend for V2Ray."));
     parser.setSingleDashWordOptionMode(QCommandLineParser::ParseAsLongOptions);
     //
     parser.addOption(noAPIOption);

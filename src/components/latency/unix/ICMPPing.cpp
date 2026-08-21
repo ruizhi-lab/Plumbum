@@ -6,7 +6,6 @@
 #include "ICMPPing.hpp"
 
 #include <QObject>
-#ifdef Q_OS_UNIX
 #include <netinet/in.h>
 #include <netinet/ip.h> //macos need that
 #include <netinet/ip_icmp.h>
@@ -14,9 +13,6 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-#ifdef Q_OS_MAC
-#define SOL_IP 0
-#endif
 
 namespace Plumbum::components::latency::icmping
 {
@@ -144,18 +140,10 @@ namespace Plumbum::components::latency::icmping
                 } while (rlen == -1 && errno == EINTR);
 
                 // skip malformed
-#ifdef Q_OS_MAC
-                if (rlen < sizeof(icmp) + 20)
-#else
                 if (rlen < sizeof(icmp))
-#endif
                     continue;
 
-#ifdef Q_OS_MAC
-                auto &resp = *reinterpret_cast<icmp *>(buf + 20);
-#else
                 auto &resp = *reinterpret_cast<icmp *>(buf);
-#endif
                 // skip the ones we didn't send
                 auto cur_seq = resp.icmp_hun.ih_idseq.icd_seq;
                 if (cur_seq >= seq)
@@ -228,4 +216,3 @@ namespace Plumbum::components::latency::icmping
         deinit();
     }
 } // namespace Plumbum::components::latency::icmping
-#endif

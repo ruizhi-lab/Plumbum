@@ -11,8 +11,6 @@ namespace Plumbum::core::kernel::abi
 #ifndef PLUMBUM_TRUSTED_ABI
         switch (hostType)
         {
-            case ABI_WIN32:
-            case ABI_MACH_O:
             case ABI_ELF_AARCH64:
             case ABI_ELF_ARM:
             case ABI_ELF_X86: return targetType == hostType ? ABI_PERFECT : ABI_NOPE;
@@ -59,10 +57,6 @@ namespace Plumbum::core::kernel::abi
             else
                 return { QvKernelABIType::ABI_ELF_OTHER, std::nullopt };
         }
-        else if (quint16 dosMagicMaybe; QDataStream(arr) >> dosMagicMaybe, dosMagicMaybe == 0x4D5Au)
-            return { QvKernelABIType::ABI_WIN32, std::nullopt };
-        else if (quint32 machOMagicMaybe; QDataStream(arr) >> machOMagicMaybe, machOMagicMaybe == 0xCFFAEDFEu)
-            return { QvKernelABIType::ABI_MACH_O, std::nullopt };
         else
             return { std::nullopt, QObject::tr("cannot deduce the type of core executable file %1").arg(pathCoreExecutable) };
 #endif
@@ -72,8 +66,6 @@ namespace Plumbum::core::kernel::abi
     {
         switch (abi)
         {
-            case ABI_WIN32: return QObject::tr("Windows PE executable");
-            case ABI_MACH_O: return QObject::tr("macOS Mach-O executable");
             case ABI_ELF_X86: return QObject::tr("ELF x86 executable");
             case ABI_ELF_X86_64: return QObject::tr("ELF amd64 executable");
             case ABI_ELF_AARCH64: return QObject::tr("ELF arm64 executable");

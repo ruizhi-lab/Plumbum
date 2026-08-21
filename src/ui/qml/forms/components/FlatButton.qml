@@ -1,5 +1,4 @@
 import QtQuick
-import Qt5Compat.GraphicalEffects
 
 // Modern flat button: rounded, with hover/press feedback and subtle elevation.
 Rectangle {
@@ -38,17 +37,6 @@ Rectangle {
     border.width: 1
 
     Behavior on color { ColorAnimation { duration: 120 } }
-
-    // Shadow for active buttons (elevation)
-    layer.enabled: root.active
-    layer.smooth: true
-    layer.effect: DropShadow {
-        horizontalOffset: 0
-        verticalOffset: 2
-        radius: 6
-        samples: 14
-        color: window.isDark ? "#59000000" : "#33203b5e"
-    }
 
     Text {
         id: label
