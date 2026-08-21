@@ -7,6 +7,7 @@
 #include "core/settings/SettingsBackend.hpp"
 
 #include <QClipboard>
+#include <QFileInfo>
 #include <QGuiApplication>
 #include <QStyleHints>
 
@@ -323,9 +324,11 @@ void PlumbumQMLProperty::deleteConnection(const QString &connectionId)
     if (!ConnectionManager)
         return;
     const ConnectionId cid(connectionId);
-    if (ConnectionManager->IsConnected({ cid, _currentGroupId }))
+    const ConnectionGroupPair pair(cid, _currentGroupId);
+    if (KernelInstance && KernelInstance->CurrentConnection() == pair)
         ConnectionManager->StopConnection();
-    ConnectionManager->RemoveConnectionFromGroup(cid, _currentGroupId);
+    if (!ConnectionManager->RemoveConnectionFromGroup(cid, _currentGroupId))
+        emit toastMessage(tr("Connection is not in the current group."));
 }
 
 void PlumbumQMLProperty::moveConnectionToGroup(const QString &connectionId, const QString &groupId)
@@ -521,6 +524,11 @@ void PlumbumQMLProperty::setTunMtu(int mtu)
 
 bool PlumbumQMLProperty::tunAvailable() const
 {
+    const auto coreName = QFileInfo(GlobalConfig.kernelConfig.KernelPath()).completeBaseName().toLower();
+    const bool isXrayCore = coreName == "xray" || coreName.startsWith("xray-");
+    if (!isXrayCore)
+        return false;
+
     // On Linux, TUN interface creation requires root or CAP_NET_ADMIN.
 #ifdef Q_OS_LINUX
     return geteuid() == 0 || access("/dev/net/tun", W_OK) == 0;
@@ -702,12 +710,12 @@ void PlumbumQMLProperty::onKernelLog(const ConnectionGroupPair &id, const QStrin
     emit logMessage(log);
 }
 
-void PlumbumQMLProperty::onSubscriptionUpdated(const GroupId &id)
+void PlumbumQMLProperty::onSubscriptionUpdated(const GroupId &id, bool success)
 {
     Q_UNUSED(id)
     _groupModel.refresh();
     _connectionModel.refresh();
-    emit toastMessage(tr("Subscription updated."));
+    emit toastMessage(success ? tr("Subscription updated.") : tr("Subscription update failed."));
 }
 
 // =================================================================================

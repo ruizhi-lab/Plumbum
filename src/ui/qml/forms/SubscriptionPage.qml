@@ -170,7 +170,7 @@ Rectangle {
 
     readonly property bool hasAnySubscription: {
         for (var i = 0; i < plumbum.groupModel.rowCount(); i++) {
-            if (plumbum.groupModel.data(plumbum.groupModel.index(i, 0), 0x0102))
+            if (plumbum.groupModel.data(plumbum.groupModel.index(i, 0), 0x0103))
                 return true
         }
         return false

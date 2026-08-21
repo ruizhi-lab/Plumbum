@@ -145,8 +145,14 @@ namespace Plumbum::core::kernel
 #else
         proc.start(corePath, { V2RAY_CORE_VERSION_ARGV });
 #endif
-        proc.waitForStarted();
-        proc.waitForFinished();
+        if (!proc.waitForStarted(10000))
+            return { false, tr("Failed to start V2Ray core: ") + proc.errorString() };
+        if (!proc.waitForFinished(10000))
+        {
+            proc.kill();
+            proc.waitForFinished(1000);
+            return { false, tr("Timed out while checking V2Ray core.") };
+        }
         auto exitCode = proc.exitCode();
 
         if (exitCode != 0)
@@ -188,14 +194,21 @@ namespace Plumbum::core::kernel
 #else
             process.start(kernelPath, { "-test", "-config", path }, QIODevice::ReadWrite | QIODevice::Text);
 #endif
-            process.waitForFinished();
+            if (!process.waitForStarted(10000))
+                return tr("Failed to start V2Ray core for configuration validation: ") + process.errorString();
+            if (!process.waitForFinished(10000))
+            {
+                process.kill();
+                process.waitForFinished(1000);
+                return tr("Timed out while validating V2Ray configuration.");
+            }
 
             if (process.exitCode() != 0)
             {
-                QString output = QString(process.readAllStandardOutput());
+                QString output = QString(process.readAllStandardOutput()) + QString(process.readAllStandardError());
                 // Do not block the UI with a modal dialog here; log instead.
                 LOG("Config validation failed: " + output);
-                return std::nullopt;
+                return tr("V2Ray configuration validation failed: ") + output.trimmed();
             }
 
             DEBUG("Config file check passed.");
@@ -239,7 +252,8 @@ namespace Plumbum::core::kernel
         }
 
         const auto json = JsonToString(root);
-        StringToFile(json, PLUMBUM_GENERATED_FILE_PATH);
+        if (!StringToFile(json, PLUMBUM_GENERATED_FILE_PATH))
+            return tr("Failed to write generated V2Ray configuration.");
         //
         auto filePath = PLUMBUM_GENERATED_FILE_PATH;
 
@@ -253,7 +267,12 @@ namespace Plumbum::core::kernel
         env.insert("XRAY_LOCATION_ASSET", GlobalConfig.kernelConfig.AssetsPath());
         vProcess->setProcessEnvironment(env);
         vProcess->start(GlobalConfig.kernelConfig.KernelPath(), { V2RAY_CORE_CONFIG_ARGV, filePath }, QIODevice::ReadWrite | QIODevice::Text);
-        vProcess->waitForStarted();
+        if (!vProcess->waitForStarted(10000))
+        {
+            const auto error = vProcess->errorString();
+            vProcess->close();
+            return tr("Failed to start V2Ray core: ") + error;
+        }
         kernelStarted = true;
 
         QMap<bool, QMap<QString, QString>> tagProtocolMap;
@@ -307,10 +326,17 @@ namespace Plumbum::core::kernel
         // Set this to false BEFORE close the Process, since we need this flag
         // to capture the real kernel CRASH
         kernelStarted = false;
+        if (vProcess->state() != QProcess::NotRunning)
+        {
+            vProcess->terminate();
+            if (!vProcess->waitForFinished(3000))
+            {
+                LOG("V2Ray core did not terminate in time; killing it.");
+                vProcess->kill();
+                vProcess->waitForFinished(1000);
+            }
+        }
         vProcess->close();
-        // Block until V2Ray core exits
-        // Should we use -1 instead of waiting for 30secs?
-        vProcess->waitForFinished();
     }
 
     V2RayKernelInstance::~V2RayKernelInstance()

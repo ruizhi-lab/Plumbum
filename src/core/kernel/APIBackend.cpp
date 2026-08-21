@@ -1,6 +1,7 @@
 #include "APIBackend.hpp"
 
 #include "v2ray_api.pb.h"
+#include <chrono>
 using namespace v2ray::core::app::stats::command;
 using grpc::Channel;
 using grpc::ClientContext;
@@ -30,6 +31,7 @@ namespace Plumbum::core::kernel
 
     void APIWorker::StartAPI(const QMap<bool, QMap<QString, QString>> &tagProtocolPair)
     {
+        std::lock_guard lock(stateMutex);
         // Config API
         tagProtocolConfig.clear();
         for (const auto &key : tagProtocolPair.keys())
@@ -102,7 +104,12 @@ namespace Plumbum::core::kernel
 
                 QMap<StatisticsType, QvStatsSpeed> statsResult;
                 bool hasError = false;
-                for (const auto &[tag, config] : tagProtocolConfig)
+                QvAPITagProtocolConfig configSnapshot;
+                {
+                    std::lock_guard lock(stateMutex);
+                    configSnapshot = tagProtocolConfig;
+                }
+                for (const auto &[tag, config] : configSnapshot)
                 {
                     const QString prefix = config.type == API_INBOUND ? "inbound" : "outbound";
                     const auto value_up = CallStatsAPIByName(prefix % ">>>" % tag % ">>>traffic>>>uplink");
@@ -124,6 +131,7 @@ namespace Plumbum::core::kernel
     qint64 APIWorker::CallStatsAPIByName(const QString &name)
     {
         ClientContext context;
+        context.set_deadline(std::chrono::system_clock::now() + std::chrono::seconds(2));
         GetStatsRequest request;
         GetStatsResponse response;
         request.set_name(name.toStdString());

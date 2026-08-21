@@ -65,18 +65,20 @@ namespace Plumbum::common
 
     bool StringToFile(const QString &text, const QString &targetpath)
     {
-        bool override = false;
-        {
-            QFileInfo info(targetpath);
-            override = info.exists();
-            if (!override && !info.dir().exists())
-                info.dir().mkpath(info.dir().path());
-        }
+        QFileInfo info(targetpath);
+        if (!info.dir().exists() && !info.dir().mkpath(info.dir().path()))
+            return false;
+
         QSaveFile f{ targetpath };
-        f.open(QIODevice::WriteOnly);
-        f.write(text.toUtf8());
-        f.commit();
-        return override;
+        if (!f.open(QIODevice::WriteOnly))
+            return false;
+        const auto data = text.toUtf8();
+        if (f.write(data) != data.size())
+        {
+            f.cancelWriting();
+            return false;
+        }
+        return f.commit();
     }
     QString JsonToString(const QJsonObject &json, QJsonDocument::JsonFormat format)
     {

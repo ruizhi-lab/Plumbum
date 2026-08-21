@@ -7,6 +7,8 @@
 #include "utils/HTTPRequestHelper.hpp"
 #include "utils/QvHelpers.hpp"
 
+#include <QFileInfo>
+
 #define QV_MODULE_NAME "ConfigHandler"
 
 namespace Plumbum::core::handler
@@ -199,17 +201,16 @@ namespace Plumbum::core::handler
     bool QvConfigHandler::RemoveConnectionFromGroup(const ConnectionId &id, const GroupId &gid)
     {
         CheckValidId(id, false);
+        if (!groups.contains(gid) || !groups[gid].connections.contains(id))
+            return false;
         LOG("Removing connection : " + id.toString());
-        if (groups[gid].connections.contains(id))
+        auto removedEntries = groups[gid].connections.removeAll(id);
+        if (removedEntries > 1)
         {
-            auto removedEntries = groups[gid].connections.removeAll(id);
-            if (removedEntries > 1)
-            {
-                LOG("Found same connection occured multiple times in a group.");
-            }
-            // Decrease reference count.
-            connections[id].__qvConnectionRefCount -= removedEntries;
+            LOG("Found same connection occured multiple times in a group.");
         }
+        // Decrease reference count.
+        connections[id].__qvConnectionRefCount -= removedEntries;
 
         if (GlobalConfig.autoStartId == ConnectionGroupPair{ id, gid })
         {
@@ -287,6 +288,8 @@ namespace Plumbum::core::handler
     const std::optional<QString> QvConfigHandler::DeleteGroup(const GroupId &id)
     {
         CheckValidId(id, tr("Group does not exist"));
+        if (id == DefaultGroupId)
+            return tr("The default group cannot be deleted.");
         // Copy construct
         auto list = groups[id].connections;
         for (const auto &conn : list)
@@ -309,7 +312,16 @@ namespace Plumbum::core::handler
     bool QvConfigHandler::StartConnection(const ConnectionGroupPair &identifier)
     {
         CheckValidId(identifier, false);
-        connections[identifier.connectionId].lastConnected = system_clock::to_time_t(system_clock::now());
+        if (GlobalConfig.inboundConfig.tunSettings.enabled)
+        {
+            const auto coreName = QFileInfo(GlobalConfig.kernelConfig.KernelPath()).completeBaseName().toLower();
+            const bool isXrayCore = coreName == "xray" || coreName.startsWith("xray-");
+            if (!isXrayCore)
+            {
+                QvMessageBoxWarn(nullptr, tr("TUN is currently supported only with an Xray core."), tr("Unsupported TUN configuration"));
+                return false;
+            }
+        }
         //
         CONFIGROOT root = GetConnectionRoot(identifier.connectionId);
         const auto fullConfig = RouteManager->GenerateFinalConfig(root, groups[identifier.groupId].routeConfigId);
@@ -321,12 +333,16 @@ namespace Plumbum::core::handler
             return false;
         }
 
+        connections[identifier.connectionId].lastConnected = system_clock::to_time_t(system_clock::now());
         GlobalConfig.lastConnectedId = identifier;
+        SaveConnectionConfig();
         return true;
     }
 
     void QvConfigHandler::RestartConnection()
     {
+        if (GlobalConfig.lastConnectedId.isEmpty())
+            return;
         StopConnection();
         StartConnection(GlobalConfig.lastConnectedId);
     }
@@ -486,8 +502,7 @@ namespace Plumbum::core::handler
         if (!groups[id].isSubscription)
             return;
         NetworkRequestHelper::AsyncHttpGet(groups[id].subscriptionOption.address, [=](const QByteArray &d) {
-            p_CHUpdateSubscription(id, d);
-            emit OnSubscriptionAsyncUpdateFinished(id);
+            emit OnSubscriptionAsyncUpdateFinished(id, p_CHUpdateSubscription(id, d));
         });
     }
 
@@ -709,7 +724,7 @@ namespace Plumbum::core::handler
 
         // Update the time
         groups[id].lastUpdatedDate = system_clock::to_time_t(system_clock::now());
-        return hasErrorOccured;
+        return !hasErrorOccured;
     }
 
     void QvConfigHandler::p_OnStatsDataArrived(const ConnectionGroupPair &id, const QMap<StatisticsType, QvStatsSpeed> &data)

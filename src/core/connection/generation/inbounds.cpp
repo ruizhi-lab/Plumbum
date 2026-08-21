@@ -1,5 +1,7 @@
 #include "core/connection/Generation.hpp"
 
+#include <QFileInfo>
+
 #define QV_MODULE_NAME "InboundGenerator"
 
 namespace Plumbum::core::connection::generation::inbounds
@@ -182,8 +184,17 @@ namespace Plumbum::core::connection::generation::inbounds
         // TUN Inbound (system-level proxy, requires root / CAP_NET_ADMIN)
         if (INCONF.tunSettings.enabled)
         {
-            LOG("Processing TUN inbound (system-level proxy)");
-            inboundsList.append(GenerateTunInbound("tun_IN", INCONF.tunSettings));
+            const auto coreName = QFileInfo(GlobalConfig.kernelConfig.KernelPath()).completeBaseName().toLower();
+            const bool isXrayCore = coreName == "xray" || coreName.startsWith("xray-");
+            if (isXrayCore)
+            {
+                LOG("Processing Xray TUN inbound (system-level proxy)");
+                inboundsList.append(GenerateTunInbound("tun_IN", INCONF.tunSettings));
+            }
+            else
+            {
+                LOG("TUN is enabled but the selected core is not Xray; skipping unsupported TUN configuration.");
+            }
         }
 
 #undef INCONF

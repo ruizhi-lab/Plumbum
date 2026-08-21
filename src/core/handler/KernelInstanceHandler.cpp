@@ -235,8 +235,8 @@ namespace Plumbum::core::handler
                 }
                 else
                 {
-                    return tr("A plugin kernel failed to start. Please check the outbound settings.");
                     StopConnection();
+                    return tr("A plugin kernel failed to start. Please check the outbound settings.");
                 }
             }
             else

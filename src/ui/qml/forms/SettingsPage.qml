@@ -282,7 +282,7 @@ Rectangle {
 
                     Text {
                         visible: !plumbum.tunAvailable
-                        text: qsTr("⚠ TUN requires root privileges or CAP_NET_ADMIN. Please run Plumbum with sudo or grant the capability: sudo setcap cap_net_admin,cap_net_raw+eip $(which xray)")
+                        text: qsTr("⚠ TUN requires an Xray core and root privileges or CAP_NET_ADMIN. Please select Xray and grant the required capability if needed.")
                         font.pixelSize: 10
                         color: window.cOrange
                         wrapMode: Text.Wrap

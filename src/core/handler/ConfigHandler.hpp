@@ -147,7 +147,7 @@ namespace Plumbum::core::handler
         void OnGroupRenamed(const GroupId &id, const QString &oldName, const QString &newName);
         void OnGroupDeleted(const GroupId &id, const QList<ConnectionId> &connections);
         //
-        void OnSubscriptionAsyncUpdateFinished(const GroupId &id);
+        void OnSubscriptionAsyncUpdateFinished(const GroupId &id, bool success);
         void OnConnected(const ConnectionGroupPair &id);
         void OnDisconnected(const ConnectionGroupPair &id);
         void OnKernelCrashed(const ConnectionGroupPair &id, const QString &errMessage);

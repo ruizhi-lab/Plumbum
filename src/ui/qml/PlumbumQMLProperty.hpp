@@ -223,7 +223,7 @@ class PlumbumQMLProperty : public QObject
     void onKernelCrashed(const ConnectionGroupPair &id, const QString &errMessage);
     void onStatsAvailable(const ConnectionGroupPair &id, const QMap<StatisticsType, QvStatsSpeedData> &data);
     void onKernelLog(const ConnectionGroupPair &id, const QString &log);
-    void onSubscriptionUpdated(const GroupId &id);
+    void onSubscriptionUpdated(const GroupId &id, bool success);
 
   private:
     void refreshAll();

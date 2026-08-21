@@ -127,13 +127,13 @@ QVLOG(PLUMBUM_HAS_BUILTIN_PLUGINS)
 option(PLUMBUM_EMBED_TRANSLATIONS "Embed Translations" OFF)
 option(PLUMBUM_HAS_SINGLEAPPLICATION "Build With SingleApplication" ON)
 
-set(PLUMBUM_UI_TYPE "QWidget" CACHE STRING "Plumbum GUI Component")
+set(PLUMBUM_UI_TYPE "QML" CACHE STRING "Plumbum GUI Component")
 QVLOG(PLUMBUM_UI_TYPE)
 
 option(PLUMBUM_USE_V5_CORE "Use V5 Core" ON)
 QVLOG(PLUMBUM_USE_V5_CORE)
 
-option(PLUMBUM_QT6 "Use Qt6" OFF)
+option(PLUMBUM_QT6 "Use Qt6" ON)
 
 if(PLUMBUM_UI_TYPE STREQUAL "QWidget")
     set(PLUMBUM_USE_QWIDGET ON)
@@ -280,6 +280,14 @@ if(PLUMBUM_USE_QML)
         ${QV_QT_LIBNAME}::Svg
         ${QV_QT_LIBNAME}::QuickControls2
         ${QV_QT_LIBNAME}::Gui)
+    if(PLUMBUM_QT6)
+        find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS 5Compat QUIET)
+    endif()
+    if(PLUMBUM_QT6 AND TARGET ${QV_QT_LIBNAME}::5Compat)
+        list(APPEND PLUMBUM_QT_LIBS ${QV_QT_LIBNAME}::5Compat)
+    elseif(PLUMBUM_QT6)
+        message(WARNING "Qt5Compat is not installed; QML graphical effects may be unavailable at runtime.")
+    endif()
     set(_PLUMBUM_HAS_GUI_INTERNAL_ ON)
 elseif(PLUMBUM_USE_QWIDGET)
     find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS Widgets Svg Gui REQUIRED)
