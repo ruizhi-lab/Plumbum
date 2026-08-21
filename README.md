@@ -4,7 +4,7 @@
 <h1>Plumbum - Unleash Your Xray & V2Ray</h1>
 基于 <b>Qt6</b> 的 Linux <b>Xray / V2Ray</b> 客户端
 </br>
-现代 QML 界面 · 双内核支持 · 多语言
+现代 Qt6 QML 界面 · Linux 原生集成 · Xray/V2Ray 双内核 · 多语言
 </p>
 
 <p align="center">
@@ -34,7 +34,9 @@
 
 ## 构建
 
-要求：Qt 6.5+、CMake 3.20+、gRPC、protobuf
+要求：Linux、Qt 6.5+、CMake 3.21+、gRPC、protobuf、libcurl、OpenSSL。
+
+官方验证矩阵覆盖 Debian、Ubuntu、Fedora、Arch Linux、openSUSE、Gentoo 和 NixOS；桌面会话支持 X11 与 Wayland。
 
 ```bash
 # 克隆并初始化子模块
@@ -48,7 +50,7 @@ cmake -B build \
                -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
 
-# QWidget 界面构建（兼容界面）
+# QWidget 界面构建（可选）
 cmake -B build-widget -DPLUMBUM_UI_TYPE=QWidget -DCMAKE_BUILD_TYPE=Release
 cmake --build build-widget -j$(nproc)
 ```
@@ -74,7 +76,7 @@ src/
 ├── plugins/         # 内置协议插件
 └── ui/
     ├── qml/         # 现代 Qt6 QML 界面（推荐）
-    ├── widgets/     # 原 QWidget 界面
+    ├── widgets/     # 可选 QWidget 界面
     └── cli/         # 命令行界面
 ```
 

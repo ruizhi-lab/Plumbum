@@ -5,7 +5,10 @@ file(STRINGS "${CMAKE_SOURCE_DIR}/makespec/BUILDVERSION" PLUMBUM_BUILD_VERSION)
 file(STRINGS "${CMAKE_SOURCE_DIR}/makespec/VERSIONSUFFIX" PLUMBUM_VERSION_SUFFIX)
 
 set(PLUMBUM_VERSION_STRING "${PLUMBUM_VERSION}${PLUMBUM_VERSION_SUFFIX}")
-project(plumbum)
+project(plumbum
+    VERSION ${PLUMBUM_VERSION_STRING}
+    DESCRIPTION "Linux Qt 6 GUI client for Xray and V2Ray"
+    HOMEPAGE_URL "https://github.com/ruizhi-lab/Plumbum")
 
 macro(QVLOG MSG)
     set(PLUMBUM_BUILD_STATS "${PLUMBUM_BUILD_STATS}${MSG}: ${${MSG}}\r\n")
@@ -44,7 +47,7 @@ message(" ")
 message("Plumbum Version: ${PLUMBUM_VERSION_STRING}")
 message("Plumbum Build Version: ${PLUMBUM_BUILD_VERSION}")
 message("|-------------------------------------------------|")
-message("| Plumbum, A Cross Platform v2ray Qt GUI Client.   |")
+message("| Plumbum, a Linux Qt6 Xray / V2Ray GUI Client.     |")
 message("| Licenced under GPLv3                            |")
 message("|                                                 |")
 message("| You may only use this program to the extent     |")
