@@ -224,14 +224,18 @@ if(PLUMBUM_USE_QML)
     endif()
     get_filename_component(_PLUMBUM_QT_LIB_DIR "${_PLUMBUM_QT_CORE_LOCATION}" DIRECTORY)
     get_filename_component(_PLUMBUM_QT_PREFIX "${_PLUMBUM_QT_LIB_DIR}" DIRECTORY)
+    file(GLOB _PLUMBUM_QML_ROOTS
+        "${_PLUMBUM_QT_LIB_DIR}/qml"
+        "${_PLUMBUM_QT_LIB_DIR}/qt6/qml"
+        "${_PLUMBUM_QT_PREFIX}/qml"
+        "${_PLUMBUM_QT_PREFIX}/lib/qt*/qml"
+        "/usr/lib/qt6/qml"
+        "/usr/lib/*/qt6/qml"
+        "/nix/store/*-qt5compat-*/lib/qt*/qml")
     find_path(_PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR
         NAMES qmldir
-        PATHS
-            "${_PLUMBUM_QT_LIB_DIR}/qt6/qml/Qt5Compat/GraphicalEffects"
-            "${_PLUMBUM_QT_LIB_DIR}/qt/qml/Qt5Compat/GraphicalEffects"
-            "${_PLUMBUM_QT_LIB_DIR}/../qml/Qt5Compat/GraphicalEffects"
-            "${_PLUMBUM_QT_PREFIX}/qml/Qt5Compat/GraphicalEffects"
-        NO_DEFAULT_PATH)
+        PATHS ${_PLUMBUM_QML_ROOTS} ENV QML2_IMPORT_PATH
+        PATH_SUFFIXES Qt5Compat/GraphicalEffects)
     if(NOT _PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR)
         message(FATAL_ERROR "Qt5Compat.GraphicalEffects QML module is required by the Qt6 GUI but was not found next to the Qt installation")
     endif()
