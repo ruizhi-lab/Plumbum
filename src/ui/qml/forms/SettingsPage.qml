@@ -374,6 +374,93 @@ Rectangle {
                 }
             }
 
+            // -------- Routing / DNS card --------
+            Rectangle {
+                id: routingCard
+                Layout.fillWidth: true
+                implicitHeight: routingLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
+                radius: 10
+                color: window.cSurface
+                border.color: window.cBorder
+
+                ColumnLayout {
+                    id: routingLayout
+                    anchors.fill: parent
+                    anchors.margins: 18
+                    spacing: 12
+
+                    Text { text: qsTr("Routing / DNS"); font.pixelSize: 13; font.bold: true; color: window.cPrimaryAlt }
+                    GridLayout {
+                        columns: 2
+                        columnSpacing: 12
+                        rowSpacing: 10
+                        Text { text: qsTr("Routing mode"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        ComboBox {
+                            model: [qsTr("Whitelist (CN direct)"), qsTr("Blacklist (GFW proxy)"), qsTr("Global proxy")]
+                            currentIndex: plumbum.pacMode
+                            onActivated: plumbum.setPacMode(currentIndex)
+                        }
+                        Text { text: qsTr("Force direct"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.forceDirect; onToggled: plumbum.setForceDirect(checked) }
+                        Text { text: qsTr("Bypass CN mainland"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.bypassCN; onToggled: plumbum.setBypassCN(checked) }
+                        Text { text: qsTr("Bypass private LAN"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.bypassLAN; onToggled: plumbum.setBypassLAN(checked) }
+                        Text { text: qsTr("Bypass BitTorrent"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.bypassBT; onToggled: plumbum.setBypassBT(checked) }
+                        Text { text: qsTr("Use V2Ray DNS for direct"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.v2rayFreedomDNS; onToggled: plumbum.setV2rayFreedomDNS(checked) }
+                        Text { text: qsTr("DNS intercept"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.dnsIntercept; onToggled: plumbum.setDnsIntercept(checked) }
+                        Text { text: qsTr("DNS servers"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
+                        TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.dnsServers; placeholderText: qsTr("One server per line, e.g. 1.1.1.1"); onEditingFinished: plumbum.setDnsServers(text) }
+                        Text { text: qsTr("FakeDNS IP pool"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        TextField { Layout.fillWidth: true; text: plumbum.fakeDnsIpPool; onEditingFinished: plumbum.setFakeDnsIpPool(text) }
+                        Text { text: qsTr("FakeDNS pool size"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        SpinBox { from: 1; to: 16777216; value: plumbum.fakeDnsPoolSize; editable: true; onValueModified: plumbum.setFakeDnsPoolSize(value) }
+                    }
+                }
+            }
+
+            // -------- Forward proxy card --------
+            Rectangle {
+                id: forwardProxyCard
+                Layout.fillWidth: true
+                implicitHeight: forwardProxyLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
+                radius: 10
+                color: window.cSurface
+                border.color: window.cBorder
+
+                ColumnLayout {
+                    id: forwardProxyLayout
+                    anchors.fill: parent
+                    anchors.margins: 18
+                    spacing: 12
+                    Text { text: qsTr("Forward Proxy"); font.pixelSize: 13; font.bold: true; color: window.cPrimaryAlt }
+                    GridLayout {
+                        columns: 2
+                        columnSpacing: 12
+                        rowSpacing: 10
+                        Text { text: qsTr("Enable forward proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.forwardProxyEnabled; onToggled: plumbum.setForwardProxyEnabled(checked) }
+                        Text { text: qsTr("Type"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        ComboBox { model: ["http", "socks"]; currentIndex: model.indexOf(plumbum.forwardProxyType); onActivated: plumbum.setForwardProxyType(model[currentIndex]) }
+                        Text { text: qsTr("Host address"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        TextField { Layout.fillWidth: true; text: plumbum.forwardProxyAddress; onEditingFinished: plumbum.setForwardProxyAddress(text) }
+                        Text { text: qsTr("Port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        SpinBox { from: 1; to: 65535; value: plumbum.forwardProxyPort; editable: true; onValueModified: plumbum.setForwardProxyPort(value) }
+                        Text { text: qsTr("Authentication"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        Switch { checked: plumbum.forwardProxyAuth; onToggled: plumbum.setForwardProxyAuth(checked) }
+                        Text { text: qsTr("Username"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        TextField { Layout.fillWidth: true; text: plumbum.forwardProxyUsername; onEditingFinished: plumbum.setForwardProxyUsername(text) }
+                        Text { text: qsTr("Password"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        TextField { Layout.fillWidth: true; echoMode: TextInput.Password; text: plumbum.forwardProxyPassword; onEditingFinished: plumbum.setForwardProxyPassword(text) }
+                    }
+                }
+            }
+
             // -------- TUN system proxy card --------
             Rectangle {
                 id: tunCard

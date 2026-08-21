@@ -127,6 +127,22 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(bool tunAutoRoute READ tunAutoRoute NOTIFY settingsChanged)
     Q_PROPERTY(bool tunStrictRoute READ tunStrictRoute NOTIFY settingsChanged)
     Q_PROPERTY(bool tunSniffing READ tunSniffing NOTIFY settingsChanged)
+    Q_PROPERTY(bool bypassCN READ bypassCN NOTIFY settingsChanged)
+    Q_PROPERTY(bool bypassLAN READ bypassLAN NOTIFY settingsChanged)
+    Q_PROPERTY(bool bypassBT READ bypassBT NOTIFY settingsChanged)
+    Q_PROPERTY(bool forceDirect READ forceDirect NOTIFY settingsChanged)
+    Q_PROPERTY(bool v2rayFreedomDNS READ v2rayFreedomDNS NOTIFY settingsChanged)
+    Q_PROPERTY(bool dnsIntercept READ dnsIntercept NOTIFY settingsChanged)
+    Q_PROPERTY(QString dnsServers READ dnsServers NOTIFY settingsChanged)
+    Q_PROPERTY(QString fakeDnsIpPool READ fakeDnsIpPool NOTIFY settingsChanged)
+    Q_PROPERTY(int fakeDnsPoolSize READ fakeDnsPoolSize NOTIFY settingsChanged)
+    Q_PROPERTY(bool forwardProxyEnabled READ forwardProxyEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(QString forwardProxyType READ forwardProxyType NOTIFY settingsChanged)
+    Q_PROPERTY(QString forwardProxyAddress READ forwardProxyAddress NOTIFY settingsChanged)
+    Q_PROPERTY(int forwardProxyPort READ forwardProxyPort NOTIFY settingsChanged)
+    Q_PROPERTY(bool forwardProxyAuth READ forwardProxyAuth NOTIFY settingsChanged)
+    Q_PROPERTY(QString forwardProxyUsername READ forwardProxyUsername NOTIFY settingsChanged)
+    Q_PROPERTY(QString forwardProxyPassword READ forwardProxyPassword NOTIFY settingsChanged)
     Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY settingsChanged)
     Q_PROPERTY(int themeMode READ themeMode WRITE setThemeMode NOTIFY themeModeChanged)
     Q_PROPERTY(bool systemDark READ systemDark NOTIFY systemThemeChanged)
@@ -215,6 +231,38 @@ class PlumbumQMLProperty : public QObject
     Q_INVOKABLE void setTunAutoRoute(bool value);
     Q_INVOKABLE void setTunStrictRoute(bool value);
     Q_INVOKABLE void setTunSniffing(bool value);
+    bool bypassCN() const { return GlobalConfig.defaultRouteConfig.connectionConfig.bypassCN; }
+    bool bypassLAN() const { return GlobalConfig.defaultRouteConfig.connectionConfig.bypassLAN; }
+    bool bypassBT() const { return GlobalConfig.defaultRouteConfig.connectionConfig.bypassBT; }
+    bool forceDirect() const { return !GlobalConfig.defaultRouteConfig.connectionConfig.enableProxy; }
+    bool v2rayFreedomDNS() const { return GlobalConfig.defaultRouteConfig.connectionConfig.v2rayFreedomDNS; }
+    bool dnsIntercept() const { return GlobalConfig.defaultRouteConfig.connectionConfig.dnsIntercept; }
+    QString dnsServers() const;
+    QString fakeDnsIpPool() const { return GlobalConfig.defaultRouteConfig.fakeDNSConfig.ipPool; }
+    int fakeDnsPoolSize() const { return GlobalConfig.defaultRouteConfig.fakeDNSConfig.poolSize; }
+    bool forwardProxyEnabled() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.enableForwardProxy; }
+    QString forwardProxyType() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.type; }
+    QString forwardProxyAddress() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.serverAddress; }
+    int forwardProxyPort() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.port; }
+    bool forwardProxyAuth() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.useAuth; }
+    QString forwardProxyUsername() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.username; }
+    QString forwardProxyPassword() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.password; }
+    Q_INVOKABLE void setBypassCN(bool value);
+    Q_INVOKABLE void setBypassLAN(bool value);
+    Q_INVOKABLE void setBypassBT(bool value);
+    Q_INVOKABLE void setForceDirect(bool value);
+    Q_INVOKABLE void setV2rayFreedomDNS(bool value);
+    Q_INVOKABLE void setDnsIntercept(bool value);
+    Q_INVOKABLE void setDnsServers(const QString &value);
+    Q_INVOKABLE void setFakeDnsIpPool(const QString &value);
+    Q_INVOKABLE void setFakeDnsPoolSize(int value);
+    Q_INVOKABLE void setForwardProxyEnabled(bool value);
+    Q_INVOKABLE void setForwardProxyType(const QString &value);
+    Q_INVOKABLE void setForwardProxyAddress(const QString &value);
+    Q_INVOKABLE void setForwardProxyPort(int value);
+    Q_INVOKABLE void setForwardProxyAuth(bool value);
+    Q_INVOKABLE void setForwardProxyUsername(const QString &value);
+    Q_INVOKABLE void setForwardProxyPassword(const QString &value);
     // Whether the current process can create TUN interfaces (root / CAP_NET_ADMIN).
     bool tunAvailable() const;
     // Theme: 0=follow system, 1=light, 2=dark

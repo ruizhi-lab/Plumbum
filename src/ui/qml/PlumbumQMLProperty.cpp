@@ -712,6 +712,110 @@ void PlumbumQMLProperty::setTunSniffing(bool value)
     if (assignQmlSetting(GlobalConfig.inboundConfig.tunSettings.sniffing, value)) emit settingsChanged();
 }
 
+void PlumbumQMLProperty::setBypassCN(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.connectionConfig.bypassCN, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setBypassLAN(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.connectionConfig.bypassLAN, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setBypassBT(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.connectionConfig.bypassBT, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForceDirect(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.connectionConfig.enableProxy, !value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setV2rayFreedomDNS(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.connectionConfig.v2rayFreedomDNS, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setDnsIntercept(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.connectionConfig.dnsIntercept, value)) emit settingsChanged();
+}
+
+QString PlumbumQMLProperty::dnsServers() const
+{
+    QStringList result;
+    for (const auto &server : GlobalConfig.defaultRouteConfig.dnsConfig.servers)
+        result << server.address;
+    return result.join('\n');
+}
+
+void PlumbumQMLProperty::setDnsServers(const QString &value)
+{
+    QList<QvConfig_DNS::DNSServerObject> servers;
+    const auto values = value.split(QRegularExpression("[,\\n\\r]+"), Qt::SkipEmptyParts);
+    for (const auto &entry : values)
+    {
+        const auto address = entry.trimmed();
+        if (!address.isEmpty())
+            servers.append(QvConfig_DNS::DNSServerObject(address));
+    }
+    if (GlobalConfig.defaultRouteConfig.dnsConfig.servers == servers)
+        return;
+    GlobalConfig.defaultRouteConfig.dnsConfig.servers = servers;
+    SaveGlobalSettings();
+    emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setFakeDnsIpPool(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.fakeDNSConfig.ipPool, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setFakeDnsPoolSize(int value)
+{
+    if (value < 1 || value > 16777216) return;
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.fakeDNSConfig.poolSize, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.enableForwardProxy, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyType(const QString &value)
+{
+    const auto type = value.trimmed().toLower();
+    if (type != "http" && type != "socks") return;
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.type, type)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyAddress(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.serverAddress, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyPort(int value)
+{
+    if (value < 1 || value > 65535) return;
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.port, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyAuth(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.useAuth, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyUsername(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.username, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setForwardProxyPassword(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.forwardProxyConfig.password, value)) emit settingsChanged();
+}
+
 bool PlumbumQMLProperty::tunAvailable() const
 {
     const auto coreName = QFileInfo(GlobalConfig.kernelConfig.KernelPath()).completeBaseName().toLower();
