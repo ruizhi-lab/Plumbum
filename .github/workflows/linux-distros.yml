@@ -47,13 +47,14 @@ jobs:
             setup: >-
               zypper --non-interactive refresh && zypper --non-interactive install --no-recommends
               gcc-c++ cmake ninja pkg-config qt6-base-devel qt6-declarative-devel
-              qt6-qt5compat-devel qt6-qt5compat-imports qt6-svg-devel qt6-tools-devel grpc-devel protobuf-devel
+              qt6-qt5compat-devel qt6-qt5compat-imports qt6-svg-devel qt6-tools-devel qt6-linguist-devel grpc-devel protobuf-devel
               libcurl-devel libopenssl-devel
           - name: Gentoo
             image: gentoo/stage3:latest
             setup: >-
-              emerge-webrsync && emerge --quiet-build=y --autounmask=y --autounmask-write=y
-              dev-build/cmake dev-build/ninja dev-util/pkgconf sys-devel/gcc
+              mkdir -p /etc/portage/package.use && echo 'dev-qt/qt5compat qml' >> /etc/portage/package.use/plumbum
+              && echo 'x11-libs/libxkbcommon X' >> /etc/portage/package.use/plumbum
+              && emerge-webrsync >/dev/null && emerge --quiet-build=y --autounmask=y --autounmask-write=y dev-build/cmake dev-build/ninja dev-util/pkgconf sys-devel/gcc
               dev-qt/qtbase dev-qt/qtdeclarative dev-qt/qt5compat dev-qt/qtsvg dev-qt/qttools
               net-libs/grpc dev-libs/protobuf net-misc/curl dev-libs/openssl
           - name: NixOS
