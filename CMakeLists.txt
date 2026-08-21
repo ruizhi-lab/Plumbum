@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.1)
+cmake_minimum_required(VERSION 3.21)
 
 file(STRINGS "${CMAKE_SOURCE_DIR}/makespec/VERSION" PLUMBUM_VERSION)
 file(STRINGS "${CMAKE_SOURCE_DIR}/makespec/BUILDVERSION" PLUMBUM_BUILD_VERSION)
@@ -32,54 +32,8 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-if(MSVC)
-    set(CMAKE_CXX_EXTENSIONS OFF)
-endif()
-
-if(ANDROID)
-    message("Android ABI: ${CMAKE_ANDROID_ARCH}")
-    message("Android SDK: ${ANDROID_SDK}")
-    include(cmake/platforms/android.cmake)
-    include(cmake/platforms/prefixes.cmake)
-endif()
-
-option(USE_MINGW "Use MinGW on Windows" OFF)
-
-if(WIN32)
-    include(cmake/versioninfo/generate_product_version.cmake)
-    generate_product_version(
-        PLUMBUM_RC
-        NAME               "Plumbum"
-        BUNDLE             "Plumbum Project Family"
-        ICON               "${CMAKE_SOURCE_DIR}/assets/icons/plumbum.ico"
-        VERSION_MAJOR      ${CMAKE_PROJECT_VERSION_MAJOR}
-        VERSION_MINOR      ${CMAKE_PROJECT_VERSION_MINOR}
-        VERSION_PATCH      ${CPACK_PACKAGE_VERSION_PATCH}
-        VERSION_REVISION   ${PLUMBUM_BUILD_VERSION}
-        COMPANY_NAME       "Plumbum Workgroup"
-        COMPANY_COPYRIGHT  "Plumbum Workgroup 2021"
-        FILE_DESCRIPTION   "Plumbum Main Application"
-        )
-    add_definitions(-DUNICODE -D_UNICODE -DNOMINMAX)
-    set(GUI_TYPE WIN32)
-    if(USE_MINGW)
-        if(NOT DEFINED MinGW_ROOT)
-            set(MinGW_ROOT "C:/msys64/mingw64")
-        endif()
-        set(PLUMBUM_PLATFORM_LIBS_BIN_PREFIX ${MinGW_ROOT}/bin)
-        set(PLUMBUM_PLATFORM_LIBS_PREFIX ${MinGW_ROOT})
-        set(PLUMBUM_PLATFORM_LIBS_NO_DEBUG_SUBDIR ON)
-    else()
-        add_compile_options("/utf-8")
-        add_compile_options("/std:c++17")
-        add_definitions(-D_WIN32_WINNT=0x600 -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_WARNINGS)
-        if(CMAKE_CL_64)
-            set(PLUMBUM_PLATFORM_LIBS_PREFIX ${CMAKE_SOURCE_DIR}/libs/x64-windows/)
-        else()
-            set(PLUMBUM_PLATFORM_LIBS_PREFIX ${CMAKE_SOURCE_DIR}/libs/x86-windows/)
-        endif()
-    endif()
-    include(cmake/platforms/prefixes.cmake)
+if(NOT CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    message(FATAL_ERROR "Plumbum currently supports Linux desktop builds only")
 endif()
 
 if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.17.0")
@@ -133,8 +87,6 @@ QVLOG(PLUMBUM_UI_TYPE)
 option(PLUMBUM_USE_V5_CORE "Use V5 Core" ON)
 QVLOG(PLUMBUM_USE_V5_CORE)
 
-option(PLUMBUM_QT6 "Use Qt6" ON)
-
 if(PLUMBUM_UI_TYPE STREQUAL "QWidget")
     set(PLUMBUM_USE_QWIDGET ON)
     set(PLUMBUM_USE_QML OFF)
@@ -148,15 +100,6 @@ else()
     message(FATAL_ERROR "The given PLUMBUM_UI_TYPE: ${PLUMBUM_UI_TYPE} is invalid, expected: QWidget, QML, CLI")
 endif()
 
-if(ANDROID)
-    set(PLUMBUM_EMBED_TRANSLATIONS ON)
-    set(PLUMBUM_USE_QML ON)
-    set(PLUMBUM_USE_QWIDGET OFF)
-    set(PLUMBUM_HAS_SINGLEAPPLICATION OFF)
-    set(PLUMBUM_QT6 ON)
-    message("-- Use Qt6 for Android build.")
-endif()
-
 QVLOG(PLUMBUM_EMBED_TRANSLATIONS)
 QVLOG(PLUMBUM_USE_QML)
 QVLOG(PLUMBUM_USE_QWIDGET)
@@ -168,7 +111,6 @@ if(PLUMBUM_HAS_SINGLEAPPLICATION)
 endif()
 
 if(PLUMBUM_USE_QML)
-    set(PLUMBUM_QT6 ON)
     message("-- Use Qt6 for QML build.")
     option(PLUMBUM_QML_LIVE_UPDATE "Use QMLLive for live updated QML" OFF)
     QVLOG(PLUMBUM_QML_LIVE_UPDATE)
@@ -179,19 +121,10 @@ elseif(PLUMBUM_USE_QWIDGET)
     QVLOG(PLUMBUM_QNODEEDITOR_PROVIDER)
 endif()
 
-QVLOG(PLUMBUM_QT6)
-
-if(PLUMBUM_QT6)
-    cmake_policy(SET CMP0072 NEW)
-    set(QV_QT_MAJOR_VERSION 6)
-    set(QV_QT_MINOR_VERSION 0)
-    set(QV_QT_LIBNAME Qt6)
-    add_definitions(-DPLUMBUM_QT6=1)
-else()
-    set(QV_QT_MAJOR_VERSION 5)
-    set(QV_QT_MINOR_VERSION 11)
-    set(QV_QT_LIBNAME Qt5)
-endif()
+cmake_policy(SET CMP0072 NEW)
+set(QV_QT_MAJOR_VERSION 6)
+set(QV_QT_MINOR_VERSION 5)
+set(QV_QT_LIBNAME Qt6)
 
 
 # ==================================================================================
@@ -280,28 +213,24 @@ if(PLUMBUM_USE_QML)
         ${QV_QT_LIBNAME}::Svg
         ${QV_QT_LIBNAME}::QuickControls2
         ${QV_QT_LIBNAME}::Gui)
-    if(PLUMBUM_QT6)
-        # Qt5Compat.GraphicalEffects is a QML runtime module, not a
-        # Qt6::5Compat CMake library target. Require both the Qt compatibility
-        # package and the actual QML import directory used by the application.
-        find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS Core5Compat REQUIRED)
-        get_target_property(_PLUMBUM_QT_CORE_LOCATION ${QV_QT_LIBNAME}::Core IMPORTED_LOCATION_RELEASE)
-        if(NOT _PLUMBUM_QT_CORE_LOCATION)
-            get_target_property(_PLUMBUM_QT_CORE_LOCATION ${QV_QT_LIBNAME}::Core IMPORTED_LOCATION)
-        endif()
-        get_filename_component(_PLUMBUM_QT_LIB_DIR "${_PLUMBUM_QT_CORE_LOCATION}" DIRECTORY)
-        get_filename_component(_PLUMBUM_QT_PREFIX "${_PLUMBUM_QT_LIB_DIR}" DIRECTORY)
-        find_path(_PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR
-            NAMES qmldir
-            PATHS
-                "${_PLUMBUM_QT_LIB_DIR}/qt6/qml/Qt5Compat/GraphicalEffects"
-                "${_PLUMBUM_QT_LIB_DIR}/qt/qml/Qt5Compat/GraphicalEffects"
-                "${_PLUMBUM_QT_LIB_DIR}/../qml/Qt5Compat/GraphicalEffects"
-                "${_PLUMBUM_QT_PREFIX}/qml/Qt5Compat/GraphicalEffects"
-            NO_DEFAULT_PATH)
-        if(NOT _PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR)
-            message(FATAL_ERROR "Qt5Compat.GraphicalEffects QML module is required by Plumbum but was not found next to the Qt installation")
-        endif()
+    # Qt5Compat.GraphicalEffects is a Qt6 runtime compatibility module.
+    find_package(Qt6 6.5 COMPONENTS Core5Compat REQUIRED)
+    get_target_property(_PLUMBUM_QT_CORE_LOCATION Qt6::Core IMPORTED_LOCATION_RELEASE)
+    if(NOT _PLUMBUM_QT_CORE_LOCATION)
+        get_target_property(_PLUMBUM_QT_CORE_LOCATION Qt6::Core IMPORTED_LOCATION)
+    endif()
+    get_filename_component(_PLUMBUM_QT_LIB_DIR "${_PLUMBUM_QT_CORE_LOCATION}" DIRECTORY)
+    get_filename_component(_PLUMBUM_QT_PREFIX "${_PLUMBUM_QT_LIB_DIR}" DIRECTORY)
+    find_path(_PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR
+        NAMES qmldir
+        PATHS
+            "${_PLUMBUM_QT_LIB_DIR}/qt6/qml/Qt5Compat/GraphicalEffects"
+            "${_PLUMBUM_QT_LIB_DIR}/qt/qml/Qt5Compat/GraphicalEffects"
+            "${_PLUMBUM_QT_LIB_DIR}/../qml/Qt5Compat/GraphicalEffects"
+            "${_PLUMBUM_QT_PREFIX}/qml/Qt5Compat/GraphicalEffects"
+        NO_DEFAULT_PATH)
+    if(NOT _PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR)
+        message(FATAL_ERROR "Qt5Compat.GraphicalEffects QML module is required by the Qt6 GUI but was not found next to the Qt installation")
     endif()
     set(_PLUMBUM_HAS_GUI_INTERNAL_ ON)
 elseif(PLUMBUM_USE_QWIDGET)
@@ -427,21 +356,9 @@ set(PLUMBUM_FULL_SOURCES
 QVLOG(PLUMBUM_QM_FILES)
 QVLOG(PLUMBUM_QRC_RESOURCES)
 
-if(PLUMBUM_QT6)
-    qt6_add_executable(plumbum ${GUI_TYPE} ${PLUMBUM_FULL_SOURCES})
-    # For Qt5, Android
-    # add_library(plumbum SHARED ${PLUMBUM_FULL_SOURCES})
-else()
-    add_executable(plumbum ${GUI_TYPE} ${PLUMBUM_FULL_SOURCES})
-endif()
+qt6_add_executable(plumbum ${GUI_TYPE} ${PLUMBUM_FULL_SOURCES})
 
 # set_target_properties(MAIN PROPERTIES OUTPUT_NAME "plumbum")
-
-if(ANDROID)
-    qvlog(ANDROID_EXTRA_LIBS)
-    set_property(TARGET plumbum PROPERTY QT_ANDROID_EXTRA_LIBS ${ANDROID_EXTRA_LIBS})
-    set_property(TARGET plumbum PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/assets/android)
-endif()
 
 target_include_directories(plumbum PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -470,13 +387,7 @@ endif()
 # ==================================================================================
 # Platform-dependent installation process and deployment
 # ==================================================================================
-if(APPLE)
-    include(cmake/platforms/macos.cmake)
-elseif(UNIX AND NOT APPLE AND NOT WIN32 AND NOT ANDROID)
-    include(cmake/platforms/linux.cmake)
-elseif(WIN32)
-    include(cmake/platforms/windows.cmake)
-endif()
+include(cmake/platforms/linux.cmake)
 
 
 # ==================================================================================

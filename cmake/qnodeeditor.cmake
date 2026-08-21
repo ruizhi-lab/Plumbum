@@ -60,7 +60,6 @@ if(PLUMBUM_QNODEEDITOR_PROVIDER STREQUAL "module")
         ${QNODEEDITOR_DIR}/include/nodes/internal/TypeConverter.hpp
         )
 
-    #    qt5_wrap_cpp(QNODEEDITOR_SOURCES
     #        ${HEADERS_TO_MOC}
     #        TARGET plumbum
     #        OPTIONS --no-notes # Don't display a note for the headers which don't produce a moc_*.cpp

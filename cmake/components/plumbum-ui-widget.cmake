@@ -106,7 +106,6 @@ set(_PLUMBUM_UI_SOURCES
     ${PLUMBUM_QWIDGETS_UI_BASEDIR}/editors/w_RoutesEditor.cpp
     ${PLUMBUM_QWIDGETS_UI_BASEDIR}/editors/w_ChainSha256Editor.hpp
     ${PLUMBUM_QWIDGETS_UI_BASEDIR}/editors/w_ChainSha256Editor.cpp
-    # Windows
     ${PLUMBUM_QWIDGETS_UI_BASEDIR}/windows/w_ImportConfig.hpp
     ${PLUMBUM_QWIDGETS_UI_BASEDIR}/windows/w_ImportConfig.cpp
     ${PLUMBUM_QWIDGETS_UI_BASEDIR}/windows/w_MainWindow.hpp

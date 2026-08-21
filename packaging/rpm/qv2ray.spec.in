@@ -4,7 +4,7 @@
 Name:           plumbum
 Version:        @VERSION@
 Release:        @RELEASE@
-Summary:        A cross-platform V2Ray graphical front-end
+Summary:        A Linux V2Ray graphical front-end
 License:        GPLv3
 URL:            https://plumbum.net/
 
@@ -31,9 +31,10 @@ BuildRequires:  libcurl-devel
 BuildRequires:  protobuf-devel
 BuildRequires:  grpc-devel
 BuildRequires:  grpc-plugins
-BuildRequires:  cmake(Qt5)
-BuildRequires:  cmake(Qt5Svg)
-BuildRequires:  cmake(Qt5LinguistTools)
+BuildRequires:  cmake(Qt6)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:  cmake(Qt6LinguistTools)
+BuildRequires:  cmake(Qt6Core5Compat)
 Requires:       hicolor-icon-theme
 
 Recommends:     %{name}-plugin-builtin-protocol-support%{?_isa} = %{version}-%{release}
@@ -48,9 +49,9 @@ Summary:        Plumbum Builtin Subscription Support
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description
-Plumbum is a cross-platform v2ray graphical front-end written in Qt.
+Plumbum is a Linux v2ray graphical front-end written in Qt 6.
 Features:
-    * Cross-platform, multi-distribution support
+    * Multi-distribution Linux support
     * Versatile Host Importing
     * Subscriptions
     * Built-in Host Editors
@@ -75,7 +76,7 @@ Basic subscription support for Plumbum.
 %{?with_check:            -DBUILD_TESTING=ON} \
 %{?with_use_system_libuv: -DUSE_SYSTEM_LIBUV=ON} \
                           -DPLUMBUM_BUILD_INFO="Plumbum built from rpmbuild" \
-                          -DPLUMBUM_BUILD_EXTRA_INFO="$(rpmbuild --version), kernel-$(uname -r), qt-$(pkg-config --modversion Qt5Core)" \
+                          -DPLUMBUM_BUILD_EXTRA_INFO="$(rpmbuild --version), kernel-$(uname -r), qt-$(pkg-config --modversion Qt6Core)" \
                           -DPLUMBUM_DEFAULT_VCORE_PATH="%{_bindir}/v2ray" \
                           -DPLUMBUM_DEFAULT_VASSETS_PATH="%{_datadir}/v2ray" \
                           -DCMAKE_BUILD_TYPE="Release"

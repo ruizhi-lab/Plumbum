@@ -42,8 +42,6 @@ set(PLUMBUM_BASE_SOURCES
     ${PLUMBUM_BASEDIR_COMPONENTS}/latency/RealPing.cpp
     ${PLUMBUM_BASEDIR_COMPONENTS}/latency/RealPing.hpp
     ${PLUMBUM_BASEDIR_COMPONENTS}/latency/DNSBase.hpp
-    ${PLUMBUM_BASEDIR_COMPONENTS}/latency/win/ICMPPing.cpp
-    ${PLUMBUM_BASEDIR_COMPONENTS}/latency/win/ICMPPing.hpp
     ${PLUMBUM_BASEDIR_COMPONENTS}/latency/unix/ICMPPing.cpp
     ${PLUMBUM_BASEDIR_COMPONENTS}/latency/unix/ICMPPing.hpp
     #

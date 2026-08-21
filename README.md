@@ -2,7 +2,7 @@
 <img width="210" height="210" align="left" style="float: left; margin: 0 10px 0 0;" src="https://raw.githubusercontent.com/ruizhi-lab/Plumbum/main/assets/icons/plumbum.png" alt="Plumbum"/>
 </br>
 <h1>Plumbum - Unleash Your Xray & V2Ray</h1>
-基于 <b>Qt6</b> 的跨平台 <b>Xray / V2Ray</b> 客户端
+基于 <b>Qt6</b> 的 Linux <b>Xray / V2Ray</b> 客户端
 </br>
 现代 QML 界面 · 双内核支持 · 多语言
 </p>
@@ -42,14 +42,14 @@ git clone --recurse-submodules https://github.com/ruizhi-lab/Plumbum.git
 cd Plumbum
 
 # QML 界面构建（推荐）
-cmake -B build -DPLUMBUM_QT6=ON \
+cmake -B build \
                -DPLUMBUM_UI_TYPE=QML \
                -DPLUMBUM_EMBED_TRANSLATIONS=ON \
                -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
 
-# QWidget 界面构建（原有界面）
-cmake -B build-widget -DPLUMBUM_QT6=ON -DPLUMBUM_UI_TYPE=QWidget -DCMAKE_BUILD_TYPE=Release
+# QWidget 界面构建（兼容界面）
+cmake -B build-widget -DPLUMBUM_UI_TYPE=QWidget -DCMAKE_BUILD_TYPE=Release
 cmake --build build-widget -j$(nproc)
 ```
 

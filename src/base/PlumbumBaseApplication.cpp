@@ -69,11 +69,6 @@ QStringList PlumbumApplicationInterface::GetAssetsPaths(const QString &dirName) 
     list << makeAbs("/lib/plumbum/" + dirName);
 #endif
 
-#ifdef Q_OS_MAC
-    // macOS platform directories.
-    list << QDir(QCoreApplication::applicationDirPath() + "/../Resources/" + dirName).absolutePath();
-#endif
-
     list.removeDuplicates();
     return list;
 }

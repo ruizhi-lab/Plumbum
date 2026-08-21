@@ -1,0 +1,78 @@
+name: Linux Qt6 distribution matrix
+
+on:
+  push:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Debian stable
+            image: debian:stable
+            setup: >-
+              apt-get update && apt-get install -y build-essential cmake ninja-build pkg-config
+              qt6-base-dev qt6-declarative-dev qt6-5compat-dev qt6-svg-dev qt6-tools-dev
+              libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcurl4-openssl-dev libssl-dev
+          - name: Ubuntu 24.04
+            image: ubuntu:24.04
+            setup: >-
+              apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential cmake ninja-build pkg-config
+              qt6-base-dev qt6-declarative-dev qt6-5compat-dev qt6-svg-dev qt6-tools-dev
+              libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcurl4-openssl-dev libssl-dev
+          - name: Fedora
+            image: fedora:latest
+            setup: >-
+              dnf install -y gcc-c++ cmake ninja-build pkgconf-pkg-config
+              qt6-qtbase-devel qt6-qtdeclarative-devel qt6-qt5compat-devel qt6-qtsvg-devel
+              qt6-qttools-devel grpc-devel protobuf-compiler protobuf-devel libcurl-devel openssl-devel
+          - name: Arch Linux
+            image: archlinux:base
+            setup: >-
+              pacman -Sy --noconfirm --needed base-devel cmake ninja pkgconf
+              qt6-base qt6-declarative qt6-5compat qt6-svg qt6-tools grpc protobuf curl openssl
+          - name: openSUSE Tumbleweed
+            image: opensuse/tumbleweed:latest
+            setup: >-
+              zypper --non-interactive refresh && zypper --non-interactive install --no-recommends
+              gcc-c++ cmake ninja pkg-config libqt6-qtbase-devel libqt6-qtdeclarative-devel
+              libqt6-qt5compat-devel libqt6-qtsvg-devel libqt6-qttools-devel grpc-devel protobuf-devel
+              protobuf-c libcurl-devel libopenssl-devel
+          - name: Gentoo
+            image: gentoo/stage3:latest
+            setup: >-
+              emerge-webrsync && emerge --quiet-build=y --autounmask=y --autounmask-write=y
+              dev-build/cmake dev-build/ninja dev-util/pkgconf sys-devel/gcc
+              dev-qt/qtbase dev-qt/qtdeclarative dev-qt/qtcompat dev-qt/qtsvg dev-qt/linguist-tools
+              net-libs/grpc dev-libs/protobuf net-misc/curl dev-libs/openssl
+          - name: NixOS
+            image: nixos/nix:latest
+            setup: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Configure and build inside ${{ matrix.name }}
+        env:
+          DISTRO_IMAGE: ${{ matrix.image }}
+          DISTRO_SETUP: ${{ matrix.setup }}
+        run: |
+          if [ "$DISTRO_IMAGE" = "nixos/nix:latest" ]; then
+            docker run --rm -v "$GITHUB_WORKSPACE:/src" -w /src "$DISTRO_IMAGE" sh -euxc \
+              'nix-shell -p cmake ninja gcc pkg-config qt6.qtbase qt6.qtdeclarative qt6.qt5compat qt6.qtsvg qt6.qttools grpc protobuf curl openssl --run "cmake -S . -B build-distro -GNinja -DCMAKE_BUILD_TYPE=Release -DPLUMBUM_UI_TYPE=QML -DPLUMBUM_HAS_SINGLEAPPLICATION=OFF -DBUILD_TESTING=ON && cmake --build build-distro --parallel && ctest --test-dir build-distro --output-on-failure"'
+            exit 0
+          fi
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/src" \
+            -w /src \
+            "$DISTRO_IMAGE" \
+            sh -euxc "$DISTRO_SETUP; cmake -S . -B build-distro -GNinja -DCMAKE_BUILD_TYPE=Release -DPLUMBUM_UI_TYPE=QML -DPLUMBUM_HAS_SINGLEAPPLICATION=OFF -DBUILD_TESTING=ON; cmake --build build-distro --parallel; ctest --test-dir build-distro --output-on-failure"

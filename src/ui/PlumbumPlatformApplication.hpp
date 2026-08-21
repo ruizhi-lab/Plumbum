@@ -7,20 +7,6 @@
 #include "core/settings/SettingsBackend.hpp"
 #include "utils/QvHelpers.hpp"
 
-#ifndef PLUMBUM_NO_SINGLEAPPLICATON
-#ifdef Q_OS_ANDROID
-// No SingleApplication on Android platform
-#define PLUMBUM_NO_SINGLEAPPLICATON
-#elif PLUMBUM_WORKAROUND_MACOS_MEMLOCK
-// No SingleApplication on macOS locking error
-#define PLUMBUM_NO_SINGLEAPPLICATON
-#endif
-#endif
-
-#ifdef Q_OS_WIN
-#include <windows.h>
-#endif
-
 #ifdef PLUMBUM_GUI
 #include <QApplication>
 #include <QMessageBox>

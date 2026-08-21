@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>assets/icons/plumbum.icns</file>
-        <file>assets/icons/plumbum.ico</file>
         <file>assets/icons/plumbum.png</file>
         <file>assets/credit.html</file>
     </qresource>

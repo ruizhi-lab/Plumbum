@@ -13,10 +13,6 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-#ifdef Q_OS_WIN
-#include <Winbase.h>
-#endif
-
 #define QV_MODULE_NAME "WidgetApplication"
 
 constexpr auto PLUMBUM_WIDGETUI_STATE_FILENAME = "UIState.json";
@@ -153,23 +149,6 @@ PlumbumExitReason PlumbumWidgetApplication::runPlumbumInternal()
             }
         }
     }
-#ifdef Q_OS_MACOS
-    connect(this, &QApplication::applicationStateChanged, [this](Qt::ApplicationState state) {
-        switch (state)
-        {
-            case Qt::ApplicationActive:
-            {
-                mainWindow->show();
-                mainWindow->raise();
-                mainWindow->activateWindow();
-                break;
-            }
-            case Qt::ApplicationHidden:
-            case Qt::ApplicationInactive:
-            case Qt::ApplicationSuspended: break;
-        }
-    });
-#endif
     isInitialized = true;
     return (PlumbumExitReason) exec();
 }

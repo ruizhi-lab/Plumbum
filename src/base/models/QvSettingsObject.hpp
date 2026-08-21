@@ -43,13 +43,7 @@ namespace Plumbum::base::config
 
     struct PlumbumConfig_UI
     {
-#ifdef Q_OS_WIN
-        QString theme = "windowsvista";
-#elif defined(Q_OS_MACOS)
-        QString theme = "macintosh";
-#else
         QString theme = "Fusion";
-#endif
         // Keep the system locale as the default; an explicit language can be
         // selected from the UI and is stored as its locale code.
         QString language = "system";
@@ -88,21 +82,8 @@ namespace Plumbum::base::config
         //
         QString v2CorePath_linux;
         QString v2AssetsPath_linux;
-        QString v2CorePath_macx;
-        QString v2AssetsPath_macx;
-        QString v2CorePath_win;
-        QString v2AssetsPath_win;
-
-#ifdef Q_OS_LINUX
 #define _VARNAME_VCOREPATH_ v2CorePath_linux
 #define _VARNAME_VASSETSPATH_ v2AssetsPath_linux
-#elif defined(Q_OS_MACOS)
-#define _VARNAME_VCOREPATH_ v2CorePath_macx
-#define _VARNAME_VASSETSPATH_ v2AssetsPath_macx
-#elif defined(Q_OS_WIN)
-#define _VARNAME_VCOREPATH_ v2CorePath_win
-#define _VARNAME_VASSETSPATH_ v2AssetsPath_win
-#endif
 
         inline const QString KernelPath(const QString &path = "")
         {
@@ -117,14 +98,10 @@ namespace Plumbum::base::config
 #undef _VARNAME_VASSETSPATH_
 
         JSONSTRUCT_COMPARE(PlumbumConfig_Kernel, enableAPI, statsPort, //
-                           v2CorePath_linux, v2AssetsPath_linux,      //
-                           v2CorePath_macx, v2AssetsPath_macx,        //
-                           v2CorePath_win, v2AssetsPath_win)
-        JSONSTRUCT_REGISTER(PlumbumConfig_Kernel,                     //
-                            F(enableAPI, statsPort),                 //
-                            F(v2CorePath_linux, v2AssetsPath_linux), //
-                            F(v2CorePath_macx, v2AssetsPath_macx),   //
-                            F(v2CorePath_win, v2AssetsPath_win))
+                           v2CorePath_linux, v2AssetsPath_linux)
+        JSONSTRUCT_REGISTER(PlumbumConfig_Kernel,
+                            F(enableAPI, statsPort),
+                            F(v2CorePath_linux, v2AssetsPath_linux))
     };
 
     struct PlumbumConfig_Update
@@ -206,11 +183,7 @@ namespace Plumbum::base::config
         {
             config_version = PLUMBUM_CONFIG_VERSION;
         }
-#if QT_VERSION < QT_VERSION_CHECK(5, 13, 0)
-        Q_DISABLE_COPY(PlumbumConfigObject);
-#else
         Q_DISABLE_COPY_MOVE(PlumbumConfigObject);
-#endif
         JSONSTRUCT_COMPARE(PlumbumConfigObject, config_version, logLevel, autoStartId, lastConnectedId, autoStartBehavior, uiConfig, pluginConfig,
                            kernelConfig, updateConfig, networkConfig, inboundConfig, outboundConfig, advancedConfig, defaultRouteConfig)
         JSONSTRUCT_REGISTER_NOCOPYMOVE(PlumbumConfigObject,                                                                   //

@@ -30,7 +30,6 @@ jobs:
           -DCMAKE_POLICY_VERSION_MINIMUM=3.5
           -DCMAKE_BUILD_TYPE=Release
           -DPLUMBUM_UI_TYPE=CLI
-          -DPLUMBUM_QT6=ON
           -DPLUMBUM_HAS_SINGLEAPPLICATION=OFF
           -DBUILD_TESTING=ON
           -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install-ci

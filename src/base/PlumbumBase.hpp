@@ -40,17 +40,8 @@ using namespace Plumbum::base::objects::transfer;
 #define PLUMBUM_CONFIG_DIR_SUFFIX "/"
 #endif
 
-#ifdef Q_OS_WIN
-#define PLUMBUM_EXECUTABLE_SUFFIX ".exe"
-#else
 #define PLUMBUM_EXECUTABLE_SUFFIX ""
-#endif
-
-#ifdef Q_OS_WIN
-#define PLUMBUM_LIBRARY_SUFFIX ".dll"
-#else
 #define PLUMBUM_LIBRARY_SUFFIX ".so"
-#endif
 
 // Get Configured Config Dir Path
 #define PLUMBUM_CONFIG_DIR (QvCoreApplication->ConfigPath)

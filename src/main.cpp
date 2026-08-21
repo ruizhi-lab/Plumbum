@@ -16,13 +16,7 @@
 
 #include <csignal>
 
-#ifndef Q_OS_WIN
 #include <unistd.h>
-#else
-#include <Windows.h>
-//
-#include <DbgHelp.h>
-#endif
 
 #define QV_MODULE_NAME "Init"
 
@@ -50,36 +44,6 @@ const QString SayLastWords() noexcept
 {
     QStringList msg;
     msg << "------- BEGIN PLUMBUM CRASH REPORT -------";
-
-    {
-#ifdef Q_OS_WIN
-        void *stack[1024];
-        HANDLE process = GetCurrentProcess();
-        SymInitialize(process, NULL, TRUE);
-        SymSetOptions(SYMOPT_LOAD_ANYTHING);
-        WORD numberOfFrames = CaptureStackBackTrace(0, 1024, stack, NULL);
-        SYMBOL_INFO *symbol = (SYMBOL_INFO *) malloc(sizeof(SYMBOL_INFO) + (512 - 1) * sizeof(TCHAR));
-        symbol->MaxNameLen = 512;
-        symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
-        DWORD displacement;
-        IMAGEHLP_LINE64 *line = (IMAGEHLP_LINE64 *) malloc(sizeof(IMAGEHLP_LINE64));
-        line->SizeOfStruct = sizeof(IMAGEHLP_LINE64);
-        //
-        for (int i = 0; i < numberOfFrames; i++)
-        {
-            const auto address = (DWORD64) stack[i];
-            SymFromAddr(process, address, NULL, symbol);
-            if (SymGetLineFromAddr64(process, address, &displacement, line))
-            {
-                msg << QString("[%1]: %2 (%3:%4)").arg(symbol->Address).arg(symbol->Name).arg(line->FileName).arg(line->LineNumber);
-            }
-            else
-            {
-                msg << QString("[%1]: %2 SymGetLineFromAddr64[%3]").arg(symbol->Address).arg(symbol->Name).arg(GetLastError());
-            }
-        }
-#endif
-    }
 
     if (KernelInstance)
     {
@@ -140,13 +104,11 @@ const QString SayLastWords() noexcept
 
 void signalHandler(int signum)
 {
-#ifndef Q_OS_WIN
     if (signum == SIGTRAP)
     {
         exit(-99);
         return;
     }
-#endif
     std::cout << "Plumbum: Interrupt signal (" << signum << ") received." << std::endl;
 
     if (signum == SIGTERM)
@@ -171,20 +133,12 @@ void signalHandler(int signum)
         BootstrapMessageBox("UNCAUGHT EXCEPTION", message);
     }
 
-#if defined Q_OS_WIN || defined QT_DEBUG
+#ifdef QT_DEBUG
     exit(-99);
 #else
     kill(getpid(), SIGTRAP);
 #endif
 }
-
-#ifdef Q_OS_WIN
-LONG WINAPI TopLevelExceptionHandler(PEXCEPTION_POINTERS)
-{
-    signalHandler(-1);
-    return EXCEPTION_CONTINUE_SEARCH;
-}
-#endif
 
 int main(int argc, char *argv[])
 {
@@ -194,12 +148,8 @@ int main(int argc, char *argv[])
     signal(SIGABRT, signalHandler);
     signal(SIGSEGV, signalHandler);
     signal(SIGTERM, signalHandler);
-#ifndef Q_OS_WIN
     signal(SIGHUP, signalHandler);
     signal(SIGKILL, signalHandler);
-#else
-    // AddVectoredExceptionHandler(0, TopLevelExceptionHandler);
-#endif
     //
     // This line must be called before any other ones, since we are using these
     // values to identify instances.
@@ -228,19 +178,10 @@ int main(int argc, char *argv[])
     else
     {
         DEBUG("High DPI scaling is enabled.");
-#ifndef PLUMBUM_QT6
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
 #ifdef PLUMBUM_GUI
         QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
-#endif
     }
-
-#ifndef PLUMBUM_QT6
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
 
     PlumbumApplication app(argc, argv);
     if (const auto list = app.CheckPrerequisites(); !list.isEmpty())
@@ -260,10 +201,8 @@ int main(int argc, char *argv[])
         return reason;
     }
 
-#ifndef Q_OS_WIN
     signal(SIGUSR1, [](int) { ConnectionManager->RestartConnection(); });
     signal(SIGUSR2, [](int) { ConnectionManager->StopConnection(); });
-#endif
 
     app.RunPlumbum();
     const auto reason = app.GetExitReason();
