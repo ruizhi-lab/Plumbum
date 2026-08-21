@@ -24,8 +24,8 @@ jobs:
               qt6-base-dev qt6-declarative-dev qt6-5compat-dev qml6-module-qt5compat-graphicaleffects qt6-svg-dev qt6-tools-dev
               libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcurl4-openssl-dev libssl-dev
               libxkbcommon-dev
-          - name: Ubuntu 24.04
-            image: ubuntu:24.04
+          - name: Ubuntu 26.04
+            image: ubuntu:26.04
             setup: >-
               apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential cmake ninja-build pkg-config
               qt6-base-dev qt6-declarative-dev qt6-5compat-dev qml6-module-qt5compat-graphicaleffects qt6-svg-dev qt6-tools-dev
