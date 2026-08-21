@@ -30,6 +30,19 @@ namespace
         SaveGlobalSettings();
         return true;
     }
+
+    QList<QString> routeRulesFromText(const QString &text)
+    {
+        QList<QString> rules;
+        const auto values = text.split(QRegularExpression("[,\\n\\r]+"), Qt::SkipEmptyParts);
+        for (const auto &entry : values)
+        {
+            const auto rule = entry.trimmed();
+            if (!rule.isEmpty() && !rules.contains(rule))
+                rules.append(rule);
+        }
+        return rules;
+    }
 }
 
 // =================================================================================
@@ -765,6 +778,46 @@ void PlumbumQMLProperty::setDnsServers(const QString &value)
     GlobalConfig.defaultRouteConfig.dnsConfig.servers = servers;
     SaveGlobalSettings();
     emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setDomainStrategy(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.domainStrategy, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setDomainMatcher(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.domainMatcher, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setDomainDirectRules(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.domains.direct, routeRulesFromText(value))) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setDomainBlockRules(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.domains.block, routeRulesFromText(value))) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setDomainProxyRules(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.domains.proxy, routeRulesFromText(value))) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setIpDirectRules(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.ips.direct, routeRulesFromText(value))) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setIpBlockRules(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.ips.block, routeRulesFromText(value))) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setIpProxyRules(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.defaultRouteConfig.routeConfig.ips.proxy, routeRulesFromText(value))) emit settingsChanged();
 }
 
 void PlumbumQMLProperty::setFakeDnsIpPool(const QString &value)

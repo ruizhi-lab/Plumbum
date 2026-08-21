@@ -401,6 +401,18 @@ Rectangle {
                             currentIndex: plumbum.pacMode
                             onActivated: plumbum.setPacMode(currentIndex)
                         }
+                        Text { text: qsTr("Domain strategy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        ComboBox {
+                            model: ["AsIs", "UseIP", "UseIPv4", "UseIPv6"]
+                            currentIndex: Math.max(0, model.indexOf(plumbum.domainStrategy))
+                            onActivated: plumbum.setDomainStrategy(model[currentIndex])
+                        }
+                        Text { text: qsTr("Domain matcher"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
+                        ComboBox {
+                            model: ["mph", "linear"]
+                            currentIndex: Math.max(0, model.indexOf(plumbum.domainMatcher))
+                            onActivated: plumbum.setDomainMatcher(model[currentIndex])
+                        }
                         Text { text: qsTr("Force direct"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
                         Switch { checked: plumbum.forceDirect; onToggled: plumbum.setForceDirect(checked) }
                         Text { text: qsTr("Bypass CN mainland"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
@@ -414,7 +426,23 @@ Rectangle {
                         Text { text: qsTr("DNS intercept"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
                         Switch { checked: plumbum.dnsIntercept; onToggled: plumbum.setDnsIntercept(checked) }
                         Text { text: qsTr("DNS servers"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
-                        TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.dnsServers; placeholderText: qsTr("One server per line, e.g. 1.1.1.1"); onEditingFinished: plumbum.setDnsServers(text) }
+                        TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.dnsServers; placeholderText: qsTr("One server per line, e.g. 1.1.1.1"); onFocusChanged: if (!focus) plumbum.setDnsServers(text) }
+                        Text { text: qsTr("Domain direct / block / proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 8
+                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.domainDirectRules; placeholderText: qsTr("Direct rules"); onFocusChanged: if (!focus) plumbum.setDomainDirectRules(text) }
+                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.domainBlockRules; placeholderText: qsTr("Block rules"); onFocusChanged: if (!focus) plumbum.setDomainBlockRules(text) }
+                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.domainProxyRules; placeholderText: qsTr("Proxy rules"); onFocusChanged: if (!focus) plumbum.setDomainProxyRules(text) }
+                        }
+                        Text { text: qsTr("IP direct / block / proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 8
+                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.ipDirectRules; placeholderText: qsTr("Direct rules"); onFocusChanged: if (!focus) plumbum.setIpDirectRules(text) }
+                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.ipBlockRules; placeholderText: qsTr("Block rules"); onFocusChanged: if (!focus) plumbum.setIpBlockRules(text) }
+                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.ipProxyRules; placeholderText: qsTr("Proxy rules"); onFocusChanged: if (!focus) plumbum.setIpProxyRules(text) }
+                        }
                         Text { text: qsTr("FakeDNS IP pool"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
                         TextField { Layout.fillWidth: true; text: plumbum.fakeDnsIpPool; onEditingFinished: plumbum.setFakeDnsIpPool(text) }
                         Text { text: qsTr("FakeDNS pool size"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }

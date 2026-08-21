@@ -134,6 +134,14 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(bool v2rayFreedomDNS READ v2rayFreedomDNS NOTIFY settingsChanged)
     Q_PROPERTY(bool dnsIntercept READ dnsIntercept NOTIFY settingsChanged)
     Q_PROPERTY(QString dnsServers READ dnsServers NOTIFY settingsChanged)
+    Q_PROPERTY(QString domainStrategy READ domainStrategy NOTIFY settingsChanged)
+    Q_PROPERTY(QString domainMatcher READ domainMatcher NOTIFY settingsChanged)
+    Q_PROPERTY(QString domainDirectRules READ domainDirectRules NOTIFY settingsChanged)
+    Q_PROPERTY(QString domainBlockRules READ domainBlockRules NOTIFY settingsChanged)
+    Q_PROPERTY(QString domainProxyRules READ domainProxyRules NOTIFY settingsChanged)
+    Q_PROPERTY(QString ipDirectRules READ ipDirectRules NOTIFY settingsChanged)
+    Q_PROPERTY(QString ipBlockRules READ ipBlockRules NOTIFY settingsChanged)
+    Q_PROPERTY(QString ipProxyRules READ ipProxyRules NOTIFY settingsChanged)
     Q_PROPERTY(QString fakeDnsIpPool READ fakeDnsIpPool NOTIFY settingsChanged)
     Q_PROPERTY(int fakeDnsPoolSize READ fakeDnsPoolSize NOTIFY settingsChanged)
     Q_PROPERTY(bool forwardProxyEnabled READ forwardProxyEnabled NOTIFY settingsChanged)
@@ -238,6 +246,14 @@ class PlumbumQMLProperty : public QObject
     bool v2rayFreedomDNS() const { return GlobalConfig.defaultRouteConfig.connectionConfig.v2rayFreedomDNS; }
     bool dnsIntercept() const { return GlobalConfig.defaultRouteConfig.connectionConfig.dnsIntercept; }
     QString dnsServers() const;
+    QString domainStrategy() const { return GlobalConfig.defaultRouteConfig.routeConfig.domainStrategy; }
+    QString domainMatcher() const { return GlobalConfig.defaultRouteConfig.routeConfig.domainMatcher; }
+    QString domainDirectRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.domains.direct).join('\n'); }
+    QString domainBlockRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.domains.block).join('\n'); }
+    QString domainProxyRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.domains.proxy).join('\n'); }
+    QString ipDirectRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.ips.direct).join('\n'); }
+    QString ipBlockRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.ips.block).join('\n'); }
+    QString ipProxyRules() const { return QStringList(GlobalConfig.defaultRouteConfig.routeConfig.ips.proxy).join('\n'); }
     QString fakeDnsIpPool() const { return GlobalConfig.defaultRouteConfig.fakeDNSConfig.ipPool; }
     int fakeDnsPoolSize() const { return GlobalConfig.defaultRouteConfig.fakeDNSConfig.poolSize; }
     bool forwardProxyEnabled() const { return GlobalConfig.defaultRouteConfig.forwardProxyConfig.enableForwardProxy; }
@@ -254,6 +270,14 @@ class PlumbumQMLProperty : public QObject
     Q_INVOKABLE void setV2rayFreedomDNS(bool value);
     Q_INVOKABLE void setDnsIntercept(bool value);
     Q_INVOKABLE void setDnsServers(const QString &value);
+    Q_INVOKABLE void setDomainStrategy(const QString &value);
+    Q_INVOKABLE void setDomainMatcher(const QString &value);
+    Q_INVOKABLE void setDomainDirectRules(const QString &value);
+    Q_INVOKABLE void setDomainBlockRules(const QString &value);
+    Q_INVOKABLE void setDomainProxyRules(const QString &value);
+    Q_INVOKABLE void setIpDirectRules(const QString &value);
+    Q_INVOKABLE void setIpBlockRules(const QString &value);
+    Q_INVOKABLE void setIpProxyRules(const QString &value);
     Q_INVOKABLE void setFakeDnsIpPool(const QString &value);
     Q_INVOKABLE void setFakeDnsPoolSize(int value);
     Q_INVOKABLE void setForwardProxyEnabled(bool value);
