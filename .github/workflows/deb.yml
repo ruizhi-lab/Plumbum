@@ -58,7 +58,7 @@ jobs:
           submodules: "recursive"
       - name: Install build dependencies
         run: |
-          apt-get install -y build-essential devscripts debhelper ninja-build libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc qt6-base-dev qt6-tools-dev qt6-declarative-dev qt6-5compat-dev cmake pkg-config libcurl4-openssl-dev qt6-svg-dev
+          apt-get install -y build-essential devscripts debhelper ninja-build libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc qt6-base-dev qt6-tools-dev qt6-declarative-dev cmake pkg-config libcurl4-openssl-dev qt6-svg-dev
       - name: Patching source code
         if: matrix.distro == 'stable'
         run: |
@@ -110,7 +110,7 @@ jobs:
         run: |
           dpkg --add-architecture ${{ matrix.arch }}
           apt-get update
-          apt-get install -o APT::Immediate-Configure=0 -y build-essential crossbuild-essential-${{ matrix.arch }} devscripts debhelper ninja-build libgrpc++-dev:${{ matrix.arch }} libprotobuf-dev:${{ matrix.arch }} protobuf-compiler-grpc qt6-base-dev:${{ matrix.arch }} qt6-tools-dev:${{ matrix.arch }} qt6-declarative-dev:${{ matrix.arch }} qt6-5compat-dev:${{ matrix.arch }} cmake pkg-config libcurl4-openssl-dev:${{ matrix.arch }} qt6-svg-dev:${{ matrix.arch }}
+          apt-get install -o APT::Immediate-Configure=0 -y build-essential crossbuild-essential-${{ matrix.arch }} devscripts debhelper ninja-build libgrpc++-dev:${{ matrix.arch }} libprotobuf-dev:${{ matrix.arch }} protobuf-compiler-grpc qt6-base-dev:${{ matrix.arch }} qt6-tools-dev:${{ matrix.arch }} qt6-declarative-dev:${{ matrix.arch }} cmake pkg-config libcurl4-openssl-dev:${{ matrix.arch }} qt6-svg-dev:${{ matrix.arch }}
       - name: Patching source code
         if: matrix.distro == 'stable'
         run: |

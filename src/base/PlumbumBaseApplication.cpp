@@ -42,7 +42,7 @@ QStringList PlumbumApplicationInterface::GetAssetsPaths(const QString &dirName) 
     if (qEnvironmentVariableIsSet("PLUMBUM_RESOURCES_PATH"))
         list << makeAbs(qEnvironmentVariable("PLUMBUM_RESOURCES_PATH") + "/" + dirName);
 
-    // Default behavior on Windows
+    // Standard application-local resources.
     list << makeAbs(QCoreApplication::applicationDirPath() + "/" + dirName);
     list << makeAbs(PLUMBUM_CONFIG_DIR + dirName);
     list << ":/" + dirName;
@@ -50,7 +50,6 @@ QStringList PlumbumApplicationInterface::GetAssetsPaths(const QString &dirName) 
     list << QStandardPaths::locateAll(QStandardPaths::AppDataLocation, dirName, QStandardPaths::LocateDirectory);
     list << QStandardPaths::locateAll(QStandardPaths::AppConfigLocation, dirName, QStandardPaths::LocateDirectory);
 
-#ifdef Q_OS_UNIX
     // Standard local installs place the executable in bin/ and translations
     // in ../share/plumbum/lang. APPIMAGE uses the same layout, so this path
     // must not be restricted to the APPIMAGE environment variable.
@@ -67,7 +66,6 @@ QStringList PlumbumApplicationInterface::GetAssetsPaths(const QString &dirName) 
     list << makeAbs("/usr/share/plumbum/" + dirName);
     list << makeAbs("/usr/lib/plumbum/" + dirName);
     list << makeAbs("/lib/plumbum/" + dirName);
-#endif
 
     list.removeDuplicates();
     return list;

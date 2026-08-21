@@ -507,11 +507,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::on_activatedTray(QSystemTrayIcon::ActivationReason reason)
 {
-#ifndef __APPLE__
     const auto toggleTriggerEvent = QSystemTrayIcon::Trigger;
-#else
-    const auto toggleTriggerEvent = QSystemTrayIcon::DoubleClick;
-#endif
     if (reason == toggleTriggerEvent)
         MWToggleVisibility();
 }

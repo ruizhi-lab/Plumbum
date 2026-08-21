@@ -22,8 +22,7 @@ namespace Plumbum::core::kernel
 #if PLUMBUM_FEATURE(kernel_check_permission)
     std::pair<bool, std::optional<QString>> V2RayKernelInstance::CheckAndSetCoreExecutableState(const QString &vCorePath)
     {
-#ifdef Q_OS_UNIX
-        // For Linux/macOS users: if they cannot execute the core,
+        // Linux cores must be executable before they can be started.
         // then we shall grant the permission to execute it.
         QFile coreFile(vCorePath);
         if (!coreFile.permissions().testFlag(QFileDevice::ExeUser))
@@ -51,11 +50,6 @@ namespace Plumbum::core::kernel
             DEBUG("Core file is executable.");
         }
         return { true, std::nullopt };
-#else
-        // For Windows and other users: just skip this check.
-        DEBUG("Skipped check and set core executable state.");
-        return { true, tr("Check is skipped") };
-#endif
     }
 #endif
 

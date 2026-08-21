@@ -4,11 +4,7 @@
 #include "TCPing.hpp"
 #include "core/CoreUtils.hpp"
 
-#ifdef Q_OS_UNIX
 #include "unix/ICMPPing.hpp"
-#else
-#include "win/ICMPPing.hpp"
-#endif
 #include "uvw.hpp"
 
 namespace Plumbum::components::latency

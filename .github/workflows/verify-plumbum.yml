@@ -17,32 +17,31 @@ jobs:
       - name: Check out Plumbum
         uses: actions/checkout@v4
 
-      - name: Install build dependencies
+      - name: Build, install and test in Ubuntu 26.04
         run: |
-          sudo apt-get update
-          sudo apt-get install -y qt6-base-dev libgrpc++-dev protobuf-compiler-grpc libcurl4-openssl-dev libssl-dev ninja-build
-
-      - name: Configure CLI build
-        run: >-
-          cmake -S . -B build-ci -GNinja
-          -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-          -DCMAKE_BUILD_TYPE=Release
-          -DPLUMBUM_UI_TYPE=CLI
-          -DPLUMBUM_HAS_SINGLEAPPLICATION=OFF
-          -DBUILD_TESTING=ON
-          -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install-ci
-
-      - name: Build
-        run: cmake --build build-ci --parallel
-
-      - name: Run protocol and routing tests
-        run: ctest --test-dir build-ci --output-on-failure
-
-      - name: Install and smoke-test installed CLI
-        run: |
-          cmake --install build-ci
-          test -x install-ci/bin/plumbum
-          install-ci/bin/plumbum --help
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/src" \
+            -w /src \
+            ubuntu:26.04 \
+            bash -euxc '
+              apt-get update
+              DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                build-essential cmake ninja-build pkg-config \
+                qt6-base-dev libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc \
+                libcurl4-openssl-dev libssl-dev
+              cmake -S . -B build-ci -GNinja \
+                -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+                -DCMAKE_BUILD_TYPE=Release \
+                -DPLUMBUM_UI_TYPE=CLI \
+                -DPLUMBUM_HAS_SINGLEAPPLICATION=OFF \
+                -DBUILD_TESTING=ON \
+                -DCMAKE_INSTALL_PREFIX=/src/install-ci
+              cmake --build build-ci --parallel
+              ctest --test-dir build-ci --output-on-failure
+              cmake --install build-ci
+              test -x install-ci/bin/plumbum
+              install-ci/bin/plumbum --help
+            '
 
   docker-trojan:
     name: Validate Trojan through Docker Xray

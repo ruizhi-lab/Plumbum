@@ -41,7 +41,7 @@ jobs:
             image: archlinux:base
             setup: >-
               pacman -Sy --noconfirm --needed base-devel cmake ninja pkgconf
-              qt6-base qt6-declarative qt6-5compat qt6-svg qt6-tools grpc protobuf curl openssl
+              qt6-base qt6-declarative qt6-svg qt6-tools grpc protobuf curl openssl
           - name: openSUSE Tumbleweed
             image: opensuse/tumbleweed:latest
             setup: >-

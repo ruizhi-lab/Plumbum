@@ -1,6 +1,4 @@
 #pragma once
-#include <QtGlobal>
-#ifdef Q_OS_UNIX
 
 #include "../DNSBase.hpp"
 #include "uvw.hpp"
@@ -30,4 +28,3 @@ namespace Plumbum::components::latency::icmping
         std::vector<timeval> startTimevals;
     };
 } // namespace Plumbum::components::latency::icmping
-#endif
