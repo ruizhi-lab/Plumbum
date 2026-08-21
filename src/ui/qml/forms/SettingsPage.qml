@@ -728,7 +728,7 @@ Rectangle {
                         color: window.cTextDim
                     }
                     Text {
-                        text: qsTr("Protocols: VMess, VLESS, Shadowsocks, Trojan, HTTP, SOCKS and more")
+                        text: qsTr("Xray / V2Ray protocols: VMess, VLESS, Shadowsocks, Trojan, HTTP, SOCKS")
                         font.pixelSize: 11
                         color: window.cTextDim
                     }
