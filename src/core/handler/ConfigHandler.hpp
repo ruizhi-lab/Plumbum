@@ -167,6 +167,8 @@ namespace Plumbum::core::handler
         int saveTimerId;
         int pingAllTimerId;
         int pingConnectionTimerId;
+        int subscriptionTimerId;
+        QSet<GroupId> updatingSubscriptions;
         QHash<GroupId, GroupObject> groups;
         QHash<ConnectionId, ConnectionObject> connections;
         QHash<ConnectionId, CONFIGROOT> connectionRootCache;

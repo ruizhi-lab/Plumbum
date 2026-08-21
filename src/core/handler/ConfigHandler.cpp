@@ -82,6 +82,8 @@ namespace Plumbum::core::handler
         saveTimerId = startTimer(1 * 60 * 60 * 1000);
         // Do not ping all...
         pingConnectionTimerId = startTimer(60 * 1000);
+        // Check daily subscription intervals without prompting the user.
+        subscriptionTimerId = startTimer(60 * 60 * 1000);
     }
 
     void QvConfigHandler::SaveConnectionConfig()
@@ -117,6 +119,25 @@ namespace Plumbum::core::handler
             if (!id.isEmpty() && GlobalConfig.advancedConfig.testLatencyPeriodically)
             {
                 StartLatencyTest(id.connectionId, GlobalConfig.networkConfig.latencyTestingMethod);
+            }
+        }
+        else if (event->timerId() == subscriptionTimerId)
+        {
+            const auto now = QDateTime::currentDateTime();
+            for (const auto &id : Subscriptions())
+            {
+                if (updatingSubscriptions.contains(id))
+                    continue;
+                const auto info = groups.value(id);
+                const auto interval = info.subscriptionOption.updateInterval;
+                if (interval <= 0)
+                    continue;
+                const auto dueAt = QDateTime::fromSecsSinceEpoch(info.lastUpdatedDate).addSecs(qRound64(interval * 86400.0));
+                if (dueAt <= now)
+                {
+                    LOG("Automatically updating subscription: " + info.displayName);
+                    UpdateSubscriptionAsync(id);
+                }
             }
         }
     }
@@ -501,8 +522,13 @@ namespace Plumbum::core::handler
         CheckValidId(id, nothing);
         if (!groups[id].isSubscription)
             return;
+        if (updatingSubscriptions.contains(id))
+            return;
+        updatingSubscriptions.insert(id);
         NetworkRequestHelper::AsyncHttpGet(groups[id].subscriptionOption.address, [=](const QByteArray &d) {
-            emit OnSubscriptionAsyncUpdateFinished(id, p_CHUpdateSubscription(id, d));
+            const auto success = p_CHUpdateSubscription(id, d);
+            updatingSubscriptions.remove(id);
+            emit OnSubscriptionAsyncUpdateFinished(id, success);
         });
     }
 
@@ -724,6 +750,7 @@ namespace Plumbum::core::handler
 
         // Update the time
         groups[id].lastUpdatedDate = system_clock::to_time_t(system_clock::now());
+        SaveConnectionConfig();
         return !hasErrorOccured;
     }
 
