@@ -215,7 +215,7 @@ namespace Plumbum::core::config
             GlobalConfig.kernelConfig.KernelPath(PLUMBUM_DEFAULT_VCORE_PATH);
             GlobalConfig.kernelConfig.AssetsPath(PLUMBUM_DEFAULT_VASSETS_PATH);
             GlobalConfig.logLevel = 3;
-            GlobalConfig.uiConfig.language = QLocale::system().name();
+            GlobalConfig.uiConfig.language = "system";
             GlobalConfig.defaultRouteConfig.dnsConfig.servers.append({ "1.1.1.1" });
             GlobalConfig.defaultRouteConfig.dnsConfig.servers.append({ "8.8.8.8" });
             GlobalConfig.defaultRouteConfig.dnsConfig.servers.append({ "8.8.4.4" });

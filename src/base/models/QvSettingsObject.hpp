@@ -50,7 +50,9 @@ namespace Plumbum::base::config
 #else
         QString theme = "Fusion";
 #endif
-        QString language = "en_US";
+        // Keep the system locale as the default; an explicit language can be
+        // selected from the UI and is stored as its locale code.
+        QString language = "system";
         QList<ConnectionGroupPair> recentConnections;
         PlumbumConfig_Graph graphConfig;
         bool quietMode = false;

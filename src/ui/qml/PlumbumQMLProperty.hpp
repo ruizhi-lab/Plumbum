@@ -131,35 +131,35 @@ class PlumbumQMLProperty : public QObject
 
     // Settings (GlobalConfig)
     QString v2rayCorePath() const { return GlobalConfig.kernelConfig.KernelPath(); }
-    void setV2rayCorePath(const QString &path);
+    Q_INVOKABLE void setV2rayCorePath(const QString &path);
     QString v2rayAssetsPath() const { return GlobalConfig.kernelConfig.AssetsPath(); }
-    void setV2rayAssetsPath(const QString &path);
+    Q_INVOKABLE void setV2rayAssetsPath(const QString &path);
     bool kernelApiEnabled() const { return GlobalConfig.kernelConfig.enableAPI; }
-    void setKernelApiEnabled(bool enabled);
+    Q_INVOKABLE void setKernelApiEnabled(bool enabled);
     int statsPort() const { return GlobalConfig.kernelConfig.statsPort; }
-    void setStatsPort(int port);
+    Q_INVOKABLE void setStatsPort(int port);
     // PAC routing mode (0=whitelist, 1=blacklist, 2=global)
     int pacMode() const { return GlobalConfig.defaultRouteConfig.connectionConfig.pacMode; }
-    void setPacMode(int mode);
+    Q_INVOKABLE void setPacMode(int mode);
     // TUN system-level proxy
     bool tunEnabled() const { return GlobalConfig.inboundConfig.tunSettings.enabled; }
-    void setTunEnabled(bool enabled);
+    Q_INVOKABLE void setTunEnabled(bool enabled);
     QString tunIpv4() const { return GlobalConfig.inboundConfig.tunSettings.ipv4; }
-    void setTunIpv4(const QString &ip);
+    Q_INVOKABLE void setTunIpv4(const QString &ip);
     int tunMtu() const { return GlobalConfig.inboundConfig.tunSettings.mtu; }
-    void setTunMtu(int mtu);
+    Q_INVOKABLE void setTunMtu(int mtu);
     // Whether the current process can create TUN interfaces (root / CAP_NET_ADMIN).
     bool tunAvailable() const;
     // Theme: 0=follow system, 1=light, 2=dark
     int themeMode() const { return GlobalConfig.uiConfig.themeMode; }
-    void setThemeMode(int mode);
+    Q_INVOKABLE void setThemeMode(int mode);
     // Whether the OS is currently in dark mode.
     bool systemDark() const;
     // Real version from build (makespec/VERSION), e.g. 1.0.0
     QString versionString() const { return QString(PLUMBUM_VERSION_STRING); }
     // Language (locale code, e.g. en_US, zh_CN, zh_TW, ru_RU)
     QString language() const { return GlobalConfig.uiConfig.language; }
-    void setLanguage(const QString &code);
+    Q_INVOKABLE void setLanguage(const QString &code);
     QStringList availableLanguages() const;
 
   public:

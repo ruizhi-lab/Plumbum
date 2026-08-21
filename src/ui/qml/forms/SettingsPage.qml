@@ -133,6 +133,7 @@ Rectangle {
                             Layout.preferredWidth: 160
                             Layout.preferredHeight: 36
                             model: [
+                                { code: "system", label: qsTr("System (Auto)") },
                                 { code: "en_US", label: "English" },
                                 { code: "zh_CN", label: "简体中文" },
                                 { code: "zh_TW", label: "繁體中文" },

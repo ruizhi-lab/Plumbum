@@ -105,29 +105,31 @@ bool PlumbumPlatformApplication::Initialize()
 
     // Install a default translater. From the OS/DE
     PlumbumTranslator = std::make_unique<QvTranslator>();
-    PlumbumTranslator->InstallTranslation(QLocale::system().name());
-    const auto allTranslations = PlumbumTranslator->GetAvailableLanguages();
     const auto osLanguage = QLocale::system().name();
+    PlumbumTranslator->InstallTranslation(osLanguage);
+    const auto allTranslations = PlumbumTranslator->GetAvailableLanguages();
     //
     LocateConfiguration();
-    if (!allTranslations.contains(GlobalConfig.uiConfig.language))
+    const auto configuredLanguage = GlobalConfig.uiConfig.language;
+    const auto followsSystem = configuredLanguage.isEmpty() || configuredLanguage == "system";
+    auto language = followsSystem ? osLanguage : configuredLanguage;
+    if (!allTranslations.contains(language))
     {
-        // If we need to reset the language.
-        if (allTranslations.contains(osLanguage))
-        {
-            GlobalConfig.uiConfig.language = osLanguage;
-        }
+        const auto languagePrefix = QLocale(language).name().section('_', 0, 0);
+        const auto matchingLanguage = std::find_if(allTranslations.cbegin(), allTranslations.cend(), [&](const auto &available) {
+            return available.startsWith(languagePrefix + "_");
+        });
+        if (matchingLanguage != allTranslations.cend())
+            language = *matchingLanguage;
         else if (!allTranslations.isEmpty())
-        {
-            GlobalConfig.uiConfig.language = allTranslations.first();
-        }
+            language = allTranslations.first();
     }
 
-    if (!PlumbumTranslator->InstallTranslation(GlobalConfig.uiConfig.language))
+    if (!PlumbumTranslator->InstallTranslation(language))
     {
         // Silently fall back to English when no translation file is available.
         // (e.g. a fresh build without generated .qm files)
-        GlobalConfig.uiConfig.language = "en_US";
+        PlumbumTranslator->InstallTranslation("en_US");
     }
 
     return true;

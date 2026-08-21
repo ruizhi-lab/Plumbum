@@ -177,6 +177,10 @@ PlumbumQMLProperty::PlumbumQMLProperty(QObject *parent) : QObject(parent)
 {
     _connectionModel.setGroup(DefaultGroupId);
     _currentGroupId = DefaultGroupId;
+    if (auto *hints = QGuiApplication::styleHints())
+    {
+        connect(hints, &QStyleHints::colorSchemeChanged, this, &PlumbumQMLProperty::systemThemeChanged);
+    }
 }
 
 PlumbumQMLProperty::~PlumbumQMLProperty()
@@ -625,7 +629,12 @@ void PlumbumQMLProperty::setLanguage(const QString &code)
     SaveGlobalSettings();
     // Apply the new translator immediately.
     if (PlumbumTranslator)
-        PlumbumTranslator->InstallTranslation(code);
+    {
+        const auto systemLanguage = QLocale::system().name();
+        const auto language = code == "system" ? systemLanguage : code;
+        if (!PlumbumTranslator->InstallTranslation(language))
+            PlumbumTranslator->InstallTranslation("en_US");
+    }
     emit settingsChanged();
 }
 
