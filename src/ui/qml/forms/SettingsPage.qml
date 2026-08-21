@@ -274,6 +274,106 @@ Rectangle {
                 }
             }
 
+            // -------- Local proxy / inbound card --------
+            Rectangle {
+                id: inboundCard
+                Layout.fillWidth: true
+                implicitHeight: inboundLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
+                radius: 10
+                color: window.cSurface
+                border.color: window.cBorder
+
+                ColumnLayout {
+                    id: inboundLayout
+                    anchors.fill: parent
+                    anchors.margins: 18
+                    spacing: 12
+
+                    Text {
+                        text: qsTr("Local Proxy / Inbound")
+                        font.pixelSize: 13
+                        font.bold: true
+                        color: window.cPrimaryAlt
+                    }
+                    Text {
+                        text: qsTr("Configure the local SOCKS, HTTP and transparent proxy listeners used by Xray/V2Ray.")
+                        font.pixelSize: 11
+                        color: window.cTextDim
+                        wrapMode: Text.Wrap
+                        Layout.fillWidth: true
+                    }
+
+                    GridLayout {
+                        columns: 2
+                        columnSpacing: 12
+                        rowSpacing: 10
+
+                        Text { text: qsTr("Listen address"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        TextField {
+                            Layout.fillWidth: true
+                            text: plumbum.inboundListenAddress
+                            placeholderText: "127.0.0.1"
+                            onEditingFinished: plumbum.setInboundListenAddress(text)
+                        }
+
+                        Text { text: qsTr("SOCKS inbound"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.socksInboundEnabled; onToggled: plumbum.setSocksInboundEnabled(checked) }
+
+                        Text { text: qsTr("SOCKS port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        SpinBox { from: 1; to: 65535; value: plumbum.socksPort; editable: true; onValueModified: plumbum.setSocksPort(value) }
+
+                        Text { text: qsTr("SOCKS listen address"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        TextField { Layout.fillWidth: true; text: plumbum.socksListenAddress; onEditingFinished: plumbum.setSocksListenAddress(text) }
+
+                        Text { text: qsTr("SOCKS UDP"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.socksUdpEnabled; onToggled: plumbum.setSocksUdpEnabled(checked) }
+
+                        Text { text: qsTr("SOCKS authentication"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.socksAuthEnabled; onToggled: plumbum.setSocksAuthEnabled(checked) }
+
+                        Text { text: qsTr("HTTP inbound"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.httpInboundEnabled; onToggled: plumbum.setHttpInboundEnabled(checked) }
+
+                        Text { text: qsTr("HTTP port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        SpinBox { from: 1; to: 65535; value: plumbum.httpPort; editable: true; onValueModified: plumbum.setHttpPort(value) }
+
+                        Text { text: qsTr("HTTP authentication"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.httpAuthEnabled; onToggled: plumbum.setHttpAuthEnabled(checked) }
+
+                        Text { text: qsTr("TProxy inbound"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.tproxyInboundEnabled; onToggled: plumbum.setTproxyInboundEnabled(checked) }
+
+                        Text { text: qsTr("TProxy port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        SpinBox { from: 1; to: 65535; value: plumbum.tproxyPort; editable: true; onValueModified: plumbum.setTproxyPort(value) }
+
+                        Text { text: qsTr("TProxy IPv4"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        TextField { Layout.fillWidth: true; text: plumbum.tproxyListenAddress; onEditingFinished: plumbum.setTproxyListenAddress(text) }
+
+                        Text { text: qsTr("TProxy IPv6"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        TextField { Layout.fillWidth: true; text: plumbum.tproxyListenAddressV6; onEditingFinished: plumbum.setTproxyListenAddressV6(text) }
+
+                        Text { text: qsTr("TProxy TCP / UDP"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        RowLayout {
+                            spacing: 12
+                            Switch { text: qsTr("TCP"); checked: plumbum.tproxyTcpEnabled; onToggled: plumbum.setTproxyTcpEnabled(checked) }
+                            Switch { text: qsTr("UDP"); checked: plumbum.tproxyUdpEnabled; onToggled: plumbum.setTproxyUdpEnabled(checked) }
+                        }
+
+                        Text { text: qsTr("Set system proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.systemProxyEnabled; onToggled: plumbum.setSystemProxyEnabled(checked) }
+
+                        Text { text: qsTr("Browser forwarder"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 8
+                            TextField { Layout.fillWidth: true; text: plumbum.browserForwarderAddress; onEditingFinished: plumbum.setBrowserForwarderAddress(text) }
+                            SpinBox { from: 1; to: 65535; value: plumbum.browserForwarderPort; editable: true; onValueModified: plumbum.setBrowserForwarderPort(value) }
+                        }
+                    }
+                }
+            }
+
             // -------- TUN system proxy card --------
             Rectangle {
                 id: tunCard
@@ -369,6 +469,28 @@ Rectangle {
                             editable: true
                             onValueModified: plumbum.setTunMtu(value)
                         }
+
+                        Text {
+                            text: qsTr("TUN IPv6:")
+                            font.pixelSize: 12
+                            color: window.cTextDim
+                            Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
+                        }
+                        TextField {
+                            Layout.fillWidth: true
+                            text: plumbum.tunIpv6
+                            onEditingFinished: plumbum.setTunIpv6(text)
+                        }
+
+                        Text { text: qsTr("Auto route:"); font.pixelSize: 12; color: window.cTextDim; Layout.preferredWidth: 140; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.tunAutoRoute; onToggled: plumbum.setTunAutoRoute(checked) }
+
+                        Text { text: qsTr("Strict route:"); font.pixelSize: 12; color: window.cTextDim; Layout.preferredWidth: 140; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.tunStrictRoute; onToggled: plumbum.setTunStrictRoute(checked) }
+
+                        Text { text: qsTr("TUN sniffing:"); font.pixelSize: 12; color: window.cTextDim; Layout.preferredWidth: 140; Layout.alignment: Qt.AlignVCenter }
+                        Switch { checked: plumbum.tunSniffing; onToggled: plumbum.setTunSniffing(checked) }
                     }
                 }
             }

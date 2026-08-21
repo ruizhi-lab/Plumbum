@@ -20,6 +20,18 @@ using namespace Plumbum;
 using namespace Plumbum::core::connection;
 using namespace Plumbum::core::handler;
 
+namespace
+{
+    template<typename T> bool assignQmlSetting(T &target, const T &value)
+    {
+        if (target == value)
+            return false;
+        target = value;
+        SaveGlobalSettings();
+        return true;
+    }
+}
+
 // =================================================================================
 // ConnectionListModel
 // =================================================================================
@@ -584,6 +596,120 @@ void PlumbumQMLProperty::setTunMtu(int mtu)
     GlobalConfig.inboundConfig.tunSettings.mtu = mtu;
     SaveGlobalSettings();
     emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setInboundListenAddress(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.listenip, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setSocksInboundEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.useSocks, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setSocksListenAddress(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.socksSettings.localIP, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setSocksPort(int value)
+{
+    if (value < 1 || value > 65535) return;
+    if (assignQmlSetting(GlobalConfig.inboundConfig.socksSettings.port, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setSocksUdpEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.socksSettings.enableUDP, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setSocksAuthEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.socksSettings.useAuth, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setHttpInboundEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.useHTTP, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setHttpPort(int value)
+{
+    if (value < 1 || value > 65535) return;
+    if (assignQmlSetting(GlobalConfig.inboundConfig.httpSettings.port, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setHttpAuthEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.httpSettings.useAuth, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTproxyInboundEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.useTPROXY, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTproxyListenAddress(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tProxySettings.tProxyIP, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTproxyListenAddressV6(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tProxySettings.tProxyV6IP, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTproxyPort(int value)
+{
+    if (value < 1 || value > 65535) return;
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tProxySettings.port, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTproxyTcpEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tProxySettings.hasTCP, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTproxyUdpEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tProxySettings.hasUDP, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setSystemProxyEnabled(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.systemProxySettings.setSystemProxy, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setBrowserForwarderAddress(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.browserForwarderSettings.address, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setBrowserForwarderPort(int value)
+{
+    if (value < 1 || value > 65535) return;
+    if (assignQmlSetting(GlobalConfig.inboundConfig.browserForwarderSettings.port, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTunIpv6(const QString &value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tunSettings.ipv6, value.trimmed())) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTunAutoRoute(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tunSettings.autoRoute, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTunStrictRoute(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tunSettings.strictRoute, value)) emit settingsChanged();
+}
+
+void PlumbumQMLProperty::setTunSniffing(bool value)
+{
+    if (assignQmlSetting(GlobalConfig.inboundConfig.tunSettings.sniffing, value)) emit settingsChanged();
 }
 
 bool PlumbumQMLProperty::tunAvailable() const

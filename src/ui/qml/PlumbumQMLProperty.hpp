@@ -105,6 +105,28 @@ class PlumbumQMLProperty : public QObject
     Q_PROPERTY(QString tunIpv4 READ tunIpv4 WRITE setTunIpv4 NOTIFY settingsChanged)
     Q_PROPERTY(int tunMtu READ tunMtu WRITE setTunMtu NOTIFY settingsChanged)
     Q_PROPERTY(bool tunAvailable READ tunAvailable NOTIFY settingsChanged)
+    Q_PROPERTY(QString inboundListenAddress READ inboundListenAddress NOTIFY settingsChanged)
+    Q_PROPERTY(bool socksInboundEnabled READ socksInboundEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(QString socksListenAddress READ socksListenAddress NOTIFY settingsChanged)
+    Q_PROPERTY(int socksPort READ socksPort NOTIFY settingsChanged)
+    Q_PROPERTY(bool socksUdpEnabled READ socksUdpEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(bool socksAuthEnabled READ socksAuthEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(bool httpInboundEnabled READ httpInboundEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(int httpPort READ httpPort NOTIFY settingsChanged)
+    Q_PROPERTY(bool httpAuthEnabled READ httpAuthEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(bool tproxyInboundEnabled READ tproxyInboundEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(QString tproxyListenAddress READ tproxyListenAddress NOTIFY settingsChanged)
+    Q_PROPERTY(QString tproxyListenAddressV6 READ tproxyListenAddressV6 NOTIFY settingsChanged)
+    Q_PROPERTY(int tproxyPort READ tproxyPort NOTIFY settingsChanged)
+    Q_PROPERTY(bool tproxyTcpEnabled READ tproxyTcpEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(bool tproxyUdpEnabled READ tproxyUdpEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(bool systemProxyEnabled READ systemProxyEnabled NOTIFY settingsChanged)
+    Q_PROPERTY(QString browserForwarderAddress READ browserForwarderAddress NOTIFY settingsChanged)
+    Q_PROPERTY(int browserForwarderPort READ browserForwarderPort NOTIFY settingsChanged)
+    Q_PROPERTY(QString tunIpv6 READ tunIpv6 NOTIFY settingsChanged)
+    Q_PROPERTY(bool tunAutoRoute READ tunAutoRoute NOTIFY settingsChanged)
+    Q_PROPERTY(bool tunStrictRoute READ tunStrictRoute NOTIFY settingsChanged)
+    Q_PROPERTY(bool tunSniffing READ tunSniffing NOTIFY settingsChanged)
     Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY settingsChanged)
     Q_PROPERTY(int themeMode READ themeMode WRITE setThemeMode NOTIFY themeModeChanged)
     Q_PROPERTY(bool systemDark READ systemDark NOTIFY systemThemeChanged)
@@ -149,6 +171,50 @@ class PlumbumQMLProperty : public QObject
     Q_INVOKABLE void setTunIpv4(const QString &ip);
     int tunMtu() const { return GlobalConfig.inboundConfig.tunSettings.mtu; }
     Q_INVOKABLE void setTunMtu(int mtu);
+    QString inboundListenAddress() const { return GlobalConfig.inboundConfig.listenip; }
+    bool socksInboundEnabled() const { return GlobalConfig.inboundConfig.useSocks; }
+    QString socksListenAddress() const { return GlobalConfig.inboundConfig.socksSettings.localIP; }
+    int socksPort() const { return GlobalConfig.inboundConfig.socksSettings.port; }
+    bool socksUdpEnabled() const { return GlobalConfig.inboundConfig.socksSettings.enableUDP; }
+    bool socksAuthEnabled() const { return GlobalConfig.inboundConfig.socksSettings.useAuth; }
+    bool httpInboundEnabled() const { return GlobalConfig.inboundConfig.useHTTP; }
+    int httpPort() const { return GlobalConfig.inboundConfig.httpSettings.port; }
+    bool httpAuthEnabled() const { return GlobalConfig.inboundConfig.httpSettings.useAuth; }
+    bool tproxyInboundEnabled() const { return GlobalConfig.inboundConfig.useTPROXY; }
+    QString tproxyListenAddress() const { return GlobalConfig.inboundConfig.tProxySettings.tProxyIP; }
+    QString tproxyListenAddressV6() const { return GlobalConfig.inboundConfig.tProxySettings.tProxyV6IP; }
+    int tproxyPort() const { return GlobalConfig.inboundConfig.tProxySettings.port; }
+    bool tproxyTcpEnabled() const { return GlobalConfig.inboundConfig.tProxySettings.hasTCP; }
+    bool tproxyUdpEnabled() const { return GlobalConfig.inboundConfig.tProxySettings.hasUDP; }
+    bool systemProxyEnabled() const { return GlobalConfig.inboundConfig.systemProxySettings.setSystemProxy; }
+    QString browserForwarderAddress() const { return GlobalConfig.inboundConfig.browserForwarderSettings.address; }
+    int browserForwarderPort() const { return GlobalConfig.inboundConfig.browserForwarderSettings.port; }
+    QString tunIpv6() const { return GlobalConfig.inboundConfig.tunSettings.ipv6; }
+    bool tunAutoRoute() const { return GlobalConfig.inboundConfig.tunSettings.autoRoute; }
+    bool tunStrictRoute() const { return GlobalConfig.inboundConfig.tunSettings.strictRoute; }
+    bool tunSniffing() const { return GlobalConfig.inboundConfig.tunSettings.sniffing; }
+    Q_INVOKABLE void setInboundListenAddress(const QString &value);
+    Q_INVOKABLE void setSocksInboundEnabled(bool value);
+    Q_INVOKABLE void setSocksListenAddress(const QString &value);
+    Q_INVOKABLE void setSocksPort(int value);
+    Q_INVOKABLE void setSocksUdpEnabled(bool value);
+    Q_INVOKABLE void setSocksAuthEnabled(bool value);
+    Q_INVOKABLE void setHttpInboundEnabled(bool value);
+    Q_INVOKABLE void setHttpPort(int value);
+    Q_INVOKABLE void setHttpAuthEnabled(bool value);
+    Q_INVOKABLE void setTproxyInboundEnabled(bool value);
+    Q_INVOKABLE void setTproxyListenAddress(const QString &value);
+    Q_INVOKABLE void setTproxyListenAddressV6(const QString &value);
+    Q_INVOKABLE void setTproxyPort(int value);
+    Q_INVOKABLE void setTproxyTcpEnabled(bool value);
+    Q_INVOKABLE void setTproxyUdpEnabled(bool value);
+    Q_INVOKABLE void setSystemProxyEnabled(bool value);
+    Q_INVOKABLE void setBrowserForwarderAddress(const QString &value);
+    Q_INVOKABLE void setBrowserForwarderPort(int value);
+    Q_INVOKABLE void setTunIpv6(const QString &value);
+    Q_INVOKABLE void setTunAutoRoute(bool value);
+    Q_INVOKABLE void setTunStrictRoute(bool value);
+    Q_INVOKABLE void setTunSniffing(bool value);
     // Whether the current process can create TUN interfaces (root / CAP_NET_ADMIN).
     bool tunAvailable() const;
     // Theme: 0=follow system, 1=light, 2=dark
