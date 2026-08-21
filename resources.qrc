@@ -3,6 +3,7 @@
         <file>assets/icons/plumbum.icns</file>
         <file>assets/icons/plumbum.ico</file>
         <file>assets/icons/plumbum.png</file>
+        <file>assets/icons/plumbum-tray.png</file>
         <file>assets/credit.html</file>
     </qresource>
 </RCC>

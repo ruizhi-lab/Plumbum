@@ -14,6 +14,7 @@
 #include <QQuickStyle>
 #include <QQuickWindow>
 #include <QPainter>
+#include <QtMath>
 #include <QSystemTrayIcon>
 
 #ifdef PLUMBUM_QMLLIVE_DEBUG
@@ -130,7 +131,7 @@ void PlumbumQMLApplication::setupTrayIcon()
         return;
     }
 
-    trayBasePixmap = QPixmap(QStringLiteral(":/assets/icons/plumbum.png"));
+    trayBasePixmap = QPixmap(QStringLiteral(":/assets/icons/plumbum-tray.png"));
     trayIcon = new QSystemTrayIcon(QIcon(trayBasePixmap), this);
     trayAnimationTimer.setInterval(80);
     connect(&trayAnimationTimer, &QTimer::timeout, this, &PlumbumQMLApplication::animateTrayIcon);
@@ -273,10 +274,15 @@ void PlumbumQMLApplication::animateTrayIcon()
     frame.fill(Qt::transparent);
     QPainter painter(&frame);
     painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
-    painter.translate(iconSize / 2.0, iconSize / 2.0);
-    painter.rotate(trayRotation);
     const auto source = trayBasePixmap.scaled(iconSize - 2, iconSize - 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    painter.drawPixmap(-source.width() / 2, -source.height() / 2, source);
+    painter.drawPixmap((iconSize - source.width()) / 2, (iconSize - source.height()) / 2, source);
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(QColor("#38C8F2"));
+    const auto radians = qDegreesToRadians(trayRotation);
+    const QPointF electron(iconSize / 2.0 + qCos(radians) * 11.0,
+                           iconSize / 2.0 + qSin(radians) * 11.0);
+    painter.drawEllipse(electron, 2.4, 2.4);
     painter.end();
     trayIcon->setIcon(QIcon(frame));
     trayRotation += 6.0;

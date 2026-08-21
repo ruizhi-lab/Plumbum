@@ -1,7 +1,7 @@
 install(TARGETS plumbum RUNTIME DESTINATION bin)
 install(FILES ${CMAKE_SOURCE_DIR}/assets/plumbum.metainfo.xml DESTINATION share/metainfo)
 install(FILES ${CMAKE_SOURCE_DIR}/assets/plumbum.desktop DESTINATION share/applications)
-install(FILES ${CMAKE_SOURCE_DIR}/assets/icons/plumbum-atom.svg
+install(FILES ${CMAKE_SOURCE_DIR}/assets/icons/plumbum.svg
     DESTINATION share/icons/hicolor/scalable/apps
     RENAME plumbum.svg)
 

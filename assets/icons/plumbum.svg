@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <g fill="none" stroke-linecap="round">
-    <ellipse cx="512" cy="512" rx="430" ry="178" transform="rotate(-18 512 512)" stroke="#28B8EA" stroke-width="10"/>
-    <ellipse cx="512" cy="512" rx="430" ry="178" transform="rotate(42 512 512)" stroke="#7668E8" stroke-width="10"/>
-    <circle cx="866" cy="402" r="20" fill="#28B8EA" stroke="none"/>
-    <circle cx="215" cy="674" r="20" fill="#7668E8" stroke="none"/>
-  </g>
-  <path d="M512 150 L807 321 Q832 336 832 365 V659 Q832 688 807 703 L512 874 L217 703 Q192 688 192 659 V365 Q192 336 217 321 Z" fill="#313B4B"/>
-  <path d="M512 150 L807 321 Q832 336 832 365 V398 L512 214 L192 398 V365 Q192 336 217 321 Z" fill="#4B5668"/>
-  <text x="512" y="626" text-anchor="middle" font-family="SF Pro Display, Inter, sans-serif" font-size="300" font-weight="600" letter-spacing="-18" fill="#F7FAFF">Pb</text>
+  <rect x="74" y="74" width="876" height="876" rx="154" fill="#252A31"/>
+  <rect x="112" y="112" width="800" height="800" rx="122" fill="#AEB4BC"/>
+  <path d="M112 386 Q512 172 912 386 V234 Q912 112 790 112 H234 Q112 112 112 234Z" fill="#C5CAD1" opacity=".42"/>
+  <path d="M112 234 Q112 112 234 112 H790 Q912 112 912 234" fill="none" stroke="#E1E5EA" stroke-width="10" opacity=".65"/>
+  <text x="844" y="238" text-anchor="end" font-family="SF Pro Display, Inter, sans-serif" font-size="116" font-weight="500" fill="#20242A">82</text>
+  <text x="512" y="610" text-anchor="middle" font-family="SF Pro Display, Inter, sans-serif" font-size="330" font-weight="700" letter-spacing="-24" fill="#101317">Pb</text>
+  <text x="512" y="738" text-anchor="middle" font-family="SF Pro Display, Inter, sans-serif" font-size="80" font-weight="500" fill="#20242A">Plumbum</text>
+  <text x="512" y="858" text-anchor="middle" font-family="SF Pro Display, Inter, sans-serif" font-size="94" font-weight="500" fill="#20242A">207.2</text>
+  <path d="M154 820 A370 370 0 0 1 154 690" fill="none" stroke="#24B9E9" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="154" cy="690" r="15" fill="#24B9E9"/>
 </svg>
