@@ -115,6 +115,10 @@ Rectangle {
 
                     onConnectRequested: function(id) { plumbum.connectConnection(id) }
                     onDisconnectRequested: function(id) { plumbum.disconnectConnection() }
+                    onEditRequested: function(id) {
+                        editDialog.connectionId = id
+                        editDialog.open()
+                    }
                     onCopyLinkRequested: function(id) { plumbum.copyConnectionLink(id) }
                     onLatencyRequested: function(id) { plumbum.startLatencyTestFor(id) }
                     onDeleteRequested: function(id) {
@@ -167,6 +171,45 @@ Rectangle {
         return false
     }
 
+
+    Dialog {
+        id: editDialog
+        property string connectionId: ""
+        title: qsTr("Edit connection JSON")
+        anchors.centerIn: parent
+        width: Math.min(parent.width - 32, 760)
+        height: Math.min(parent.height - 32, 620)
+        modal: true
+        standardButtons: Dialog.Save | Dialog.Cancel
+
+        ColumnLayout {
+            anchors.fill: parent
+            spacing: 8
+
+            Text {
+                text: qsTr("Advanced editor: changes are validated as JSON before saving.")
+                color: window.cTextDim
+                font.pixelSize: 11
+                Layout.fillWidth: true
+                wrapMode: Text.Wrap
+            }
+
+            ScrollView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                TextArea {
+                    id: editJsonText
+                    selectByMouse: true
+                    wrapMode: TextEdit.NoWrap
+                    font.family: "monospace"
+                }
+            }
+        }
+
+        onOpened: editJsonText.text = plumbum.connectionJson(connectionId)
+        onAccepted: plumbum.updateConnectionJson(connectionId, editJsonText.text)
+    }
 
     // -------- Import URL dialog --------
     Dialog {

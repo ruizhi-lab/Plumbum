@@ -209,6 +209,10 @@ Item {
         width: 200
 
         MenuItem {
+            text: qsTr("Edit JSON")
+            onTriggered: root.editRequested(root.connId)
+        }
+        MenuItem {
             text: qsTr("Copy share link")
             onTriggered: root.copyLinkRequested(root.connId)
         }

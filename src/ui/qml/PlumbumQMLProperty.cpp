@@ -338,6 +338,45 @@ void PlumbumQMLProperty::moveConnectionToGroup(const QString &connectionId, cons
     ConnectionManager->MoveConnectionFromToGroup(ConnectionId(connectionId), _currentGroupId, GroupId(groupId));
 }
 
+QString PlumbumQMLProperty::connectionJson(const QString &connectionId) const
+{
+    if (!ConnectionManager)
+        return {};
+    const auto id = ConnectionId(connectionId);
+    if (!ConnectionManager->IsValidId(id))
+        return {};
+    return JsonToString(ConnectionManager->GetConnectionRoot(id), QJsonDocument::Indented);
+}
+
+bool PlumbumQMLProperty::updateConnectionJson(const QString &connectionId, const QString &json)
+{
+    if (!ConnectionManager)
+        return false;
+
+    QJsonParseError parseError;
+    const auto document = QJsonDocument::fromJson(json.toUtf8(), &parseError);
+    if (parseError.error != QJsonParseError::NoError || !document.isObject())
+    {
+        emit toastMessage(tr("Invalid JSON: %1").arg(parseError.errorString()));
+        return false;
+    }
+
+    const auto id = ConnectionId(connectionId);
+    if (!ConnectionManager->IsValidId(id))
+    {
+        emit toastMessage(tr("Connection no longer exists."));
+        return false;
+    }
+
+    if (!ConnectionManager->UpdateConnection(id, CONFIGROOT(document.object())))
+    {
+        emit toastMessage(tr("Failed to save connection configuration."));
+        return false;
+    }
+    emit toastMessage(tr("Connection configuration saved."));
+    return true;
+}
+
 // ---- Subscriptions ----
 void PlumbumQMLProperty::updateSubscription(const QString &groupId)
 {

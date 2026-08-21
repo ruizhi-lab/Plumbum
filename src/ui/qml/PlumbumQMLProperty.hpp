@@ -180,6 +180,8 @@ class PlumbumQMLProperty : public QObject
     void renameGroup(const QString &groupId, const QString &newName);
     void deleteConnection(const QString &connectionId);
     void moveConnectionToGroup(const QString &connectionId, const QString &groupId);
+    QString connectionJson(const QString &connectionId) const;
+    bool updateConnectionJson(const QString &connectionId, const QString &json);
 
     // Subscriptions
     void updateSubscription(const QString &groupId);
