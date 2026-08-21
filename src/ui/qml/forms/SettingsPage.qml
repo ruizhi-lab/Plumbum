@@ -151,6 +151,21 @@ Rectangle {
                             }
                         }
                     }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 10
+                        Text {
+                            text: qsTranslate("PreferencesWindow", "Start with boot")
+                            font.pixelSize: 12
+                            color: window.cTextDim
+                            Layout.fillWidth: true
+                        }
+                        Switch {
+                            checked: plumbum.autoStartEnabled
+                            onToggled: plumbum.setAutoStartEnabled(checked)
+                        }
+                    }
                 }
             }
 

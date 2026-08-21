@@ -5,6 +5,7 @@
 #include "core/CoreUtils.hpp"
 #include "core/handler/KernelInstanceHandler.hpp"
 #include "core/settings/SettingsBackend.hpp"
+#include "ui/common/autolaunch/QvAutoLaunch.hpp"
 
 #include <QClipboard>
 #include <QFileInfo>
@@ -619,6 +620,19 @@ bool PlumbumQMLProperty::systemDark() const
 #else
     return QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
 #endif
+}
+
+bool PlumbumQMLProperty::autoStartEnabled() const
+{
+    return GetLaunchAtLoginStatus();
+}
+
+void PlumbumQMLProperty::setAutoStartEnabled(bool enabled)
+{
+    if (GetLaunchAtLoginStatus() == enabled)
+        return;
+    SetLaunchAtLoginStatus(enabled);
+    emit settingsChanged();
 }
 
 void PlumbumQMLProperty::setLanguage(const QString &code)
