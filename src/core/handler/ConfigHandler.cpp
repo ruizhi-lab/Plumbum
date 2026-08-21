@@ -136,7 +136,7 @@ namespace Plumbum::core::handler
                 if (dueAt <= now)
                 {
                     LOG("Automatically updating subscription: " + info.displayName);
-                    UpdateSubscriptionAsync(id);
+                    UpdateSubscriptionAsync(id, false);
                 }
             }
         }
@@ -517,7 +517,7 @@ namespace Plumbum::core::handler
         return true;
     }
 
-    void QvConfigHandler::UpdateSubscriptionAsync(const GroupId &id)
+    void QvConfigHandler::UpdateSubscriptionAsync(const GroupId &id, bool interactive)
     {
         CheckValidId(id, nothing);
         if (!groups[id].isSubscription)
@@ -526,7 +526,7 @@ namespace Plumbum::core::handler
             return;
         updatingSubscriptions.insert(id);
         NetworkRequestHelper::AsyncHttpGet(groups[id].subscriptionOption.address, [=](const QByteArray &d) {
-            const auto success = p_CHUpdateSubscription(id, d);
+            const auto success = p_CHUpdateSubscription(id, d, interactive);
             updatingSubscriptions.remove(id);
             emit OnSubscriptionAsyncUpdateFinished(id, success);
         });
@@ -540,7 +540,7 @@ namespace Plumbum::core::handler
         return p_CHUpdateSubscription(id, data);
     }
 
-    bool QvConfigHandler::p_CHUpdateSubscription(const GroupId &id, const QByteArray &data)
+    bool QvConfigHandler::p_CHUpdateSubscription(const GroupId &id, const QByteArray &data, bool interactive)
     {
         CheckValidId(id, false);
         //
@@ -565,8 +565,11 @@ namespace Plumbum::core::handler
 
             if (decoder == nullptr)
             {
-                QvMessageBoxWarn(nullptr, tr("Cannot Update Subscription"),
-                                 tr("Unknown subscription type: %1").arg(type) + NEWLINE + tr("A subscription plugin is missing?"));
+                if (interactive)
+                    QvMessageBoxWarn(nullptr, tr("Cannot Update Subscription"),
+                                     tr("Unknown subscription type: %1").arg(type) + NEWLINE + tr("A subscription plugin is missing?"));
+                else
+                    LOG("Cannot update subscription: unknown subscription type " + type);
                 return false;
             }
         }
@@ -591,7 +594,7 @@ namespace Plumbum::core::handler
             _newConnections << connectionConfigMap;
         }
 
-        if (_newConnections.count() < 5)
+        if (interactive && _newConnections.count() < 5)
         {
             LOG("Found a subscription with less than 5 connections.");
             if (QvMessageBoxAsk(
@@ -681,12 +684,11 @@ namespace Plumbum::core::handler
         }
 
         LOG("Filtered out less than 5 connections.");
-        const auto useFilteredConnections =
-            filteredConnections.count() > 5 ||
-            QvMessageBoxAsk(nullptr, tr("Update Subscription"),
-                            tr("%1 out of %n entrie(s) have been filtered out, do you want to continue?", "", _newConnections.count())
-                                    .arg(filteredConnections.count()) +
-                                NEWLINE + GetDisplayName(id)) == Yes;
+        const auto useFilteredConnections = !interactive || filteredConnections.count() > 5 ||
+                                             QvMessageBoxAsk(nullptr, tr("Update Subscription"),
+                                                             tr("%1 out of %n entrie(s) have been filtered out, do you want to continue?", "", _newConnections.count())
+                                                                     .arg(filteredConnections.count()) +
+                                                                 NEWLINE + GetDisplayName(id)) == Yes;
 
         for (const auto &config : useFilteredConnections ? filteredConnections : _newConnections)
         {
@@ -732,11 +734,11 @@ namespace Plumbum::core::handler
         // Check if anything left behind (not being updated or changed significantly)
         if (!originalConnectionIdList.isEmpty())
         {
-            bool needContinue = QvMessageBoxAsk(nullptr, //
-                                                tr("Update Subscription"),
-                                                tr("There're %n connection(s) in the group that do not belong the current subscription (any more).",
-                                                   "", originalConnectionIdList.count()) +
-                                                    NEWLINE + GetDisplayName(id) + NEWLINE + tr("Would you like to remove them?")) == Yes;
+            const bool needContinue = !interactive || QvMessageBoxAsk(nullptr, //
+                                                                        tr("Update Subscription"),
+                                                                        tr("There're %n connection(s) in the group that do not belong the current subscription (any more).",
+                                                                           "", originalConnectionIdList.count()) +
+                                                                            NEWLINE + GetDisplayName(id) + NEWLINE + tr("Would you like to remove them?")) == Yes;
             if (needContinue)
             {
                 LOG("Removed old connections not have been matched.");

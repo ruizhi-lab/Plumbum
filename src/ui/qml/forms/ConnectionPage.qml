@@ -180,7 +180,22 @@ Rectangle {
         width: Math.min(parent.width - 32, 760)
         height: Math.min(parent.height - 32, 620)
         modal: true
-        standardButtons: Dialog.Save | Dialog.Cancel
+        standardButtons: Dialog.NoButton
+
+        footer: RowLayout {
+            spacing: 8
+            Button {
+                text: qsTr("Cancel")
+                onClicked: editDialog.close()
+            }
+            Button {
+                text: qsTr("Save")
+                onClicked: {
+                    if (plumbum.updateConnectionJson(editDialog.connectionId, editJsonText.text))
+                        editDialog.close()
+                }
+            }
+        }
 
         ColumnLayout {
             anchors.fill: parent
@@ -208,7 +223,6 @@ Rectangle {
         }
 
         onOpened: editJsonText.text = plumbum.connectionJson(connectionId)
-        onAccepted: plumbum.updateConnectionJson(connectionId, editJsonText.text)
     }
 
     // -------- Import URL dialog --------

@@ -116,7 +116,7 @@ namespace Plumbum::core::handler
         // const optional<QString> DuplicateGroup(const GroupId &id);
         //
         // Subscriptions
-        void UpdateSubscriptionAsync(const GroupId &id);
+        void UpdateSubscriptionAsync(const GroupId &id, bool interactive = true);
         bool UpdateSubscription(const GroupId &id);
         bool SetSubscriptionData(const GroupId &id, std::optional<bool> isSubscription = std::nullopt,
                                  const std::optional<QString> &address = std::nullopt, std::optional<float> updateInterval = std::nullopt);
@@ -161,7 +161,7 @@ namespace Plumbum::core::handler
         void timerEvent(QTimerEvent *event) override;
 
       private:
-        bool p_CHUpdateSubscription(const GroupId &id, const QByteArray &data);
+        bool p_CHUpdateSubscription(const GroupId &id, const QByteArray &data, bool interactive = true);
 
       private:
         int saveTimerId;

@@ -80,6 +80,8 @@ namespace Plumbum::core::connection::serialization::trojan
         const auto sni = stream[tlsKey].toObject()["serverName"].toString();
         if (!sni.isEmpty())
             query.addQueryItem("sni", sni);
+        if (stream[tlsKey].toObject()["allowInsecure"].toBool())
+            query.addQueryItem("allowInsecure", "1");
         if (network == "ws")
         {
             const auto ws = stream["wsSettings"].toObject();

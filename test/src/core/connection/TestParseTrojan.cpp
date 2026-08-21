@@ -21,3 +21,11 @@ TEST_CASE("Test Trojan URL Parsing")
     REQUIRE(outbound["streamSettings"].toObject()["network"] == "ws");
     REQUIRE(outbound["streamSettings"].toObject()["tlsSettings"].toObject()["serverName"] == "cdn.example.com");
 }
+
+TEST_CASE("Test Trojan URL preserves insecure TLS setting")
+{
+    const QJsonObject settings{ { "servers", QJsonArray{ QJsonObject{ { "address", "example.com" }, { "port", 443 }, { "password", "secret" } } } } };
+    const QJsonObject stream{ { "security", "tls" }, { "tlsSettings", QJsonObject{ { "serverName", "example.com" }, { "allowInsecure", true } } } };
+    const auto link = trojan::Serialize(settings, stream, "demo");
+    REQUIRE(QUrlQuery(QUrl(link)).queryItemValue("allowInsecure") == "1");
+}

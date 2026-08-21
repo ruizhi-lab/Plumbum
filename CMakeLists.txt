@@ -281,12 +281,27 @@ if(PLUMBUM_USE_QML)
         ${QV_QT_LIBNAME}::QuickControls2
         ${QV_QT_LIBNAME}::Gui)
     if(PLUMBUM_QT6)
-        find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS 5Compat QUIET)
-    endif()
-    if(PLUMBUM_QT6 AND TARGET ${QV_QT_LIBNAME}::5Compat)
-        list(APPEND PLUMBUM_QT_LIBS ${QV_QT_LIBNAME}::5Compat)
-    elseif(PLUMBUM_QT6)
-        message(WARNING "Qt5Compat is not installed; QML graphical effects may be unavailable at runtime.")
+        # Qt5Compat.GraphicalEffects is a QML runtime module, not a
+        # Qt6::5Compat CMake library target. Require both the Qt compatibility
+        # package and the actual QML import directory used by the application.
+        find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS Core5Compat REQUIRED)
+        get_target_property(_PLUMBUM_QT_CORE_LOCATION ${QV_QT_LIBNAME}::Core IMPORTED_LOCATION_RELEASE)
+        if(NOT _PLUMBUM_QT_CORE_LOCATION)
+            get_target_property(_PLUMBUM_QT_CORE_LOCATION ${QV_QT_LIBNAME}::Core IMPORTED_LOCATION)
+        endif()
+        get_filename_component(_PLUMBUM_QT_LIB_DIR "${_PLUMBUM_QT_CORE_LOCATION}" DIRECTORY)
+        get_filename_component(_PLUMBUM_QT_PREFIX "${_PLUMBUM_QT_LIB_DIR}" DIRECTORY)
+        find_path(_PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR
+            NAMES qmldir
+            PATHS
+                "${_PLUMBUM_QT_LIB_DIR}/qt6/qml/Qt5Compat/GraphicalEffects"
+                "${_PLUMBUM_QT_LIB_DIR}/qt/qml/Qt5Compat/GraphicalEffects"
+                "${_PLUMBUM_QT_LIB_DIR}/../qml/Qt5Compat/GraphicalEffects"
+                "${_PLUMBUM_QT_PREFIX}/qml/Qt5Compat/GraphicalEffects"
+            NO_DEFAULT_PATH)
+        if(NOT _PLUMBUM_QT5COMPAT_GRAPHICAL_EFFECTS_DIR)
+            message(FATAL_ERROR "Qt5Compat.GraphicalEffects QML module is required by Plumbum but was not found next to the Qt installation")
+        endif()
     endif()
     set(_PLUMBUM_HAS_GUI_INTERNAL_ ON)
 elseif(PLUMBUM_USE_QWIDGET)
