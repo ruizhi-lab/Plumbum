@@ -54,6 +54,10 @@ PlumbumExitReason PlumbumQMLApplication::runPlumbumInternal()
     uiProperty.initialize();
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine;
+    // QML qsTr() bindings do not automatically refresh after a translator is
+    // replaced. Re-translate the live engine whenever settings (including the
+    // language) change.
+    connect(&uiProperty, &PlumbumQMLProperty::settingsChanged, &engine, [&engine]() { engine.retranslate(); });
     const QUrl url("qrc:/forms/MainWindow.qml");
     const auto connectLambda = [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)

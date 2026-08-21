@@ -102,6 +102,14 @@ Rectangle {
                 elide: Text.ElideRight
                 Layout.fillWidth: true
             }
+            Text {
+                visible: !plumbum.connected && plumbum.kernelStatusText.length > 0
+                text: plumbum.kernelStatusText
+                font.pixelSize: 9
+                color: window.cOrange
+                elide: Text.ElideRight
+                Layout.fillWidth: true
+            }
         }
 
         // Speed widget
