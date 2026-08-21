@@ -7,33 +7,39 @@ Rectangle {
     id: root
     color: "transparent"
 
-    Flickable {
+    ScrollView {
         anchors.fill: parent
         anchors.margins: 16
+        contentWidth: availableWidth
         contentHeight: settingsColumn.implicitHeight
         clip: true
 
         ColumnLayout {
             id: settingsColumn
-            width: parent.width
-            spacing: 14
+            width: Math.min(parent.width, 920)
+            x: Math.max(0, (parent.width - width) / 2)
+            spacing: 16
 
             Text {
                 text: qsTr("Settings")
-                font.pixelSize: 18
+                font.pixelSize: 24
                 font.bold: true
                 color: window.cText
+                Layout.bottomMargin: 2
             }
 
             // -------- Appearance / theme card --------
             Rectangle {
+                id: appearanceCard
                 Layout.fillWidth: true
-                Layout.preferredHeight: 128
+                implicitHeight: appearanceLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
                 radius: 10
                 color: window.cSurface
                 border.color: window.cBorder
 
                 ColumnLayout {
+                    id: appearanceLayout
                     anchors.fill: parent
                     anchors.margins: 18
                     spacing: 12
@@ -46,6 +52,7 @@ Rectangle {
                     }
 
                     RowLayout {
+                        Layout.fillWidth: true
                         spacing: 10
 
                         // Follow system
@@ -110,17 +117,21 @@ Rectangle {
                         }
 
                         Item { Layout.fillWidth: true }
+                    }
 
-                        // Language selector
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 10
                         Text {
                             text: qsTr("Language")
                             font.pixelSize: 12
                             color: window.cTextDim
+                            Layout.fillWidth: true
                         }
                         ComboBox {
                             id: langSelector
-                            Layout.preferredWidth: 130
-                            Layout.preferredHeight: 34
+                            Layout.preferredWidth: 160
+                            Layout.preferredHeight: 36
                             model: [
                                 { code: "en_US", label: "English" },
                                 { code: "zh_CN", label: "简体中文" },
@@ -144,13 +155,16 @@ Rectangle {
 
             // -------- Core settings card --------
             Rectangle {
+                id: coreCard
                 Layout.fillWidth: true
-                Layout.preferredHeight: coreGrid.implicitHeight + 36
+                implicitHeight: coreLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
                 radius: 10
                 color: window.cSurface
                 border.color: window.cBorder
 
                 ColumnLayout {
+                    id: coreLayout
                     anchors.fill: parent
                     anchors.margins: 18
                     spacing: 12
@@ -173,6 +187,7 @@ Rectangle {
                             font.pixelSize: 12
                             color: window.cTextDim
                             Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
                         }
                         RowLayout {
                             Layout.fillWidth: true
@@ -195,6 +210,7 @@ Rectangle {
                             font.pixelSize: 12
                             color: window.cTextDim
                             Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
                         }
                         RowLayout {
                             Layout.fillWidth: true
@@ -217,6 +233,7 @@ Rectangle {
                             font.pixelSize: 12
                             color: window.cTextDim
                             Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
                         }
                         Switch {
                             checked: plumbum.kernelApiEnabled
@@ -228,6 +245,7 @@ Rectangle {
                             font.pixelSize: 12
                             color: window.cTextDim
                             Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
                         }
                         SpinBox {
                             from: 1024
@@ -242,13 +260,16 @@ Rectangle {
 
             // -------- TUN system proxy card --------
             Rectangle {
+                id: tunCard
                 Layout.fillWidth: true
-                Layout.preferredHeight: tunGrid.implicitHeight + 36
+                implicitHeight: tunLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
                 radius: 10
                 color: window.cSurface
                 border.color: window.cBorder
 
                 ColumnLayout {
+                    id: tunLayout
                     anchors.fill: parent
                     anchors.margins: 18
                     spacing: 12
@@ -300,6 +321,7 @@ Rectangle {
                             font.pixelSize: 12
                             color: window.cTextDim
                             Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
                         }
                         RowLayout {
                             Layout.fillWidth: true
@@ -322,6 +344,7 @@ Rectangle {
                             font.pixelSize: 12
                             color: window.cTextDim
                             Layout.preferredWidth: 140
+                            Layout.alignment: Qt.AlignVCenter
                         }
                         SpinBox {
                             from: 576
@@ -336,13 +359,16 @@ Rectangle {
 
             // -------- About card --------
             Rectangle {
+                id: aboutCard
                 Layout.fillWidth: true
-                Layout.preferredHeight: 140
+                implicitHeight: aboutLayout.implicitHeight + 36
+                Layout.preferredHeight: implicitHeight
                 radius: 10
                 color: window.cSurface
                 border.color: window.cBorder
 
                 ColumnLayout {
+                    id: aboutLayout
                     anchors.fill: parent
                     anchors.margins: 18
                     spacing: 6
