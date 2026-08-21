@@ -64,6 +64,8 @@ Rectangle {
                 required property bool isSubscription
                 required property int connectionCount
                 required property string subscriptionAddress
+                required property real subscriptionInterval
+                required property string subscriptionLastUpdated
 
                 visible: isSubscription
                 height: visible ? 76 : 0
@@ -112,12 +114,30 @@ Rectangle {
                             elide: Text.ElideMiddle
                             Layout.fillWidth: true
                         }
+                        Text {
+                            text: qsTr("Last update: %1").arg(subscriptionLastUpdated)
+                            font.pixelSize: 9
+                            color: window.cTextDim
+                        }
                     }
 
                     FlatButton {
                         controlHeight: 30
                         text: qsTr("Update")
                         onClicked: plumbum.updateSubscription(groupId)
+                    }
+                    ComboBox {
+                        Layout.preferredWidth: 92
+                        Layout.preferredHeight: 30
+                        model: [0, 1, 3, 7, 10, 14, 30]
+                        currentIndex: {
+                            var idx = model.indexOf(subscriptionInterval)
+                            return idx >= 0 ? idx : 0
+                        }
+                        onActivated: plumbum.setSubscriptionInterval(groupId, Number(model[index]))
+                        delegate: ItemDelegate {
+                            text: modelData <= 0 ? qsTr("Off") : qsTr("%1 d").arg(modelData)
+                        }
                     }
                     FlatButton {
                         controlHeight: 30

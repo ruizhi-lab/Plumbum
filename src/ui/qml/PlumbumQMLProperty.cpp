@@ -142,6 +142,10 @@ QVariant GroupListModel::data(const QModelIndex &index, int role) const
         case ConnectionCountRole: return meta.connections.count();
         case SubscriptionAddressRole:
             return meta.isSubscription ? meta.subscriptionOption.address : QString{};
+        case SubscriptionIntervalRole:
+            return meta.isSubscription ? meta.subscriptionOption.updateInterval : 0.0;
+        case SubscriptionLastUpdatedRole:
+            return meta.isSubscription ? QDateTime::fromSecsSinceEpoch(meta.lastUpdatedDate).toString("yyyy-MM-dd hh:mm") : QString{};
         default: return {};
     }
 }
@@ -152,7 +156,9 @@ QHash<int, QByteArray> GroupListModel::roleNames() const
              { DisplayNameRole, "displayName" },       //
              { IsSubscriptionRole, "isSubscription" }, //
              { ConnectionCountRole, "connectionCount" }, //
-             { SubscriptionAddressRole, "subscriptionAddress" } };
+             { SubscriptionAddressRole, "subscriptionAddress" },
+             { SubscriptionIntervalRole, "subscriptionInterval" },
+             { SubscriptionLastUpdatedRole, "subscriptionLastUpdated" } };
 }
 
 void GroupListModel::refresh()
@@ -393,6 +399,20 @@ void PlumbumQMLProperty::updateAllSubscriptions()
     {
         if (ConnectionManager->GetGroupMetaObject(gid).isSubscription)
             ConnectionManager->UpdateSubscriptionAsync(gid);
+    }
+}
+
+void PlumbumQMLProperty::setSubscriptionInterval(const QString &groupId, double days)
+{
+    if (!ConnectionManager)
+        return;
+    days = qBound(0.0, days, 365.0);
+    if (ConnectionManager->SetSubscriptionData(GroupId(groupId), std::nullopt, std::nullopt, static_cast<float>(days)))
+    {
+        ConnectionManager->SaveConnectionConfig();
+        emit toastMessage(days <= 0.0 ? tr("Automatic subscription updates disabled.")
+                                      : tr("Subscription update interval set to %1 day(s).").arg(days));
+        _groupModel.refresh();
     }
 }
 

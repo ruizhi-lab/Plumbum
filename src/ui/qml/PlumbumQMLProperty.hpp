@@ -62,7 +62,9 @@ class GroupListModel : public QAbstractListModel
         DisplayNameRole,
         IsSubscriptionRole,
         ConnectionCountRole,
-        SubscriptionAddressRole
+        SubscriptionAddressRole,
+        SubscriptionIntervalRole,
+        SubscriptionLastUpdatedRole
     };
 
     explicit GroupListModel(QObject *parent = nullptr);
@@ -186,6 +188,7 @@ class PlumbumQMLProperty : public QObject
     // Subscriptions
     void updateSubscription(const QString &groupId);
     void updateAllSubscriptions();
+    void setSubscriptionInterval(const QString &groupId, double days);
     QString createSubscription(const QString &name, const QString &url);
 
     // Misc
