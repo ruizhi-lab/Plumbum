@@ -9,25 +9,25 @@ Rectangle {
 
     // Compact controls keep the dense settings form visually balanced.
     component CompactTextField: TextField {
-        implicitHeight: 30
-        padding: 6
-    }
-    component CompactTextArea: TextArea {
-        implicitHeight: 30
-        padding: 6
-    }
-    component CompactComboBox: ComboBox {
-        implicitHeight: 30
-    }
-    component CompactSpinBox: SpinBox {
-        implicitHeight: 30
-    }
-    component CompactButton: Button {
-        implicitHeight: 30
+        implicitHeight: 36
         padding: 8
     }
+    component CompactTextArea: TextArea {
+        implicitHeight: 36
+        padding: 8
+    }
+    component CompactComboBox: ComboBox {
+        implicitHeight: 36
+    }
+    component CompactSpinBox: SpinBox {
+        implicitHeight: 36
+    }
+    component CompactButton: Button {
+        implicitHeight: 36
+        padding: 10
+    }
     component CompactSwitch: Switch {
-        implicitHeight: 28
+        implicitHeight: 32
     }
 
     ScrollView {
@@ -81,7 +81,7 @@ Rectangle {
                         // Follow system
                         Rectangle {
                             Layout.preferredWidth: 110
-                            Layout.preferredHeight: 30
+                            Layout.preferredHeight: 36
                             radius: 6
                             color: plumbum.themeMode === 0 ? window.cPrimary : window.cSurfaceAlt
                             border.color: plumbum.themeMode === 0 ? window.cPrimary : window.cBorder
@@ -101,7 +101,7 @@ Rectangle {
                         // Light
                         Rectangle {
                             Layout.preferredWidth: 110
-                            Layout.preferredHeight: 30
+                            Layout.preferredHeight: 36
                             radius: 6
                             color: plumbum.themeMode === 1 ? window.cPrimary : window.cSurfaceAlt
                             border.color: plumbum.themeMode === 1 ? window.cPrimary : window.cBorder
@@ -121,7 +121,7 @@ Rectangle {
                         // Dark
                         Rectangle {
                             Layout.preferredWidth: 110
-                            Layout.preferredHeight: 30
+                            Layout.preferredHeight: 36
                             radius: 6
                             color: plumbum.themeMode === 2 ? window.cPrimary : window.cSurfaceAlt
                             border.color: plumbum.themeMode === 2 ? window.cPrimary : window.cBorder
@@ -154,7 +154,7 @@ Rectangle {
                         CompactComboBox {
                             id: langSelector
                             Layout.preferredWidth: 160
-                            Layout.preferredHeight: 30
+                            Layout.preferredHeight: 36
                             model: [
                                 { code: "system", label: qsTr("System (Auto)") },
                                 { code: "en_US", label: "English" },
