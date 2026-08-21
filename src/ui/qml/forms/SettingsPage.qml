@@ -7,6 +7,29 @@ Rectangle {
     id: root
     color: "transparent"
 
+    // Compact controls keep the dense settings form visually balanced.
+    component CompactTextField: TextField {
+        implicitHeight: 30
+        padding: 6
+    }
+    component CompactTextArea: TextArea {
+        implicitHeight: 30
+        padding: 6
+    }
+    component CompactComboBox: ComboBox {
+        implicitHeight: 30
+    }
+    component CompactSpinBox: SpinBox {
+        implicitHeight: 30
+    }
+    component CompactButton: Button {
+        implicitHeight: 30
+        padding: 8
+    }
+    component CompactSwitch: Switch {
+        implicitHeight: 28
+    }
+
     ScrollView {
         anchors.fill: parent
         anchors.margins: 16
@@ -18,7 +41,7 @@ Rectangle {
             id: settingsColumn
             width: Math.min(parent.width, 920)
             x: Math.max(0, (parent.width - width) / 2)
-            spacing: 16
+            spacing: 12
 
             Text {
                 text: qsTr("Settings")
@@ -58,7 +81,7 @@ Rectangle {
                         // Follow system
                         Rectangle {
                             Layout.preferredWidth: 110
-                            Layout.preferredHeight: 34
+                            Layout.preferredHeight: 30
                             radius: 6
                             color: plumbum.themeMode === 0 ? window.cPrimary : window.cSurfaceAlt
                             border.color: plumbum.themeMode === 0 ? window.cPrimary : window.cBorder
@@ -78,7 +101,7 @@ Rectangle {
                         // Light
                         Rectangle {
                             Layout.preferredWidth: 110
-                            Layout.preferredHeight: 34
+                            Layout.preferredHeight: 30
                             radius: 6
                             color: plumbum.themeMode === 1 ? window.cPrimary : window.cSurfaceAlt
                             border.color: plumbum.themeMode === 1 ? window.cPrimary : window.cBorder
@@ -98,7 +121,7 @@ Rectangle {
                         // Dark
                         Rectangle {
                             Layout.preferredWidth: 110
-                            Layout.preferredHeight: 34
+                            Layout.preferredHeight: 30
                             radius: 6
                             color: plumbum.themeMode === 2 ? window.cPrimary : window.cSurfaceAlt
                             border.color: plumbum.themeMode === 2 ? window.cPrimary : window.cBorder
@@ -128,10 +151,10 @@ Rectangle {
                             color: window.cTextDim
                             Layout.fillWidth: true
                         }
-                        ComboBox {
+                        CompactComboBox {
                             id: langSelector
                             Layout.preferredWidth: 160
-                            Layout.preferredHeight: 36
+                            Layout.preferredHeight: 30
                             model: [
                                 { code: "system", label: qsTr("System (Auto)") },
                                 { code: "en_US", label: "English" },
@@ -161,7 +184,7 @@ Rectangle {
                             color: window.cTextDim
                             Layout.fillWidth: true
                         }
-                        Switch {
+                        CompactSwitch {
                             checked: plumbum.autoStartEnabled
                             onToggled: plumbum.setAutoStartEnabled(checked)
                         }
@@ -208,13 +231,13 @@ Rectangle {
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: 8
-                            TextField {
+                            CompactTextField {
                                 id: corePathInput
                                 Layout.fillWidth: true
                                 text: plumbum.v2rayCorePath
                                 placeholderText: qsTr("e.g. /usr/local/bin/xray or v2ray")
                             }
-                            Button {
+                            CompactButton {
                                 text: qsTr("Apply")
                                 enabled: corePathInput.text !== plumbum.v2rayCorePath
                                 onClicked: plumbum.setV2rayCorePath(corePathInput.text)
@@ -231,13 +254,13 @@ Rectangle {
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: 8
-                            TextField {
+                            CompactTextField {
                                 id: assetsPathInput
                                 Layout.fillWidth: true
                                 text: plumbum.v2rayAssetsPath
                                 placeholderText: qsTr("geoip.dat / geosite.dat directory")
                             }
-                            Button {
+                            CompactButton {
                                 text: qsTr("Apply")
                                 enabled: assetsPathInput.text !== plumbum.v2rayAssetsPath
                                 onClicked: plumbum.setV2rayAssetsPath(assetsPathInput.text)
@@ -251,7 +274,7 @@ Rectangle {
                             Layout.preferredWidth: 140
                             Layout.alignment: Qt.AlignVCenter
                         }
-                        Switch {
+                        CompactSwitch {
                             checked: plumbum.kernelApiEnabled
                             onToggled: plumbum.setKernelApiEnabled(checked)
                         }
@@ -263,7 +286,7 @@ Rectangle {
                             Layout.preferredWidth: 140
                             Layout.alignment: Qt.AlignVCenter
                         }
-                        SpinBox {
+                        CompactSpinBox {
                             from: 1024
                             to: 65535
                             value: plumbum.statsPort
@@ -310,7 +333,7 @@ Rectangle {
                         rowSpacing: 10
 
                         Text { text: qsTr("Listen address"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        TextField {
+                        CompactTextField {
                             Layout.fillWidth: true
                             text: plumbum.inboundListenAddress
                             placeholderText: "127.0.0.1"
@@ -318,57 +341,57 @@ Rectangle {
                         }
 
                         Text { text: qsTr("SOCKS inbound"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.socksInboundEnabled; onToggled: plumbum.setSocksInboundEnabled(checked) }
+                        CompactSwitch { checked: plumbum.socksInboundEnabled; onToggled: plumbum.setSocksInboundEnabled(checked) }
 
                         Text { text: qsTr("SOCKS port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        SpinBox { from: 1; to: 65535; value: plumbum.socksPort; editable: true; onValueModified: plumbum.setSocksPort(value) }
+                        CompactSpinBox { from: 1; to: 65535; value: plumbum.socksPort; editable: true; onValueModified: plumbum.setSocksPort(value) }
 
                         Text { text: qsTr("SOCKS listen address"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        TextField { Layout.fillWidth: true; text: plumbum.socksListenAddress; onEditingFinished: plumbum.setSocksListenAddress(text) }
+                        CompactTextField { Layout.fillWidth: true; text: plumbum.socksListenAddress; onEditingFinished: plumbum.setSocksListenAddress(text) }
 
                         Text { text: qsTr("SOCKS UDP"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.socksUdpEnabled; onToggled: plumbum.setSocksUdpEnabled(checked) }
+                        CompactSwitch { checked: plumbum.socksUdpEnabled; onToggled: plumbum.setSocksUdpEnabled(checked) }
 
                         Text { text: qsTr("SOCKS authentication"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.socksAuthEnabled; onToggled: plumbum.setSocksAuthEnabled(checked) }
+                        CompactSwitch { checked: plumbum.socksAuthEnabled; onToggled: plumbum.setSocksAuthEnabled(checked) }
 
                         Text { text: qsTr("HTTP inbound"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.httpInboundEnabled; onToggled: plumbum.setHttpInboundEnabled(checked) }
+                        CompactSwitch { checked: plumbum.httpInboundEnabled; onToggled: plumbum.setHttpInboundEnabled(checked) }
 
                         Text { text: qsTr("HTTP port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        SpinBox { from: 1; to: 65535; value: plumbum.httpPort; editable: true; onValueModified: plumbum.setHttpPort(value) }
+                        CompactSpinBox { from: 1; to: 65535; value: plumbum.httpPort; editable: true; onValueModified: plumbum.setHttpPort(value) }
 
                         Text { text: qsTr("HTTP authentication"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.httpAuthEnabled; onToggled: plumbum.setHttpAuthEnabled(checked) }
+                        CompactSwitch { checked: plumbum.httpAuthEnabled; onToggled: plumbum.setHttpAuthEnabled(checked) }
 
                         Text { text: qsTr("TProxy inbound"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.tproxyInboundEnabled; onToggled: plumbum.setTproxyInboundEnabled(checked) }
+                        CompactSwitch { checked: plumbum.tproxyInboundEnabled; onToggled: plumbum.setTproxyInboundEnabled(checked) }
 
                         Text { text: qsTr("TProxy port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        SpinBox { from: 1; to: 65535; value: plumbum.tproxyPort; editable: true; onValueModified: plumbum.setTproxyPort(value) }
+                        CompactSpinBox { from: 1; to: 65535; value: plumbum.tproxyPort; editable: true; onValueModified: plumbum.setTproxyPort(value) }
 
                         Text { text: qsTr("TProxy IPv4"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        TextField { Layout.fillWidth: true; text: plumbum.tproxyListenAddress; onEditingFinished: plumbum.setTproxyListenAddress(text) }
+                        CompactTextField { Layout.fillWidth: true; text: plumbum.tproxyListenAddress; onEditingFinished: plumbum.setTproxyListenAddress(text) }
 
                         Text { text: qsTr("TProxy IPv6"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        TextField { Layout.fillWidth: true; text: plumbum.tproxyListenAddressV6; onEditingFinished: plumbum.setTproxyListenAddressV6(text) }
+                        CompactTextField { Layout.fillWidth: true; text: plumbum.tproxyListenAddressV6; onEditingFinished: plumbum.setTproxyListenAddressV6(text) }
 
                         Text { text: qsTr("TProxy TCP / UDP"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
                         RowLayout {
                             spacing: 12
-                            Switch { text: qsTr("TCP"); checked: plumbum.tproxyTcpEnabled; onToggled: plumbum.setTproxyTcpEnabled(checked) }
-                            Switch { text: qsTr("UDP"); checked: plumbum.tproxyUdpEnabled; onToggled: plumbum.setTproxyUdpEnabled(checked) }
+                            CompactSwitch { text: qsTr("TCP"); checked: plumbum.tproxyTcpEnabled; onToggled: plumbum.setTproxyTcpEnabled(checked) }
+                            CompactSwitch { text: qsTr("UDP"); checked: plumbum.tproxyUdpEnabled; onToggled: plumbum.setTproxyUdpEnabled(checked) }
                         }
 
                         Text { text: qsTr("Set system proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.systemProxyEnabled; onToggled: plumbum.setSystemProxyEnabled(checked) }
+                        CompactSwitch { checked: plumbum.systemProxyEnabled; onToggled: plumbum.setSystemProxyEnabled(checked) }
 
                         Text { text: qsTr("Browser forwarder"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignVCenter }
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: 8
-                            TextField { Layout.fillWidth: true; text: plumbum.browserForwarderAddress; onEditingFinished: plumbum.setBrowserForwarderAddress(text) }
-                            SpinBox { from: 1; to: 65535; value: plumbum.browserForwarderPort; editable: true; onValueModified: plumbum.setBrowserForwarderPort(value) }
+                            CompactTextField { Layout.fillWidth: true; text: plumbum.browserForwarderAddress; onEditingFinished: plumbum.setBrowserForwarderAddress(text) }
+                            CompactSpinBox { from: 1; to: 65535; value: plumbum.browserForwarderPort; editable: true; onValueModified: plumbum.setBrowserForwarderPort(value) }
                         }
                     }
                 }
@@ -396,57 +419,57 @@ Rectangle {
                         columnSpacing: 12
                         rowSpacing: 10
                         Text { text: qsTr("Routing mode"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        ComboBox {
+                        CompactComboBox {
                             model: [qsTr("Whitelist (CN direct)"), qsTr("Blacklist (GFW proxy)"), qsTr("Global proxy")]
                             currentIndex: plumbum.pacMode
                             onActivated: plumbum.setPacMode(currentIndex)
                         }
                         Text { text: qsTr("Domain strategy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        ComboBox {
+                        CompactComboBox {
                             model: ["AsIs", "UseIP", "UseIPv4", "UseIPv6"]
                             currentIndex: Math.max(0, model.indexOf(plumbum.domainStrategy))
                             onActivated: plumbum.setDomainStrategy(model[currentIndex])
                         }
                         Text { text: qsTr("Domain matcher"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        ComboBox {
+                        CompactComboBox {
                             model: ["mph", "linear"]
                             currentIndex: Math.max(0, model.indexOf(plumbum.domainMatcher))
                             onActivated: plumbum.setDomainMatcher(model[currentIndex])
                         }
                         Text { text: qsTr("Force direct"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.forceDirect; onToggled: plumbum.setForceDirect(checked) }
+                        CompactSwitch { checked: plumbum.forceDirect; onToggled: plumbum.setForceDirect(checked) }
                         Text { text: qsTr("Bypass CN mainland"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.bypassCN; onToggled: plumbum.setBypassCN(checked) }
+                        CompactSwitch { checked: plumbum.bypassCN; onToggled: plumbum.setBypassCN(checked) }
                         Text { text: qsTr("Bypass private LAN"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.bypassLAN; onToggled: plumbum.setBypassLAN(checked) }
+                        CompactSwitch { checked: plumbum.bypassLAN; onToggled: plumbum.setBypassLAN(checked) }
                         Text { text: qsTr("Bypass BitTorrent"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.bypassBT; onToggled: plumbum.setBypassBT(checked) }
+                        CompactSwitch { checked: plumbum.bypassBT; onToggled: plumbum.setBypassBT(checked) }
                         Text { text: qsTr("Use V2Ray DNS for direct"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.v2rayFreedomDNS; onToggled: plumbum.setV2rayFreedomDNS(checked) }
+                        CompactSwitch { checked: plumbum.v2rayFreedomDNS; onToggled: plumbum.setV2rayFreedomDNS(checked) }
                         Text { text: qsTr("DNS intercept"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.dnsIntercept; onToggled: plumbum.setDnsIntercept(checked) }
+                        CompactSwitch { checked: plumbum.dnsIntercept; onToggled: plumbum.setDnsIntercept(checked) }
                         Text { text: qsTr("DNS servers"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
-                        TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.dnsServers; placeholderText: qsTr("One server per line, e.g. 1.1.1.1"); onFocusChanged: if (!focus) plumbum.setDnsServers(text) }
+                        CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.dnsServers; placeholderText: qsTr("One server per line, e.g. 1.1.1.1"); onFocusChanged: if (!focus) plumbum.setDnsServers(text) }
                         Text { text: qsTr("Domain direct / block / proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: 8
-                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.domainDirectRules; placeholderText: qsTr("Direct rules"); onFocusChanged: if (!focus) plumbum.setDomainDirectRules(text) }
-                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.domainBlockRules; placeholderText: qsTr("Block rules"); onFocusChanged: if (!focus) plumbum.setDomainBlockRules(text) }
-                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.domainProxyRules; placeholderText: qsTr("Proxy rules"); onFocusChanged: if (!focus) plumbum.setDomainProxyRules(text) }
+                            CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.domainDirectRules; placeholderText: qsTr("Direct rules"); onFocusChanged: if (!focus) plumbum.setDomainDirectRules(text) }
+                            CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.domainBlockRules; placeholderText: qsTr("Block rules"); onFocusChanged: if (!focus) plumbum.setDomainBlockRules(text) }
+                            CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.domainProxyRules; placeholderText: qsTr("Proxy rules"); onFocusChanged: if (!focus) plumbum.setDomainProxyRules(text) }
                         }
                         Text { text: qsTr("IP direct / block / proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150; Layout.alignment: Qt.AlignTop }
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: 8
-                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.ipDirectRules; placeholderText: qsTr("Direct rules"); onFocusChanged: if (!focus) plumbum.setIpDirectRules(text) }
-                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.ipBlockRules; placeholderText: qsTr("Block rules"); onFocusChanged: if (!focus) plumbum.setIpBlockRules(text) }
-                            TextArea { Layout.fillWidth: true; Layout.preferredHeight: 72; text: plumbum.ipProxyRules; placeholderText: qsTr("Proxy rules"); onFocusChanged: if (!focus) plumbum.setIpProxyRules(text) }
+                            CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.ipDirectRules; placeholderText: qsTr("Direct rules"); onFocusChanged: if (!focus) plumbum.setIpDirectRules(text) }
+                            CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.ipBlockRules; placeholderText: qsTr("Block rules"); onFocusChanged: if (!focus) plumbum.setIpBlockRules(text) }
+                            CompactTextArea { Layout.fillWidth: true; Layout.preferredHeight: 64; text: plumbum.ipProxyRules; placeholderText: qsTr("Proxy rules"); onFocusChanged: if (!focus) plumbum.setIpProxyRules(text) }
                         }
                         Text { text: qsTr("FakeDNS IP pool"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        TextField { Layout.fillWidth: true; text: plumbum.fakeDnsIpPool; onEditingFinished: plumbum.setFakeDnsIpPool(text) }
+                        CompactTextField { Layout.fillWidth: true; text: plumbum.fakeDnsIpPool; onEditingFinished: plumbum.setFakeDnsIpPool(text) }
                         Text { text: qsTr("FakeDNS pool size"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        SpinBox { from: 1; to: 16777216; value: plumbum.fakeDnsPoolSize; editable: true; onValueModified: plumbum.setFakeDnsPoolSize(value) }
+                        CompactSpinBox { from: 1; to: 16777216; value: plumbum.fakeDnsPoolSize; editable: true; onValueModified: plumbum.setFakeDnsPoolSize(value) }
                     }
                 }
             }
@@ -472,19 +495,19 @@ Rectangle {
                         columnSpacing: 12
                         rowSpacing: 10
                         Text { text: qsTr("Enable forward proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.forwardProxyEnabled; onToggled: plumbum.setForwardProxyEnabled(checked) }
+                        CompactSwitch { checked: plumbum.forwardProxyEnabled; onToggled: plumbum.setForwardProxyEnabled(checked) }
                         Text { text: qsTr("Type"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        ComboBox { model: ["http", "socks"]; currentIndex: model.indexOf(plumbum.forwardProxyType); onActivated: plumbum.setForwardProxyType(model[currentIndex]) }
+                        CompactComboBox { model: ["http", "socks"]; currentIndex: model.indexOf(plumbum.forwardProxyType); onActivated: plumbum.setForwardProxyType(model[currentIndex]) }
                         Text { text: qsTr("Host address"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        TextField { Layout.fillWidth: true; text: plumbum.forwardProxyAddress; onEditingFinished: plumbum.setForwardProxyAddress(text) }
+                        CompactTextField { Layout.fillWidth: true; text: plumbum.forwardProxyAddress; onEditingFinished: plumbum.setForwardProxyAddress(text) }
                         Text { text: qsTr("Port"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        SpinBox { from: 1; to: 65535; value: plumbum.forwardProxyPort; editable: true; onValueModified: plumbum.setForwardProxyPort(value) }
+                        CompactSpinBox { from: 1; to: 65535; value: plumbum.forwardProxyPort; editable: true; onValueModified: plumbum.setForwardProxyPort(value) }
                         Text { text: qsTr("Authentication"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        Switch { checked: plumbum.forwardProxyAuth; onToggled: plumbum.setForwardProxyAuth(checked) }
+                        CompactSwitch { checked: plumbum.forwardProxyAuth; onToggled: plumbum.setForwardProxyAuth(checked) }
                         Text { text: qsTr("Username"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        TextField { Layout.fillWidth: true; text: plumbum.forwardProxyUsername; onEditingFinished: plumbum.setForwardProxyUsername(text) }
+                        CompactTextField { Layout.fillWidth: true; text: plumbum.forwardProxyUsername; onEditingFinished: plumbum.setForwardProxyUsername(text) }
                         Text { text: qsTr("Password"); color: window.cTextDim; font.pixelSize: 12; Layout.preferredWidth: 150 }
-                        TextField { Layout.fillWidth: true; echoMode: TextInput.Password; text: plumbum.forwardProxyPassword; onEditingFinished: plumbum.setForwardProxyPassword(text) }
+                        CompactTextField { Layout.fillWidth: true; echoMode: TextInput.Password; text: plumbum.forwardProxyPassword; onEditingFinished: plumbum.setForwardProxyPassword(text) }
                     }
                 }
             }
@@ -516,7 +539,7 @@ Rectangle {
                             color: window.cPrimaryAlt
                             Layout.fillWidth: true
                         }
-                        Switch {
+                        CompactSwitch {
                             checked: plumbum.tunEnabled
                             enabled: plumbum.tunAvailable
                             onToggled: plumbum.setTunEnabled(checked)
@@ -557,13 +580,13 @@ Rectangle {
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: 8
-                            TextField {
+                            CompactTextField {
                                 id: tunIpv4Input
                                 Layout.fillWidth: true
                                 text: plumbum.tunIpv4
                                 validator: RegularExpressionValidator { regularExpression: /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/ }
                             }
-                            Button {
+                            CompactButton {
                                 text: qsTr("Apply")
                                 enabled: tunIpv4Input.text !== plumbum.tunIpv4 && tunIpv4Input.acceptableInput
                                 onClicked: plumbum.setTunIpv4(tunIpv4Input.text)
@@ -577,7 +600,7 @@ Rectangle {
                             Layout.preferredWidth: 140
                             Layout.alignment: Qt.AlignVCenter
                         }
-                        SpinBox {
+                        CompactSpinBox {
                             from: 576
                             to: 65535
                             value: plumbum.tunMtu
@@ -592,20 +615,20 @@ Rectangle {
                             Layout.preferredWidth: 140
                             Layout.alignment: Qt.AlignVCenter
                         }
-                        TextField {
+                        CompactTextField {
                             Layout.fillWidth: true
                             text: plumbum.tunIpv6
                             onEditingFinished: plumbum.setTunIpv6(text)
                         }
 
                         Text { text: qsTr("Auto route:"); font.pixelSize: 12; color: window.cTextDim; Layout.preferredWidth: 140; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.tunAutoRoute; onToggled: plumbum.setTunAutoRoute(checked) }
+                        CompactSwitch { checked: plumbum.tunAutoRoute; onToggled: plumbum.setTunAutoRoute(checked) }
 
                         Text { text: qsTr("Strict route:"); font.pixelSize: 12; color: window.cTextDim; Layout.preferredWidth: 140; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.tunStrictRoute; onToggled: plumbum.setTunStrictRoute(checked) }
+                        CompactSwitch { checked: plumbum.tunStrictRoute; onToggled: plumbum.setTunStrictRoute(checked) }
 
                         Text { text: qsTr("TUN sniffing:"); font.pixelSize: 12; color: window.cTextDim; Layout.preferredWidth: 140; Layout.alignment: Qt.AlignVCenter }
-                        Switch { checked: plumbum.tunSniffing; onToggled: plumbum.setTunSniffing(checked) }
+                        CompactSwitch { checked: plumbum.tunSniffing; onToggled: plumbum.setTunSniffing(checked) }
                     }
                 }
             }
@@ -629,22 +652,22 @@ Rectangle {
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: qsTr("Override routing rules"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
-                        Switch { checked: plumbum.groupRouteOverride; onToggled: plumbum.setGroupRouteOverride(checked) }
+                        CompactSwitch { checked: plumbum.groupRouteOverride; onToggled: plumbum.setGroupRouteOverride(checked) }
                     }
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: qsTr("Override DNS / FakeDNS"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
-                        Switch { checked: plumbum.groupDnsOverride; onToggled: plumbum.setGroupDnsOverride(checked) }
+                        CompactSwitch { checked: plumbum.groupDnsOverride; onToggled: plumbum.setGroupDnsOverride(checked) }
                     }
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: qsTr("Override connection mode"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
-                        Switch { checked: plumbum.groupConnectionOverride; onToggled: plumbum.setGroupConnectionOverride(checked) }
+                        CompactSwitch { checked: plumbum.groupConnectionOverride; onToggled: plumbum.setGroupConnectionOverride(checked) }
                     }
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: qsTr("Override Forward Proxy"); color: window.cTextDim; font.pixelSize: 12; Layout.fillWidth: true }
-                        Switch { checked: plumbum.groupForwardProxyOverride; onToggled: plumbum.setGroupForwardProxyOverride(checked) }
+                        CompactSwitch { checked: plumbum.groupForwardProxyOverride; onToggled: plumbum.setGroupForwardProxyOverride(checked) }
                     }
                 }
             }
