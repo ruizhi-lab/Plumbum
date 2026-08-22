@@ -1,0 +1,24 @@
+pkgname=plumbum
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Modern Linux Qt 6 GUI client for Xray and V2Ray'
+arch=('x86_64')
+url='https://github.com/ruizhi-lab/Plumbum'
+license=('GPL3')
+depends=('qt6-base' 'qt6-declarative' 'qt6-svg' 'qt6-tools' 'grpc' 'protobuf' 'curl' 'openssl')
+makedepends=('cmake' 'ninja')
+source=("plumbum-${pkgver}.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cmake -S "${srcdir}/plumbum-${pkgver}" -B build -GNinja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DPLUMBUM_EMBED_TRANSLATIONS=ON \
+    -DPLUMBUM_DISABLE_AUTO_UPDATE=ON
+  cmake --build build --parallel
+}
+
+package() {
+  DESTDIR="${pkgdir}" cmake --install build
+}

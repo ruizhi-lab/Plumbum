@@ -1,0 +1,115 @@
+name: Build Linux distribution packages
+
+on:
+  push:
+    tags: ['v*']
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PACKAGE_VERSION: ${{ startsWith(github.ref_name, 'v') && github.ref_name || '1.0.0' }}
+
+jobs:
+  deb:
+    name: Debian package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build .deb in Debian stable
+        run: |
+          mkdir -p dist
+          docker run --rm -e PACKAGE_VERSION -v "$GITHUB_WORKSPACE:/src" -w /src debian:stable bash -euxc '
+            apt-get update
+            apt-get install -y --no-install-recommends \
+              build-essential cmake debhelper devscripts ninja-build pkg-config \
+              libcurl4-openssl-dev libgrpc++-dev libprotobuf-dev protobuf-compiler \
+              protobuf-compiler-grpc libssl-dev qt6-base-dev qt6-declarative-dev \
+              qt6-svg-dev qt6-tools-dev
+            dch -v "${PACKAGE_VERSION#v}-1" \
+              -D stable -m "Plumbum release package"
+            dpkg-buildpackage -us -uc -b
+            cp ../plumbum_*.deb dist/
+          '
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plumbum-deb
+          path: dist/*.deb
+
+  rpm:
+    name: Fedora RPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build .rpm in Fedora
+        run: |
+          mkdir -p dist
+          tar -czf "plumbum-${PACKAGE_VERSION#v}.tar.gz" \
+            --exclude=.git --exclude=build --exclude=build-* --exclude=dist --exclude='plumbum-*.tar.gz' \
+            --transform="s,^,plumbum-${PACKAGE_VERSION#v}/," .
+          docker run --rm -e PACKAGE_VERSION -v "$GITHUB_WORKSPACE:/src" -w /src fedora:latest bash -euxc '
+            dnf install -y rpm-build rpmdevtools tar gzip
+            dnf install -y gcc-c++ cmake ninja-build pkgconf-pkg-config \
+              qt6-qtbase-devel qt6-qtdeclarative-devel qt6-qtsvg-devel \
+              qt6-qttools-devel grpc-devel protobuf-devel protobuf-compiler \
+              libcurl-devel openssl-devel
+            mkdir -p /root/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+            cp "plumbum-${PACKAGE_VERSION#v}.tar.gz" /root/rpmbuild/SOURCES/
+            sed "s/^Version:.*/Version:        ${PACKAGE_VERSION#v}/" \
+              packaging/rpm/plumbum.spec > /root/rpmbuild/SPECS/plumbum.spec
+            rpmbuild -bb /root/rpmbuild/SPECS/plumbum.spec
+            cp /root/rpmbuild/RPMS/*/*.rpm dist/
+          '
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plumbum-rpm
+          path: dist/*.rpm
+
+  arch:
+    name: Arch package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build pkg.tar.zst in Arch Linux
+        run: |
+          mkdir -p dist
+          tar -czf "plumbum-${PACKAGE_VERSION#v}.tar.gz" \
+            --exclude=.git --exclude=build --exclude=build-* --exclude=dist --exclude='plumbum-*.tar.gz' \
+            --transform="s,^,plumbum-${PACKAGE_VERSION#v}/," .
+          docker run --rm -e PACKAGE_VERSION -v "$GITHUB_WORKSPACE:/src" -w /src archlinux:base bash -euxc '
+            pacman -Syu --noconfirm --needed base-devel cmake ninja qt6-base \
+              qt6-declarative qt6-svg qt6-tools grpc protobuf curl openssl
+            sed "s/^pkgver=.*/pkgver=${PACKAGE_VERSION#v}/" packaging/arch/PKGBUILD > PKGBUILD
+            useradd --create-home builder
+            chown -R builder:builder /src
+            runuser -u builder -- makepkg --syncdeps --noconfirm --cleanbuild --clean
+            cp *.pkg.tar.zst dist/
+          '
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plumbum-arch
+          path: dist/*.pkg.tar.zst
+
+  release:
+    name: Attach packages to GitHub release
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'release'
+    needs: [deb, rpm, arch]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          fail_on_unmatched_files: true
