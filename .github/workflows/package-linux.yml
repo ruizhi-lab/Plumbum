@@ -15,30 +15,50 @@ env:
 
 jobs:
   deb:
-    name: Debian package
+    name: Debian ${{ matrix.name }} package
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: 13-trixie
+            image: debian:trixie
+            suite: trixie
+            revision: +deb13u1
+          - name: testing-sid
+            image: debian:sid
+            suite: unstable
+            revision: ''
     steps:
       - uses: actions/checkout@v4
-      - name: Build .deb in Debian stable
+      - name: Build .deb in Debian ${{ matrix.name }}
         run: |
           mkdir -p dist
-          docker run --rm -e PACKAGE_VERSION -v "$GITHUB_WORKSPACE:/src" -w /src debian:stable bash -euxc '
+          docker run --rm \
+            -e PACKAGE_VERSION \
+            -e DEB_REVISION \
+            -e DEB_SUITE \
+            -v "$GITHUB_WORKSPACE:/src" \
+            -w /src "${DEB_IMAGE}" bash -euxc '
             apt-get update
             apt-get install -y --no-install-recommends \
               build-essential cmake debhelper devscripts ninja-build pkg-config \
               libcurl4-openssl-dev libgrpc++-dev libprotobuf-dev protobuf-compiler \
               protobuf-compiler-grpc libssl-dev qt6-base-dev qt6-declarative-dev \
               qt6-svg-dev qt6-tools-dev
-            dch -v "${PACKAGE_VERSION#v}-1" \
-              -D stable -m "Plumbum release package"
+            dch -v "${PACKAGE_VERSION#v}-1${DEB_REVISION}" \
+              -D "${DEB_SUITE}" -m "Plumbum release package"
             dpkg-buildpackage -us -uc -b
             cp ../plumbum_*.deb dist/
           '
         env:
           PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+          DEB_IMAGE: ${{ matrix.image }}
+          DEB_REVISION: ${{ matrix.revision }}
+          DEB_SUITE: ${{ matrix.suite }}
       - uses: actions/upload-artifact@v4
         with:
-          name: plumbum-deb
+          name: plumbum-deb-${{ matrix.name }}
           path: dist/*.deb
 
   rpm:
