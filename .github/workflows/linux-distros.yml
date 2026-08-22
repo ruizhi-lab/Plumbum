@@ -53,7 +53,7 @@ jobs:
             image: gentoo/stage3:latest
             setup: >-
               mkdir -p /etc/portage/package.use && echo 'x11-libs/libxkbcommon X' >> /etc/portage/package.use/plumbum
-              && emerge-webrsync >/dev/null && emerge --quiet-build=y --autounmask=y --autounmask-write=y dev-build/cmake dev-build/ninja dev-util/pkgconf sys-devel/gcc
+              && emerge-webrsync >/dev/null && FEATURES="-pid-sandbox" emerge --quiet-build=y --autounmask=y --autounmask-write=y dev-lang/python dev-build/cmake dev-build/ninja dev-util/pkgconf sys-devel/gcc
               dev-qt/qtbase dev-qt/qtdeclarative dev-qt/qtsvg dev-qt/qttools
               net-libs/grpc dev-libs/protobuf net-misc/curl dev-libs/openssl
           - name: NixOS
